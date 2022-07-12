@@ -4,9 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "vitebook:dev": "vitebook dev",
-    "vitebook:build": "vitebook build",
-    "vitebook:preview": "vitebook preview"
+    "build": "vitebook build",
+    "preview": "vitebook build && vitebook preview"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.36",
@@ -14,7 +13,7 @@
     "@vitebook/core": "0.23.6",
     "@vitebook/markdown-shiki": "0.23.6",
     "@vitebook/markdown-svelte": "0.23.6",
-    "@vitebook/theme-default": "0.23.6",
+    "@vitebook/theme-default": "^0.23.6",
     "autoprefixer": "^10.0.0",
     "postcss": "^8.0.0",
     "svelte": "^3.43.1",
