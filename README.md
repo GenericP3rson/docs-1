@@ -12,7 +12,7 @@ npm run vitebook:dev
 
 # build for production
 npm run vitebook:build
-
+ 
 # serve production build
 npm run vitebook:preview
 ```
