@@ -28,7 +28,7 @@ export default defineConfig<DefaultThemeConfig>({
   ],
   site: {
     title: "Sonr Docs",
-    description: "Blazing fast Storybook alternative.",
+    description: "The Internet rebuilt for you.",
     theme: {
       markdown: {
         toc: true,
