@@ -27,8 +27,8 @@ export default defineConfig<DefaultThemeConfig>({
     }),
   ],
   site: {
-    title: "Vitebook",
-    description: "Blazing fast Storybook alternative.",
+    title: "Sonr Docs",
+    description: "The Internet rebuilt for you.",
     theme: {
       markdown: {
         toc: true,
@@ -253,33 +253,33 @@ export default defineConfig<DefaultThemeConfig>({
       },
       // socials: {
       //   discord: "https://sonr.io/discord",
-      //   twitter: "https://twitter.com/sonr_io",
+      //   twitter: "https://sonr.io/twitter",
       // },
       homePage: {
-        heroText: "Next Generation Frontend Tooling",
+        heroText: "The Internet rebuilt for you",
         primaryActionText: "Get Started",
         primaryActionLink: "/highway/getting-started.html",
         secondaryActionText: "Learn More",
         secondaryActionLink: "/what-is-sonr.html",
         features: [
           {
-            title: "Instant Server Start",
-            body: "On demand file serving over native ESM, no bundling required!",
+            title: "Web3 Integrations",
+            body: "Sonr provides easy to use methods to interact with IPFS, Ethereum, and other blockchain networks.",
           },
           {
-            title: "Lightning Fast HMR",
-            body: "Hot Module Replacement (HMR) that stays fast regardless of app size.",
+            title: "Universal SDK",
+            body: "The Universal SDK is a set of libraries and tools that allow developers to easily interact with Sonr's blockchain.",
           },
           {
-            title: "Rich Features",
-            body: "Out-of-the-box support for TypeScript, JSX, CSS and more.",
+            title: "Cross Platform",
+            body: "Sonr is available on desktop, mobile, and web. It's easy to use and easy to integrate with your existing applications.",
           },
         ],
 
         footer: "MIT Licensed | Copyright Sonr Inc. © 2022-present",
       },
       remoteGitRepo: {
-        url: "https://github.com/sonr-io/sonr",
+        url: "https://sonr.io/github",
       },
     },
   },
