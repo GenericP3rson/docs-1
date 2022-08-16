@@ -260,7 +260,7 @@ export default defineConfig<DefaultThemeConfig>({
         primaryActionText: "Get Started",
         primaryActionLink: "/highway/getting-started.html",
         secondaryActionText: "Learn More",
-        secondaryActionLink: "/what-is-sonr.html",
+        secondaryActionLink: "/highway/what-is-sonr.html",
         features: [
           {
             title: "Web3 Integrations",
