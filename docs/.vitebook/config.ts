@@ -19,11 +19,11 @@ export default defineConfig<DefaultThemeConfig>({
     preact({ include: /\.([j|t]sx?|md)$/ }),
   ],
   site: {
-    title: "Vitebook",
-    description: "Blazing fast Storybook alternative.",
+    title: "Sonr Docs",
+    description: "Docs for the future of the internet.",
     theme: {
       remoteGitRepo: {
-        url: "vitebook/vitebook",
+        url: "sonr-io/docs",
       },
     },
   },
