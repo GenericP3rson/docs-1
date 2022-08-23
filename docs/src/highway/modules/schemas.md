@@ -163,14 +163,35 @@ Request can also contain `Pagination` which will be outlined in the response.
 Returns a List of `WhatIs` created by the given account.
 
 ### Examples
+### User Account
 
+```json
+{
+  "username": 4,
+  "email": 4,
+  "timestamp": 2,
+  "lastSeen": 2,
+
+}
+```
+
+```json
+{
+  "username": "Bob Smith",
+  "email": "example@example.com",
+  "createdAt": 1661220968,
+  "lastSeen": 1661220968,
+}
+```
+----
 The following is an example schema for an `NFT`
 ##### Schema
 ```json
 {
-  "description": 7, 
-  "image": 7, 
-  "name": 7,
+  "description": 4, 
+  "image": 4, 
+  "name": 4,
+  "attributes": 0
 }
 ```
 The following object would be a valid definition for the above `Schema`
@@ -180,13 +201,21 @@ The following object would be a valid definition for the above `Schema`
 {
   "description": "Friendly Creature", 
   "image": "ipfs://QmZWD55U2SDp9uQ5m8hS77EdavpnatTcBMDAkEEKnPWGbn", 
-  "name": "My NFT"
+  "name": "My NFT",
+  "attributes": [
+    {
+      "trait_type": "eyes",
+      "value": "cute",
+    },
+    {
+      "trait_type": "eyes",
+      "value": "big",
+    }
+  ]
 }
 ```
 
-The result of uploading an object will be a cid
-example: `QmYYXVqZtxvQMaua978u9Gh6ByjvRXeonv89KgXNf7xBBs`
 
-
-----
-### User Account
+The result of uploading an object will be a `cid` and `did`
+example cid: `QmYYXVqZtxvQMaua978u9Gh6ByjvRXeonv89KgXNf7xBBs`
+example did: `did:snr:QmYYXVqZtxvQMaua978u9Gh6ByjvRXeonv89KgXNf7xBBs`
