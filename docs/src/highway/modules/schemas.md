@@ -3,7 +3,7 @@
 The Sonr Schema module is used to store the records of verifiable objects for a specific application powered by the Sonr Network. Schemas are used to create custom application protcols which can be asserted on in order to verify your application data. Application data uploaded through `motor` can verify their data model through `Schemas`.
 
 ## Overview
-Schemas are implemented on the `IPLD Object Model` which allows developers to register specific application data schemas. see [here](https://ipld.io/docs/schemas)
+Schemas are implemented on the `IPLD Object Model` which allows developers to register specific application data schemas. See [IPLD Schema documentation](https://ipld.io/docs/schemas)
 
 ## Concepts
 
@@ -28,22 +28,19 @@ message SchemaDefinition{
 ```
 ---
 Fields contained within the `SchemaDefinition` are described below:
-Each field reperesents an `ipld` see [here](https://ipld.io/docs/schemas/features/typekinds/)
+Each field reperesents an `IPLD` can be found [here](https://ipld.io/docs/schemas/features/typekinds/).
 
+Currently there is support the following `types` while complex types, unions, nullable fields, and optional properties are not supported we are working to comply with the full `IPLD` type system.
 ```go
-// Represents the types of fields a schema can have
-enum SchemaKind {
-  MAP = 1;
-  LIST = 2;
-  BOOL = 4;
-  INT = 5;
-  FLOAT = 6;
-  STRING = 7;
-  BYTES = 8;
-  LINK = 9;
-}
+  LIST
+  BOOL
+  INT
+  FLOAT
+  STRING
+  BYTES
+  LINK
 ```
-
+**Note**: When using arrays, all properties must be of the same type, and of one of the supported in the above list.
 ### What Is records
 A `ScehamReference` is used to store information about a `ScehmaDefinition` on our blockchain. This is stored within what is called a `WhatIs` record. Which holds infromation describing the registered Schema.
 
@@ -88,7 +85,7 @@ message SchemaReference{
 # Messages
 
 
-### `CreateSchema(SchemaDefinition)` 
+### `CreateSchema(SchemaDefinition)`
 Register's a new type definition for a given application. this type defention is then asserted against when uploading content
 
 ```go
@@ -107,8 +104,7 @@ Returns a `WhatIs`
 ---
 
 ### `DeprecateSchema(MsgDeprecateSchema)`
-Allows for Schemas to be depricated. Depricated schemas are still accessible but will allow schemas developers to indicate it is no longer supported.
-
+Allows for Schemas to be depricated. Depricated schemas are still accessible but will allow developers to indicate it is no longer supported.
 ```go
 {
   Creator string 
@@ -156,20 +152,20 @@ For cases where applications need to verify existing data, or verify a schema be
 
 Returns a `WhatIs`
 
-### `QueryWhatIsByController`
+### `QueryWhatIsByCreator`
 For cases where applications need to query for all `WhatIs` records relating to a specific `Creator` Address.
-
+Request can also contain `Pagination` which will be outlined in the response.
 ```go
 {
     Creator string
 }
-
-Returns a List of `WhatIs` created by the given account
+```
+Returns a List of `WhatIs` created by the given account.
 
 ### Examples
 
 The following is an example schema for an `NFT`
-
+##### Schema
 ```json
 {
   "description": 7, 
@@ -179,10 +175,18 @@ The following is an example schema for an `NFT`
 ```
 The following object would be a valid definition for the above `Schema`
 
-```
+##### Object
+```json
 {
-  "description": "Description", 
+  "description": "Friendly Creature", 
   "image": "ipfs://QmZWD55U2SDp9uQ5m8hS77EdavpnatTcBMDAkEEKnPWGbn", 
   "name": "My NFT"
 }
 ```
+
+The result of uploading an object will be a cid
+example: `QmYYXVqZtxvQMaua978u9Gh6ByjvRXeonv89KgXNf7xBBs`
+
+
+----
+### User Account
