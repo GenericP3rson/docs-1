@@ -198,6 +198,47 @@ export default defineConfig<DefaultThemeConfig>({
             ],
             style: "docs",
           },
+          "/speedway": {
+            items: [
+              // SidebarLink
+              {
+                text: "Overview",
+                link: "/speedway/overview.html",
+              },
+              // SidebarLink
+              {
+                text: "Getting Started",
+                link: "/speedway/getting-started.html",
+              },
+              // SidebarMenu
+              {
+                text: "Command Line Interface",
+                collapsible: false,
+                children: [
+                  {
+                    text: "Cli Overview",
+                    link: "/speedway/cli/cli-overview.html",
+                  },
+                  {
+                    text: "Cli Commands",
+                    link: "/speedway/cli/cli-commands.html",
+                  }
+                ],
+              },
+              // SidebarMenu
+              {
+                text: "API Reference",
+                collapsible: false,
+                children: [
+                  {
+                    text: "API Overview",
+                    link: "/speedway/api/api-overview.html",
+                  },
+                ],
+              },
+            ],
+            style: "docs",
+          },
           "/architecture": {
             items: [
               // SidebarLink
@@ -248,6 +289,10 @@ export default defineConfig<DefaultThemeConfig>({
           {
             text: "Reference",
             link: "/architecture/overview.html",
+          },
+          {
+            text: "Speedway",
+            link: "/speedway/overview.html",
           },
         ],
       },
