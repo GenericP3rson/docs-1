@@ -8,8 +8,6 @@ title: How to Install Speedway CLI
 
 **Speedway Installer (Linux)**
 
-**Install on Homebrew**
-
 ## How to build the Cli from source
 1. Clone the project from GitHub (if you haven't already)
 
