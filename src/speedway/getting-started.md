@@ -2,8 +2,8 @@
 title: Speedway Getting Started
 ---
 
-# Speedway Getting Started
-Getting started with Speedway is easy. You can use the Speedway CLI, or the Speedway UI to get started.
+# Getting Started with Speedway
+Getting started with Speedway is easy. Speedway allows you to interact with the Motor API. Speedway is used to create, update, and delete Speedway resources such as schemas, objects, and buckets. The CLI is also used to query objects and buckets and to perform other operations such as creating an account or logging in.
 
 # Speedway Project Installation
 In order to use Speedway, you must first install the Speedway project from the GitHub Repository. You can do this by running the following command: ```git clone https://github.com/sonr-io/speedway.git```

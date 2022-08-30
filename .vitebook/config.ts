@@ -220,6 +220,10 @@ export default defineConfig<DefaultThemeConfig>({
                     link: "/speedway/cli/cli-overview.html",
                   },
                   {
+                    text: "Cli Installation",
+                    link: "/speedway/cli/cli-install.html",
+                  },
+                  {
                     text: "Cli Commands",
                     link: "/speedway/cli/cli-commands.html",
                   }
