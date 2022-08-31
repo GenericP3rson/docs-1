@@ -1,0 +1,9 @@
+.theme.__vbk__ {
+  --vbk--color-primary: #00aaff;
+  --vbk--color-primary-rgb: 97, 15, 230;
+}
+
+html.dark .theme.__vbk__ {
+  --vbk--color-primary: #ffffff;
+  --vbk--color-primary-rgb: 255, 193, 7;
+}
