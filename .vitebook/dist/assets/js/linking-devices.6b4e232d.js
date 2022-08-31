@@ -1,1 +1,0 @@
-import{S as t,b as s,s as a}from"./framework.40d14ebd.js";const o={excerpt:"",headers:[],title:"",frontmatter:{},lastUpdated:1657821119092};class r extends t{constructor(e){super(),s(this,e,null,null,a,{})}}export{o as __pageMeta,r as default};
