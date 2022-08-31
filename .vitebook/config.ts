@@ -202,15 +202,15 @@ export default defineConfig<DefaultThemeConfig>({
                 children: [
                   {
                     text: "Overview",
-                    link: "/speedway/overview.html",
+                    link: "/motor-sdk/speedway/overview.html",
                   },
                   {
                     text: "Getting Started",
-                    link: "/speedway/getting-started.html",
+                    link: "/motor-sdk/speedway/getting-started.html",
                   },
                   {
                     text: "API Overview",
-                    link: "/speedway/api/api-overview.html",
+                    link: "/motor-sdk/speedway/api-overview.html",
                   },
                 ],
               },

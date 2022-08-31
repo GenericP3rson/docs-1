@@ -42,8 +42,7 @@ Commands
 
 [Speedway CLI Commands](https://docs.sonr.io/cli/cli-commands.html)
 
-Usage
-```
 Usage:
+```
   speedway [command]
 ```

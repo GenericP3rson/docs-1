@@ -19,12 +19,12 @@ Speedway CLI Commands:
 Speedway User-Interface gives developers the ability to visually create schemas, objects and buckets in a web application.
 
 How to Install & Run the Speedway UI:
-[Getting Started](https://docs.sonr.io/speedway/getting-started.html)
+[Getting Started](https://docs.sonr.io/motor-sdk/speedway/getting-started.html)
 
 #### API
 The Speedway API was created in tandom with the Speedway UI to give developers the ability to utilize the Speedway suite in a web application.
 
-[Speedway API Reference](https://docs.sonr.io/speedway/api/api-overview.html)
+[Speedway API Reference](https://docs.sonr.io/motor-sdk/speedway/api-overview.html)
 
 ### Sonr Modules Utilized by Speedway
 
