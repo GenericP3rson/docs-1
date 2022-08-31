@@ -283,15 +283,15 @@ export default defineConfig<DefaultThemeConfig>({
         items: [
           // NavLink
           {
-            text: "Build on Highway",
+            text: "Learn",
             link: "/highway/what-is-sonr.html",
           },
           {
-            text: "Integrate with Motor",
+            text: "Build",
             link: "/motor-sdk/overview.html",
           },
           {
-            text: "Reference",
+            text: "CLI",
             link: "/architecture/overview.html",
           },
           {
