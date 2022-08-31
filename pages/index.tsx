@@ -1,6 +1,6 @@
+import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -14,12 +14,12 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to the <a href="https://nextjs.org">Sonr Docs!</a>
+          Welcome to the Sonr Docs!
         </h1>
 
         <p className={styles.description}>
-          The Universal SDK is a set of libraries and tools that allow
-          developers to easily interact with Sonr&pos;s blockchain.
+          The Sonr SDK is a set of libraries and tools that allow
+          developers to easily interact with Sonr&apos;s blockchain.
         </p>
 
         <div className={styles.grid}>
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
           </a>
 
           <a href="/design" className={styles.card}>
-            <h2>Design &rarr;</h2>
+            <h2>Design (Coming soon) &rarr;</h2>
             <p>
               Incorporate the Nebula Design System for a seamless user
               experience!
@@ -40,7 +40,7 @@ const Home: NextPage = () => {
           </a>
 
           <a href="/integrate" className={styles.card}>
-            <h2>Integrate &rarr;</h2>
+            <h2>Integrate (Coming soon) &rarr;</h2>
             <p>
               Use your Highway powered application on Swift, React Native,
               Flutter and more!

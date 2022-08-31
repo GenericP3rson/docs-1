@@ -1,8 +1,8 @@
 // theme.config.js
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-    projectLink: 'https://github.com/shuding/nextra', // GitHub link in the navbar
-    docsRepositoryBase: 'https://github.com/shuding/nextra/blob/master', // base URL for the docs repository
+    projectLink: 'https://github.com/sonr-io/sonr', // GitHub link in the navbar
+    docsRepositoryBase: 'https://github.com/sonr-io/docs', // base URL for the docs repository
     titleSuffix: ' – Nextra',
     nextLinks: true,
     prevLinks: true,
