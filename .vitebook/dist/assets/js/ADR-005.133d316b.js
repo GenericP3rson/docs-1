@@ -1,105 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="generator" content="vitebook@0.23.6" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <title>5. NFT Standard | Sonr Docs</title>
-   <meta name="description" content="The Internet rebuilt for you.">
-   <script>
-  const key = '@vitebook/color-scheme';
-  const saved = window.localStorage.getItem(key) ?? 'auto';
-  const dark = saved === 'auto' ?
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-    : saved === 'dark';
-  if (dark) {
-    const htmlEl = window.document.querySelector('html');
-    htmlEl.classList.add('dark')
-  }
-    </script>
-   <meta property="og:site_name" content="Sonr Docs">
-   <meta property="og:title" content="5. NFT Standard | Sonr Docs">
-   <meta property="og:description" content="The Internet rebuilt for you.">
-   <meta property="twitter:title" content="5. NFT Standard | Sonr Docs">
-   <meta property="twitter:description" content="The Internet rebuilt for you.">
-    <link rel="stylesheet" href="/assets/css/style.dacc38f8.css">
-    <link rel="modulepreload" crossorigin href="/assets/js/framework.40d14ebd.js">
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="app"><div class="theme __vbk__ svelte-kg26u5">
-    
-  
-
-  
-    <aside class="sidebar __vbk__ svelte-mg6wx9" aria-hidden="true">
-
-  <div class="sidebar__header __vbk__ svelte-mg6wx9"><div class="sidebar__header-wrapper __vbk__ svelte-mg6wx9"><a class="navbar__title __vbk__ svelte-1f6oyy2" href="/" aria-label="Sonr Docs, Take me home"><div class="navbar__logo __vbk__ svelte-1f6oyy2"><!-- HTML_TAG_START --><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-    xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.0236 11.2575L11.2616 15.0192C10.7213 15.5594 10.7213 16.4354 11.2616 16.9757L15.0236 20.7374C15.5639 21.2776 16.4399 21.2776 16.9802 20.7374L20.7422 16.9757C21.2825 16.4354 21.2825 15.5594 20.7422 15.0192L16.9802 11.2575C16.4399 10.7172 15.5639 10.7172 15.0236 11.2575Z" fill="currentColor"/>
-    <path d="M16.0011 30.6666C15.0353 30.67 14.0784 30.4816 13.1861 30.1123C12.2937 29.7431 11.4835 29.2002 10.8026 28.5154L10.0028 27.7157L13.4138 24.3049L14.2136 25.1046C14.6864 25.5772 15.3275 25.8427 15.9961 25.8427C16.6646 25.8427 17.3057 25.5772 17.7786 25.1046L25.1024 17.7813C25.5739 17.3084 25.8387 16.6678 25.8387 16C25.8387 15.3321 25.5739 14.6916 25.1024 14.2186L21.4455 10.566L24.8565 7.1552L28.5194 10.8179C29.8944 12.196 30.6667 14.0632 30.6667 16.01C30.6667 17.9567 29.8944 19.8239 28.5194 21.2021L21.1936 28.5254C20.5127 29.2079 19.7031 29.7486 18.8118 30.1161C17.9205 30.4837 16.9652 30.6708 16.0011 30.6666Z" fill="currentColor"/>
-    <path d="M7.13965 24.8547L3.48472 21.1921C2.80266 20.5103 2.26161 19.7009 1.89247 18.81C1.52333 17.9192 1.33333 16.9643 1.33333 16C1.33333 15.0357 1.52333 14.0808 1.89247 13.1899C2.26161 12.299 2.80266 11.4896 3.48472 10.8079L10.8086 3.48456C11.4904 2.80256 12.2999 2.26155 13.1908 1.89243C14.0817 1.52332 15.0367 1.33334 16.0011 1.33334C16.9654 1.33334 17.9204 1.52332 18.8113 1.89243C19.7023 2.26155 20.5117 2.80256 21.1935 3.48456L21.9933 4.28427L18.5823 7.69502L17.7825 6.89531C17.3097 6.42272 16.6686 6.15723 16.0001 6.15723C15.3315 6.15723 14.6904 6.42272 14.2176 6.89531L6.89372 14.2186C6.65976 14.4526 6.47417 14.7303 6.34754 15.0359C6.22092 15.3416 6.15575 15.6691 6.15575 16C6.15575 16.3308 6.22092 16.6584 6.34754 16.964C6.47417 17.2697 6.65976 17.5474 6.89372 17.7813L10.5566 21.444L7.13965 24.8547Z" fill="currentColor"/>
-</svg>
-<!-- HTML_TAG_END --></div>
-  Sonr Docs
-</a>
-        <div class="__vbk__" style="flex-grow: 1; margin-left: 2.5rem;"></div>
-        
-        
-        <a class="brand-link github svelte-c7t2ho __vbk__" href="https://sonr.io/github" aria-label="Source" target="_blank"><span class="brand-link__icon __vbk__"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></span></a>
-        <button class="theme-switch  svelte-1lvoxbk __vbk__" role="switch" aria-label="Toggle dark mode" aria-checked="false"><span class="theme-switch__icon light-icon __vbk__ svelte-1lvoxbk"><!-- HTML_TAG_START --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.2em" height="1.2em"  preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
-<!-- HTML_TAG_END --></span>
-    <span class="theme-switch__icon dark-icon __vbk__ svelte-1lvoxbk"><!-- HTML_TAG_START --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.2em" height="1.2em"  preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M20.354 15.354A9 9 0 0 1 8.646 3.646A9.003 9.003 0 0 0 12 21a9.003 9.003 0 0 0 8.354-5.646z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
-<!-- HTML_TAG_END --></span></button></div></div>
-
-  <div class="sidebar__body __vbk__ svelte-mg6wx9"><button aria-hidden="false" class="sidebar__back-button __vbk__   svelte-mijklx"><span class="sidebar__back-button__arrow __vbk__ svelte-mg6wx9"><!-- HTML_TAG_START --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.2em" height="1.2em"  preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M11 17l-5-5m0 0l5-5m-5 5h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
-<!-- HTML_TAG_END --></span>
-        Back to main menu</button>
-
-    <div class="sidebar__main-menu __vbk__ svelte-mg6wx9" aria-hidden="true"></div>
-
-    <ul class="sidebar__current-menu __vbk__ svelte-mg6wx9" aria-hidden="false"><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/overview.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      Overview
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-001.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      1. Decentralized Identifiers
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-002.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      2. Verifiable Type Definitions
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-003.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      3. User and App Specific Storage
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-004.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      4. Peer-to-Peer Streams
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-005.html" class="sidebar-link __vbk__ active    svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc active">
-      5. NFT Standard
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-006.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      6. Invokable Functions
-      </span></a>
-</li></ul></div>
-
-  
-      
-</aside>
-  
-
-  <div class="preview __vbk__ svelte-kg26u5 md">
-
-    
-
-    
-
-    <div class="preview__content __vbk__ svelte-kg26u5">
-        <main class="page type-svelte:md svelte-jhktk __vbk__  with-toc"><div class="page__container __vbk__ svelte-jhktk">
-
-    <!-- HTML_TAG_START --><h1 id="adr-005-non-fungible-token-standard-for-objects" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#adr-005-non-fungible-token-standard-for-objects" aria-hidden="true">#</a> ADR-005: Non-Fungible Token Standard for Objects</h1>
+import{S as r,b as c,s as i,W as _,q as o,X as b,l as F,n as e,j as d}from"./framework.40d14ebd.js";function E(p){let s,t=`<h1 id="adr-005-non-fungible-token-standard-for-objects" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#adr-005-non-fungible-token-standard-for-objects" aria-hidden="true">#</a> ADR-005: Non-Fungible Token Standard for Objects</h1>
 <h2 id="abstract" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#abstract" aria-hidden="true">#</a> Abstract</h2>
 <p class="__vbk__">Define the implementation of Non-Fungible Tokens on the Sonr Network and the developmental resources needed to create the <code class="__vbk__">x/nft</code> module.
 Non-Fungible Tokens will allow developers to create digital assets on the Sonr Network.</p>
@@ -160,10 +59,10 @@ These gas fees can be thought of as a reward for the computationally difficult p
 These gas fees will be utilized to give the validators on the network incentive to stay on the network as validators.</p>
 <h3 id="_2-4-how-non-fungible-tokens-can-be-purchased-sold-transferred" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#_2-4-how-non-fungible-tokens-can-be-purchased-sold-transferred" aria-hidden="true">#</a> 2.4 How Non-Fungible Tokens can be Purchased, Sold, &amp; Transferred</h3>
 <p class="__vbk__">Purchasing NFTs will be on an NFT marketplace.
-These marketplaces can be made by any developer on the network and don’t necessarily need to be owned by Sonr itself.
+These marketplaces can be made by any developer on the network and don\u2019t necessarily need to be owned by Sonr itself.
 Although Sonr may not own the majority (or any) of the marketplaces, gas fees spoken about above will still go to the Sonr blockchain and its validators.</p>
 <h3 id="_3-who-will-be-using-creating-and-purchasing-non-fungible-tokens" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#_3-who-will-be-using-creating-and-purchasing-non-fungible-tokens" aria-hidden="true">#</a> 3. Who will be using, creating, and purchasing Non-Fungible Tokens</h3>
-<p class="__vbk__">Sonr users from all walks of life will be utilizing Non-Fungible tokens for various reasons. Developers will be able to create elaborate smart contracts for various artistic expressions, online games, music, videos, and tickets that are all digitally verifiable by the blockchain. Users can play online games, purchase music, videos, art,  and purchase tickets with verifiable digital ownership to get into a multitude of events. Digital verified ownership of documents is available for most contracts, letting developers and users to be able to send and receive documents securely. Through the Sonr Blockchain, individuals will be empowered to share their art, data, documents, etc. as Non-Fungible Tokens with the rest of the world!</p>
+<p class="__vbk__">Sonr users from all walks of life will be utilizing Non-Fungible tokens for various reasons. Developers will be able to create elaborate smart contracts for various artistic expressions, online games, music, videos, and tickets that are all digitally verifiable by the blockchain. Users can play online games, purchase music, videos, art,\xA0 and purchase tickets with verifiable digital ownership to get into a multitude of events. Digital verified ownership of documents is available for most contracts, letting developers and users to be able to send and receive documents securely. Through the Sonr Blockchain, individuals will be empowered to share their art, data, documents, etc. as Non-Fungible Tokens with the rest of the world!</p>
 <h3 id="_3-1-what-is-an-nft-marketplace" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#_3-1-what-is-an-nft-marketplace" aria-hidden="true">#</a> 3.1 What is an NFT Marketplace</h3>
 <p class="__vbk__">An NFT Marketplace consists of all Non-Fungible Tokens on a specific blockchain.
 These NFTs can be purchased and sold on the marketplace by the owners of the NFT or the Smart Contract that owns the Non-Fungible Token in a minting process.
@@ -193,7 +92,7 @@ This specification will allow developers to create smart contracts based on type
 <span class="line"><span style="color: #D8DEE9FF">&nbsp;&nbsp;</span><span style="color: #88C0D0">NewClass</span><span style="color: #ECEFF4">(</span><span style="color: #D8DEE9FF">class Class</span><span style="color: #ECEFF4">)</span></span>
 <span class="line"><span style="color: #D8DEE9FF">&nbsp;&nbsp;</span><span style="color: #88C0D0">UpdateClass</span><span style="color: #ECEFF4">(</span><span style="color: #D8DEE9FF">class Class</span><span style="color: #ECEFF4">)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #D8DEE9FF">&nbsp;&nbsp;</span><span style="color: #88C0D0">Mint</span><span style="color: #ECEFF4">(</span><span style="color: #D8DEE9FF">nft NFT，receiver sdk</span><span style="color: #ECEFF4">.</span><span style="color: #D8DEE9FF">AccAddress</span><span style="color: #ECEFF4">)</span><span style="color: #D8DEE9FF">&nbsp;&nbsp;&nbsp;</span><span style="color: #616E88">// updates totalSupply</span></span>
+<span class="line"><span style="color: #D8DEE9FF">&nbsp;&nbsp;</span><span style="color: #88C0D0">Mint</span><span style="color: #ECEFF4">(</span><span style="color: #D8DEE9FF">nft NFT\uFF0Creceiver sdk</span><span style="color: #ECEFF4">.</span><span style="color: #D8DEE9FF">AccAddress</span><span style="color: #ECEFF4">)</span><span style="color: #D8DEE9FF">&nbsp;&nbsp;&nbsp;</span><span style="color: #616E88">// updates totalSupply</span></span>
 <span class="line"><span style="color: #D8DEE9FF">&nbsp;&nbsp;</span><span style="color: #88C0D0">Burn</span><span style="color: #ECEFF4">(</span><span style="color: #D8DEE9FF">classId </span><span style="color: #81A1C1">string</span><span style="color: #ECEFF4">,</span><span style="color: #D8DEE9FF"> nftId </span><span style="color: #81A1C1">string</span><span style="color: #ECEFF4">)</span><span style="color: #D8DEE9FF">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #616E88">// updates totalSupply</span></span>
 <span class="line"><span style="color: #D8DEE9FF">&nbsp;&nbsp;</span><span style="color: #88C0D0">Update</span><span style="color: #ECEFF4">(</span><span style="color: #D8DEE9FF">nft NFT</span><span style="color: #ECEFF4">)</span></span>
 <span class="line"><span style="color: #D8DEE9FF">&nbsp;&nbsp;</span><span style="color: #88C0D0">Transfer</span><span style="color: #ECEFF4">(</span><span style="color: #D8DEE9FF">classId </span><span style="color: #81A1C1">string</span><span style="color: #ECEFF4">,</span><span style="color: #D8DEE9FF"> nftId </span><span style="color: #81A1C1">string</span><span style="color: #ECEFF4">,</span><span style="color: #D8DEE9FF"> receiver sdk</span><span style="color: #ECEFF4">.</span><span style="color: #D8DEE9FF">AccAddress</span><span style="color: #ECEFF4">)</span></span>
@@ -300,29 +199,4 @@ This approval is tied to the owner, not the tokens, and applies to any future to
 <p class="__vbk__"><code class="__vbk__">NftInfo&#123;token_id&#125;</code>
 : This returns metadata about one particular token. The return value is based on the ERC721 Metadata JSON Schema, but directly from the contract, not as a URI. Only the image link is a URI.</p>
 <p class="__vbk__"><code class="__vbk__">AllNftInfo&#123;token_id&#125;</code>
-: This returns the result of both NftInfo and OwnerOf as one query as an optimization for clients, which may want both info to display one NFT.</p><!-- HTML_TAG_END -->
-
-    
-
-    
-          </div>
-</main>
-      </div>
-
-    </div>
-
-  
-    
-  
-
-  
-
-  
-
-  
-    <div class="scrim __vbk__ svelte-kg26u5"><button class="scrim __vbk__ svelte-zhfmk7" aria-label="Close scrim"></button></div>
-  
-</div></div>
-    <script type="module" src="/assets/entry-client.05b58e49.js" defer></script>
-  </body>
-</html>
+: This returns the result of both NftInfo and OwnerOf as one query as an optimization for clients, which may want both info to display one NFT.</p>`,a;return{c(){s=new _(!1),a=o(),this.h()},l(n){s=b(n,!1),a=o(),this.h()},h(){s.a=a},m(n,l){s.m(t,n,l),F(n,a,l)},p:e,i:e,o:e,d(n){n&&d(a),n&&s.d()}}}const y={excerpt:"",headers:[{level:2,title:"Abstract",slug:"abstract",children:[]},{level:2,title:"Context",slug:"context",children:[{level:3,title:"1. What is a Non-Fungible Token",slug:"_1-what-is-a-non-fungible-token",children:[]},{level:3,title:"1.1 How Non-Fungible Tokens will Work on the Sonr Ecosystem",slug:"_1-1-how-non-fungible-tokens-will-work-on-the-sonr-ecosystem",children:[]},{level:3,title:"1.2 How Non-Fungible Tokens will be utilized to create a consumer-focused Market",slug:"_1-2-how-non-fungible-tokens-will-be-utilized-to-create-a-consumer-focused-market",children:[]},{level:3,title:"1.3 How Non-Fungible Tokens can interact with the ecosystem",slug:"_1-3-how-non-fungible-tokens-can-interact-with-the-ecosystem",children:[]},{level:3,title:"2. How will Non-Fungible Tokens be purchased, sold & transferred on the Sonr blockchain",slug:"_2-how-will-non-fungible-tokens-be-purchased-sold-transferred-on-the-sonr-blockchain",children:[]},{level:3,title:"2.1 Base of the CW721 Specification",slug:"_2-1-base-of-the-cw721-specification",children:[]},{level:3,title:"2.2 Metadata with the Non-Fungible Smart Contracts (CW721)",slug:"_2-2-metadata-with-the-non-fungible-smart-contracts-cw721",children:[]},{level:3,title:"2.3 How Gas Fees will allow the Blockchain & Validators to receive more token",slug:"_2-3-how-gas-fees-will-allow-the-blockchain-validators-to-receive-more-token",children:[]},{level:3,title:"2.4 How Non-Fungible Tokens can be Purchased, Sold, & Transferred",slug:"_2-4-how-non-fungible-tokens-can-be-purchased-sold-transferred",children:[]},{level:3,title:"3. Who will be using, creating, and purchasing Non-Fungible Tokens",slug:"_3-who-will-be-using-creating-and-purchasing-non-fungible-tokens",children:[]},{level:3,title:"3.1 What is an NFT Marketplace",slug:"_3-1-what-is-an-nft-marketplace",children:[]}]},{level:2,title:"Specification for Non-Fungible Tokens on the Blockchain",slug:"specification-for-non-fungible-tokens-on-the-blockchain",children:[{level:3,title:"Goals of Implementation are as follows",slug:"goals-of-implementation-are-as-follows",children:[]},{level:3,title:"x/nft Module Required Functions",slug:"x-nft-module-required-functions",children:[]},{level:3,title:"Keeper Interface",slug:"keeper-interface",children:[]},{level:3,title:"Types for x/nft Module",slug:"types-for-x-nft-module",children:[]},{level:3,title:"Msg Service for x/nft Module",slug:"msg-service-for-x-nft-module",children:[]}]},{level:2,title:"CW721 Specification In Detail",slug:"cw721-specification-in-detail",children:[{level:3,title:"CW721-base Specfication",slug:"cw721-base-specfication",children:[]},{level:3,title:"Base Messages",slug:"base-messages",children:[]},{level:3,title:"Base Queries",slug:"base-queries",children:[]},{level:3,title:"Base Receiver",slug:"base-receiver",children:[]},{level:3,title:"Metadata Queries",slug:"metadata-queries",children:[]}]}],title:"5. NFT Standard",frontmatter:{title:"5. NFT Standard"},lastUpdated:1661973586087};class u extends r{constructor(s){super(),c(this,s,null,E,i,{})}}export{y as __pageMeta,u as default};

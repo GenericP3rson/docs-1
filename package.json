@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vitebook build",
+    "dev": "vitebook dev",
     "preview": "vitebook build && vitebook preview"
   },
   "devDependencies": {
@@ -18,6 +19,6 @@
     "postcss": "^8.0.0",
     "svelte": "^3.43.1",
     "typescript": "^4.4.0",
-    "vite": "^2.7.0"
+    "vite": "^2.7.1"
   }
 }

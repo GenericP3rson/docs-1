@@ -1,0 +1,7 @@
+import{S as d,b as l,s as _,W as c,q as s,X as p,l as u,n as r,j as h}from"./framework.40d14ebd.js";function b(n){let t,i=`<h1 id="getting-started" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#getting-started" aria-hidden="true">#</a> Getting Started</h1>
+<p class="__vbk__">This guide assumes you're familiar with Android development and <a href="https://developer.android.com/studio/intro" target="_blank" rel="noopener noreferrer" class="__vbk__">Android Studio<OutboundLink></OutboundLink></a>.</p>
+<p class="__vbk__">Start by creating a new project.
+<img src="../../../assets/new-project.png" alt="Create a new project"></p>
+<p class="__vbk__">Next, grab the latest version of Motoroid from <a href="https://jitpack.io/#sonr-io/motor-android" target="_blank" rel="noopener noreferrer" class="__vbk__">Jitpack.io<OutboundLink></OutboundLink></a>. Select the &quot;motoroid&quot; subproject and follow the instructions to finish adding the dependency.</p>
+<p class="__vbk__">Your <code class="__vbk__">build.gradle</code> should look like this when you're done.
+<img src="../../../assets/build-gradle.png" alt="build gradle"></p>`,a;return{c(){t=new c(!1),a=s(),this.h()},l(e){t=p(e,!1),a=s(),this.h()},h(){t.a=a},m(e,o){t.m(i,e,o),u(e,a,o)},p:r,i:r,o:r,d(e){e&&h(a),e&&t.d()}}}const m={excerpt:"",headers:[],title:"Getting Started",frontmatter:{},lastUpdated:1661982973045};class f extends d{constructor(t){super(),l(this,t,null,b,_,{})}}export{m as __pageMeta,f as default};

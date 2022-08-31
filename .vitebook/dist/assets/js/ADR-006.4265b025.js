@@ -1,105 +1,4 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="generator" content="vitebook@0.23.6" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <title>6. Invokable Functions | Sonr Docs</title>
-   <meta name="description" content="The Internet rebuilt for you.">
-   <script>
-  const key = '@vitebook/color-scheme';
-  const saved = window.localStorage.getItem(key) ?? 'auto';
-  const dark = saved === 'auto' ?
-    window.matchMedia('(prefers-color-scheme: dark)').matches
-    : saved === 'dark';
-  if (dark) {
-    const htmlEl = window.document.querySelector('html');
-    htmlEl.classList.add('dark')
-  }
-    </script>
-   <meta property="og:site_name" content="Sonr Docs">
-   <meta property="og:title" content="6. Invokable Functions | Sonr Docs">
-   <meta property="og:description" content="The Internet rebuilt for you.">
-   <meta property="twitter:title" content="6. Invokable Functions | Sonr Docs">
-   <meta property="twitter:description" content="The Internet rebuilt for you.">
-    <link rel="stylesheet" href="/assets/css/style.dacc38f8.css">
-    <link rel="modulepreload" crossorigin href="/assets/js/framework.40d14ebd.js">
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="app"><div class="theme __vbk__ svelte-kg26u5">
-    
-  
-
-  
-    <aside class="sidebar __vbk__ svelte-mg6wx9" aria-hidden="true">
-
-  <div class="sidebar__header __vbk__ svelte-mg6wx9"><div class="sidebar__header-wrapper __vbk__ svelte-mg6wx9"><a class="navbar__title __vbk__ svelte-1f6oyy2" href="/" aria-label="Sonr Docs, Take me home"><div class="navbar__logo __vbk__ svelte-1f6oyy2"><!-- HTML_TAG_START --><svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-    xmlns="http://www.w3.org/2000/svg">
-    <path d="M15.0236 11.2575L11.2616 15.0192C10.7213 15.5594 10.7213 16.4354 11.2616 16.9757L15.0236 20.7374C15.5639 21.2776 16.4399 21.2776 16.9802 20.7374L20.7422 16.9757C21.2825 16.4354 21.2825 15.5594 20.7422 15.0192L16.9802 11.2575C16.4399 10.7172 15.5639 10.7172 15.0236 11.2575Z" fill="currentColor"/>
-    <path d="M16.0011 30.6666C15.0353 30.67 14.0784 30.4816 13.1861 30.1123C12.2937 29.7431 11.4835 29.2002 10.8026 28.5154L10.0028 27.7157L13.4138 24.3049L14.2136 25.1046C14.6864 25.5772 15.3275 25.8427 15.9961 25.8427C16.6646 25.8427 17.3057 25.5772 17.7786 25.1046L25.1024 17.7813C25.5739 17.3084 25.8387 16.6678 25.8387 16C25.8387 15.3321 25.5739 14.6916 25.1024 14.2186L21.4455 10.566L24.8565 7.1552L28.5194 10.8179C29.8944 12.196 30.6667 14.0632 30.6667 16.01C30.6667 17.9567 29.8944 19.8239 28.5194 21.2021L21.1936 28.5254C20.5127 29.2079 19.7031 29.7486 18.8118 30.1161C17.9205 30.4837 16.9652 30.6708 16.0011 30.6666Z" fill="currentColor"/>
-    <path d="M7.13965 24.8547L3.48472 21.1921C2.80266 20.5103 2.26161 19.7009 1.89247 18.81C1.52333 17.9192 1.33333 16.9643 1.33333 16C1.33333 15.0357 1.52333 14.0808 1.89247 13.1899C2.26161 12.299 2.80266 11.4896 3.48472 10.8079L10.8086 3.48456C11.4904 2.80256 12.2999 2.26155 13.1908 1.89243C14.0817 1.52332 15.0367 1.33334 16.0011 1.33334C16.9654 1.33334 17.9204 1.52332 18.8113 1.89243C19.7023 2.26155 20.5117 2.80256 21.1935 3.48456L21.9933 4.28427L18.5823 7.69502L17.7825 6.89531C17.3097 6.42272 16.6686 6.15723 16.0001 6.15723C15.3315 6.15723 14.6904 6.42272 14.2176 6.89531L6.89372 14.2186C6.65976 14.4526 6.47417 14.7303 6.34754 15.0359C6.22092 15.3416 6.15575 15.6691 6.15575 16C6.15575 16.3308 6.22092 16.6584 6.34754 16.964C6.47417 17.2697 6.65976 17.5474 6.89372 17.7813L10.5566 21.444L7.13965 24.8547Z" fill="currentColor"/>
-</svg>
-<!-- HTML_TAG_END --></div>
-  Sonr Docs
-</a>
-        <div class="__vbk__" style="flex-grow: 1; margin-left: 2.5rem;"></div>
-        
-        
-        <a class="brand-link github svelte-c7t2ho __vbk__" href="https://sonr.io/github" aria-label="Source" target="_blank"><span class="brand-link__icon __vbk__"><!-- HTML_TAG_START --><!-- HTML_TAG_END --></span></a>
-        <button class="theme-switch  svelte-1lvoxbk __vbk__" role="switch" aria-label="Toggle dark mode" aria-checked="false"><span class="theme-switch__icon light-icon __vbk__ svelte-1lvoxbk"><!-- HTML_TAG_START --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.2em" height="1.2em"  preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
-<!-- HTML_TAG_END --></span>
-    <span class="theme-switch__icon dark-icon __vbk__ svelte-1lvoxbk"><!-- HTML_TAG_START --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.2em" height="1.2em"  preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M20.354 15.354A9 9 0 0 1 8.646 3.646A9.003 9.003 0 0 0 12 21a9.003 9.003 0 0 0 8.354-5.646z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
-<!-- HTML_TAG_END --></span></button></div></div>
-
-  <div class="sidebar__body __vbk__ svelte-mg6wx9"><button aria-hidden="false" class="sidebar__back-button __vbk__   svelte-mijklx"><span class="sidebar__back-button__arrow __vbk__ svelte-mg6wx9"><!-- HTML_TAG_START --><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1.2em" height="1.2em"  preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none"><path d="M11 17l-5-5m0 0l5-5m-5 5h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
-<!-- HTML_TAG_END --></span>
-        Back to main menu</button>
-
-    <div class="sidebar__main-menu __vbk__ svelte-mg6wx9" aria-hidden="true"></div>
-
-    <ul class="sidebar__current-menu __vbk__ svelte-mg6wx9" aria-hidden="false"><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/overview.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      Overview
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-001.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      1. Decentralized Identifiers
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-002.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      2. Verifiable Type Definitions
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-003.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      3. User and App Specific Storage
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-004.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      4. Peer-to-Peer Streams
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-005.html" class="sidebar-link __vbk__     svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc">
-      5. NFT Standard
-      </span></a>
-</li><li class="sidebar-item __vbk__ svelte-1exgrzc"><a href="/architecture/adr-006.html" class="sidebar-link __vbk__ active    svelte-mijklx"><span class="sidebar-link__text __vbk__ svelte-1exgrzc active">
-      6. Invokable Functions
-      </span></a>
-</li></ul></div>
-
-  
-      
-</aside>
-  
-
-  <div class="preview __vbk__ svelte-kg26u5 md">
-
-    
-
-    
-
-    <div class="preview__content __vbk__ svelte-kg26u5">
-        <main class="page type-svelte:md svelte-jhktk __vbk__  with-toc"><div class="page__container __vbk__ svelte-jhktk">
-
-    <!-- HTML_TAG_START --><h1 id="adr-006-functions" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#adr-006-functions" aria-hidden="true">#</a> ADR-006: Functions</h1>
+import{S as i,b as c,s as r,W as d,q as l,X as p,l as b,n as a,j as u}from"./framework.40d14ebd.js";function h(o){let s,_=`<h1 id="adr-006-functions" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#adr-006-functions" aria-hidden="true">#</a> ADR-006: Functions</h1>
 <h2 id="introduction" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#introduction" aria-hidden="true">#</a> Introduction</h2>
 <p class="__vbk__">Implement user defined functions invokable over HTTP within Highway.</p>
 <h2 id="abstract" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#abstract" aria-hidden="true">#</a> Abstract</h2>
@@ -110,7 +9,7 @@ These functions will all be accessible over a single endpoint, predefined within
 <p class="__vbk__">A User <code class="__vbk__">Defined Function</code> is repersented by a single <code class="__vbk__">binary</code> file which is assumed to be executable, and corresponding <code class="__vbk__">callback Urls</code> associated with said executable file. said functions are not permitted to return data to the caller directly, but rather the outer managment of the defined function will provide data to the given <code class="__vbk__">urls</code> as <code class="__vbk__">base64 encoded</code> repersentations as to not permit users to modify the system state of any <code class="__vbk__">highway</code> node directly.</p>
 <h3 id="function-definition-format" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#function-definition-format" aria-hidden="true">#</a> Function definition format</h3>
 <p class="__vbk__">The user's defined function is assumed to be precompiled into binary format. Said Binary is <code class="__vbk__">jailed</code> as to resrtrict privlages on the execution enviorment to the host.</p>
-<p class="__vbk__">Currently, the executable options are more appealing as it is easier to sandbox a plain binary into a ‘jail’ rather than implementing sandboxing around a reflection execution implementation.
+<p class="__vbk__">Currently, the executable options are more appealing as it is easier to sandbox a plain binary into a \u2018jail\u2019 rather than implementing sandboxing around a reflection execution implementation.
 Below is a primitive definition for a user-defined function.
 Said binary is stored within the highway node's <code class="__vbk__">ipfs</code> storage with the following file contents as a blob of <code class="__vbk__">JSON</code></p>
 <div class="language-go ext-go line-numbers-mode __vbk__"><pre class="shiki __vbk__" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #D8DEE9FF">UserFunction </span><span style="color: #ECEFF4">&#123;</span></span>
@@ -122,7 +21,7 @@ Said binary is stored within the highway node's <code class="__vbk__">ipfs</code
 <p class="__vbk__">In the above definition, the total size of the file stored for a user function would be the total bytes of the array and the did string of the owner.
 This data would be stored on IPFS incurring the cost of file storage and passing that on to the uploader of the function.</p>
 </blockquote>
-<p class="__vbk__">Once a function is associated with a name and provided to the highway, a function will then have the association of label → function.
+<p class="__vbk__">Once a function is associated with a name and provided to the highway, a function will then have the association of label \u2192 function.
 Each function will be a single relation to the user-given function.
 Meaning a function can be resolved via its name <code class="__vbk__">name</code> but a function cannot resolve its name, as the function is not explicitly required to have an associative name that matches its function name.</p>
 <div class="language-go ext-go line-numbers-mode __vbk__"><pre class="shiki __vbk__" style="background-color: #2e3440ff"><code><span class="line"><span style="color: #ECEFF4">&#123;</span></span>
@@ -276,29 +175,4 @@ the above URL has two params</p>
 </table>
 <h2 id="diagrams" tabindex="-1" class="__vbk__"><a class="header-anchor __vbk__" href="#diagrams" aria-hidden="true">#</a> Diagrams</h2>
 <p class="__vbk__"><a href="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fv9E6Om23rm80JROFHVnr31%2FHighway-sdk-user-defined-functions-(non-faas)%3Fnode-id%3D0%253A1" target="_blank" rel="noopener noreferrer" class="__vbk__"><img src="/img/diagrams/user-functions-adr-6.png" alt="Writing encrypted data">
-<OutboundLink></OutboundLink></a></p><!-- HTML_TAG_END -->
-
-    
-
-    
-          </div>
-</main>
-      </div>
-
-    </div>
-
-  
-    
-  
-
-  
-
-  
-
-  
-    <div class="scrim __vbk__ svelte-kg26u5"><button class="scrim __vbk__ svelte-zhfmk7" aria-label="Close scrim"></button></div>
-  
-</div></div>
-    <script type="module" src="/assets/entry-client.05b58e49.js" defer></script>
-  </body>
-</html>
+<OutboundLink></OutboundLink></a></p>`,n;return{c(){s=new d(!1),n=l(),this.h()},l(e){s=p(e,!1),n=l(),this.h()},h(){s.a=n},m(e,t){s.m(_,e,t),b(e,n,t)},p:a,i:a,o:a,d(e){e&&u(n),e&&s.d()}}}const f={excerpt:"",headers:[{level:2,title:"Introduction",slug:"introduction",children:[]},{level:2,title:"Abstract",slug:"abstract",children:[]},{level:2,title:"User functions",slug:"user-functions",children:[{level:3,title:"Function definition format",slug:"function-definition-format",children:[]}]},{level:2,title:"URL Schema",slug:"url-schema",children:[{level:3,title:"params to a user defined function over URL",slug:"params-to-a-user-defined-function-over-url",children:[]}]},{level:2,title:"Function Parameters",slug:"function-parameters",children:[]},{level:2,title:"Returning data from a user defined function",slug:"returning-data-from-a-user-defined-function",children:[]},{level:2,title:"Invoking a User Defined Function",slug:"invoking-a-user-defined-function",children:[]},{level:2,title:"Models and Methods (Highway)",slug:"models-and-methods-highway",children:[{level:3,title:"Methods",slug:"methods",children:[]}]},{level:2,title:"CLI Commands",slug:"cli-commands",children:[]},{level:2,title:"Diagrams",slug:"diagrams",children:[]}],title:"6. Invokable Functions",frontmatter:{title:"6. Invokable Functions"},lastUpdated:1661973586087};class k extends i{constructor(s){super(),c(this,s,null,h,r,{})}}export{f as __pageMeta,k as default};
