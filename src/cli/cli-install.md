@@ -2,11 +2,11 @@
 title: CLI Installation
 ---
 # Speedway CLI Installation
-### Mac Installation
+## Mac Installation
 
-### Linux Installation
+## Linux Installation
 
-### Windows Installation
+## Windows Installation
 
 ## How to Build Speedway CLI from Source
 ### Mac/Linux
