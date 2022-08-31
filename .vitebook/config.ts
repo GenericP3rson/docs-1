@@ -104,38 +104,45 @@ export default defineConfig<DefaultThemeConfig>({
           //   ],
           //   style: "docs",
           // },
-          "/motor": {
+          "/motor-sdk": {
             items: [
               // SidebarLink
               {
                 text: "Overview",
-                link: "/motor/overview.html",
-              },
-              // SidebarLink
-              {
-                text: "Installation",
-                link: "/motor-sdk/installation.html",
+                link: "/motor-sdk/overview.html",
               },
               // SidebarMenu
               {
-                text: "Account Management",
+                text: "Android",
                 collapsible: true,
                 children: [
                   {
-                    text: "Create an Account",
-                    link: "/motor-sdk/account/create-account.html",
+                    text: "Overview",
+                    link: "/motor-sdk/android/overview.html",
                   },
                   {
-                    text: "Authorizing App's",
-                    link: "/motor-sdk/account/authorize-app.html",
+                    text: "Getting Started",
+                    link: "/motor-sdk/android/getting-started.html",
                   },
                   {
-                    text: "Linking a Device",
-                    link: "/motor-sdk/account/linking-devices.html",
+                    text: "Authentication",
+                    link: "/motor-sdk/android/authenticate.html",
                   },
                   {
-                    text: "Sending Tokens",
-                    link: "/motor-sdk/account/send-tokens.html",
+                    text: "Creating an Object",
+                    link: "/motor-sdk/android/create-object.html",
+                  },
+                  {
+                    text: "Getting an Object",
+                    link: "/motor-sdk/android/get-object.html",
+                  },
+                  {
+                    text: "Buckets",
+                    link: "/motor-sdk/android/buckets.html",
+                  },
+                  {
+                    text: "Updating Buckets",
+                    link: "/motor-sdk/android/updating-buckets.html",
                   },
                 ],
               },
