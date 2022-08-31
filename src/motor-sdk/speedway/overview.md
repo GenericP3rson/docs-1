@@ -29,7 +29,7 @@ The Speedway API was created in tandom with the Speedway UI to give developers t
 ## Sonr Modules Utilized by Speedway
 
 Speedway currently utilizes four modules on the Sonr Blockchain. The modules are listed below for a wholistic overview.
-- [Registry Documentation](https://docs.sonr.io)
-- [Schema Documentation](https://docs.sonr.io)
-- [Object Documentation](https://docs.sonr.io)
-- [Bucket Documentation](https://docs.sonr.io)
+- [Registry Documentation](https://docs.sonr.io/highway/modules/registry.html)
+- [Schema Documentation](https://docs.sonr.io/highway/modules/schemas.html)
+- [Object Documentation](https://docs.sonr.io/highway/modules/schemas.html)
+- [Bucket Documentation](https://docs.sonr.io/highway/modules/buckets.html)
