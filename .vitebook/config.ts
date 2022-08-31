@@ -42,73 +42,74 @@ export default defineConfig<DefaultThemeConfig>({
         categories: true,
         items: {
           "/": "auto",
-          "/highway": {
-            items: [
-              // SidebarLink
-              {
-                text: "What is Sonr?",
-                link: "/highway/what-is-sonr.html",
-              },
-              // SidebarLink
-              {
-                text: "Getting Started",
-                link: "/highway/getting-started.html",
-              },
-              // SidebarMenu
-              {
-                text: "Modules",
-                collapsible: false,
-                children: [
-                  {
-                    text: "Registry",
-                    link: "/highway/modules/registry.html",
-                  },
-                  {
-                    text: "Schemas",
-                    link: "/highway/modules/schemas.html",
-                  },
-                  {
-                    text: "Buckets",
-                    link: "/highway/modules/buckets.html",
-                  },
-                  {
-                    text: "Channels",
-                    link: "/highway/modules/channels.html",
-                  },
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "Services",
-                collapsible: true,
-                children: [
-                  {
-                    text: "IPFS",
-                    link: "/highway/services/ipfs.html",
-                  },
-                  {
-                    text: "Matrix",
-                    link: "/highway/services/matrix.html",
-                  },
-                  {
-                    text: "HNS",
-                    link: "/highway/services/hns.html",
-                  },
-                  {
-                    text: "Libp2p",
-                    link: "/highway/services/channels.html",
-                  },
-                ],
-              },
-            ],
-            style: "docs",
-          },
-          "/motor-sdk": {
+          /** Commenting out highway until we have more information on it */
+          // "/highway": {
+          //   items: [
+          //     // SidebarLink
+          //     {
+          //       text: "What is Sonr?",
+          //       link: "/highway/what-is-sonr.html",
+          //     },
+          //     // SidebarLink
+          //     {
+          //       text: "Getting Started",
+          //       link: "/highway/getting-started.html",
+          //     },
+          //     // SidebarMenu
+          //     {
+          //       text: "Modules",
+          //       collapsible: false,
+          //       children: [
+          //         {
+          //           text: "Registry",
+          //           link: "/highway/modules/registry.html",
+          //         },
+          //         {
+          //           text: "Schemas",
+          //           link: "/highway/modules/schemas.html",
+          //         },
+          //         {
+          //           text: "Buckets",
+          //           link: "/highway/modules/buckets.html",
+          //         },
+          //         {
+          //           text: "Channels",
+          //           link: "/highway/modules/channels.html",
+          //         },
+          //       ],
+          //     },
+          //     // SidebarMenu
+          //     {
+          //       text: "Services",
+          //       collapsible: true,
+          //       children: [
+          //         {
+          //           text: "IPFS",
+          //           link: "/highway/services/ipfs.html",
+          //         },
+          //         {
+          //           text: "Matrix",
+          //           link: "/highway/services/matrix.html",
+          //         },
+          //         {
+          //           text: "HNS",
+          //           link: "/highway/services/hns.html",
+          //         },
+          //         {
+          //           text: "Libp2p",
+          //           link: "/highway/services/channels.html",
+          //         },
+          //       ],
+          //     },
+          //   ],
+          //   style: "docs",
+          // },
+          "/motor": {
             items: [
               // SidebarLink
               {
                 text: "Overview",
-                link: "/motor-sdk/overview.html",
+                link: "/motor/overview.html",
               },
               // SidebarLink
               {
