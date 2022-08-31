@@ -33,8 +33,16 @@ You may also download the project as a zip file from the GitHub Repository.
 
 4. Open your browser and navigate to ```http://localhost:8080``` to view the UI 
 
-# Using the CLI
-The Speedway CLI comes with a set of CLI commands
+# Getting Started with the Speedway CLI
+Installation
+
+[Speedway CLI Installation](https://docs.sonr.io/cli/cli-install.html)
+
+Commands
+
+[Speedway CLI Commands](https://docs.sonr.io/cli/cli-commands.html)
+
+Usage
 ```
 Usage:
   speedway [command]
