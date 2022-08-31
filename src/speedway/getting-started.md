@@ -11,7 +11,6 @@ In order to use Speedway, you must first install the Speedway project from the G
 You may also download the project as a zip file from the GitHub Repository.
 
 # Getting Started with the Speedway UI
-Getting started with the Speedway UI is easy. You can use the Speedway UI to create a new account, create or query a schema, build or get an object, and create or get a bucket.
 
 ## Requirements
 - NodeJS 
@@ -25,11 +24,14 @@ Getting started with the Speedway UI is easy. You can use the Speedway UI to cre
 
 3. Install the dependencies ```npm install``` or ```yarn install```
 
-4. After the dependencies are installed, run the build script ```npm run move-build``` or ```yarn move-build```
+## Run Speedway UI
+1. CD into the project directory (if you haven't already)
 
-5. Start the server ```task server:start:release``` or for debug mode ```task server:start:debug```
+2. After the dependencies are installed, run the build script ```npm run move-build``` or ```yarn move-build```
 
-6. Open your browser and navigate to ```http://localhost:8080``` to view the UI 
+3. Start the server ```task server:start:release``` or for debug mode ```task server:start:debug```
+
+4. Open your browser and navigate to ```http://localhost:8080``` to view the UI 
 
 # Using the CLI
 The Speedway CLI comes with a set of CLI commands
@@ -37,8 +39,3 @@ The Speedway CLI comes with a set of CLI commands
 Usage:
   speedway [command]
 ```
-
-# Speedway API
-Description Here
-
-[API Reference](https://docs.sonr.io)

@@ -1,14 +1,15 @@
 ---
-title: How to Install Speedway CLI
+title: CLI Installation
 ---
 # Speedway CLI Installation
-**Speedway Installer (MacOS M1)**
 
-**Speedway Installer (MacOS Intel)**
+## Speedway CLI MacOs Installation
 
-**Speedway Installer (Linux)**
+## Speedway CLI Windows Installation
 
-## How to build the Cli from source
+## Speedway CLI Linux Installation
+
+## How to build Speedway CLI from source
 1. Clone the project from GitHub (if you haven't already)
 
 2. CD into the project directory
@@ -20,4 +21,3 @@ title: How to Install Speedway CLI
 5. Move the binary to your go bin directory ```mv bin/speedway /usr/local/bin/speedway```
 
 6. Run the binary ```speedway```
-

@@ -195,48 +195,45 @@ export default defineConfig<DefaultThemeConfig>({
                   },
                 ],
               },
+              {
+                text: "Speedway",
+                collapsible: false,
+                children: [
+                  {
+                    text: "Overview",
+                    link: "/speedway/overview.html",
+                  },
+                  {
+                    text: "Getting Started",
+                    link: "/speedway/getting-started.html",
+                  },
+                  {
+                    text: "API Overview",
+                    link: "/speedway/api/api-overview.html",
+                  },
+                ],
+              },
             ],
             style: "docs",
           },
-          "/speedway": {
+          "/cli": {
             items: [
-              // SidebarLink
-              {
-                text: "Overview",
-                link: "/speedway/overview.html",
-              },
-              // SidebarLink
-              {
-                text: "Getting Started",
-                link: "/speedway/getting-started.html",
-              },
               // SidebarMenu
               {
                 text: "Command Line Interface",
                 collapsible: false,
                 children: [
                   {
-                    text: "Cli Overview",
-                    link: "/speedway/cli/cli-overview.html",
+                    text: "CLI Overview",
+                    link: "/cli/cli-overview.html",
                   },
                   {
-                    text: "Cli Installation",
-                    link: "/speedway/cli/cli-install.html",
+                    text: "CLI Installation",
+                    link: "/cli/cli-install.html",
                   },
                   {
-                    text: "Cli Commands",
-                    link: "/speedway/cli/cli-commands.html",
-                  }
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "API Reference",
-                collapsible: false,
-                children: [
-                  {
-                    text: "API Overview",
-                    link: "/speedway/api/api-overview.html",
+                    text: "CLI Commands",
+                    link: "/cli/cli-commands.html",
                   },
                 ],
               },
@@ -292,11 +289,7 @@ export default defineConfig<DefaultThemeConfig>({
           },
           {
             text: "CLI",
-            link: "/architecture/overview.html",
-          },
-          {
-            text: "Speedway",
-            link: "/speedway/overview.html",
+            link: "/cli/cli-overview.html",
           },
         ],
       },

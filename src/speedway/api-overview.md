@@ -24,7 +24,5 @@ The Speedway API is a RESTful API that allows you to interact with the Speedway 
 | Buckets | /proxy/buckets | GET |
 | Buckets | /api/v1/bucket/get-from-schema | POST | 
 
-## API Reference
-[Speedway API Reference](https://docs.sonr.io)
-
-You can also access the Speedway API Reference locally alongside the Speedway UI. To access the reference using the UI, once signed in simply click the "Access API" button on the side navbar.
+## Access API Reference
+Currently the Speedway API reference is hosted on the Speedway API server. To access the API reference, you must first login to the Speedway UI. Once you are logged in, you can access the API reference by clicking the "Access API" button in the top right corner of the UI.

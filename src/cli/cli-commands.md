@@ -1,6 +1,7 @@
 ---
-title: Speedway CLI Commands
+title: CLI Commands
 ---
+# Speedway CLI Commands
 ## Registry Commands
 The registry commands are based on Sonr's Registry module. The registry module is used to create an account and login to an account on the Sonr Network. 
 ### Create a new Account
