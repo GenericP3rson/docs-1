@@ -1,22 +1,23 @@
 {
-  "name": "sonr-docs",
-  "version": "0.1.0",
-  "private": true,
+  "name": "docs",
+  "description": "Sonr Arch Docs",
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "^12.2.5",
-    "nextra": "^1.1.0",
-    "nextra-theme-docs": "^1.2.6",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "build": "vitebook build",
+    "preview": "vitebook build && vitebook preview"
   },
   "devDependencies": {
-    "eslint": "8.22.0",
-    "eslint-config-next": "12.2.5"
+    "@sveltejs/vite-plugin-svelte": "^1.0.0-next.36",
+    "@vitebook/client": "0.23.6",
+    "@vitebook/core": "0.23.6",
+    "@vitebook/markdown-shiki": "0.23.6",
+    "@vitebook/markdown-svelte": "0.23.6",
+    "@vitebook/theme-default": "^0.23.6",
+    "autoprefixer": "^10.0.0",
+    "postcss": "^8.0.0",
+    "svelte": "^3.43.1",
+    "typescript": "^4.4.0",
+    "vite": "^2.7.0"
   }
 }
