@@ -169,7 +169,7 @@ export default defineConfig<DefaultThemeConfig>({
           // NavLink
           {
             text: "Learn",
-            link: "/highway/what-is-sonr.html",
+            link: "/general/what-is-sonr.html",
           },
           {
             text: "Build",
@@ -188,9 +188,9 @@ export default defineConfig<DefaultThemeConfig>({
       homePage: {
         heroText: "The Internet rebuilt for you",
         primaryActionText: "Get Started",
-        primaryActionLink: "/highway/getting-started.html",
+        primaryActionLink: "/general/getting-started.html",
         secondaryActionText: "Learn More",
-        secondaryActionLink: "/highway/what-is-sonr.html",
+        secondaryActionLink: "/general/what-is-sonr.html",
         features: [
           {
             title: "Web3 Integrations",
