@@ -4,4 +4,5 @@ The Motor SDK is a set of developer tools for building decentralized application
 
 Hop into a target to get started!
 
-* [Android](https://docs.sonr.io/motor-sdk/android/overview.html)
+* [Android](./android/overview.md)
+* [Desktop (Go)](./go/overview.md)
