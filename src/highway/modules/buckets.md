@@ -8,8 +8,70 @@ Similar to Amazon S3 or DigitalOcean Spaces, developers can leverage our decentr
 The Sonr bucket module is used to record the defined collections of Objects utilized by an Application on the Sonr Network. A bucket can be either public access, private access, or restricted access based on Developer configuration. A bucket is used to help organize similar objects for a given application.
 
 ## Overview
+A Bucket is represented by a document on chain called a `WhereIs`. This document is referenced by its `Creator` and `DID` which provided a unique identifier to the content store. Buckets reference content by `BucketItems` which hold content identifiers. These identifiers can point to either `did` Content stores can reference one another, which allow data so be subcategorized and referenced by many buckets.
 
-The record type utilized in the **Bucket module** is the `WhichIs` type. This type provides both an interface to utilize VerifiableCredentials and modify the BucketDoc type definition
+### WhereIs defintion
+As stated within the `overview`, a `WhereIs` document is the on chain reference to a Bucket. Which hold it's `DID`, `Creator` and `BucketItems`.
+```
+message WhereIs {
+  // DID of the created bucket.
+  string did = 1;
+
+  // Creator of the new bucket
+  string creator = 2;
+
+  // Label of the new bucket.
+  string label = 3;
+
+  // Visibility of the new bucket.
+  BucketVisibility visibility = 4;
+
+  // Role of the creator of the new bucket.
+  BucketRole role = 5;
+
+  // IsActive flag of the new bucket.
+  bool is_active = 6;
+
+  // Content of the new bucket map of DIDs to CIDs.
+  repeated BucketItem content = 7;
+
+  // Timestamp of the new bucket.
+  int64 timestamp = 9;
+}
+```
+
+Each BucketItem can hold either a Bucket or an `Object`. A DID of a [Schema]() can also be associated with an object.
+```
+message BucketItem {
+  // Name of the bucket item.
+  string name = 1;
+
+  // DID of the item. If applicable // optional
+  string uri = 2;
+
+  // Timestamp of the last update. // optional
+  int64 timestamp = 3;
+
+  // Type of the resource
+  ResourceIdentifier type = 4;
+
+  // References the schema and item within the bucket is associated with. Bucket items do not need to use the same schema reference
+  // if the bucket is "generic" // optional
+  string schema_did = 5;
+}
+```
+
+# Querying
+When querying bucket item which is an object, the following will be returned in a familar form based on the given platform / motor-sdk version:
+```
+message BucketContent {
+  // Raw content serialized to bytes
+  bytes item = 1;
+  // Content id a CID, DID, or unspecified
+  string id = 2;
+  sonrio.sonr.bucket.ResourceIdentifier content_type = 3;
+}
+```
 
 ### Bucket Types
 
@@ -18,37 +80,5 @@ The record type utilized in the **Bucket module** is the `WhichIs` type. This ty
 *   **User-specific bucket** -- a bucket contrived through user-created data, facilitated by an **Object** or **Channel**.
 
 ## Usage
-
 > Blockchain Methods supplied by Channel Module. Full implementation is still a work in progress.
 
-### `CreateBucket()` - Creates a new bucket implementation for a given application
-
-```tex
-- ('string') Creator                : The Account Address signing this message
-- ('Session') Session               : The Session for the authenticated user
-- ('string') Label                  : Name of the bucket defined by developer
-- ('string') Description            : Description of the bucket defined by developer
-- ('string') Kind                   : Functionality of the bucket i.e. ('public', 'private', 'restricted') *WIP*
-- ('List') InitialObjects           : The initial list of objects to add to the bucket
-```
-
-### `UpdateBucket()` - Modifies the bucket configuration and/or updates the bucket objects
-
-```tex
-- ('string') Creator                : The Account Address signing this message
-- ('Session') Session               : The Session for the authenticated user
-- ('string') Label                  : Name of the bucket defined by developer
-- ('string') Description            : Description of the bucket defined by developer
-- ('List') AddedObjects             : The list of objects to add to the bucket
-- ('List') RemovedObjects           : The list of objects to remove from the bucket
-```
-
-## Status Codes
-
-```tex
-200 - SUCCESS
-300 - MULTIPLE CHOICE
-304 - NOT MODIFIED
-400 - BAD REQUEST
-401 - NOT AUTHORIZED
-```
