@@ -5,12 +5,10 @@ title: CLI Overview
 OVERVIEW
 
 ## CLI Installation
-INSTALLATION LINK
+[Speedway CLI Installation](./cli-install.md)
 
 ## CLI Commands
-COMMAND REFERENCE LINK
+[Speedway CLI Commands](./cli-commands.md)
 
 ## CLI Examples
-Create a new account
-
-Login to an account
+[Speedway CLI Examples](../getting-started.md#using-the-speedway-cli)
