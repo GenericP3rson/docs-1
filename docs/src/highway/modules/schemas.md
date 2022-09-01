@@ -1,3 +1,6 @@
+---
+title: Overview
+---
 # Schemas
 ## Introduction
 The Sonr Schema module is used to store the records of verifiable objects for a specific application powered by the Sonr Network. Schemas are used to create custom application protcols which can be asserted on in order to verify your application data. Application data uploaded through `motor` can verify their data model through `Schemas`.
@@ -167,10 +170,10 @@ Returns a List of `WhatIs` created by the given account.
 
 ```json
 {
-  "username": 4,
-  "email": 4,
-  "timestamp": 2,
-  "lastSeen": 2,
+  "username": STRING,
+  "email": STRING,
+  "timestamp": INT,
+  "lastSeen": INT,
 
 }
 ```
@@ -188,10 +191,10 @@ The following is an example schema for an `NFT`
 ##### Schema
 ```json
 {
-  "description": 4, 
-  "image": 4, 
-  "name": 4,
-  "attributes": 0
+  "description": STRING, 
+  "image": STRING, 
+  "name": STRING,
+  "attributes": LIST
 }
 ```
 The following object would be a valid definition for the above `Schema`
@@ -215,7 +218,6 @@ The following object would be a valid definition for the above `Schema`
 }
 ```
 
-
-The result of uploading an object will be a `cid` and `did`
+The result of uploading an object will be a CID
+A CID can be tracked as an item within a bucket. Which are used to relate pieces of content and query them based on their Schema
 example cid: `QmYYXVqZtxvQMaua978u9Gh6ByjvRXeonv89KgXNf7xBBs`
-example did: `did:snr:QmYYXVqZtxvQMaua978u9Gh6ByjvRXeonv89KgXNf7xBBs`
