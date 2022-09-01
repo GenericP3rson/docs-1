@@ -42,157 +42,85 @@ export default defineConfig<DefaultThemeConfig>({
         categories: true,
         items: {
           "/": "auto",
-          /** Commenting out highway until we have more information on it */
-          // "/highway": {
-          //   items: [
-          //     // SidebarLink
-          //     {
-          //       text: "What is Sonr?",
-          //       link: "/highway/what-is-sonr.html",
-          //     },
-          //     // SidebarLink
-          //     {
-          //       text: "Getting Started",
-          //       link: "/highway/getting-started.html",
-          //     },
-          //     // SidebarMenu
-          //     {
-          //       text: "Modules",
-          //       collapsible: false,
-          //       children: [
-          //         {
-          //           text: "Registry",
-          //           link: "/highway/modules/registry.html",
-          //         },
-          //         {
-          //           text: "Schemas",
-          //           link: "/highway/modules/schemas.html",
-          //         },
-          //         {
-          //           text: "Buckets",
-          //           link: "/highway/modules/buckets.html",
-          //         },
-          //         {
-          //           text: "Channels",
-          //           link: "/highway/modules/channels.html",
-          //         },
-          //       ],
-          //     },
-          //     // SidebarMenu
-          //     {
-          //       text: "Services",
-          //       collapsible: true,
-          //       children: [
-          //         {
-          //           text: "IPFS",
-          //           link: "/highway/services/ipfs.html",
-          //         },
-          //         {
-          //           text: "Matrix",
-          //           link: "/highway/services/matrix.html",
-          //         },
-          //         {
-          //           text: "HNS",
-          //           link: "/highway/services/hns.html",
-          //         },
-          //         {
-          //           text: "Libp2p",
-          //           link: "/highway/services/channels.html",
-          //         },
-          //       ],
-          //     },
-          //   ],
-          //   style: "docs",
-          // },
-          "/motor": {
+          "/Getting Started": {
+            items: [
+              {
+                text: "Overview",
+                link: "/general/getting-started.md",
+              },
+            ]
+          },
+          "/Modules": {
+            items: [
+              {
+              text: "Registry (Account)",
+                link: "modules/registry.html",
+              },
+              {
+                text: "Schemas",
+                link: "modules/schemas.html",
+              },
+              {
+                text: "Buckets",
+                link: "modules/buckets.html",
+              },
+              {
+                text: "Channels",
+                link: "modules/channels.html",
+              },
+            ],
+          },
+          "/motor-sdk": {
             items: [
               // SidebarLink
               {
                 text: "Overview",
-                link: "/motor/overview.html",
-              },
-              // SidebarLink
-              {
-                text: "Installation",
-                link: "/motor-sdk/installation.html",
+                link: "/motor-sdk/android/overview.html",
               },
               // SidebarMenu
               {
-                text: "Account Management",
+                text: "Android",
                 collapsible: true,
                 children: [
                   {
-                    text: "Create an Account",
-                    link: "/motor-sdk/account/create-account.html",
+                    text: "Overview",
+                    link: "/motor-sdk/android/overview.html",
                   },
                   {
-                    text: "Authorizing App's",
-                    link: "/motor-sdk/account/authorize-app.html",
+                    text: "Getting Started",
+                    link: "/motor-sdk/android/getting-started.html",
                   },
                   {
-                    text: "Linking a Device",
-                    link: "/motor-sdk/account/linking-devices.html",
+                    text: "Authentication",
+                    link: "/motor-sdk/android/authenticate.html",
                   },
                   {
-                    text: "Sending Tokens",
-                    link: "/motor-sdk/account/send-tokens.html",
-                  },
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "Managing User Data",
-                collapsible: true,
-                children: [
-                  {
-                    text: "Writing New Data",
-                    link: "/motor-sdk/data/write-data.html",
+                    text: "Schemas",
+                    link: "/motor-sdk/android/schemas.html",
                   },
                   {
-                    text: "Reading Existing Data",
-                    link: "/motor-sdk/data/read-data.html",
+                    text: "Documents",
+                    link: "/motor-sdk/android/documents.html",
                   },
                   {
-                    text: "Provisioning Data Access",
-                    link: "/motor-sdk/data/provision-access.html",
-                  },
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "Working with Networking",
-                collapsible: true,
-                children: [
-                  {
-                    text: "The Motor 'Host'",
-                    link: "/motor-sdk/networking/host.html",
+                    text: "Buckets",
+                    link: "/motor-sdk/android/buckets.html",
                   },
                   {
-                    text: "PubSub Topic(s)",
-                    link: "/motor-sdk/networking/pubsub.html",
+                    text: "Updating Buckets",
+                    link: "/motor-sdk/android/updating-buckets.html",
                   },
                   {
-                    text: "Protocols",
-                    link: "/motor-sdk/networking/protocols.html",
-                  },
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "Design System",
-                collapsible: true,
-                children: [
-                  {
-                    text: "Introducing Nebula",
-                    link: "/motor-sdk/components/nebula.html",
+                    text: "Motoroid Reference",
+                    link: "/motor-sdk/android/motoroid-reference.html",
                   },
                   {
-                    text: "Component List",
-                    link: "/motor-sdk/components/list.html",
+                    text: "Document Builder Reference",
+                    link: "/motor-sdk/android/document-builder-reference.html",
                   },
                   {
-                    text: "Configuration",
-                    link: "/motor-sdk/components/configuration.html",
+                    text: "Bucket Reference",
+                    link: "/motor-sdk/android/bucket-reference.html",
                   },
                 ],
               },
@@ -241,40 +169,6 @@ export default defineConfig<DefaultThemeConfig>({
             ],
             style: "docs",
           },
-          "/architecture": {
-            items: [
-              // SidebarLink
-              {
-                text: "Overview",
-                link: "/architecture/overview.html",
-              },
-              {
-                text: "1. Decentralized Identifiers",
-                link: "/architecture/adr-001.html",
-              },
-              // SidebarLink
-              {
-                text: "2. Verifiable Type Definitions",
-                link: "/architecture/adr-002.html",
-              },
-              {
-                text: "3. User and App Specific Storage",
-                link: "/architecture/adr-003.html",
-              },
-              {
-                text: "4. Peer-to-Peer Streams",
-                link: "/architecture/adr-004.html",
-              },
-              {
-                text: "5. NFT Standard",
-                link: "/architecture/adr-005.html",
-              },
-              {
-                text: "6. Invokable Functions",
-                link: "/architecture/adr-006.html",
-              },
-            ],
-          },
         },
       },
       navbar: {
@@ -282,7 +176,7 @@ export default defineConfig<DefaultThemeConfig>({
           // NavLink
           {
             text: "Learn",
-            link: "/highway/what-is-sonr.html",
+            link: "/general/what-is-sonr.html",
           },
           {
             text: "Build",
@@ -301,9 +195,9 @@ export default defineConfig<DefaultThemeConfig>({
       homePage: {
         heroText: "The Internet rebuilt for you",
         primaryActionText: "Get Started",
-        primaryActionLink: "/highway/getting-started.html",
+        primaryActionLink: "/general/getting-started.html",
         secondaryActionText: "Learn More",
-        secondaryActionLink: "/highway/what-is-sonr.html",
+        secondaryActionLink: "/general/what-is-sonr.html",
         features: [
           {
             title: "Web3 Integrations",
