@@ -52,7 +52,6 @@ export default defineConfig<DefaultThemeConfig>({
           },
           "/Modules": {
             items: [
-              
               {
               text: "Registry (Account)",
                 link: "modules/registry.html",
@@ -127,40 +126,6 @@ export default defineConfig<DefaultThemeConfig>({
               },
             ],
             style: "docs",
-          },
-          "/architecture": {
-            items: [
-              // SidebarLink
-              {
-                text: "Overview",
-                link: "/architecture/overview.html",
-              },
-              {
-                text: "1. Decentralized Identifiers",
-                link: "/architecture/adr-001.html",
-              },
-              // SidebarLink
-              {
-                text: "2. Verifiable Type Definitions",
-                link: "/architecture/adr-002.html",
-              },
-              {
-                text: "3. User and App Specific Storage",
-                link: "/architecture/adr-003.html",
-              },
-              {
-                text: "4. Peer-to-Peer Streams",
-                link: "/architecture/adr-004.html",
-              },
-              {
-                text: "5. NFT Standard",
-                link: "/architecture/adr-005.html",
-              },
-              {
-                text: "6. Invokable Functions",
-                link: "/architecture/adr-006.html",
-              },
-            ],
           },
         },
       },
