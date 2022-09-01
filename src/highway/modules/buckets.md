@@ -3,7 +3,7 @@ title: Overview
 ---
 
 # Buckets
-Similar to Amazon S3 or DigitalOcean Spaces, developers can leverage our decentralized storage module for uploading either application specific assets or user specific assets. While we encourage developers to use our SDK for best results, this storage is S3-compliant.
+Similar to Amazon S3 or DigitalOcean Spaces, developers can leverage our decentralized storage module for uploading either application specific assets or user specific assets. 
 
 The Sonr bucket module is used to record the defined collections of Objects utilized by an Application on the Sonr Network. A bucket can be either public access, private access, or restricted access based on Developer configuration. A bucket is used to help organize similar objects for a given application.
 
@@ -55,8 +55,7 @@ message BucketItem {
   // Type of the resource
   ResourceIdentifier type = 4;
 
-  // References the schema and item within the bucket is associated with. Bucket items do not need to use the same schema reference
-  // if the bucket is "generic" // optional
+  // References the schema and item within the bucket is associated with. Bucket items do not need to use the same schema reference // optional
   string schema_did = 5;
 }
 ```
@@ -75,9 +74,9 @@ message BucketContent {
 
 ### Bucket Types
 
-*   **App-specific bucket** -- a bucket created by the developer containing visual assets and other media germane to the App.
+*   **App-specific bucket** -- a bucket created by the developer containing visual assets and other media related to the App.
 
-*   **User-specific bucket** -- a bucket contrived through user-created data, facilitated by an **Object** or **Channel**.
+*   **User-specific bucket** -- a bucket Created with the intent of storing user related content.  Which is then related to the `Creator`.
 
 ## Usage
 > Blockchain Methods supplied by Channel Module. Full implementation is still a work in progress.
