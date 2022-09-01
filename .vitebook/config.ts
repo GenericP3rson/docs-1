@@ -42,67 +42,68 @@ export default defineConfig<DefaultThemeConfig>({
         categories: true,
         items: {
           "/": "auto",
-          "/highway": {
-            items: [
-              // SidebarLink
-              {
-                text: "What is Sonr?",
-                link: "/highway/what-is-sonr.html",
-              },
-              // SidebarLink
-              {
-                text: "Getting Started",
-                link: "/highway/getting-started.html",
-              },
-              // SidebarMenu
-              {
-                text: "Modules",
-                collapsible: false,
-                children: [
-                  {
-                    text: "Registry",
-                    link: "/highway/modules/registry.html",
-                  },
-                  {
-                    text: "Schemas",
-                    link: "/highway/modules/schemas.html",
-                  },
-                  {
-                    text: "Buckets",
-                    link: "/highway/modules/buckets.html",
-                  },
-                  {
-                    text: "Channels",
-                    link: "/highway/modules/channels.html",
-                  },
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "Services",
-                collapsible: true,
-                children: [
-                  {
-                    text: "IPFS",
-                    link: "/highway/services/ipfs.html",
-                  },
-                  {
-                    text: "Matrix",
-                    link: "/highway/services/matrix.html",
-                  },
-                  {
-                    text: "HNS",
-                    link: "/highway/services/hns.html",
-                  },
-                  {
-                    text: "Libp2p",
-                    link: "/highway/services/channels.html",
-                  },
-                ],
-              },
-            ],
-            style: "docs",
-          },
+          /** Commenting out highway until we have more information on it */
+          // "/highway": {
+          //   items: [
+          //     // SidebarLink
+          //     {
+          //       text: "What is Sonr?",
+          //       link: "/highway/what-is-sonr.html",
+          //     },
+          //     // SidebarLink
+          //     {
+          //       text: "Getting Started",
+          //       link: "/highway/getting-started.html",
+          //     },
+          //     // SidebarMenu
+          //     {
+          //       text: "Modules",
+          //       collapsible: false,
+          //       children: [
+          //         {
+          //           text: "Registry",
+          //           link: "/highway/modules/registry.html",
+          //         },
+          //         {
+          //           text: "Schemas",
+          //           link: "/highway/modules/schemas.html",
+          //         },
+          //         {
+          //           text: "Buckets",
+          //           link: "/highway/modules/buckets.html",
+          //         },
+          //         {
+          //           text: "Channels",
+          //           link: "/highway/modules/channels.html",
+          //         },
+          //       ],
+          //     },
+          //     // SidebarMenu
+          //     {
+          //       text: "Services",
+          //       collapsible: true,
+          //       children: [
+          //         {
+          //           text: "IPFS",
+          //           link: "/highway/services/ipfs.html",
+          //         },
+          //         {
+          //           text: "Matrix",
+          //           link: "/highway/services/matrix.html",
+          //         },
+          //         {
+          //           text: "HNS",
+          //           link: "/highway/services/hns.html",
+          //         },
+          //         {
+          //           text: "Libp2p",
+          //           link: "/highway/services/channels.html",
+          //         },
+          //       ],
+          //     },
+          //   ],
+          //   style: "docs",
+          // },
           "/motor-sdk": {
             items: [
               // SidebarLink
@@ -110,31 +111,38 @@ export default defineConfig<DefaultThemeConfig>({
                 text: "Overview",
                 link: "/motor-sdk/overview.html",
               },
-              // SidebarLink
-              {
-                text: "Installation",
-                link: "/motor-sdk/installation.html",
-              },
               // SidebarMenu
               {
-                text: "Account Management",
+                text: "Android",
                 collapsible: true,
                 children: [
                   {
-                    text: "Create an Account",
-                    link: "/motor-sdk/account/create-account.html",
+                    text: "Overview",
+                    link: "/motor-sdk/android/overview.html",
                   },
                   {
-                    text: "Authorizing App's",
-                    link: "/motor-sdk/account/authorize-app.html",
+                    text: "Getting Started",
+                    link: "/motor-sdk/android/getting-started.html",
                   },
                   {
-                    text: "Linking a Device",
-                    link: "/motor-sdk/account/linking-devices.html",
+                    text: "Authentication",
+                    link: "/motor-sdk/android/authenticate.html",
                   },
                   {
-                    text: "Sending Tokens",
-                    link: "/motor-sdk/account/send-tokens.html",
+                    text: "Creating an Object",
+                    link: "/motor-sdk/android/create-object.html",
+                  },
+                  {
+                    text: "Getting an Object",
+                    link: "/motor-sdk/android/get-object.html",
+                  },
+                  {
+                    text: "Buckets",
+                    link: "/motor-sdk/android/buckets.html",
+                  },
+                  {
+                    text: "Updating Buckets",
+                    link: "/motor-sdk/android/updating-buckets.html",
                   },
                 ],
               },
@@ -238,15 +246,15 @@ export default defineConfig<DefaultThemeConfig>({
         items: [
           // NavLink
           {
-            text: "Build on Highway",
+            text: "Learn",
             link: "/highway/what-is-sonr.html",
           },
           {
-            text: "Integrate with Motor",
+            text: "Build",
             link: "/motor-sdk/overview.html",
           },
           {
-            text: "Reference",
+            text: "CLI",
             link: "/architecture/overview.html",
           },
         ],
