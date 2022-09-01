@@ -7,3 +7,7 @@ html.dark .theme.__vbk__ {
   --vbk--color-primary: #ffffff;
   --vbk--color-primary-rgb: 255, 193, 7;
 }
+
+.navbar__links__list-item {
+  margin-top: 0px !important;
+}

@@ -144,6 +144,18 @@ export default defineConfig<DefaultThemeConfig>({
                     text: "Updating Buckets",
                     link: "/motor-sdk/android/updating-buckets.html",
                   },
+                  {
+                    text: "Motoroid Reference",
+                    link: "/motor-sdk/android/motoroid-reference.html",
+                  },
+                  {
+                    text: "Document Builder Reference",
+                    link: "/motor-sdk/android/document-builder-reference.html",
+                  },
+                  {
+                    text: "Bucket Reference",
+                    link: "/motor-sdk/android/bucket-reference.html",
+                  },
                 ],
               },
             ],
