@@ -63,19 +63,26 @@ speedway account create
 ```
 You will be prompted to enter a password. This password will be used to encrypt your vault.
 
+![Create Account GIF](https://raw.githubusercontent.com/sonr-io/docs/docs/speedway/assets/create-account-cli.gif)
+
+
 #### Create a Schema
 To create a schema, run the following command:
 ```
 speedway schema create
 ```
-The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema name, and the schema fields. The schema fields are the fields that will be used to create objects. The schema fields are entered in the following format: ```field_type```. The field type can be one of the following: ```string```, ```int```, ```float``` and ```bool```. The CLI will then create the schema and display the schema ID.
+The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema name, and the schema fields. The schema fields are the fields that will be used to create objects. The schema fields are entered in the following format: ```field_type```. The field type can be one of the following: ```string```, ```int```, ```float``` and ```bool```. The CLI will then create the schema and display the schema DID.
+
+![Create Schema GIF](https://raw.githubusercontent.com/sonr-io/docs/docs/speedway/assets/create-schema-cli.gif)
 
 #### Create an Object
 To create an object, run the following command:
 ```
 speedway object build
 ```
-The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema ID. After entering the schema ID, the CLI will prompt you to enter the object fields. Object Fields are entered via a prompt from the CLI, you will be required to enter the ```field_value``` for a ```field_name```. The CLI will then create the object and display the object DID.
+The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema ID. After entering the schema ID, the CLI will prompt you to enter the object fields. Object Fields are entered via a prompt from the CLI, you will be required to enter the ```field_value``` for a ```field_name```. The CLI will then create the object and display the object CID.
+
+![Create Object GIF](https://raw.githubusercontent.com/sonr-io/docs/docs/speedway/assets/create-object-cli.gif)
 
 #### Create a Bucket
 To create a bucket, run the following command:
@@ -85,4 +92,4 @@ speedway bucket create
 The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the bucket label. After entering the bucket label, the CLI will prompt you to enter the visibility of the bucket. The visibility can be one of the following: ```public```, ```private```. The role can be one of the following: ```application```, ```user```. Application buckets are visible to all users. User buckets are visible only to the user who created the bucket. The CLI will then create the bucket and display the bucket DID.
 
 ### Using the Speedway UI
-[Video Tutorial](https://www.youtube.com/watch?v=)
+[Video Tutorial (Coming Soon)](https://)
