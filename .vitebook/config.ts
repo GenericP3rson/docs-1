@@ -129,12 +129,12 @@ export default defineConfig<DefaultThemeConfig>({
                     link: "/motor-sdk/android/authenticate.html",
                   },
                   {
-                    text: "Creating an Object",
-                    link: "/motor-sdk/android/create-object.html",
+                    text: "Schemas",
+                    link: "/motor-sdk/android/schemas.html",
                   },
                   {
-                    text: "Getting an Object",
-                    link: "/motor-sdk/android/get-object.html",
+                    text: "Documents",
+                    link: "/motor-sdk/android/documents.html",
                   },
                   {
                     text: "Buckets",
@@ -143,63 +143,6 @@ export default defineConfig<DefaultThemeConfig>({
                   {
                     text: "Updating Buckets",
                     link: "/motor-sdk/android/updating-buckets.html",
-                  },
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "Managing User Data",
-                collapsible: true,
-                children: [
-                  {
-                    text: "Writing New Data",
-                    link: "/motor-sdk/data/write-data.html",
-                  },
-                  {
-                    text: "Reading Existing Data",
-                    link: "/motor-sdk/data/read-data.html",
-                  },
-                  {
-                    text: "Provisioning Data Access",
-                    link: "/motor-sdk/data/provision-access.html",
-                  },
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "Working with Networking",
-                collapsible: true,
-                children: [
-                  {
-                    text: "The Motor 'Host'",
-                    link: "/motor-sdk/networking/host.html",
-                  },
-                  {
-                    text: "PubSub Topic(s)",
-                    link: "/motor-sdk/networking/pubsub.html",
-                  },
-                  {
-                    text: "Protocols",
-                    link: "/motor-sdk/networking/protocols.html",
-                  },
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "Design System",
-                collapsible: true,
-                children: [
-                  {
-                    text: "Introducing Nebula",
-                    link: "/motor-sdk/components/nebula.html",
-                  },
-                  {
-                    text: "Component List",
-                    link: "/motor-sdk/components/list.html",
-                  },
-                  {
-                    text: "Configuration",
-                    link: "/motor-sdk/components/configuration.html",
                   },
                 ],
               },
