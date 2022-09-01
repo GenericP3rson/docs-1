@@ -42,74 +42,40 @@ export default defineConfig<DefaultThemeConfig>({
         categories: true,
         items: {
           "/": "auto",
-          /** Commenting out highway until we have more information on it */
-          // "/highway": {
-          //   items: [
-          //     // SidebarLink
-          //     {
-          //       text: "What is Sonr?",
-          //       link: "/highway/what-is-sonr.html",
-          //     },
-          //     // SidebarLink
-          //     {
-          //       text: "Getting Started",
-          //       link: "/highway/getting-started.html",
-          //     },
-          //     // SidebarMenu
-          //     {
-          //       text: "Modules",
-          //       collapsible: false,
-          //       children: [
-          //         {
-          //           text: "Registry",
-          //           link: "/highway/modules/registry.html",
-          //         },
-          //         {
-          //           text: "Schemas",
-          //           link: "/highway/modules/schemas.html",
-          //         },
-          //         {
-          //           text: "Buckets",
-          //           link: "/highway/modules/buckets.html",
-          //         },
-          //         {
-          //           text: "Channels",
-          //           link: "/highway/modules/channels.html",
-          //         },
-          //       ],
-          //     },
-          //     // SidebarMenu
-          //     {
-          //       text: "Services",
-          //       collapsible: true,
-          //       children: [
-          //         {
-          //           text: "IPFS",
-          //           link: "/highway/services/ipfs.html",
-          //         },
-          //         {
-          //           text: "Matrix",
-          //           link: "/highway/services/matrix.html",
-          //         },
-          //         {
-          //           text: "HNS",
-          //           link: "/highway/services/hns.html",
-          //         },
-          //         {
-          //           text: "Libp2p",
-          //           link: "/highway/services/channels.html",
-          //         },
-          //       ],
-          //     },
-          //   ],
-          //   style: "docs",
-          // },
+          "/Getting Started": {
+            items: [
+              {
+                text: "Overview",
+                link: "/general/getting-started.md",
+              },
+            ]
+          },
+          "/Modules": {
+            items: [
+              {
+              text: "Registry (Account)",
+                link: "modules/registry.html",
+              },
+              {
+                text: "Schemas",
+                link: "modules/schemas.html",
+              },
+              {
+                text: "Buckets",
+                link: "modules/buckets.html",
+              },
+              {
+                text: "Channels",
+                link: "modules/channels.html",
+              },
+            ],
+          },
           "/motor-sdk": {
             items: [
               // SidebarLink
               {
                 text: "Overview",
-                link: "/motor-sdk/overview.html",
+                link: "/motor-sdk/android/overview.html",
               },
               // SidebarMenu
               {
@@ -161,40 +127,6 @@ export default defineConfig<DefaultThemeConfig>({
             ],
             style: "docs",
           },
-          "/architecture": {
-            items: [
-              // SidebarLink
-              {
-                text: "Overview",
-                link: "/architecture/overview.html",
-              },
-              {
-                text: "1. Decentralized Identifiers",
-                link: "/architecture/adr-001.html",
-              },
-              // SidebarLink
-              {
-                text: "2. Verifiable Type Definitions",
-                link: "/architecture/adr-002.html",
-              },
-              {
-                text: "3. User and App Specific Storage",
-                link: "/architecture/adr-003.html",
-              },
-              {
-                text: "4. Peer-to-Peer Streams",
-                link: "/architecture/adr-004.html",
-              },
-              {
-                text: "5. NFT Standard",
-                link: "/architecture/adr-005.html",
-              },
-              {
-                text: "6. Invokable Functions",
-                link: "/architecture/adr-006.html",
-              },
-            ],
-          },
         },
       },
       navbar: {
@@ -202,7 +134,7 @@ export default defineConfig<DefaultThemeConfig>({
           // NavLink
           {
             text: "Learn",
-            link: "/highway/what-is-sonr.html",
+            link: "/general/what-is-sonr.html",
           },
           {
             text: "Build",
@@ -221,9 +153,9 @@ export default defineConfig<DefaultThemeConfig>({
       homePage: {
         heroText: "The Internet rebuilt for you",
         primaryActionText: "Get Started",
-        primaryActionLink: "/highway/getting-started.html",
+        primaryActionLink: "/general/getting-started.html",
         secondaryActionText: "Learn More",
-        secondaryActionLink: "/highway/what-is-sonr.html",
+        secondaryActionLink: "/general/what-is-sonr.html",
         features: [
           {
             title: "Web3 Integrations",
