@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Motoroid Reference
-=======
 # Motoroid Reference
 
 This reference details each method available in the `Motoroid` class.
@@ -98,4 +95,3 @@ Returns a `Bucket` instance for the given *DID*.
 public String getSavedDid();
 ```
 Returns the cached account DID on the device.
->>>>>>> 4b4eb1940744c5d13ec391fcc29115534e045b40

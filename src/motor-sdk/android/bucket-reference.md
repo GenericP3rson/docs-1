@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Bucket Reference
-=======
 # Bucket Reference
 
 This reference details each method available in the `Bucket` class.
@@ -60,4 +57,3 @@ Adds a document to the bucket. Returns an `UploadObjectResponse` containing the 
 public void removeDocument(String cid);
 ```
 Removes a document from the bucket.
->>>>>>> 4b4eb1940744c5d13ec391fcc29115534e045b40

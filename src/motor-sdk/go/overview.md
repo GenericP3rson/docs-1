@@ -1,8 +1,5 @@
 # Overview
 
-<<<<<<< HEAD
-This file provides an overview of the Motor Go library. The other sections will closely match Android.
-=======
 Note: This library is under heavy development and, for the time being, is more advanced than its mobile counterparts.
 
 Start by adding the `sonr` package to your project.
@@ -149,4 +146,3 @@ type MotorNode interface {
     QueryObject(cid string) (map[string]interface{}, error)
 }
 ```
->>>>>>> 4b4eb1940744c5d13ec391fcc29115534e045b40

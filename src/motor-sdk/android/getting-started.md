@@ -2,15 +2,6 @@
 
 This guide assumes you're familiar with Android development and [Android Studio](https://developer.android.com/studio/intro).
 
-<<<<<<< HEAD
-Start by creating a new project. 
-![Create a new project](../../../assets/new-project.png)
-
-Next, grab the latest version of Motoroid from [Jitpack.io](https://jitpack.io/#sonr-io/motor-android). Select the "motoroid" subproject and follow the instructions to finish adding the dependency.
-
-Your `build.gradle` should look like this when you're done.
-![build gradle](../../../assets/build-gradle.png)
-=======
 ## Project Setup
 
 Start by creating a new project. 
@@ -58,4 +49,3 @@ You're ready to start using Motor in your app! Check out one of the guides for n
 * [Buckets](./buckets.md)
 * [Updating Buckets](./updating-buckets.md)
 * [API Reference](./reference.md)
->>>>>>> 4b4eb1940744c5d13ec391fcc29115534e045b40

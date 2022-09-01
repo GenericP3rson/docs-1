@@ -1,8 +1,5 @@
 # Buckets
 
-<<<<<<< HEAD
-This file describes how to use buckets.
-=======
 Buckets on Sonr are a great way to store related Documents—think of them like folders. They contain Document references as well as other buckets.
 
 Like everything on Sonr, you need a bucket's DID in order to fetch it.
@@ -42,4 +39,3 @@ public void getSubBucket(String did) throws Exception {
 ```
 
 Like schemas, buckets must be created via the [Speedway CLI](#).
->>>>>>> 4b4eb1940744c5d13ec391fcc29115534e045b40
