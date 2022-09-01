@@ -4,8 +4,7 @@ title: Overview
 
 # Buckets
 Similar to Amazon S3 or DigitalOcean Spaces, developers can leverage our decentralized storage module for uploading either application specific assets or user specific assets. 
-
-The Sonr bucket module is used to record the defined collections of Objects utilized by an Application on the Sonr Network. A bucket can be either public access, private access, or restricted access based on Developer configuration. A bucket is used to help organize similar objects for a given application.
+The Sonr bucket module is used to record the defined collections of Objects utilized by an Application on the Sonr Network. A bucket can be either public access, private access, or restricted access based on Developer configuration. A bucket is used to help organize similar objects for a given application. Much like folders on a file system, buckets can be nested in order to create a deeply nested structure of content.
 
 ## Overview
 A Bucket is represented by a document on chain called a `WhereIs`. This document is referenced by its `Creator` and `DID` which provided a unique identifier to the content store. Buckets reference content by `BucketItems` which hold content identifiers. These identifiers can point to either `did` Content stores can reference one another, which allow data so be subcategorized and referenced by many buckets.
@@ -39,8 +38,8 @@ message WhereIs {
   int64 timestamp = 9;
 }
 ```
-
-Each BucketItem can hold either a Bucket or an `Object`. A DID of a [Schema]() can also be associated with an object.
+### Bucket Items
+a `BucketItem` is a reference to either an [Object](./objects.md), or another bucket itself.
 ```
 message BucketItem {
   // Name of the bucket item.
@@ -59,9 +58,19 @@ message BucketItem {
   string schema_did = 5;
 }
 ```
+### example bucket item
+```json
+  {
+    "name": "jock-#1",
+    "uri": "afyreihfrzall55r76lxzxt373lu7nz5mcaq7bawqlh3kdewlyvo4ebvoq",
+    "timestamp": 1661895712,
+    "type": 2,
+    "schema_did": "did:snr:2685375f-5652-48a4-b50f-f8aa098be3f5"
+  }
+```
 
-# Querying
-When querying bucket item which is an object, the following will be returned in a familar form based on the given platform / motor-sdk version:
+# Accessing Bucket Content
+When querying bucket item which is an object, the following will be returned in a familiar form based on the given platform / motor-sdk version:
 ```
 message BucketContent {
   // Raw content serialized to bytes
@@ -71,13 +80,23 @@ message BucketContent {
   sonrio.sonr.bucket.ResourceIdentifier content_type = 3;
 }
 ```
+Where `item` is a `Base64` encoded string of the `Document` queried for. When content is resolved it should be decoded before attempting to convert it to JSON.
+**Example**
 
+### Querying by schema
+if a `BucketItem` contains an optional field `Schema Did` then it will support being queried by a given schema.
+
+**Note** At this time the relationship of schema to a Document is not strictly enforced. Objects should only be associated with the schema they are created with.
 ### Bucket Types
 
-*   **App-specific bucket** -- a bucket created by the developer containing visual assets and other media related to the App.
+* **App-specific bucket** 
+  - Created by the developer, will be associated to an application and allowed for usage by the application domain.
 
-*   **User-specific bucket** -- a bucket Created with the intent of storing user related content.  Which is then related to the `Creator`.
+* **User-specific bucket**
+  - Created with the intent of storing user related content. `WhichIs` then related to the `Creator`.
 
 ## Usage
-> Blockchain Methods supplied by Channel Module. Full implementation is still a work in progress.
+Buckets function as a storage of content which holds a loose relation to one another, buckets function as a wrapper around `Objects` to create relationships amongst them. Developers are recommended to think of buckets as `Categories of data`. It's recommended to make one Bucket per [schema](./schemas.md). 
 
+See [Speedway]() documentation on usage of buckets through our management tooling.
+See [Motor-SDK](../../motor-sdk/overview.md) documentation in our SDK targets.
