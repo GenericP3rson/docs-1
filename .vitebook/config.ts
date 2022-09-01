@@ -104,6 +104,26 @@ export default defineConfig<DefaultThemeConfig>({
           //   ],
           //   style: "docs",
           // },
+          "/Modules": {
+            items: [
+              {
+              text: "Registry",
+                link: "modules/registry.html",
+              },
+              {
+                text: "Schemas",
+                link: "modules/schemas.html",
+              },
+              {
+                text: "Buckets",
+                link: "modules/buckets.html",
+              },
+              {
+                text: "Channels",
+                link: "modules/channels.html",
+              },
+            ],
+          },
           "/motor-sdk": {
             items: [
               // SidebarLink
