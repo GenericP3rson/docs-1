@@ -5,10 +5,10 @@ title: Speedway Overview (WIP)
 Speedway is a suite of developer tools that allow you to create, update, deprecate and query schemas, objects and buckets on the Sonr Network. The Speedway Suite consists of the Speedway CLI, the Speedway API, and the Speedway UI which is a web application that allows you to interact with the Speedway API. 
 
 Speedway currently utilizes four modules on the Sonr Blockchain. The modules are listed below for a wholistic overview.
-- [Registry Documentation](https://docs.sonr.io/highway/modules/registry.html)
-- [Schema Documentation](https://docs.sonr.io/highway/modules/schemas.html)
-- [Object Documentation](https://docs.sonr.io/highway/modules/schemas.html)
-- [Bucket Documentation](https://docs.sonr.io/highway/modules/buckets.html)
+- [Registry Documentation](../../modules/registry.md)
+- [Schema Documentation](../../modules/schemas.md)
+- [Object Documentation](../../modules/schemas.md)
+- [Bucket Documentation](../../modules/buckets.md)
 
 ## Speedway Tools
 
@@ -16,18 +16,18 @@ Speedway currently utilizes four modules on the Sonr Blockchain. The modules are
 The Speedway CLI allows developers all the comforts of Speedway into a command-line interface. 
 
 How to Install Speedway CLI:
-[Speedway CLI Installation](https://docs.sonr.io/cli/cli-install.html)
+[Speedway CLI Installation](./cli/cli-install.md)
 
 Speedway CLI Commands:
-[Speedway CLI Commands](https://docs.sonr.io/cli/cli-commands.html)
+[Speedway CLI Commands](./cli/cli-commands.md)
 
 ### UI
 Speedway User-Interface gives developers the ability to visually create schemas, objects and buckets in a web application.
 
 How to Install & Run the Speedway UI:
-[Getting Started](https://docs.sonr.io/motor-sdk/speedway/getting-started.html)
+[Getting Started](./getting-started.md)
 
 ### API
 The Speedway API was created in tandom with the Speedway UI to give developers the ability to utilize the Speedway suite in a web application.
 
-[Speedway API Reference](https://docs.sonr.io/motor-sdk/speedway/api-overview.html)
+[Speedway API Reference](./api-overview.md)

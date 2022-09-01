@@ -36,11 +36,11 @@ You may also download the project as a zip file from the GitHub Repository.
 ## Getting Started with the Speedway CLI
 ### Installation:
 
-[Speedway CLI Installation](https://docs.sonr.io/cli/cli-install.html)
+[Speedway CLI Installation](./cli/cli-install.md)
 
 ### Commands:
 
-[Speedway CLI Commands](https://docs.sonr.io/cli/cli-commands.html)
+[Speedway CLI Commands](./cli/cli-commands.md)
 
 ### Usage:
 ```
