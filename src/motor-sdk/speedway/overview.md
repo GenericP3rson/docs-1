@@ -4,6 +4,12 @@ title: Speedway Overview (WIP)
 ## What is Speedway?
 Speedway is a suite of developer tools that allow you to create, update, deprecate and query schemas, objects and buckets on the Sonr Network. The Speedway Suite consists of the Speedway CLI, the Speedway API, and the Speedway UI which is a web application that allows you to interact with the Speedway API. 
 
+Speedway currently utilizes four modules on the Sonr Blockchain. The modules are listed below for a wholistic overview.
+- [Registry Documentation](https://docs.sonr.io/highway/modules/registry.html)
+- [Schema Documentation](https://docs.sonr.io/highway/modules/schemas.html)
+- [Object Documentation](https://docs.sonr.io/highway/modules/schemas.html)
+- [Bucket Documentation](https://docs.sonr.io/highway/modules/buckets.html)
+
 ## Speedway Tools
 
 ### CLI
@@ -25,11 +31,3 @@ How to Install & Run the Speedway UI:
 The Speedway API was created in tandom with the Speedway UI to give developers the ability to utilize the Speedway suite in a web application.
 
 [Speedway API Reference](https://docs.sonr.io/motor-sdk/speedway/api-overview.html)
-
-## Sonr Modules Utilized by Speedway
-
-Speedway currently utilizes four modules on the Sonr Blockchain. The modules are listed below for a wholistic overview.
-- [Registry Documentation](https://docs.sonr.io/highway/modules/registry.html)
-- [Schema Documentation](https://docs.sonr.io/highway/modules/schemas.html)
-- [Object Documentation](https://docs.sonr.io/highway/modules/schemas.html)
-- [Bucket Documentation](https://docs.sonr.io/highway/modules/buckets.html)

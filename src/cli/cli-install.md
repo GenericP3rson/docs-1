@@ -29,7 +29,7 @@ title: CLI Installation
 
 3. CD into the cli directory ```cd cmd/speedway-cli```
 
-4. Run the build script ```./build.sh```
+4. Build using Go ```go build -o bin/speedway.exe```
 
 5. Add the binary to your path ```setx path "%path%;C:\Users\%USERNAME%\go\bin"```
 
