@@ -15,4 +15,4 @@ Objects are stored in the network as a `DAG`, which are made up of a series of d
  # Examples
 
 See [Speedway]() Documentation for information on how to upload content through a managed Content enviorment or our `CLI`. 
-See [Motor-SDK]() Documentation for how to interface with objects through its
+See [Motor-SDK]() Documentation for how to interface with objects through there for framework interaction with the object sore.
