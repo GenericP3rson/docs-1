@@ -136,6 +136,10 @@ The following object would be a valid definition for the above `Schema`
 ```
 
 
-The result of uploading an object will be a `cid` and `did`
+The result of uploading an object will be a series of content identifiers 
+
+
+
+`cid` and `did`
 example cid: `QmYYXVqZtxvQMaua978u9Gh6ByjvRXeonv89KgXNf7xBBs`
 example did: `did:snr:QmYYXVqZtxvQMaua978u9Gh6ByjvRXeonv89KgXNf7xBBs`
