@@ -124,6 +124,43 @@ export default defineConfig<DefaultThemeConfig>({
                   },
                 ],
               },
+              {
+                text: "Speedway",
+                collapsible: false,
+                children: [
+                  {
+                    text: "Overview",
+                    link: "/motor-sdk/speedway/overview.html",
+                  },
+                  {
+                    text: "Getting Started",
+                    link: "/motor-sdk/speedway/getting-started.html",
+                  },
+                  {
+                    text: "API Overview",
+                    link: "/motor-sdk/speedway/api-overview.html",
+                  },
+                  // SidebarMenu
+                  {
+                  text: "Command Line Interface",
+                  collapsible: false,
+                  children: [
+                      {
+                        text: "CLI Overview",
+                        link: "/motor-sdk/speedway/cli/cli-overview.html",
+                      },
+                      {
+                        text: "CLI Installation",
+                        link: "/motor-sdk/speedway/cli/cli-install.html",
+                      },
+                      {
+                        text: "CLI Commands",
+                        link: "/motor-sdk/speedway/cli/cli-commands.html",
+                      },
+                    ],
+                  },
+                ],
+              },
             ],
             style: "docs",
           },
@@ -142,7 +179,7 @@ export default defineConfig<DefaultThemeConfig>({
           },
           {
             text: "CLI",
-            link: "/architecture/overview.html",
+            link: "/motor-sdk/speedway/cli/cli-overview.html",
           },
         ],
       },
