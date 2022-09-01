@@ -15,12 +15,15 @@ Your project level `build.gradle` should look like this when you're done...
 ...and your `:app` level `build.gradle` should look like this.
 <img src="https://raw.githubusercontent.com/sonr-io/docs/main/assets/build-gradle-app.png" width="100%" />
 
+Note: You may need to delete the `dependencyResolutionManagement` section from `settings.gradle` if you receive an error.
+
 ## Initialization
 
 With Motoroid added to your project, all you need to do is initialize the `Motoroid` instance and you'll have access to a singleton throughout the lifetime of your application! It's a good idea to do this early on the lifetime of your app. For example, in your app's `onCreate` handler.
 
 ```java
-import 
+...
+import io.sonr.motoroid.Motoroid;
 
 ...
 
@@ -42,8 +45,7 @@ protected void onCreate(Bundle savedInstanceState) {
 You're ready to start using Motor in your app! Check out one of the guides for next steps.
 
 * [Authentication](./authenticate.md)
-* [Create an Object](./create-object.md)
-* [Get an Object](./get-object.md)
+* [Documents](./documents.md)
 * [Buckets](./buckets.md)
 * [Updating Buckets](./updating-buckets.md)
 * [API Reference](./reference.md)
