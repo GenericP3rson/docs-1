@@ -99,4 +99,4 @@ if a `BucketItem` contains an optional field `Schema Did` then it will support b
 Buckets function as a storage of content which holds a loose relation to one another, buckets function as a wrapper around `Objects` to create relationships amongst them. Developers are recommended to think of buckets as `Categories of data`. It's recommended to make one Bucket per [schema](./schemas.md). 
 
 See [Speedway]() documentation on usage of buckets through our management tooling.
-See [Motor-SDK](../../motor-sdk/overview.md) documentation in our SDK targets.
+See [Motor-SDK](../motor-sdk/overview.md) documentation in our SDK targets.

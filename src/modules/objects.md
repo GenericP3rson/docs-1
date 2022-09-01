@@ -6,7 +6,7 @@ title: Overview
 Objects are data persisted within an off chain storage network and given a content identifier, which represents the object in the network, not kept on the `blockchain`. When uploading an object for storage, there must be validation against a [schema](./schemas.md) in order to match in both property name, and type. 
 
 # Defining Objects
-Objects are represented as `JSON`. Which makes it simple to define objects quickly. Support for JSON is found within most modern IDE and Code editors. However, depending on the [motor-sdk](../../motor-sdk/overview.md) target you are using, there will be different ways of representing object data.
+Objects are represented as `JSON`. Which makes it simple to define objects quickly. Support for JSON is found within most modern IDE and Code editors. However, depending on the [motor-sdk](../motor-sdk/overview.md) target you are using, there will be different ways of representing object data.
 
 
 # Example of an Object definition
@@ -62,4 +62,4 @@ When an object is stored, it will be given its Identifier (`cid`) and `DID` whic
  see [bucket](./buckets.md) for more information on how Objects can be related to other objects.
  # Examples
 See [Speedway]() Documentation for information on how to upload content through a managed Content environment or our `CLI`. 
-See [Motor-SDK](../../motor-sdk/overview.md) Documentation for how to interface with objects through there for framework for creating Objects.
+See [Motor-SDK](../motor-sdk/overview.md) Documentation for how to interface with objects through there for framework for creating Objects.
