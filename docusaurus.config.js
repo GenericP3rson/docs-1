@@ -6,9 +6,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
+  title: 'The Internet Rebuilt for you',
+  staticDirectories: ['public', 'static'],
+  tagline: 'Official documentation for the Sonr Platform',
+  url: 'https://docs.sonr.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -16,8 +17,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'sonr-io', // Usually your GitHub org/user name.
+  projectName: 'docs', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -65,6 +66,7 @@ const config = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+
         },
       }),
     ],
@@ -72,11 +74,17 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
       navbar: {
-        title: 'Sonr Docs',
+        //title: 'Sonr Docs',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Sonr Docs Logo',
           src: 'img/logo.svg',
+          className: 'navbar-logo',
         },
         items: [
           {
@@ -87,7 +95,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'speedway/intro/overview',
+            docId: 'speedway/quick-start',
             position: 'left',
             label: 'Speedway',
           },
@@ -98,9 +106,10 @@ const config = {
             label: 'Integrate',
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://github.com/sonr-io/sonr',
             position: 'right',
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
           },
         ],
       },
@@ -108,28 +117,28 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Community',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Discord',
+                href: 'https://sonr.buzz',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/sonr_io',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'Resources',
             items: [
               {
+                label: 'Architecture',
+                href: 'https://github.com/sonr-io/sonr/blob/dev/docs/architecture/GUIDE.md',
+              },
+              {
                 label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://stackoverflow.com/questions/tagged/sonr',
               },
             ],
           },
@@ -137,22 +146,17 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Homepage',
+                href: 'https://github.com/sonr-io/sonr',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
-              },
+                label: 'Contact Us',
+                href: 'mailto:team@sonr.io',
+              }
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ["java", "scala"],
+        copyright: `Copyright © ${new Date().getFullYear()} Sonr Inc.`,
       },
     }),
 };

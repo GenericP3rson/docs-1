@@ -40,7 +40,7 @@ message WhereIs {
 }
 ```
 ### Bucket Items
-a `BucketItem` is a reference to either an [Object](./objects.md), or another bucket itself.
+a `BucketItem` is a reference to either an [Object](/docs/highway/modules/objects.md), or another bucket itself.
 ```
 message BucketItem {
   // Name of the bucket item.
@@ -97,7 +97,7 @@ if a `BucketItem` contains an optional field `Schema Did` then it will support b
   - Created with the intent of storing user related content. `WhichIs` then related to the `Creator`.
 
 ## Usage
-Buckets function as a storage of content which holds a loose relation to one another, buckets function as a wrapper around `Objects` to create relationships amongst them. Developers are recommended to think of buckets as `Categories of data`. It's recommended to make one Bucket per [schema](./schemas.md).
+Buckets function as a storage of content which holds a loose relation to one another, buckets function as a wrapper around `Objects` to create relationships amongst them. Developers are recommended to think of buckets as `Categories of data`. It's recommended to make one Bucket per [schema](/docs/highway/modules/schemas.md).
 
 See [Speedway](https://speedway.sh) documentation on usage of buckets through our management tooling.
-See [Motor-SDK](../motor-sdk/overview.md) documentation in our SDK targets.
+See [Motor-SDK](/docs/motor-sdk/intro.mdx) documentation in our SDK targets.

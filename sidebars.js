@@ -59,19 +59,19 @@ const sidebars = {
     },
   ],
   speedwaySidebar: [
-    'speedway/intro/overview', 'speedway/intro/installation',
+    'speedway/quick-start', 'speedway/installation',
     {
       type: 'category',
       label: 'Guides',
       collapsed: true,
-      items: ['speedway/guides/cli-example', 'speedway/guides/flutter-example'],
+      items: ['speedway/cli-example', 'speedway/flutter-example'],
     },
     {
       type: 'category',
       label: 'API',
       collapsed: false,
       collapsible: false,
-      items: ['speedway/api/cli-cmds', 'speedway/api/routes'],
+      items: ['speedway/cli-cmds', 'speedway/routes'],
     },
   ],
 };

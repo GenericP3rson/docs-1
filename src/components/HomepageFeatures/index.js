@@ -4,42 +4,40 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Web3 Integrations',
+    src: require('@site/static/img/integrations.png').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Sonr provides easy to use methods to interact with IPFS, Ethereum, and other blockchain networks.
       </>
     ),
   },
   {
     title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    /* It's a prop that is being passed to the Feature component. */
+    src: require('@site/static/img/focus.png').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        The Cross-platform Motor SDK is a set of libraries and tools that allow developers to easily interact with Sonr's blockchain and network.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'All of the Platforms',
+    src: require('@site/static/img/universal.png').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Sonr is available on desktop, mobile, and web. It's easy to use and easy to integrate with your existing applications.
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ src, title, description }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        <img src={src} alt={title} className={styles.featureSvg} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
