@@ -94,7 +94,7 @@ speedway object build
 ```
 The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema ID. After entering the schema ID, the CLI will prompt you to enter the object fields. Object Fields are entered via a prompt from the CLI, you will be required to enter the ```field_name``` and a ```field_value```. The CLI will then create the object and display the object CID.
 
-![Create Object GIF](https://raw.githubusercontent.com/sonr-io/docs/main/assets/create-object-cli.gif)
+![Create Object GIF](https://raw.githubusercontent.com/sonr-io/docs/main/assets/build-object-cli.gif)
 
 **Example Objects:**
 
@@ -129,7 +129,7 @@ Buckets can also be created by providing `label` `did` and `file` flags where:
 `did` is the schema `did` for the object to be validated against
 `file` an absolute path to a `json` defining the object
 
-![Create Bucket GIF](https://github.com/sonr-io/docs/blob/main/assets/create-bucket-cli.gif?raw=true)
+![Create Bucket GIF](https://raw.githubusercontent.com/sonr-io/docs/main/assets/create-bucket-cli.gif)
 
 ### Using the Speedway UI
 [Video Tutorial (Coming Soon)]()
