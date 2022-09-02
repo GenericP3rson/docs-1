@@ -73,7 +73,7 @@ speedway schema create
 ```
 The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema name, and the schema fields. The schema fields are the fields that will be used to create objects. The schema fields are entered in the following format: ```field_type```. The field type can be one of the following: ```string```, ```int```, ```float```, ```bool``` and ```list```. The CLI will then create the schema and display the schema DID.
 
-![Create Schema GIF](https://raw.githubusercontent.com/sonr-io/docs/main/assets/create-account-cli.gif)
+![Create Schema GIF](https://raw.githubusercontent.com/sonr-io/docs/main/assets/create-schema-cli.gif)
 you can also provide `json` to create a schema using the `--file` flag below is an example:
 ```json
 {
