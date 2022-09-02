@@ -73,7 +73,7 @@ speedway schema create
 ```
 The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema name, and the schema fields. The schema fields are the fields that will be used to create objects. The schema fields are entered in the following format: ```field_type```. The field type can be one of the following: ```string```, ```int```, ```float```, ```bool``` and ```list```. The CLI will then create the schema and display the schema DID.
 
-![Create Schema GIF](https://raw.githubusercontent.com/sonr-io/docs/main/assets/create-account-cli.gif)
+![Create Schema GIF](https://raw.githubusercontent.com/sonr-io/docs/main/assets/create-schema-cli.gif)
 you can also provide `json` to create a schema using the `--file` flag below is an example:
 ```json
 {
@@ -92,9 +92,30 @@ To create an object, run the following command:
 ```
 speedway object build
 ```
-The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema ID. After entering the schema ID, the CLI will prompt you to enter the object fields. Object Fields are entered via a prompt from the CLI, you will be required to enter the ```field_value``` for a ```field_name```. The CLI will then create the object and display the object CID.
+The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema ID. After entering the schema ID, the CLI will prompt you to enter the object fields. Object Fields are entered via a prompt from the CLI, you will be required to enter the ```field_name``` and a ```field_value```. The CLI will then create the object and display the object CID.
 
 ![Create Object GIF](https://raw.githubusercontent.com/sonr-io/docs/main/assets/create-object-cli.gif)
+
+**Example Objects:**
+
+_Employee Object Example_
+```
+Label: Mary Smith
+Fields:
+  name: Mary Smith
+  address: 123 Main Street
+  phone: 555-555-5555
+```
+
+_Timesheet Object_
+```
+Label: Company Timesheet
+Fields:
+  employee: Mary Smith
+  date: 09/01/2022
+  start_time: 1662048000
+  end_time: 1662076800
+```
 
 #### Create a Bucket
 To create a bucket, run the following command:
@@ -107,6 +128,8 @@ Buckets can also be created by providing `label` `did` and `file` flags where:
 `label` is the user defined labeling of the object
 `did` is the schema `did` for the object to be validated against
 `file` an absolute path to a `json` defining the object
+
+![Create Bucket GIF](https://github.com/sonr-io/docs/blob/update/speedway/assets/create-bucket-cli.gif?raw=true)
 
 ### Using the Speedway UI
 [Video Tutorial (Coming Soon)]()
