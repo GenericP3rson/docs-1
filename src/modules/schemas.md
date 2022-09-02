@@ -3,7 +3,7 @@ title: Overview
 ---
 # Schemas
 ## Introduction
-The Sonr Schema module is used to store the records of verifiable objects for a specific application powered by the Sonr Network. Schemas are used to create custom application protcols which can be asserted on in order to verify your application data. Application data uploaded through `motor` can verify their data model through `Schemas`.
+The Sonr Schema module is used to store the records of verifiable objects for a specific application powered by the Sonr Network. Schemas are used to create custom application protcols which can be asserted on in order to verify your application data. Application data uploaded through `Motor` can verify their data model through `Schemas`.
 
 ## Overview
 Schemas are implemented on the `IPLD Object Model` which allows developers to register specific application data schemas. See [IPLD Schema documentation](https://ipld.io/docs/schemas)
@@ -54,10 +54,31 @@ The following are the numeric values which are used in our `protocol` layers.
   BYTES = 5
   LINK = 6
 ```
-
-**Note**: When using arrays, all properties must be of the same type, and of one of the supported in the above list.
+# Link types and combining Schemas
+A `Link` refers to a schema by `cid` which allows users to reuse schemas as properties on other schema definitions. here we will model a simple schema with nested content.
+**Example**
+```json
+{
+  "foo": Link 
+}
+```
+where the `Link` is a `cid` in this example the `Link` is to the following schema
+```json
+{
+  "bar": STRING
+}
+```
+the following `Object` is using the first schema in the example would like this:
+```json
+{
+  "foo": {
+    "bar": "hello-world"
+  }
+}
+```
+**Note** when using links, links cannot yet be used within lists.
 ### What Is records
-A `ScehamReference` is used to store information about a `ScehmaDefinition` on our blockchain. This is stored within what is called a `WhatIs` record. Which holds infromation describing the registered Schema.
+A `ScehamReference` is used to store information about a `ScehmaDefinition` on our blockchain. This is stored within what is called a `WhatIs` record. Which holds information describing the registered Schema.
 
 ```go
 message WhatIs {
@@ -97,116 +118,37 @@ message SchemaReference{
 }
 ```
 
-# Messages
-
-
-### `CreateSchema(SchemaDefinition)`
-Register's a new type definition for a given application. this type defention is then asserted against when uploading content
-
-```go
-{
-    Creator string
-    Label   string
-    fields  []SchemaKindDefinition
-}
-```
-
-- `Creator` The identifier of the application the schema is registering for
-- `Label` The human readable description of the schema
-
-Returns a `WhatIs`
-
----
-
-### `DeprecateSchema(MsgDeprecateSchema)`
-Allows for Schemas to be depricated. Depricated schemas are still accessible but will allow developers to indicate it is no longer supported.
-```go
-{
-  Creator string 
-  Did string 
-}
-```
-
-- `Creator` The Account Address Singing this message
-- `DID`     The identifier of the Schema
-
-Returns a `status code` and `message` detailing the operation.
-
-## Query Methods
-Query methods are used for accessing state kept within the `Keeper`
-### `QuerySchema`
-For cases it is dersired to lookup a Schema Definition for verifying on an uploaded object.
-
-```go
-{
-    Creator string
-    Did     string
-}
-```
-- `Creator` identifier of the schema owner which will be a `Application`
-- `DID` identifier of the schema being queried for
-
-
-Returns a `SchemaDefinition`
-
----
-### `QueryWhatIs`
-For cases where applications need to verify existing data, or verify a schema belongs to a certain `Creator`. `QueryWhatIs` should be used over `QuerySchema` when only verification of the data is needed.
-
-
-```go
-{
-    Creator string
-    Did     string
-}
-```
-`
-- `Creator` identifier of the schema owner which will be a `Application`
-- `DID` identifier of the schema being queried for
-
-
-Returns a `WhatIs`
-
-### `QueryWhatIsByCreator`
-For cases where applications need to query for all `WhatIs` records relating to a specific `Creator` Address.
-Request can also contain `Pagination` which will be outlined in the response.
-```go
-{
-    Creator string
-}
-```
-Returns a List of `WhatIs` created by the given account.
-
 ### Examples
+The following are example Schemas and [Objects](./objects.md) which outline how types declared within a schema map to the objects which are defined from them.
+below are two examples: An User Account, and 
 ### User Account
 
 ```json
 {
-  "username": STRING,
+  "user": STRING,
   "email": STRING,
   "timestamp": INT,
   "lastSeen": INT,
 
 }
 ```
-
+here we have an object which matches the above schema
 ```json
 {
-  "username": "Bob Smith",
+  "username": "snr1d8cjuwkssr9uzf8zllkmmn0ekv6p7a7yuz2dp",
   "email": "example@example.com",
-  "createdAt": 1661220968,
   "lastSeen": 1661220968,
 }
 ```
 ----
-The following is an example schema for an `NFT`
+The following is an example schema for a `Pet`
 ##### Schema
 ```json
 {
-  "description": STRING, 
-  "image": STRING, 
-  "name": STRING,
-  "attributes": LIST
+  "name": STRING, 
+  "breed": STRING, 
+  "age": INT,
+  "owner": STRING
 }
 ```
 The following object would be a valid definition for the above `Schema`
