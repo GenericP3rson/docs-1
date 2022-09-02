@@ -50,7 +50,7 @@ USER = 0;
 APPLICATION = 1;
 ```
 
-### DID Document Repersentation
+### DID Document Representation
 
 ```go
 message DIDDocument {
@@ -66,7 +66,8 @@ message DIDDocument {
   Service service = 10; // optional
   string[] also_known_as = 11; // optional
 }
-
+```
+```go
 message VerificationMethod {
   string id = 1;
   string type = 2;
@@ -75,13 +76,15 @@ message VerificationMethod {
   string public_key_base58 = 5; // optional
   bytes credential_json = 6; // optional
 }
-
+```
+```go
 message Service {
   string id = 1;
   string type = 2;
   repeated KeyValuePair service_endpoint = 3;
 }
-
+```
+```go
 message KeyValuePair {
   string key = 1;
   string value = 2;
