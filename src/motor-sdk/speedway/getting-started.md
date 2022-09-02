@@ -133,7 +133,7 @@ speedway bucket create
 ```
 The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the bucket label. After entering the bucket label, the CLI will prompt you to enter the visibility of the bucket. The visibility can be one of the following: ```public```, ```private```. The role can be one of the following: ```application```, ```user```. Application buckets are visible to all users. User buckets are visible only to the user who created the bucket. The CLI will then create the bucket and display the bucket DID.
 
-![Create Bucket GIF](https://)
+![Create Bucket GIF](https://raw.githubusercontent.com/sonr-io/docs/update/speedway/assets/create-bucket-cli.gif)
 
 **Example Buckets:**
 
