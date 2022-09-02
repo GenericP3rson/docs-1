@@ -13,7 +13,7 @@ Schemas are implemented on the `IPLD Object Model` which allows developers to re
 ### Schema Kind Defintion
 Schema's declare the intended type of a property though IPLD Type `KIND` Each `KIND` is mapped to the name of a property. Each property defined must map to one of the given `IPLD` `KINDS`
 ### Schema Definition
-A `Schema Definition` is used to describe an application Schema that will be stored for later assertion against. the provided `Schema Definition` is then used to Derive both the `WhatIs` and `Schema Reference` that will be recorded on chain. Schemas comply to the `IPLD Object` specification. 
+A `Schema Definition` is used to describe an application Schema that will be stored for later assertion against. The provided `Schema Definition` is then used to Derive both the `WhatIs` and `Schema Reference` that will be recorded on chain. Schemas comply to the `IPLD Object` specification. 
 
 
 
@@ -31,7 +31,7 @@ message SchemaDefinition{
 ```
 ---
 Fields contained within the `SchemaDefinition` are described below:
-Each field reperesents an `IPLD` Kind. more information can be found [here](https://ipld.io/docs/schemas/features/typekinds/).
+Each field represents a `IPLD` Kind. More information can be found [here](https://ipld.io/docs/schemas/features/typekinds/).
 
 Currently, there is support the following `types` while complex types, unions, nullable fields, and optional properties are not supported we are working to comply with the full `IPLD` type system.
 ```go
@@ -156,14 +156,9 @@ The following object would be a valid definition for the above `Schema`
 ##### Object
 ```json
 {
-  "description": "Friendly Creature", 
-  "image": "ipfs://QmZWD55U2SDp9uQ5m8hS77EdavpnatTcBMDAkEEKnPWGbn", 
-  "name": "My NFT",
-  "attributes": [
-    "eyes",
-    "ears",
-    "nose",
-    "mouth"
-  ]
+  "name": "Fido",
+  "breed": "Domestic-Short-Hair",
+  "age": 5,
+  "owner": "snr1d8cjuwkssr9uzf8zllkmmn0ekv6p7a7yuz2dpc"
 }
 ```
