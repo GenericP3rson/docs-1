@@ -38,20 +38,23 @@ go build -o speedway cmd/speedway-cli/main.go
 ```
 
 # Known Issues
-<details>
-    <summary>Cannot use types other than string in objects or it casues issues with validation</summary>
-    Workaround: Use strings for all datatypes
-</details>
-<details>
-    <summary>The server sometimes fails due to `Concurrent Map Writes`</summary>
-    Workaround: Restart the server and repeat the action
-</details>
+
+Speedway UI: Cannot use types other than string in objects or it casues issues with validation
+
+- Workaround: Use strings for all datatypes
+
+- Workaround: Use the cli
+
+- Workaround: Use the <code>--file  &lt;file&gt;</code> flag on the CLI commands
+    
+The server sometimes fails due to `Concurrent Map Writes`
+
+- Workaround: Restart the server and repeat the action
 
 ## Contributing
-<summary>Building For Backend Dev</summary>
-To build for dev, run `task server:start:debug` instead of `task server:start:release`
+## Building For Backend Dev
 
-<summary>Running the Mock Backend</summary>
+To build for dev, run `task server:start:debug` instead of `task server:start:release`
 
 ### Running the UI: Mock Server Mode
 This mode is ideal for UI development. Changes to the code will reflect on the browser automatically and there is no need to build. Any data generated will be local only. Behavior may not perfectly match the Sonr Speedway Backend.
