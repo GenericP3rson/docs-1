@@ -42,14 +42,6 @@ export default defineConfig<DefaultThemeConfig>({
         categories: true,
         items: {
           "/": "auto",
-          "/Getting Started": {
-            items: [
-              {
-                text: "Overview",
-                link: "/general/getting-started.md",
-              },
-            ]
-          },
           "/Modules": {
             items: [
               {
@@ -187,10 +179,11 @@ export default defineConfig<DefaultThemeConfig>({
       //   discord: "https://sonr.io/discord",
       //   twitter: "https://sonr.io/twitter",
       // },
+      // Nick asked me to move "Get Started" to the Speedway CLI Overview page
       homePage: {
         heroText: "The Internet rebuilt for you",
         primaryActionText: "Get Started",
-        primaryActionLink: "/general/1-getting-started.html",
+        primaryActionLink: "/motor-sdk/speedway/cli/cli-overview.html",
         secondaryActionText: "Learn More",
         secondaryActionLink: "/general/2-what-is-sonr.html",
         features: [
