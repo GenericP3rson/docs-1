@@ -26,7 +26,22 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  plugins: [
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "openapi",
+        docsPluginId: "classic",
+        config: {
+          blockchain: {
+            specPath: "static/blockchain.yaml",
+            outputDir: "docs/api",
+          },
+        },
+      },
+    ],
+  ],
+  themes: ["docusaurus-theme-openapi-docs"],
   presets: [
     [
       'classic',
@@ -38,6 +53,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          docLayoutComponent: "@theme/DocPage",
+          docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
         },
         blog: {
           showReadingTime: true,
@@ -52,7 +69,6 @@ const config = {
       }),
     ],
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -71,11 +87,16 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'motor-sdk/overview',
+            docId: 'speedway/intro/overview',
+            position: 'left',
+            label: 'Speedway',
+          },
+          {
+            type: 'doc',
+            docId: 'motor-sdk/intro',
             position: 'left',
             label: 'Integrate',
           },
-          { to: '/blog', label: 'Blog', position: 'left' },
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
@@ -131,6 +152,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ["java", "scala"],
       },
     }),
 };

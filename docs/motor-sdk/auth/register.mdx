@@ -1,0 +1,44 @@
+---
+title: Register Account
+sidebar_position: 1
+displayed_sidebar: motorSidebar
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import Highlight from "@site/src/components/Highlight";
+
+Under the hood, Sonr uses an MPC-based wallet to secure your account and authenticate you. You can create and login to these accounts easily through motor. For more information check out [TODO](#).
+
+## Registering an Account
+
+To create an account, you simply need to provide a recovery password to the [create account method](/docs/motor-sdk/intro.mdx#initialization).. Account creation can take up to three minutes, so entertain your users :).
+:::tip
+
+Creating an account automatically authenticates you for the lifetime of the `MotorNode` or `Motoroid` instance. Creating an account automatically authenticates you for the lifetime of the session.
+
+:::
+
+<Tabs groupId="platform">
+  <TabItem value="go" label="Go" default>
+
+</TabItem>
+  <TabItem value="java" label="Java">
+
+```java
+public void createAccount(String password) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    CreateAccountResponse response = mtr.createAccount(password);
+    System.out.println(response.getAddress());
+}
+```
+
+**Output:** Prints the blockchain address of the newly created account
+
+  </TabItem>
+
+  <TabItem value="flutter" label="Flutter">
+    This is a banana 🍌
+  </TabItem>
+</Tabs>

@@ -1,0 +1,180 @@
+---
+title: Introduction
+sidebar_position: 1
+displayed_sidebar: motorSidebar
+---
+
+The Motor SDK is a set of developer tools for building decentralized applications on the Sonr network. It currently supports Desktop, Android, and Flutter targets with plans to support iOS, React Native, and Web in the near future.
+
+Motor Android is an Android library designed to help developers utilize Sonr in their apps. You can find the source code on [Github](https://github.com/sonr-io/motor-android).
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+## Project Setup
+
+> Select your target platform to get started and setup a new Motor integrated project.
+
+<Tabs groupId="platform">
+  <TabItem value="go" label="Go" default>
+
+Start by adding the `sonr` package to your project.
+
+```bash
+go get -u github.com/sonr-io/sonr
+```
+
+  </TabItem>
+  <TabItem value="android" label="Android">
+
+:::note
+
+This guide assumes you're familiar with Android development and [Android Studio](https://developer.android.com/studio/intro).
+
+:::
+Start by creating a new project.
+
+<img
+  src="https://raw.githubusercontent.com/sonr-io/docs/main/assets/new-project.png"
+  width="100%"
+/>
+
+Next, grab the latest version of Motoroid from [Jitpack.io](https://jitpack.io/#sonr-io/motor-android). Select the "motoroid" subproject and follow the instructions to finish adding the dependency.
+
+Your project level `build.gradle` should look like this when you're done...
+
+<img
+  src="https://raw.githubusercontent.com/sonr-io/docs/main/assets/build-gradle.png"
+  width="100%"
+/>
+
+...and your `:app` level `build.gradle` should look like this.
+
+<img
+  src="https://raw.githubusercontent.com/sonr-io/docs/main/assets/build-gradle-app.png"
+  width="100%"
+/>
+
+Note: You may need to delete the `dependencyResolutionManagement` section from `settings.gradle` if you receive an error.
+
+  </TabItem>
+  <TabItem value="flutter" label="Flutter">
+    This is a banana 🍌
+  </TabItem>
+</Tabs>
+
+## Initialization
+
+> Spawning a new Motor instance is the first step in using the SDK. This is where you'll configure your app's connection to the Sonr network.
+
+<Tabs groupId="platform">
+  <TabItem value="go" label="Go" default>
+There should exist only one instance of `Motor` throughout the lifetime of your application.
+
+```go
+import (
+    "github.com/sonr-io/sonr/pkg/motor"
+    "github.com/sonr-io/sonr/third_party/types/common"
+)
+
+func main() {
+    mtr, err := EmptyMotor(&mt.InitializeRequest{
+		    DeviceId: "unique_device_id", // this field must be unique to the device
+	  }, common.DefaultCallback())
+}
+```
+
+Before you can use the motor methods, you must finish initialization by either creating an account or logging in. To create an account you must have the following information.
+
+- Device ID - something to uniquely identify the device Motor is running on
+- Password - the user must provide this
+- DSC - Device Specific Credential. A 32-byte AES key used to represent the device. Keep this stored in the device's keychain.
+
+```go
+mtr, err := EmptyMotor(&mt.InitializeRequest{
+    DeviceId: "unique_device_id", // this field must be unique to the device
+}, common.DefaultCallback())
+if err != nil {
+  panic(err)
+}
+
+createResponse, err := mtr.CreateAccount(mt.CreateAccountRequest{
+		Password:  "password123",
+		AesDscKey: aesKey,
+})
+
+// store the preshared key somewhere
+store(createResponse.AesPskKey)
+```
+
+Logging in uses a combination of the below.
+
+- DID - The DID generated during account creation
+- DSC - Device Specific Credential. A 32-byte AES key used to represent the device. Keep this stored in the device's keychain.
+- PSK - Preshared key. A 32-byte AES key. This key is meant to be shared between all devices
+- Password - The password used during account creation
+
+To login you must provide the PSK and one of either the password or DSC.
+
+```go
+mtr, err := EmptyMotor(&mt.InitializeRequest{
+    DeviceId: "unique_device_id",
+}, common.DefaultCallback())
+if err != nil {
+  panic(err)
+}
+
+loginResponse, err := mtr.Login(mt.LoginRequest{
+    Did:       "<address of the account to be logged in>",
+    Password:  "password123",
+    AesPskKey: pskKey,
+})
+
+// -- OR --
+
+loginResponse, err := mtr.Login(mt.LoginRequest{
+    Did:       "<address of the account to be logged in>",
+    AesDscKey: dscKey,
+    AesPskKey: pskKey,
+})
+```
+
+  </TabItem>
+  <TabItem value="android" label="Android">
+    With Motoroid added to your project, all you need to do is initialize the `Motoroid` instance and you'll have access to a singleton throughout the lifetime of your application! It's a good idea to do this early on the lifetime of your app. For example, in your app's `onCreate` handler.
+
+```java
+...
+import io.sonr.motoroid.Motoroid;
+
+...
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // Initialize motor
+    try {
+        Motoroid.init(getApplicationContext());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    ...
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="Flutter">
+    This is a banana 🍌
+  </TabItem>
+</Tabs>
+
+## Next Steps
+
+You're ready to start using Motor in your app! Check out one of the guides for next steps.
+
+- [Authentication](/docs/motor-sdk/auth/authenticate)
+- [Documents](/docs/motor-sdk/storage/documents)
+- [Buckets](/docs/motor-sdk/storage/buckets)
+- [Reference](/docs/motor-sdk/reference/go)
