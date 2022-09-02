@@ -11,24 +11,12 @@ Speedway currently utilizes four modules on the Sonr Blockchain. The modules are
 - [Object Documentation](/docs/highway/modules/objects.md)
 - [Bucket Documentation](/docs/highway/modules/buckets.md)
 
-## Speedway Tools
+## Installation
+The Speedway CLI allows developers all the comforts of Speedway into a command-line interface. Speedway User-Interface gives developers the ability to visually create schemas, objects and buckets in a web application.
+- [Speedway CLI](/docs/speedway/cli-cmds.mdx)
+- [Speedway Web](/docs/speedway/installation.md)
 
-### CLI
-The Speedway CLI allows developers all the comforts of Speedway into a command-line interface.
-
-How to Install Speedway CLI:
-[Speedway CLI Installation](./cli/cli-install.md)
-
-Speedway CLI Commands:
-[Speedway CLI Commands](./cli/cli-commands.md)
-
-### UI
-Speedway User-Interface gives developers the ability to visually create schemas, objects and buckets in a web application.
-
-How to Install & Run the Speedway UI:
-[Getting Started](./getting-started.md)
-
-### API
+### Next Steps
 The Speedway API was created in tandom with the Speedway UI to give developers the ability to utilize the Speedway suite in a web application.
-
-[Speedway API Reference](./api-overview.md)
+- [Example CLI App](/docs/speedway/cli-example.md)
+- [Example Flutter App](/docs/speedway/flutter-example.md)

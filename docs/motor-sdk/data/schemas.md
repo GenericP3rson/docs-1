@@ -1,3 +1,7 @@
+---
+displayed_sidebar: motorSidebar
+---
+
 # Schemas
 
 Schemas are the data types of the Sonr, adding structure to data stored on the network. Schemas are ubiquitous, meaning you're not limited to using the Schemas you created. Check out [Speedway](#) for information on viewing schemas.

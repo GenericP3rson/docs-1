@@ -1,5 +1,6 @@
 ---
 title: Installation
+displayed_sidebar: speedwaySidebar
 ---
 
 ## Speedway Project Installation
@@ -34,11 +35,11 @@ Getting started with Speedway is easy. Speedway allows you to interact with the 
 ## Getting Started with the Speedway CLI
 ### Installation:
 
-[Speedway CLI Installation](./cli/cli-install.md)
+[Speedway CLI Installation](/docs/speedway/installation.md)
 
 ### Commands:
 
-[Speedway CLI Commands](./cli/cli-commands.md)
+[Speedway CLI Commands](/docs/speedway/installation.md)
 
 ### Usage:
 ```

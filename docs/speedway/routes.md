@@ -1,5 +1,6 @@
 ---
 title: Routes
+displayed_sidebar: speedwaySidebar
 ---
 ## Summary
 

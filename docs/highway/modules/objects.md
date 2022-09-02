@@ -54,13 +54,13 @@ When an object is stored, it will be given its Identifier (`cid`) and `DID` whic
 }
 ```
 # Storage/Referencing
- It should be noted that once an object is stored. The `cid` must be associated with a [bucket](./buckets.md) to be retrievable. Buckets allow objects to be searched upon by schema, and meta-data. Currently (9/1/2022), only searching by a schema is supported, but indexing of buckets is expected soon.
+ It should be noted that once an object is stored. The `cid` must be associated with a [bucket](/docs/highway/modules/buckets.md) to be retrievable. Buckets allow objects to be searched upon by schema, and meta-data. Currently (9/1/2022), only searching by a schema is supported, but indexing of buckets is expected soon.
 
  # Framework Implementations
  Currently framework docs refer to `Objects` as `Documents` they are the same as what is in this documentation.
 
  # Relating Objects
- see [bucket](./buckets.md) for more information on how Objects can be related to other objects.
+ see [bucket](/docs/highway/modules/buckets.md) for more information on how Objects can be related to other objects.
  # Examples
 See [Speedway](https://speedway.sh) Documentation for information on how to upload content through a managed Content environment or our `CLI`.
-See [Motor-SDK](../motor-sdk/overview.md) Documentation for how to interface with objects through there for framework for creating Objects.
+See [Motor-SDK](/docs/motor-sdk/intro.mdx) Documentation for how to interface with objects through there for framework for creating Objects.
