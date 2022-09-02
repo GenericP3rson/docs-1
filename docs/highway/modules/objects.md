@@ -7,7 +7,7 @@ displayed_sidebar: highwaySidebar
 Objects are data persisted within an off chain storage network and given a content identifier, which represents the object in the network, not kept on the `blockchain`. When uploading an object for storage, there must be validation against a [schema](/docs/highway/modules/schemas.md) in order to match in both property name, and type.
 
 # Defining Objects
-Objects are represented as `JSON`. Which makes it simple to define objects quickly. Support for JSON is found within most modern IDE and Code editors. However, depending on the [motor-sdk](/docs/motor-sdk/intro.md) target you are using, there will be different ways of representing object data.
+Objects are represented as `JSON`. Which makes it simple to define objects quickly. Support for JSON is found within most modern IDE and Code editors. However, depending on the [motor-sdk](/docs/motor-sdk/intro.mdx) target you are using, there will be different ways of representing object data.
 
 
 # Example of an Object definition
