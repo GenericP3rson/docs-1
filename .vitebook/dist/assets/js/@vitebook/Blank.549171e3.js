@@ -1,1 +1,0 @@
-import{S as r,b as l,s as o,e as i,d as c,k as _,l as h,n as s,j as m}from"../framework.40d14ebd.js";function u(a){let t;return{c(){t=i("br"),this.h()},l(e){t=c(e,"BR",{class:!0}),this.h()},h(){_(t,"class","__vbk__")},m(e,n){h(e,t,n)},p:s,i:s,o:s,d(e){e&&m(t)}}}class f extends r{constructor(t){super(),l(this,t,null,u,o,{})}}export{f as default};

@@ -42,66 +42,25 @@ export default defineConfig<DefaultThemeConfig>({
         categories: true,
         items: {
           "/": "auto",
-          "/highway": {
+          "/Modules": {
             items: [
-              // SidebarLink
               {
-                text: "What is Sonr?",
-                link: "/highway/what-is-sonr.html",
+              text: "Registry (Account)",
+                link: "modules/registry.html",
               },
-              // SidebarLink
               {
-                text: "Getting Started",
-                link: "/highway/getting-started.html",
+                text: "Schemas",
+                link: "modules/schemas.html",
               },
-              // SidebarMenu
               {
-                text: "Modules",
-                collapsible: false,
-                children: [
-                  {
-                    text: "Registry",
-                    link: "/highway/modules/registry.html",
-                  },
-                  {
-                    text: "Schemas",
-                    link: "/highway/modules/schemas.html",
-                  },
-                  {
-                    text: "Buckets",
-                    link: "/highway/modules/buckets.html",
-                  },
-                  {
-                    text: "Channels",
-                    link: "/highway/modules/channels.html",
-                  },
-                ],
+                text: "Buckets",
+                link: "modules/buckets.html",
               },
-              // SidebarMenu
               {
-                text: "Services",
-                collapsible: true,
-                children: [
-                  {
-                    text: "IPFS",
-                    link: "/highway/services/ipfs.html",
-                  },
-                  {
-                    text: "Matrix",
-                    link: "/highway/services/matrix.html",
-                  },
-                  {
-                    text: "HNS",
-                    link: "/highway/services/hns.html",
-                  },
-                  {
-                    text: "Libp2p",
-                    link: "/highway/services/channels.html",
-                  },
-                ],
+                text: "Channels",
+                link: "modules/channels.html",
               },
             ],
-            style: "docs",
           },
           "/motor-sdk": {
             items: [
@@ -110,127 +69,92 @@ export default defineConfig<DefaultThemeConfig>({
                 text: "Overview",
                 link: "/motor-sdk/overview.html",
               },
-              // SidebarLink
-              {
-                text: "Installation",
-                link: "/motor-sdk/installation.html",
-              },
               // SidebarMenu
               {
-                text: "Account Management",
+                text: "Android",
                 collapsible: true,
                 children: [
                   {
-                    text: "Create an Account",
-                    link: "/motor-sdk/account/create-account.html",
+                    text: "Overview",
+                    link: "/motor-sdk/android/overview.html",
                   },
                   {
-                    text: "Authorizing App's",
-                    link: "/motor-sdk/account/authorize-app.html",
+                    text: "Getting Started",
+                    link: "/motor-sdk/android/getting-started.html",
                   },
                   {
-                    text: "Linking a Device",
-                    link: "/motor-sdk/account/linking-devices.html",
+                    text: "Authentication",
+                    link: "/motor-sdk/android/authenticate.html",
                   },
                   {
-                    text: "Sending Tokens",
-                    link: "/motor-sdk/account/send-tokens.html",
+                    text: "Schemas",
+                    link: "/motor-sdk/android/schemas.html",
+                  },
+                  {
+                    text: "Documents",
+                    link: "/motor-sdk/android/documents.html",
+                  },
+                  {
+                    text: "Buckets",
+                    link: "/motor-sdk/android/buckets.html",
+                  },
+                  {
+                    text: "Updating Buckets",
+                    link: "/motor-sdk/android/updating-buckets.html",
+                  },
+                  {
+                    text: "Motoroid Reference",
+                    link: "/motor-sdk/android/motoroid-reference.html",
+                  },
+                  {
+                    text: "Document Builder Reference",
+                    link: "/motor-sdk/android/document-builder-reference.html",
+                  },
+                  {
+                    text: "Bucket Reference",
+                    link: "/motor-sdk/android/bucket-reference.html",
                   },
                 ],
               },
-              // SidebarMenu
               {
-                text: "Managing User Data",
-                collapsible: true,
+                text: "Speedway",
+                collapsible: false,
                 children: [
                   {
-                    text: "Writing New Data",
-                    link: "/motor-sdk/data/write-data.html",
+                    text: "Overview",
+                    link: "/motor-sdk/speedway/overview.html",
                   },
                   {
-                    text: "Reading Existing Data",
-                    link: "/motor-sdk/data/read-data.html",
+                    text: "Getting Started",
+                    link: "/motor-sdk/speedway/getting-started.html",
                   },
                   {
-                    text: "Provisioning Data Access",
-                    link: "/motor-sdk/data/provision-access.html",
+                    text: "API Overview",
+                    link: "/motor-sdk/speedway/api-overview.html",
                   },
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "Working with Networking",
-                collapsible: true,
-                children: [
+                  // SidebarMenu
                   {
-                    text: "The Motor 'Host'",
-                    link: "/motor-sdk/networking/host.html",
-                  },
-                  {
-                    text: "PubSub Topic(s)",
-                    link: "/motor-sdk/networking/pubsub.html",
-                  },
-                  {
-                    text: "Protocols",
-                    link: "/motor-sdk/networking/protocols.html",
-                  },
-                ],
-              },
-              // SidebarMenu
-              {
-                text: "Design System",
-                collapsible: true,
-                children: [
-                  {
-                    text: "Introducing Nebula",
-                    link: "/motor-sdk/components/nebula.html",
-                  },
-                  {
-                    text: "Component List",
-                    link: "/motor-sdk/components/list.html",
-                  },
-                  {
-                    text: "Configuration",
-                    link: "/motor-sdk/components/configuration.html",
+                  text: "Command Line Interface",
+                  collapsible: false,
+                  children: [
+                      {
+                        text: "CLI Overview",
+                        link: "/motor-sdk/speedway/cli/cli-overview.html",
+                      },
+                      {
+                        text: "CLI Installation",
+                        link: "/motor-sdk/speedway/cli/cli-install.html",
+                      },
+                      {
+                        text: "CLI Commands",
+                        link: "/motor-sdk/speedway/cli/cli-commands.html",
+                      },
+                    ],
                   },
                 ],
               },
             ],
             style: "docs",
-          },
-          "/architecture": {
-            items: [
-              // SidebarLink
-              {
-                text: "Overview",
-                link: "/architecture/overview.html",
-              },
-              {
-                text: "1. Decentralized Identifiers",
-                link: "/architecture/adr-001.html",
-              },
-              // SidebarLink
-              {
-                text: "2. Verifiable Type Definitions",
-                link: "/architecture/adr-002.html",
-              },
-              {
-                text: "3. User and App Specific Storage",
-                link: "/architecture/adr-003.html",
-              },
-              {
-                text: "4. Peer-to-Peer Streams",
-                link: "/architecture/adr-004.html",
-              },
-              {
-                text: "5. NFT Standard",
-                link: "/architecture/adr-005.html",
-              },
-              {
-                text: "6. Invokable Functions",
-                link: "/architecture/adr-006.html",
-              },
-            ],
           },
         },
       },
@@ -239,7 +163,7 @@ export default defineConfig<DefaultThemeConfig>({
           // NavLink
           {
             text: "Learn",
-            link: "/highway/what-is-sonr.html",
+            link: "/general/what-is-sonr.html",
           },
           {
             text: "Build",
@@ -247,7 +171,7 @@ export default defineConfig<DefaultThemeConfig>({
           },
           {
             text: "CLI",
-            link: "/architecture/overview.html",
+            link: "/motor-sdk/speedway/cli/cli-overview.html",
           },
         ],
       },
@@ -255,12 +179,13 @@ export default defineConfig<DefaultThemeConfig>({
       //   discord: "https://sonr.io/discord",
       //   twitter: "https://sonr.io/twitter",
       // },
+      // Nick asked me to move "Get Started" to the Speedway CLI Overview page
       homePage: {
         heroText: "The Internet rebuilt for you",
         primaryActionText: "Get Started",
-        primaryActionLink: "/highway/getting-started.html",
+        primaryActionLink: "/motor-sdk/speedway/cli/cli-overview.html",
         secondaryActionText: "Learn More",
-        secondaryActionLink: "/highway/what-is-sonr.html",
+        secondaryActionLink: "/general/what-is-sonr.html",
         features: [
           {
             title: "Web3 Integrations",
