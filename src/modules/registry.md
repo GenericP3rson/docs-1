@@ -68,31 +68,6 @@ message DIDDocument {
 }
 ```
 
-```go
-message VerificationMethod {
-  string id = 1;
-  string type = 2;
-  string controller = 3;
-  repeated KeyValuePair public_key_jwk = 4; // optional
-  string public_key_base58 = 5; // optional
-  bytes credential_json = 6; // optional
-}
-```
-
-```go
-message Service {
-  string id = 1;
-  string type = 2;
-  repeated KeyValuePair service_endpoint = 3;
-}
-```
-
-```go
-message KeyValuePair {
-  string key = 1;
-  string value = 2;
-}
-```
 ## Webauthn Credentials
 Soon, [Webauthn](https://webauthn.io/) credentials will be supported, allowing you to register credentials that can be verified for account access.
 
