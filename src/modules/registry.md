@@ -50,24 +50,6 @@ USER = 0;
 APPLICATION = 1;
 ```
 
-### DID Document Representation
-
-```go
-message DIDDocument {
-  string[] context = 1; // optional
-  string id = 2;
-  string[] controller = 3; //optional
-  VerificationMethod[] verification_method = 4; // optional
-  string[] authentication = 5; // optional
-  string[] assertion_method = 6; // optional
-  string[] capability_invocation = 7; // optional
-  string[] capability_delegation = 8; // optional
-  string[] key_agreement = 9; // optional
-  Service service = 10; // optional
-  string[] also_known_as = 11; // optional
-}
-```
-
 ## Webauthn Credentials
 Soon, [Webauthn](https://webauthn.io/) credentials will be supported, allowing you to register credentials that can be verified for account access.
 
