@@ -67,6 +67,7 @@ message DIDDocument {
   string[] also_known_as = 11; // optional
 }
 ```
+
 ```go
 message VerificationMethod {
   string id = 1;
@@ -77,6 +78,7 @@ message VerificationMethod {
   bytes credential_json = 6; // optional
 }
 ```
+
 ```go
 message Service {
   string id = 1;
@@ -84,14 +86,13 @@ message Service {
   repeated KeyValuePair service_endpoint = 3;
 }
 ```
+
 ```go
 message KeyValuePair {
   string key = 1;
   string value = 2;
 }
 ```
-
-
 ## Webauthn Credentials
 Soon, [Webauthn](https://webauthn.io/) credentials will be supported, allowing you to register credentials that can be verified for account access.
 
