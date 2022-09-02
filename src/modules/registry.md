@@ -40,21 +40,8 @@ message WhoIs {
 }
 ```
 
-### WhoIs Types
-```go
-// WhoIsType is the type of DIDDocument stored in the registry module
-// User is the type of the registered name
-USER = 0;
-
-// Application is the type of the registered name
-APPLICATION = 1;
-```
-
 ## Webauthn Credentials
 Soon, [Webauthn](https://webauthn.io/) credentials will be supported, allowing you to register credentials that can be verified for account access.
 
 ## Aliases
 Soon, Aliases for `Domains` will be supported, allowing users to associate their `DID` with a domain name.
-
-
-
