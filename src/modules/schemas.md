@@ -103,7 +103,7 @@ message WhatIs {
 ```
 
 ### Schema Reference
-A `Schema Reference` is used to repersent off chain information related to the `Schema` being registered. This is held within the `WhatIs` record that is written to the chain. A `Schema Reference` helps in retrieving a `Schema` Which is held within other storage.
+A `Schema Reference` is used to represent off chain information related to the `Schema` being registered. This is held within the `WhatIs` record that is written to the chain. A `Schema Reference` helps in retrieving a `Schema` Which is held within other storage.
 
 ```go
 message SchemaReference{
@@ -119,9 +119,9 @@ message SchemaReference{
 ```
 
 ### Examples
-The following are example Schemas and [Objects](./objects.md) which outline how types declared within a schema map to the objects which are defined from them.
-below are two examples: An User Account, and 
-### User Account
+The following are example Schemas and [Objects](./objects.md) which outline how types declared within a schema map to the objects which are defined from them. Below are two examples: An `User Status`, and a `Pet`.
+
+### User Status
 
 ```json
 {
@@ -129,7 +129,7 @@ below are two examples: An User Account, and
   "email": STRING,
   "timestamp": INT,
   "lastSeen": INT,
-
+  "message": STRING,
 }
 ```
 here we have an object which matches the above schema
