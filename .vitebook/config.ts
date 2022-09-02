@@ -175,7 +175,7 @@ export default defineConfig<DefaultThemeConfig>({
           },
           {
             text: "Build",
-            link: "/motor-sdk/1-overview.html",
+            link: "/motor-sdk/overview.html",
           },
           {
             text: "CLI",
@@ -190,9 +190,9 @@ export default defineConfig<DefaultThemeConfig>({
       homePage: {
         heroText: "The Internet rebuilt for you",
         primaryActionText: "Get Started",
-        primaryActionLink: "/general/getting-started.html",
+        primaryActionLink: "/general/1-getting-started.html",
         secondaryActionText: "Learn More",
-        secondaryActionLink: "/general/what-is-sonr.html",
+        secondaryActionLink: "/general/2-what-is-sonr.html",
         features: [
           {
             title: "Web3 Integrations",
