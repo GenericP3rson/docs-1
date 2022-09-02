@@ -5,10 +5,10 @@ title: Speedway Overview (WIP)
 Speedway is a suite of developer tools that allow you to create, update, deprecate and query schemas, objects and buckets on the Sonr Network. The Speedway Suite consists of the Speedway CLI, the Speedway API, and the Speedway UI which is a web application that allows you to interact with the Speedway API. 
 
 Speedway currently utilizes four modules on the Sonr Blockchain. The modules are listed below for a wholistic overview.
-- [Registry Documentation](../../modules/registry.md)
-- [Schema Documentation](../../modules/schemas.md)
-- [Object Documentation](../../modules/schemas.md)
-- [Bucket Documentation](../../modules/buckets.md)
+- [Registry Documentation](../../modules/1-registry.md)
+- [Schema Documentation](../../modules/2-schemas.md)
+- [Object Documentation](../../modules/3-objects.md)
+- [Bucket Documentation](../../modules/4-buckets.md)
 
 ## Speedway Tools
 
