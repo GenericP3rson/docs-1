@@ -75,7 +75,7 @@ export default defineConfig<DefaultThemeConfig>({
               // SidebarLink
               {
                 text: "Overview",
-                link: "/motor-sdk/android/overview.html",
+                link: "/motor-sdk/overview.html",
               },
               // SidebarMenu
               {

@@ -71,29 +71,20 @@ To create a schema, run the following command:
 ```
 speedway schema create
 ```
-The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema name, and the schema fields. The schema fields are the fields that will be used to create objects. The schema fields are entered in the following format: ```field_type```. The field type can be one of the following: ```string```, ```int```, ```float``` and ```bool```. The CLI will then create the schema and display the schema DID.
+The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema name, and the schema fields. The schema fields are the fields that will be used to create objects. The schema fields are entered in the following format: ```field_type```. The field type can be one of the following: ```string```, ```int```, ```float```, ```bool``` and ```list```. The CLI will then create the schema and display the schema DID.
 
-![Create Schema GIF](https://raw.githubusercontent.com/sonr-io/docs/main/assets/create-schema-cli.gif)
-
-**Example Schemas:**
-
-_Employee Schema_
-```
-Label: Employee Information
-Fields:
-  name: string 
-  address: string
-  phone: string
-```
-
-_Timesheet Schema_
-```
-Label: Company Timesheet
-Fields:
-  employee: string
-  date: string
-  start_time: integer
-  end_time: integer
+![Create Schema GIF](https://raw.githubusercontent.com/sonr-io/docs/main/assets/create-account-cli.gif)
+you can also provide `json` to create a schema using the `--file` flag below is an example:
+```json
+{
+    "label": "Person",
+    "fields": {
+        "name": 4,
+        "age": 2,
+        "favoriteFoods": 0
+    },
+    "metadata": {}
+}
 ```
 
 #### Create an Object
@@ -133,47 +124,10 @@ speedway bucket create
 ```
 The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the bucket label. After entering the bucket label, the CLI will prompt you to enter the visibility of the bucket. The visibility can be one of the following: ```public```, ```private```. The role can be one of the following: ```application```, ```user```. Application buckets are visible to all users. User buckets are visible only to the user who created the bucket. The CLI will then create the bucket and display the bucket DID.
 
-![Create Bucket GIF](https://raw.githubusercontent.com/sonr-io/docs/update/speedway/assets/create-bucket-cli.gif)
-
-**Example Buckets:**
-
-Both buckets are private and application buckets. They are also created by the Employer.
-_Employee Bucket_
-```
-Label: Employee Bucket
-Fields:
-  [
-    {
-    "name": "Mary Smith",
-    "uri": "bafyreidw5omp3hilbun7cq7aofi6rbh4hcty3wgtvmpuge5e7ra5jr7q7m",
-    "type": "cid"
-    },
-    {
-    "name": "John Doe",
-    "uri": "bafyreidw5omp3hilbun8df08c9sk0bh4hcty3wgtvmmdk038sdf09r7q7m",
-    "type": "cid"
-    }
-  ]
-```
-
-_Timesheet Bucket_
-```
-Label: Company Timesheet
-Fields:
-  [
-    {
-    "name": "Mary Smith - Clock In",
-    "uri": "bafyreidw5omp3hilbun7cq7aofi6rbh4hcty3wgtvmpuge5e7ra5jr7q7m",
-    "type": "cid"
-    },
-    {
-    "name": "John Doe - Clock In",
-    "uri": "bafyreidw5omp3hilbun8df08c9sk0bh4hcty3wgtvmmdk038sdf09r7q7m",
-    "type": "cid"
-    }
-  ]
-  ]
-```
+Buckets can also be created by providing `label` `did` and `file` flags where:
+`label` is the user defined labeling of the object
+`did` is the schema `did` for the object to be validated against
+`file` an absolute path to a `json` defining the object
 
 ### Using the Speedway UI
-[Video Tutorial (Coming Soon)](https://)
+[Video Tutorial (Coming Soon)]()
