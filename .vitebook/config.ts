@@ -171,11 +171,11 @@ export default defineConfig<DefaultThemeConfig>({
           // NavLink
           {
             text: "Learn",
-            link: "/general/what-is-sonr.html",
+            link: "/general/2-what-is-sonr.html",
           },
           {
             text: "Build",
-            link: "/motor-sdk/overview.html",
+            link: "/motor-sdk/1-overview.html",
           },
           {
             text: "CLI",
