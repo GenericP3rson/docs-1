@@ -39,7 +39,7 @@ message WhereIs {
 }
 ```
 ### Bucket Items
-a `BucketItem` is a reference to either an [Object](./2-objects.md), or another bucket itself.
+a `BucketItem` is a reference to either an [Object](./3-objects.md), or another bucket itself.
 ```
 message BucketItem {
   // Name of the bucket item.
