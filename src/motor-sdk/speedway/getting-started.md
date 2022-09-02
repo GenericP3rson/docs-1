@@ -160,8 +160,6 @@ _Timesheet Bucket_
 ```
 Label: Company Timesheet
 Fields:
-Label: Employee Bucket
-Fields:
   [
     {
     "name": "Mary Smith - Clock In",
