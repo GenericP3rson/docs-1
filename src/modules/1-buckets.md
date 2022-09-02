@@ -7,7 +7,7 @@ Similar to Amazon S3 or DigitalOcean Spaces, developers can leverage our decentr
 The Sonr bucket module is used to record the defined collections of Objects utilized by an Application on the Sonr Network. A bucket can be either public access, private access, or restricted access based on Developer configuration. A bucket is used to help organize similar objects for a given application. Much like folders on a file system, buckets can be nested in order to create a deeply nested structure of content.
 
 ## Overview
-A Bucket is represented by a document on chain called a `WhereIs`. This document is referenced by its `Creator` and `DID` which provided a unique identifier to the content store. Buckets reference content by `BucketItems` which hold content identifiers. These identifiers can point to either `did` Content stores can reference one another, which allow data so be subcategorized and referenced by many buckets.
+A Bucket is represented by a document on chain called a `WhereIs`. This document is referenced by its `Creator` and `DID` which provided a unique identifier to the content store. Buckets reference content by `BucketItems` which hold content identifiers. These identifiers can point to either `DID` Content stores can reference one another, which allow data so be subcategorized and referenced by many buckets.
 
 ### WhereIs defintion
 As stated within the `overview`, a `WhereIs` document is the on chain reference to a Bucket. Which hold it's `DID`, `Creator` and `BucketItems`.
@@ -61,7 +61,7 @@ message BucketItem {
 ### example bucket item
 ```json
   {
-    "name": "jock-#1",
+    "name": "cute-cats",
     "uri": "afyreihfrzall55r76lxzxt373lu7nz5mcaq7bawqlh3kdewlyvo4ebvoq",
     "timestamp": 1661895712,
     "type": 2,
