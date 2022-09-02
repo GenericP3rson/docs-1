@@ -119,7 +119,7 @@ message SchemaReference{
 ```
 
 ### Examples
-The following are example Schemas and [Objects](./objects.md) which outline how types declared within a schema map to the objects which are defined from them. Below are two examples: An `User Status`, and a `Pet`.
+The following are example Schemas and [Objects](./3-objects.md) which outline how types declared within a schema map to the objects which are defined from them. Below are two examples: An `User Status`, and a `Pet`.
 
 ### User Status
 
