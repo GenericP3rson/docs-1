@@ -1,36 +1,77 @@
 ---
 title: CLI Installation
 ---
-# Speedway CLI Installation
-## Mac Installation
 
-## Linux Installation
+## Requirements
+- have [Taskfile](https://taskfile.dev/installation/) installed
+- have [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed
+- have the [Go](https://go.dev/doc/install) programming langague installed
 
-## Windows Installation
+## Running Speedway UI
 
-## How to Build Speedway CLI from Source
-### Mac/Linux
-1. Clone the project from GitHub (if you haven't already)
+### Install all the front end dependencies
+```bash
+npm install
+```
 
-2. CD into the project directory
+### Build the frontend
+```bash
+npm run build
+```
 
-3. CD into the cli directory ```cd cmd/speedway-cli```
+### Serve the backend
+```bash
+task server:start:release
+```
 
-4. Run the build script ```./build.sh```
+### Open your Browser to [localhost:4040](http://localhost:4040)
 
-5. Move the binary to your go bin directory ```mv bin/speedway ~/go/bin/speedway```
+## Running Speedway CLI
+### Build the Speedway CLI
+```bash
+go build -o speedway cmd/speedway-cli/main.go
+```
 
-6. Run the binary ```speedway```
+### Run the help command
+```bash
+./speedway help
+```
 
-### Windows
-1. Clone the project from GitHub (if you haven't already)
+# Known Issues
+<details>
+    <summary>Cannot use types other than string in objects or it casues issues with validation</summary>
+    Workaround: Use strings for all datatypes
+</details>
+<details>
+    <summary>The server sometimes fails due to `Concurrent Map Writes`</summary>
+    Workaround: Restart the server and repeat the action
+</details>
 
-2. CD into the project directory
+## Contributing
+<summary>Building For Backend Dev</summary>
+To build for dev, run `task server:start:debug` instead of `task server:start:release`
 
-3. CD into the cli directory ```cd cmd/speedway-cli```
+<summary>Running the Mock Backend</summary>
 
-4. Build using Go ```go build -o bin/speedway.exe```
+### Running the UI: Mock Server Mode
+This mode is ideal for UI development. Changes to the code will reflect on the browser automatically and there is no need to build. Any data generated will be local only. Behavior may not perfectly match the Sonr Speedway Backend.
 
-5. Add the binary to your path ```setx path "%path%;C:\Users\%USERNAME%\go\bin"```
+**Tun the Frontend:**
+```
+npm install
+npm start
+```
 
-6. Run the binary ```speedway```
+**on a second terminal, run the development server:**
+```
+cd server-in-memory
+npm install
+npm start
+```
+
+The UI should open automatically on your browser, but if that's not the case, it can be found under `localhost:3000`
+
+**to reset the local data, go to:**
+```
+localhost:4040/reset
+```
