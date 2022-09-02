@@ -129,7 +129,7 @@ Buckets can also be created by providing `label` `did` and `file` flags where:
 `did` is the schema `did` for the object to be validated against
 `file` an absolute path to a `json` defining the object
 
-![Create Bucket GIF](https://github.com/sonr-io/docs/blob/update/speedway/assets/create-bucket-cli.gif?raw=true)
+![Create Bucket GIF](https://github.com/sonr-io/docs/blob/main/assets/create-bucket-cli.gif?raw=true)
 
 ### Using the Speedway UI
 [Video Tutorial (Coming Soon)]()
