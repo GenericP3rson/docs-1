@@ -1,6 +1,7 @@
 ---
 title: Registry
 displayed_sidebar: highwaySidebar
+position_in_sidebar: 1
 ---
 # Registry
 The Sonr registry module is used to store the records of user accounts and applications. Each record contains a [DIDDocument](https://www.w3.org/TR/did-core/) which allows users to leverage the power of the DID specification in order to create verifiable and unique users on the Sonr network.
