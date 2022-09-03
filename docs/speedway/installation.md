@@ -3,79 +3,73 @@ title: Installation
 displayed_sidebar: speedwaySidebar
 ---
 
-## Speedway Project Installation
-In order to use Speedway, you must first install the Speedway project from the GitHub Repository. You can do this by running the following command: ```git clone https://github.com/sonr-io/speedway.git```
+## Requirements
+- have [TaskFile](https://taskfile.dev/installation/) installed
+- have [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed
+- have the [Go](https://go.dev/doc/install) programming language installed
 
-You may also download the project as a zip file from the GitHub Repository.
+## Serving the UI
 
-## Getting Started with the Speedway UI
-Getting started with Speedway is easy. Speedway allows you to interact with the Motor API. Speedway is used to create, update, and delete Speedway resources such as schemas, objects, and buckets. The CLI is also used to query objects and buckets and to perform other operations such as creating an account or logging in.
-
-### Requirements
-- NodeJS
-- NPM or Yarn
-- Go version 1.16 or higher
-
-### Install Speedway UI
-1. Clone the project from GitHub (if you haven't already)
-
-2. CD into the project directory
-
-3. Install the dependencies ```npm install``` or ```yarn install```
-
-### Run Speedway UI
-1. CD into the project directory (if you haven't already)
-
-2. After the dependencies are installed, run the build script ```npm run move-build``` or ```yarn move-build```
-
-3. Start the server ```task server:start:release``` or for debug mode ```task server:start:debug```
-
-4. Open your browser and navigate to ```http://localhost:8080``` to view the UI
-
-## Getting Started with the Speedway CLI
-### Installation:
-
-[Speedway CLI Installation](/docs/speedway/installation.md)
-
-### Commands:
-
-[Speedway CLI Commands](/docs/speedway/installation.md)
-
-### Usage:
-```
-  speedway [command]
+#### 1. Install all the front end dependencies
+```bash
+npm install
 ```
 
-# Speedway CLI Installation
-## Mac Installation
+#### 2, Build the frontend
+```bash
+npm run build
+```
 
-## Linux Installation
+#### 3. Serve the backend
+```bash
+task server:start:release
+```
 
-## Windows Installation
+#### 4. Open your Browser to [localhost:4040](http://localhost:4040)
 
-## How to Build Speedway CLI from Source
-### Mac/Linux
-1. Clone the project from GitHub (if you haven't already)
+## Installing the CLI
+#### 1. Build the Speedway CLI
+```bash
+go build -o speedway cmd/speedway-cli/main.go
+```
 
-2. CD into the project directory
+#### 2. Run the help command
+```bash
+./speedway help
+```
+## Building For Backend Dev
 
-3. CD into the cli directory ```cd cmd/speedway-cli```
+To build for dev, run `task server:start:debug` instead of `task server:start:release`
 
-4. Run the build script ```./build.sh```
+### Running the UI: Mock Server Mode
+This mode is ideal for UI development. Changes to the code will reflect on the browser automatically and there is no need to build. Any data generated will be local only. Behavior may not perfectly match the Sonr Speedway Backend.
 
-5. Move the binary to your go bin directory ```mv bin/speedway ~/go/bin/speedway```
+#### 1. Tun the Frontend
+```
+npm install
+npm start
+```
 
-6. Run the binary ```speedway```
+#### 2. On a second terminal, run the development server
+```
+cd server-in-memory
+npm install
+npm start
+```
 
-### Windows
-1. Clone the project from GitHub (if you haven't already)
+The UI should open automatically on your browser, but if that's not the case, it can be found under [`localhost:3000`](http://localhost:3000)
 
-2. CD into the project directory
+#### 3. To reset the local data, go to
+```
+localhost:4040/reset
+```
 
-3. CD into the cli directory ```cd cmd/speedway-cli```
+## Known Issues
 
-4. Build using Go ```go build -o bin/speedway.exe```
+#### Speedway UI: Cannot use types other than string in objects or it causes issues with validation
+- Workaround: Use strings for all data-types
+- Workaround: Use the cli
+- Workaround: Use the <code>--file  &lt;file&gt;</code> flag on the CLI commands
 
-5. Add the binary to your path ```set path "%path%;C:\Users\%USERNAME%\go\bin"```
-
-6. Run the binary ```speedway```
+#### The server sometimes fails due to `Concurrent Map Writes`
+- Workaround: Restart the server and repeat the action

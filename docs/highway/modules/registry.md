@@ -11,17 +11,13 @@ The record type utilized in the **Registry module** is the `WhoIs` type. We mana
 
 ## Registry and the Vault
 When a new `WhoIs` is created on the sonr network, we first create `shards` of keys which will be used to verify the user against a `secret` which will decrypt your shards and verify against a publicly shared key. these shards are kept in a remote store and are created when you first create an account. Once these shards are created the passphrase must be provided to decrypt, and verify that the shards belong to your `WhoIs` an endpoint for retrieving `shards` are stored within the `DID Document` as a `Service endpoint` (see did specification for more info).
-
-## Webauthn Credentials
-Soon, [Webauthn](https://webauthn.io/) credentials will be supported, allowing you to register credentials that can be verified for account access.
-
 ## Aliases
 Soon, Aliases for `Domains` will be supported, allowing users to associate their `DID` with a domain name.
 
 ## Decentralized Identifiers (DIDs) Usage:
 A library to parse and generate W3C [DID Documents](https://www.w3.org/TR/did-core/) and W3C [Verifiable Credentials](https://www.w3.org/TR/vc-data-model/).
 
-#### Creation of a simple DID Document which is its own controller and contains an AssertionMethod.
+### New DID Document
 
 ```go
 didID, err := did.ParseDID("did:snr:123")
@@ -79,3 +75,9 @@ Outputs:
   ]
 }
 ```
+
+## Usage
+The registry module and `DIDDocument`'s are well integrated in the current Sonr [Motor SDK](/docs/motor-sdk/intro.mdx) implementations.
+- See [Speedway](/docs/speedway/cli-cmds.mdx) documentation on usage of DIDs through our management tooling.
+- See [Motor-SDK](/docs/motor-sdk/auth/register.mdx) documentation in our SDK targets.
+- Read [ADR-1](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/1.md) for a more in depth technical explanation of the design decisions made for the registry module.

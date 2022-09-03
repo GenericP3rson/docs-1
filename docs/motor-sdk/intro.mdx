@@ -41,7 +41,7 @@ Start by creating a new project.
   width="100%"
 />
 
-Next, grab the latest version of Motoroid from [Jitpack.io](https://jitpack.io/#sonr-io/motor-android). Select the "motoroid" subproject and follow the instructions to finish adding the dependency.
+Next, grab the latest version of Motoroid from [Jitpack.io](https://jitpack.io/#sonr-io/motor-android). Select the "motoroid" sub-project and follow the instructions to finish adding the dependency.
 
 Your project level `build.gradle` should look like this when you're done...
 
@@ -61,7 +61,22 @@ Note: You may need to delete the `dependencyResolutionManagement` section from `
 
   </TabItem>
   <TabItem value="flutter" label="🎯 Dart">
-    This is a banana 🍌
+
+Add `motor_flutter` as a dependency in your existing project's `pubspec.yaml` file.
+
+```yaml
+dependencies:
+  motor_flutter: ^0.0.1
+```
+
+Clone the Plugin, Compile the most up-to-date protobuf files, and Download the latest xcframework and AAR
+
+```bash
+  git clone git@github.com:sonr-io/motor-flutter.git
+  sh scripts/download.sh
+  sh scripts/proto.sh
+```
+
   </TabItem>
 </Tabs>
 
@@ -88,9 +103,11 @@ func main() {
 
 Before you can use the motor methods, you must finish initialization by either creating an account or logging in. To create an account you must have the following information.
 
-- Device ID - something to uniquely identify the device Motor is running on
-- Password - the user must provide this
-- DSC - Device Specific Credential. A 32-byte AES key used to represent the device. Keep this stored in the device's keychain.
+| Parameter  | Description                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `deviceId` | A unique manufacturer identifier used to recognize the device a Motor is running on                                    |
+| `password` | A user defined secure password to be used in the instance of account recovery                                          |
+| `dsc`      | Device Specific Credential. A 32-byte AES key used to represent the device. Keep this stored in the device's keychain. |
 
 ```go
 mtr, err := EmptyMotor(&mt.InitializeRequest{
@@ -111,10 +128,12 @@ store(createResponse.AesPskKey)
 
 Logging in uses a combination of the below.
 
-- DID - The DID generated during account creation
-- DSC - Device Specific Credential. A 32-byte AES key used to represent the device. Keep this stored in the device's keychain.
-- PSK - Pre-shared key. A 32-byte AES key. This key is meant to be shared between all devices
-- Password - The password used during account creation
+| Parameter  | Description                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `did`      | The DID generated during account creation                                                                              |
+| `dscKey`   | Device Specific Credential. A 32-byte AES key used to represent the device. Keep this stored in the device's keychain. |
+| `pskKey`   | Pre-shared key. A 32-byte AES key. This key is meant to be shared between all devices                                  |
+| `password` | The password used during account creation                                                                              |
 
 To login you must provide the PSK and one of either the password or DSC.
 
@@ -168,8 +187,16 @@ protected void onCreate(Bundle savedInstanceState) {
 
   </TabItem>
   <TabItem value="flutter" label="🎯 Dart">
-    This is a banana 🍌
-  </TabItem>
+
+```dart
+Future<InitializeResponse?> initialize() async {
+    final peerInfo = await PeerInformation.fetch();
+    final req = peerInfo.toInitializeRequest(enableLibp2p: false);
+    return await MotorFlutterPlatform.instance.init(req);
+}
+```
+
+</TabItem>
 </Tabs>
 
 ## Next Steps
@@ -177,6 +204,6 @@ protected void onCreate(Bundle savedInstanceState) {
 You're ready to start using Motor in your app! Check out one of the guides for next steps.
 
 - [Authentication](/motor-sdk/auth/register.mdx)
-- [Documents](/docs/motor-sdk/storage/documents.md)
-- [Buckets](/docs/motor-sdk/storage/buckets.md)
+- [Documents](/docs/motor-sdk/data/documents.mdx)
+- [Buckets](/docs/motor-sdk/storage/buckets.mdx)
 - [Reference](/docs/motor-sdk/reference/go)

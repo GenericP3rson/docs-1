@@ -12,7 +12,7 @@
   --ifm-color-primary-lighter: #81c5ff;
   --ifm-color-primary-lightest: #b9e2ff;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgb(72, 77, 91);
 }
 
 .sidebar-category {
@@ -34,7 +34,7 @@ text-transform: uppercase;
   --ifm-color-primary-light: #0D6Ecc;
   --ifm-color-primary-lighter: #054d99;
   --ifm-color-primary-lightest: #010f1f;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --docusaurus-highlighted-code-line-bg: rgb(100, 100, 100);
 }
 
 .header-github-link:hover {

@@ -12,7 +12,7 @@ A Bucket is represented by a document on chain called a `WhereIs`. This document
 
 ### WhereIs definition
 As stated within the `overview`, a `WhereIs` document is the on chain reference to a Bucket. Which hold it's `DID`, `Creator` and `BucketItems`.
-```
+```protobuf
 message WhereIs {
   // DID of the created bucket.
   string did = 1;
@@ -41,7 +41,7 @@ message WhereIs {
 ```
 ### Bucket Items
 a `BucketItem` is a reference to either an [Object](/docs/highway/modules/objects.md), or another bucket itself.
-```
+```protobuf
 message BucketItem {
   // Name of the bucket item.
   string name = 1;
@@ -59,7 +59,7 @@ message BucketItem {
   string schema_did = 5;
 }
 ```
-### example bucket item
+#### Example Bucket Output:
 ```json
   {
     "name": "jock-#1",
@@ -72,7 +72,7 @@ message BucketItem {
 
 # Accessing Bucket Content
 When querying bucket item which is an object, the following will be returned in a familiar form based on the given platform / motor-sdk version:
-```
+```protobuf
 message BucketContent {
   // Raw content serialized to bytes
   bytes item = 1;
@@ -90,14 +90,14 @@ if a `BucketItem` contains an optional field `Schema Did` then it will support b
 **Note** At this time the relationship of schema to a Document is not strictly enforced. Objects should only be associated with the schema they are created with.
 ### Bucket Types
 
-* **App-specific bucket**
-  - Created by the developer, will be associated to an application and allowed for usage by the application domain.
-
-* **User-specific bucket**
-  - Created with the intent of storing user related content. `WhichIs` then related to the `Creator`.
+| Type  | Description                                                                                                            |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **App-Specific** | Created by the developer, will be associated to an application and allowed for usage by the application domain.                                                                            |
+| **User-Specific** | Created with the intent of storing user related content. `WhichIs` then related to the `Creator`. |
 
 ## Usage
 Buckets function as a storage of content which holds a loose relation to one another, buckets function as a wrapper around `Objects` to create relationships amongst them. Developers are recommended to think of buckets as `Categories of data`. It's recommended to make one Bucket per [schema](/docs/highway/modules/schemas.md).
 
-See [Speedway](https://speedway.sh) documentation on usage of buckets through our management tooling.
-See [Motor-SDK](/docs/motor-sdk/intro.mdx) documentation in our SDK targets.
+- See [Speedway](/docs/speedway/cli-cmds.mdx) documentation on usage of buckets through our management tooling.
+- See [Motor-SDK](/docs/motor-sdk/data/schemas.mdx) documentation in our SDK targets.
+- Read [ADR-3](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/3.md) for a more in depth technical explanation of the design decisions made for the bucket module.

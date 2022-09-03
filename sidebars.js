@@ -29,14 +29,14 @@ const sidebars = {
       label: 'Managing Data',
       collapsed: false,
       collapsible: false,
-      items: ['motor-sdk/data/schemas', 'motor-sdk/data/create-object', 'motor-sdk/data/get-object'],
+      items: ['motor-sdk/data/schemas', 'motor-sdk/data/documents'],
     },
     {
       type: 'category',
       label: 'Utilizing Storage',
       collapsed: false,
       collapsible: false,
-      items: ['motor-sdk/storage/buckets', 'motor-sdk/storage/updating-buckets', 'motor-sdk/storage/documents',],
+      items: ['motor-sdk/storage/buckets', 'motor-sdk/storage/updating-buckets',],
     },
     {
       type: 'category',
@@ -54,7 +54,7 @@ const sidebars = {
       label: 'Modules',
       collapsed: false,
       collapsible: false,
-      items: ['highway/modules/buckets', 'highway/modules/objects', 'highway/modules/registry', 'highway/modules/schemas'],
+      items: ['highway/modules/registry', 'highway/modules/schemas', 'highway/modules/buckets', 'highway/modules/objects',],
     },
   ],
   speedwaySidebar: [
@@ -64,7 +64,10 @@ const sidebars = {
       label: 'Guides',
       collapsed: false,
       collapsible: false,
-      items: ['speedway/cli-example', 'speedway/flutter-example'],
+      items: [
+        'speedway/cli-example',
+        //'speedway/flutter-example',
+      ],
     },
     {
       type: 'category',

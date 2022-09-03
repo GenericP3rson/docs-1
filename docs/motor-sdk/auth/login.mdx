@@ -1,5 +1,5 @@
 ---
-title: Login Existing Account
+title: Login to Existing Account
 sidebar_position: 2
 displayed_sidebar: motorSidebar
 ---
@@ -9,23 +9,40 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import Highlight from "@site/src/components/Highlight";
 
-## Logging in to an Account
-
-If your user has previously created an account on the device, they can log in without a password. Alternatively, if the user's pre-shared key has been added to the device, they may login with a password.
-
 :::note
 
 Users must be authenticated in order to utilize other Motor features. For more information on how authentication works on Sonr, see [TODO](#)
 
 :::
 
+If your user has previously created an account on the device, they can log in without a password. Alternatively, if the user's pre-shared key has been added to the device, they may login with a password.
+
 <Tabs groupId="platform">
   <TabItem value="go" label="🐹 Go" default>
-    Creating an account automatically authenticates you for the lifetime of the `MotorNode` instance.
+
+Login creates a motor node from a LoginRequest
+
+```go
+func (mtr *motorNodeImpl) Login(request mt.LoginRequest) (mt.LoginResponse, error) {
+    // 1. Fetch Shards from the Vault
+    shards, _ := vault.New().GetVaultShards(request.Did)
+
+    // 2. Reconstruct the Wallet
+    configs, _ := createWalletConfigs(mtr.DeviceID, request, shards)
+
+    // 3. Fetch DID document from Blockchain
+    whoIs, _ := mtr.Cosmos.QueryWhoIs(request.Did)
+
+    // 4. Bootstrap the Motor Node
+    // ...
+    // - Assign Shards to the Wallet and populate DIDDocument
+    // ...
+}
+```
+
   </TabItem>
 
   <TabItem value="java" label="☕ Java">
-    Creating an account automatically authenticates you for the lifetime of the `Motoroid` instance.
 
 ```java
 public void login(String password) throws Exception {
@@ -45,6 +62,17 @@ public void login(String password) throws Exception {
   </TabItem>
 
   <TabItem value="flutter" label="🎯 Dart">
-    This is a banana 🍌
+
+```dart
+Future<LoginResponse?> login(String did, String password, List<int> aesDscKey, List<int> aesPskKey) async {
+  return await MotorFlutterPlatform.instance.login(LoginRequest(
+    password: password,
+    did: did,
+    aesDscKey: aesDscKey,
+    aesPskKey: aesPskKey,
+  ));
+}
+```
+
   </TabItem>
 </Tabs>

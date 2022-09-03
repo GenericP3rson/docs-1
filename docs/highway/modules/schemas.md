@@ -1,9 +1,9 @@
 ---
 title: Schemas
 displayed_sidebar: highwaySidebar
+position_in_sidebar: 2
 ---
-# Schemas
-## Introduction
+
 The Sonr Schema module is used to store the records of verifiable objects for a specific application powered by the Sonr Network. Schemas are used to create custom application protocols which can be asserted on in order to verify your application data. Application data uploaded through `Motor` can verify their data model through `Schemas`.
 
 ## Overview
@@ -55,7 +55,7 @@ The following are the numeric values which are used in our `protocol` layers.
   BYTES = 5
   LINK = 6
 ```
-# Link types and combining Schemas
+## Link types and combining Schemas
 A `Link` refers to a schema by `cid` which allows users to reuse schemas as properties on other schema definitions. here we will model a simple schema with nested content.
 **Example**
 ```json
@@ -163,3 +163,9 @@ The following object would be a valid definition for the above `Schema`
   "owner": "snr1d8cjuwkssr9uzf8zllkmmn0ekv6p7a7yuz2dpc"
 }
 ```
+
+## Usage
+The schema module has been integrated in the Sonr [Motor SDK](/docs/motor-sdk/intro.mdx) implementations since `v0.3.9`.
+- See [Speedway](/docs/speedway/cli-cmds.mdx) documentation on usage of DIDs through our management tooling.
+- See [Motor-SDK](/docs/motor-sdk/data/schemas.mdx) documentation in our SDK targets.
+- Read [ADR-2](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/2.md) for a more in depth technical explanation of the design decisions made for the schema module.
