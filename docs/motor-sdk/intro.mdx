@@ -33,7 +33,7 @@ import TabItem from "@theme/TabItem";
 > Select your target platform to get started and setup a new Motor integrated project.
 
 <Tabs groupId="platform">
-  <TabItem value="android" label="☕ Java (Android)" default>
+  <TabItem value="android" label="🤖 Android" default>
 
 :::note
 
@@ -66,7 +66,7 @@ go get -u github.com/sonr-io/sonr
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
 Add `motor_flutter` as a dependency in your existing project's `pubspec.yaml` file.
 
@@ -91,7 +91,7 @@ Clone the Plugin, Compile the most up-to-date protobuf files, and Download the l
 > Spawning a new Motor instance is the first step in using the SDK. This is where you'll configure your app's connection to the Sonr network.
 
 <Tabs groupId="platform">
-  <TabItem value="android" label="☕ Java (Android)" default>
+  <TabItem value="android" label="🤖 Android" default>
     With Motoroid added to your project, all you need to do is initialize the `Motoroid` instance and you'll have access to a singleton throughout the lifetime of your application! It's a good idea to do this early on the lifetime of your app. For example, in your app's `onCreate` handler.
 
 ```java
@@ -116,7 +116,7 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
 ```dart
 Future<InitializeResponse?> initialize() async {

@@ -14,7 +14,7 @@ Buckets on Sonr are a great way to store related Documents—think of them like 
 Like everything on Sonr, you need a bucket's DID in order to fetch it.
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="☕ Java (Android)" default>
+	<TabItem value="android" label="🤖 Android" default>
 
 ```java
 public void getBucket(String did) throws Exception {
@@ -68,7 +68,7 @@ func GetBucketObjects(bucketDid string) ([]byte, error) {
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
 ```dart
 Future<QueryWhereIsResponse?> queryBucket(String q) async {
@@ -82,7 +82,7 @@ Future<QueryWhereIsResponse?> queryBucket(String q) async {
 In addition to documents, you can also fetch child buckets.
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="☕ Java (Android)" default>
+	<TabItem value="android" label="🤖 Android" default>
 
 ```java
 public void getSubBucket(String did) throws Exception {
@@ -128,7 +128,7 @@ func ResolveSubBucket(bucketDid, subBucketDid string) error {
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
     ### 🚧 Under Construction 🚧
 

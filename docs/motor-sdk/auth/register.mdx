@@ -23,7 +23,7 @@ Creating an account bootstraps the Motor `libp2p` node and generates the `MPC Wa
 To create an account, you simply need to provide a recovery password to the [create account method](/docs/motor-sdk/intro.mdx#initialization).. Account creation can take up to three minutes, so entertain your users :).
 
 <Tabs groupId="platform">
-  <TabItem value="java" label="☕ Java (Android)" default>
+  <TabItem value="java" label="🤖 Android" default>
 
 ```java
 public void createAccount(String password) throws Exception {
@@ -74,7 +74,7 @@ func (mtr *motorNodeImpl) CreateAccount(request mt.CreateAccountRequest) (mt.Cre
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
 ```dart
   Future<CreateAccountResponse?> createAccount(String password, {Map<String, String>? metadata}) async {
