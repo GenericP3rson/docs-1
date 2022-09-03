@@ -1,20 +1,19 @@
 ---
-title: Schemas
-displayed_sidebar: highwaySidebar
-position_in_sidebar: 2
+title: Overview
 ---
-
-The Sonr Schema module is used to store the records of verifiable objects for a specific application powered by the Sonr Network. Schemas are used to create custom application protocols which can be asserted on in order to verify your application data. Application data uploaded through `Motor` can verify their data model through `Schemas`.
+# Schemas
+## Introduction
+The Sonr Schema module is used to store the records of verifiable objects for a specific application powered by the Sonr Network. Schemas are used to create custom application protcols which can be asserted on in order to verify your application data. Application data uploaded through `Motor` can verify their data model through `Schemas`.
 
 ## Overview
 Schemas are implemented on the `IPLD Object Model` which allows developers to register specific application data schemas. See [IPLD Schema documentation](https://ipld.io/docs/schemas)
 
 ## Concepts
 
-### Schema Kind Definition
+### Schema Kind Defintion
 Schema's declare the intended type of a property though IPLD Type `KIND` Each `KIND` is mapped to the name of a property. Each property defined must map to one of the given `IPLD` `KINDS`
 ### Schema Definition
-A `Schema Definition` is used to describe an application Schema that will be stored for later assertion against. The provided `Schema Definition` is then used to Derive both the `WhatIs` and `Schema Reference` that will be recorded on chain. Schemas comply to the `IPLD Object` specification.
+A `Schema Definition` is used to describe an application Schema that will be stored for later assertion against. The provided `Schema Definition` is then used to Derive both the `WhatIs` and `Schema Reference` that will be recorded on chain. Schemas comply to the `IPLD Object` specification. 
 
 
 
@@ -34,7 +33,7 @@ message SchemaDefinition{
 Fields contained within the `SchemaDefinition` are described below:
 Each field represents a `IPLD` Kind. More information can be found [here](https://ipld.io/docs/schemas/features/typekinds/).
 
-Currently, there is support the following `types` while complex types, unions, nullable fields, and optional properties are not supported we are working to comply with the full `IPLD` type system.
+We currently support the following `types`, and are working to comply with the full `IPLD` type system to support types beyond those listed. 
 ```go
   LIST
   BOOL
@@ -55,21 +54,22 @@ The following are the numeric values which are used in our `protocol` layers.
   BYTES = 5
   LINK = 6
 ```
-## Link types and combining Schemas
-A `Link` refers to a schema by `cid` which allows users to reuse schemas as properties on other schema definitions. here we will model a simple schema with nested content.
+# `Link` types and combining Schemas
+A `Link` refers to a schema by `cid` which allows users to reuse schemas as properties on other schema definitions. Here we will model a simple schema with nested content.
+
 **Example**
 ```json
 {
-  "foo": Link
+  "foo": Link 
 }
 ```
-where the `Link` is a `cid` in this example the `Link` is to the following schema
+`Link` is a `cid` pointing to the following schema
 ```json
 {
   "bar": STRING
 }
 ```
-the following `Object` is using the first schema in the example would like this:
+Below is an `Object` using the schema with the **foo** field defined above:
 ```json
 {
   "foo": {
@@ -77,9 +77,10 @@ the following `Object` is using the first schema in the example would like this:
   }
 }
 ```
-**Note** when using links, links cannot yet be used within lists.
+**Note:** You can not have a `LIST` of `LINK`types. 
+
 ### What Is records
-A `SchemaReference` is used to store information about a `SchemaDefinition` on our blockchain. This is stored within what is called a `WhatIs` record. Which holds information describing the registered Schema.
+A `ScehamReference` is used to store information about a `ScehmaDefinition` on our blockchain. This is stored within what is called a `WhatIs` record. Which holds information describing the registered Schema.
 
 ```go
 message WhatIs {
@@ -98,7 +99,7 @@ message WhatIs {
   // IsActive is the status of the DID Document
   bool is_active
 
-  // collection of user defined items intended for indexing purposes
+  // collection of user defined items indended for indexing purposes
   map<string,string> metadata
 }
 ```
@@ -120,9 +121,9 @@ message SchemaReference{
 ```
 
 ### Examples
-The following are example Schemas and [Objects](/docs/highway/modules/objects.md) which outline how types declared within a schema map to the objects which are defined from them. Below are two examples: An `User Status`, and a `Pet`.
+The following are example Schemas and [Objects](./objects.md) which outline how types declared within a schema map to the objects which are defined from them. Below are two examples: An `User Status`, and a `Pet`.
 
-### User Status
+The following is an example schema for a `User Status`
 
 ```json
 {
@@ -133,12 +134,14 @@ The following are example Schemas and [Objects](/docs/highway/modules/objects.md
   "message": STRING,
 }
 ```
-here we have an object which matches the above schema
+Below is a user status object defined by the above schema
 ```json
 {
   "username": "snr1d8cjuwkssr9uzf8zllkmmn0ekv6p7a7yuz2dp",
   "email": "example@example.com",
+  "timestamp": 1662057099,
   "lastSeen": 1661220968,
+  "message": "This is my email!",
 }
 ```
 ----
@@ -146,13 +149,13 @@ The following is an example schema for a `Pet`
 ##### Schema
 ```json
 {
-  "name": STRING,
-  "breed": STRING,
+  "name": STRING, 
+  "breed": STRING, 
   "age": INT,
   "owner": STRING
 }
 ```
-The following object would be a valid definition for the above `Schema`
+Below is a pet object defined by the above schema
 
 ##### Object
 ```json
@@ -163,9 +166,3 @@ The following object would be a valid definition for the above `Schema`
   "owner": "snr1d8cjuwkssr9uzf8zllkmmn0ekv6p7a7yuz2dpc"
 }
 ```
-
-## Usage
-The schema module has been integrated in the Sonr [Motor SDK](/docs/motor-sdk/intro.mdx) implementations since `v0.3.9`.
-- See [Speedway](/docs/speedway/cli-cmds.mdx) documentation on usage of DIDs through our management tooling.
-- See [Motor-SDK](/docs/motor-sdk/data/schemas.mdx) documentation in our SDK targets.
-- Read [ADR-2](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/2.md) for a more in depth technical explanation of the design decisions made for the schema module.
