@@ -33,74 +33,47 @@ const config = {
       '@docusaurus/plugin-client-redirects',
       {
         redirects: [
-          // /docs/oldDoc -> /docs/newDoc
-          {
-            to: '/protodocs/registry/tx.proto',
-            from: '/api',
-          },
+          // Registry redirects
+          { to: '/protodocs/registry/tx.proto', from: '/api/registry' },
+          { to: '/protodocs/registry/tx.proto', from: '/api/registry/tx' },
+          { to: '/protodocs/registry/query.proto', from: '/api/registry/query' },
+          { to: '/protodocs/registry/genesis.proto', from: '/api/registry/genesis' },
+          { to: '/protodocs/registry/params.proto', from: '/api/registry/params' },
+          { to: '/protodocs/registry/who_is.proto', from: '/api/registry/who_is' },
+          { to: '/protodocs/registry/did.proto', from: '/api/registry/did' },
+
+          // Schema redirects
+          { to: '/protodocs/schema/v1/tx.proto', from: '/api/schema' },
+          { to: '/protodocs/schema/v1/tx.proto', from: '/api/schema/tx' },
+          { to: '/protodocs/schema/v1/query.proto', from: '/api/schema/query' },
+          { to: '/protodocs/schema/v1/genesis.proto', from: '/api/schema/genesis' },
+          { to: '/protodocs/schema/v1/params.proto', from: '/api/schema/params' },
+          { to: '/protodocs/schema/v1/what_is.proto', from: '/api/schema/what_is' },
+
+          // Bucket redirects
+          { to: '/protodocs/bucket/tx.proto', from: '/api/bucket' },
+          { to: '/protodocs/bucket/tx.proto', from: '/api/bucket/tx' },
+          { to: '/protodocs/bucket/query.proto', from: '/api/bucket/query' },
+          { to: '/protodocs/bucket/genesis.proto', from: '/api/bucket/genesis' },
+          { to: '/protodocs/bucket/params.proto', from: '/api/bucket/params' },
+          { to: '/protodocs/bucket/where_is.proto', from: '/api/bucket/where_is' },
+
+          // Service redirects
+          { to: '/protodocs/service/v1/discover.proto', from: '/api/service' },
+          { to: '/protodocs/service/v1/discover.proto', from: '/api/service/discover' },
+          { to: '/protodocs/service/v1/exchange.proto', from: '/api/service/exchange' },
+          { to: '/protodocs/service/v1/transmit.proto', from: '/api/service/transmit' },
+
+          // Motor redirects
+          { to: '/protodocs/motor/v1/request.proto', from: '/api/motor' },
+          { to: '/protodocs/motor/v1/request.proto', from: '/api/motor/request' },
+          { to: '/protodocs/motor/v1/response.proto', from: '/api/motor/response' },
+
+          // Common redirects
+          { to: '/protodocs/common/v1/info.proto', from: '/api/common' },
+          { to: '/protodocs/common/v1/info.proto', from: '/api/common/info' },
+          { to: '/protodocs/common/v1/ipns.proto', from: '/api/common/ipns' },
         ],
-        createRedirects(existingPath) {
-          if (existingPath.includes('/api/registry')) {
-            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
-            return [
-              existingPath.replace('/api/registry', '/protodocs/registry/tx.proto'),
-              existingPath.replace('/api/registry/tx', '/protodocs/registry/tx.proto'),
-              existingPath.replace('/api/registry/query', '/protodocs/registry/query.proto'),
-              existingPath.replace('/api/registry/genesis', '/protodocs/registry/genesis.proto'),
-              existingPath.replace('/api/registry/params', '/protodocs/registry/params.proto'),
-              existingPath.replace('/api/registry/who_is', '/protodocs/registry/who_is.proto'),
-              existingPath.replace('/api/registry/did', '/protodocs/registry/did.proto'),
-            ];
-          }
-          if (existingPath.includes('/api/schema')) {
-            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
-            return [
-              existingPath.replace('/api/schema', '/protodocs/schema/v1/tx.proto'),
-              existingPath.replace('/api/schema/tx', '/protodocs/schema/v1/tx.proto'),
-              existingPath.replace('/api/schema/query', '/protodocs/schema/v1/query.proto'),
-              existingPath.replace('/api/schema/genesis', '/protodocs/schema/v1/genesis.proto'),
-              existingPath.replace('/api/schema/params', '/protodocs/schema/v1/params.proto'),
-              existingPath.replace('/api/schema/what_is', '/protodocs/schema/v1/what_is.proto'),
-            ];
-          }
-          if (existingPath.includes('/api/bucket')) {
-            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
-            return [
-              existingPath.replace('/api/bucket', '/protodocs/bucket/tx.proto'),
-              existingPath.replace('/api/bucket/tx', '/protodocs/bucket/tx.proto'),
-              existingPath.replace('/api/bucket/query', '/protodocs/bucket/query.proto'),
-              existingPath.replace('/api/bucket/genesis', '/protodocs/bucket/genesis.proto'),
-              existingPath.replace('/api/bucket/params', '/protodocs/bucket/params.proto'),
-              existingPath.replace('/api/bucket/where_is', '/protodocs/bucket/where_is.proto'),
-            ];
-          }
-          if (existingPath.includes('/api/service')) {
-            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
-            return [
-              existingPath.replace('/api/service', '/protodocs/service/v1/discover.proto'),
-              existingPath.replace('/api/service/discover', '/protodocs/service/v1/discover.proto'),
-              existingPath.replace('/api/service/exchange', '/protodocs/service/v1/exchange.proto'),
-              existingPath.replace('/api/service/transmit', '/protodocs/service/v1/transmit.proto'),
-            ];
-          }
-          if (existingPath.includes('/api/motor')) {
-            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
-            return [
-              existingPath.replace('/api/motor', '/protodocs/motor/v1/request.proto'),
-              existingPath.replace('/api/motor/request', '/protodocs/motor/v1/request.proto'),
-              existingPath.replace('/api/motor/response', '/protodocs/motor/v1/response.proto'),
-            ];
-          }
-          if (existingPath.includes('/api/common')) {
-            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
-            return [
-              existingPath.replace('/api/common', '/protodocs/common/v1/info.proto'),
-              existingPath.replace('/api/common/info', '/protodocs/common/v1/info.proto'),
-              existingPath.replace('/api/common/ipns', '/protodocs/common/v1/ipns.proto')
-            ];
-          }
-          return undefined; // Return a falsy value: no redirect created
-        },
       },
     ],
   ],
