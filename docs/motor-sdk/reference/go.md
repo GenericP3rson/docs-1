@@ -63,7 +63,7 @@ type MotorNode interface {
       Should be used for both adding and removing content. Once a buckets content is updated, content is updated to reflect the updated items.
     */
     UpdateBucketItems(context context.Context, did string, items []*bt.BucketItem) (bucket.Bucket, error)
-    SeachBucketBySchema(req mt.SeachBucketContentBySchemaRequest) (mt.SearchBucketContentBySchemaResponse, error)
+    SearchBucketBySchema(req mt.SearchBucketContentBySchemaRequest) (mt.SearchBucketContentBySchemaResponse, error)
 
     // Query
     QueryWhoIs(req mt.QueryWhoIsRequest) (*mt.QueryWhoIsResponse, error)

@@ -32,7 +32,7 @@ public void getSubBucket(String did) throws Exception {
 
     // iterate over all sub bucket DIDs
     for (String subBucketDid : bucket.getSubBucketDids()) {
-      // Resolve the subbucket. This bucket behaves exactly like the parent it came from
+      // Resolve the sub-bucket. This bucket behaves exactly like the parent it came from
       Bucket subBucket = bucket.getBucket(subBucketDid);
     }
 

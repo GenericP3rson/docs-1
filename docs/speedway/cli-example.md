@@ -4,10 +4,10 @@ displayed_sidebar: speedwaySidebar
 ---
 
 ## Overview
-The example project is an employee timesheet, which allows employees to clock in and out of work with verifiable identity and precise time stamps due to Sonr's blockchain technology. The project is a simple example of how to use Speedway to create schemas, objects, and buckets. The project also demonstrates how to query objects and buckets.
+The example project is an employee time-sheet, which allows employees to clock in and out of work with verifiable identity and precise time stamps due to Sonr's blockchain technology. The project is a simple example of how to use Speedway to create schemas, objects, and buckets. The project also demonstrates how to query objects and buckets.
 
 ## Logic
-The project consists of two schemas, one for employees and one for timesheets. The employee schema contains the employee's name, address, and phone number. The timesheet schema contains the employee's name, the date, and the time they clocked in, or the time they clocked out.  The project also consists of two buckets, one for employees and one for timesheets. The employee bucket contains all the employees in the company. The work record bucket contains all the work records with details such as employee, start time, end time, and date.
+The project consists of two schemas, one for employees and one for time-sheets. The employee schema contains the employee's name, address, and phone number. The time-sheet schema contains the employee's name, the date, and the time they clocked in, or the time they clocked out.  The project also consists of two buckets, one for employees and one for time-sheets. The employee bucket contains all the employees in the company. The work record bucket contains all the work records with details such as employee, start time, end time, and date.
 
 ## Using the Speedway CLI
 

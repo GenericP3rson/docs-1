@@ -9,7 +9,7 @@ const config = {
   title: 'The Internet Rebuilt for you',
   staticDirectories: ['public', 'static'],
   tagline: 'Official documentation for the Sonr Platform',
-  url: 'https://docs.sonr.io',
+  url: 'https://sonr.dev',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -53,16 +53,9 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/sonr-io/docs/tree/dev/packages/create-docusaurus/templates/shared/',
           docLayoutComponent: "@theme/DocPage",
           docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
-        },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -91,13 +84,13 @@ const config = {
             type: 'doc',
             docId: 'what-is-sonr',
             position: 'left',
-            label: 'Build',
+            label: 'Learn',
           },
           {
             type: 'doc',
             docId: 'speedway/quick-start',
             position: 'left',
-            label: 'Speedway',
+            label: 'Build',
           },
           {
             type: 'doc',
@@ -121,7 +114,7 @@ const config = {
             items: [
               {
                 label: 'Discord',
-                href: 'https://sonr.buzz',
+                href: 'https://discord.gg/6Z3RmWs257',
               },
               {
                 label: 'Twitter',
@@ -147,7 +140,7 @@ const config = {
             items: [
               {
                 label: 'Homepage',
-                href: 'https://github.com/sonr-io/sonr',
+                href: 'https://www.sonr.io',
               },
               {
                 label: 'Contact Us',
@@ -156,7 +149,6 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Sonr Inc.`,
       },
     }),
 };

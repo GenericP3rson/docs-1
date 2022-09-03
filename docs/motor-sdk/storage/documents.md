@@ -3,7 +3,7 @@ title: Uploading Documents
 displayed_sidebar: motorSidebar
 ---
 
-Schema Documents store end-to-end encrypted user data on the Sonr network. You can think of this feature like a decentralized MongoDB. All Documents are stored on [IPFS](https://ipfs.io) and therefor have a CID which represent the content. You don't need to understand how IPFS works in order to use Sonr, just that CIDS are *content identifiers*. Later we'll go over how Documents can be stored in [Buckets](/docs/motor-sdk/storage/buckets.md) for easier referencing and organization.
+Schema Documents store end-to-end encrypted user data on the Sonr network. You can think of this feature like a decentralized MongoDB. All Documents are stored on [IPFS](https://ipfs.io) and therefor have a CID which represent the content. You don't need to understand how IPFS works in order to use Sonr, just that CID's are *content identifiers*. Later we'll go over how Documents can be stored in [Buckets](/docs/motor-sdk/storage/buckets.md) for easier referencing and organization.
 
 ## Creating a Document
 

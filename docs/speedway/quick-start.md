@@ -17,6 +17,6 @@ The Speedway CLI allows developers all the comforts of Speedway into a command-l
 - [Speedway Web](/docs/speedway/installation.md)
 
 ### Next Steps
-The Speedway API was created in tandom with the Speedway UI to give developers the ability to utilize the Speedway suite in a web application.
+The Speedway API was created in tandem with the Speedway UI to give developers the ability to utilize the Speedway suite in a web application.
 - [Example CLI App](/docs/speedway/cli-example.md)
 - [Example Flutter App](/docs/speedway/flutter-example.md)

@@ -20,5 +20,35 @@
         "app.iml": true,
         "Contents.json": true,
         "**/node_modules": true
-    }
+    },
+    "cSpell.words": [
+        "afyreihfrzall",
+        "awbypnapm",
+        "bafyreidmlmqnkxtpxs",
+        "bawqlh",
+        "bmroa",
+        "cjuwkssr",
+        "cmds",
+        "composability",
+        "Dids",
+        "DIDURL",
+        "dwqvphwfq",
+        "ebvoq",
+        "IPFS",
+        "IPLD",
+        "kdewlyvo",
+        "lestrrat",
+        "libp",
+        "lxzxt",
+        "mcaq",
+        "Motoroid",
+        "Println",
+        "secp",
+        "Sonr",
+        "sonrio",
+        "subcmd",
+        "Unmarshal",
+        "UNQTCBP",
+        "zllkmmn"
+    ]
 }

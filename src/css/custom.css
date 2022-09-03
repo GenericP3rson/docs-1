@@ -33,7 +33,7 @@ text-transform: uppercase;
   --ifm-color-primary-darkest: #b9e2ff;
   --ifm-color-primary-light: #0D6Ecc;
   --ifm-color-primary-lighter: #054d99;
-  --ifm-color-primary-lightest: #003066;
+  --ifm-color-primary-lightest: #010f1f;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
@@ -102,4 +102,21 @@ html[data-theme='dark'] .section {
   padding-bottom: 200px;
   padding-left: 5%;
   padding-right: 5%;
+}
+
+.menu__list-item-collapsible {
+  font-weight: 700;
+}
+.theme-doc-sidebar-item-link .theme-doc-sidebar-item-link-level-1 .menu__list-item {
+  font-weight: 700;
+}
+
+:a .navbar__item .navbar__link {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Override non-category links to be horizonally compact */
+li > a.menu__link {
+  justify-content: flex-start;
 }

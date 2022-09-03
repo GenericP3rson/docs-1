@@ -4,14 +4,14 @@ displayed_sidebar: highwaySidebar
 ---
 # Schemas
 ## Introduction
-The Sonr Schema module is used to store the records of verifiable objects for a specific application powered by the Sonr Network. Schemas are used to create custom application protcols which can be asserted on in order to verify your application data. Application data uploaded through `Motor` can verify their data model through `Schemas`.
+The Sonr Schema module is used to store the records of verifiable objects for a specific application powered by the Sonr Network. Schemas are used to create custom application protocols which can be asserted on in order to verify your application data. Application data uploaded through `Motor` can verify their data model through `Schemas`.
 
 ## Overview
 Schemas are implemented on the `IPLD Object Model` which allows developers to register specific application data schemas. See [IPLD Schema documentation](https://ipld.io/docs/schemas)
 
 ## Concepts
 
-### Schema Kind Defintion
+### Schema Kind Definition
 Schema's declare the intended type of a property though IPLD Type `KIND` Each `KIND` is mapped to the name of a property. Each property defined must map to one of the given `IPLD` `KINDS`
 ### Schema Definition
 A `Schema Definition` is used to describe an application Schema that will be stored for later assertion against. The provided `Schema Definition` is then used to Derive both the `WhatIs` and `Schema Reference` that will be recorded on chain. Schemas comply to the `IPLD Object` specification.
@@ -79,7 +79,7 @@ the following `Object` is using the first schema in the example would like this:
 ```
 **Note** when using links, links cannot yet be used within lists.
 ### What Is records
-A `ScehamReference` is used to store information about a `ScehmaDefinition` on our blockchain. This is stored within what is called a `WhatIs` record. Which holds information describing the registered Schema.
+A `SchemaReference` is used to store information about a `SchemaDefinition` on our blockchain. This is stored within what is called a `WhatIs` record. Which holds information describing the registered Schema.
 
 ```go
 message WhatIs {
@@ -98,7 +98,7 @@ message WhatIs {
   // IsActive is the status of the DID Document
   bool is_active
 
-  // collection of user defined items indended for indexing purposes
+  // collection of user defined items intended for indexing purposes
   map<string,string> metadata
 }
 ```

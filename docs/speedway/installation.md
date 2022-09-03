@@ -76,6 +76,6 @@ Getting started with Speedway is easy. Speedway allows you to interact with the 
 
 4. Build using Go ```go build -o bin/speedway.exe```
 
-5. Add the binary to your path ```setx path "%path%;C:\Users\%USERNAME%\go\bin"```
+5. Add the binary to your path ```set path "%path%;C:\Users\%USERNAME%\go\bin"```
 
 6. Run the binary ```speedway```

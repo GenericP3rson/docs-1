@@ -8,7 +8,7 @@ displayed_sidebar: highwaySidebar
 
 The highway is a single binary which allows for interfacing with the Sonr Blockchain (see **'Using the CLI'** for information on commands). The highway is also equipped with a REST server.  The following is a diagram outlining the topology of highway and available features.
 
-We believe the best way to onboard the next billion users is to create a cohesive end-to-end platform that’s composable and interoperable with all existing protocols. For this, we built our Networking layer in Libp2p and our Layer 1 Blockchain with Starport. Our network comprises of two separate nodes: Highway and Motor, which each have a specific use case on the network. In order to maximize the onboarding experience, we developed our own Wallet which has value right out of the gate!
+We believe the best way to onboard the next billion users is to create a cohesive end-to-end platform that’s composable and interoperable with all existing protocols. For this, we built our Networking layer in `libp2p` and our Layer 1 Blockchain with `cosmos-sdk`. Our network comprises of two separate nodes: Highway and Motor, which each have a specific use case on the network. In order to maximize the onboarding experience, we developed our own Wallet which has value right out of the gate!
 
 
 <!--
@@ -23,7 +23,7 @@ our Highway-sdk comes with a set of CLI commands&#x20;
 
 
 ```tex
-serve - Serves our GRPC and HTTP servers on the specified ports in our enviorment files
+serve - Serves our GRPC and HTTP servers on the specified ports in our environment files
 ```
 
 
@@ -118,7 +118,7 @@ doc.AddAssertionMethod(verificationMethod)
 didJson, _ := json.MarshalIndent(doc, "", "  ")
 fmt.Println(string(didJson))
 
-// Unmarshalling of a json did document:
+// Unmarshal of a json did document:
 parsedDIDDoc := did.Document{}
 err = json.Unmarshal(didJson, &parsedDIDDoc)
 

@@ -26,7 +26,7 @@ Returns the singleton instance.
 ```java
 public CreateAccountResponse createAccount(String password);
 ```
-Creates an account given a password. Automatically generates a preshared key which is kept in Android's shared preferences.
+Creates an account given a password. Automatically generates a pre-shared key which is kept in Android's shared preferences.
 
 ### Login
 
