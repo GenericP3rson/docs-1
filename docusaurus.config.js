@@ -14,20 +14,95 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'sonr-io', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
-
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
   plugins: [
+    "posthog-docusaurus",
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        docsRouteBasePath: ['docs', 'protodocs'],
+        docsDir: ['docs', 'protodocs'],
+        indexBlog: false,
+      },
+    ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          // /docs/oldDoc -> /docs/newDoc
+          {
+            to: '/protodocs/registry/tx.proto',
+            from: '/api',
+          },
+        ],
+        createRedirects(existingPath) {
+          if (existingPath.includes('/api/registry')) {
+            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
+            return [
+              existingPath.replace('/api/registry', '/protodocs/registry/tx.proto'),
+              existingPath.replace('/api/registry/tx', '/protodocs/registry/tx.proto'),
+              existingPath.replace('/api/registry/query', '/protodocs/registry/query.proto'),
+              existingPath.replace('/api/registry/genesis', '/protodocs/registry/genesis.proto'),
+              existingPath.replace('/api/registry/params', '/protodocs/registry/params.proto'),
+              existingPath.replace('/api/registry/who_is', '/protodocs/registry/who_is.proto'),
+              existingPath.replace('/api/registry/did', '/protodocs/registry/did.proto'),
+            ];
+          }
+          if (existingPath.includes('/api/schema')) {
+            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
+            return [
+              existingPath.replace('/api/schema', '/protodocs/schema/v1/tx.proto'),
+              existingPath.replace('/api/schema/tx', '/protodocs/schema/v1/tx.proto'),
+              existingPath.replace('/api/schema/query', '/protodocs/schema/v1/query.proto'),
+              existingPath.replace('/api/schema/genesis', '/protodocs/schema/v1/genesis.proto'),
+              existingPath.replace('/api/schema/params', '/protodocs/schema/v1/params.proto'),
+              existingPath.replace('/api/schema/what_is', '/protodocs/schema/v1/what_is.proto'),
+            ];
+          }
+          if (existingPath.includes('/api/bucket')) {
+            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
+            return [
+              existingPath.replace('/api/bucket', '/protodocs/bucket/tx.proto'),
+              existingPath.replace('/api/bucket/tx', '/protodocs/bucket/tx.proto'),
+              existingPath.replace('/api/bucket/query', '/protodocs/bucket/query.proto'),
+              existingPath.replace('/api/bucket/genesis', '/protodocs/bucket/genesis.proto'),
+              existingPath.replace('/api/bucket/params', '/protodocs/bucket/params.proto'),
+              existingPath.replace('/api/bucket/where_is', '/protodocs/bucket/where_is.proto'),
+            ];
+          }
+          if (existingPath.includes('/api/service')) {
+            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
+            return [
+              existingPath.replace('/api/service', '/protodocs/service/v1/discover.proto'),
+              existingPath.replace('/api/service/discover', '/protodocs/service/v1/discover.proto'),
+              existingPath.replace('/api/service/exchange', '/protodocs/service/v1/exchange.proto'),
+              existingPath.replace('/api/service/transmit', '/protodocs/service/v1/transmit.proto'),
+            ];
+          }
+          if (existingPath.includes('/api/motor')) {
+            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
+            return [
+              existingPath.replace('/api/motor', '/protodocs/motor/v1/request.proto'),
+              existingPath.replace('/api/motor/request', '/protodocs/motor/v1/request.proto'),
+              existingPath.replace('/api/motor/response', '/protodocs/motor/v1/response.proto'),
+            ];
+          }
+          if (existingPath.includes('/api/common')) {
+            // Redirect from /docs/team/X to /community/X and /docs/support/X to /community/X
+            return [
+              existingPath.replace('/api/common', '/protodocs/common/v1/info.proto'),
+              existingPath.replace('/api/common/info', '/protodocs/common/v1/info.proto'),
+              existingPath.replace('/api/common/ipns', '/protodocs/common/v1/ipns.proto')
+            ];
+          }
+          return undefined; // Return a falsy value: no redirect created
+        },
+      },
+    ],
   ],
   themes: [],
   presets: [
@@ -50,10 +125,26 @@ const config = {
         },
       }),
     ],
+    [
+      'docusaurus-protobuffet',
+      {
+        protobuffet: {
+          fileDescriptorsPath: './fixtures/proto_workspace.json',
+          protoDocsPath: './protodocs',
+          sidebarPath: './genSidebarsProtodocs.js',
+        },
+        docs: {
+          sidebarPath: './sidebarsProtodocs.js',
+        },
+      }
+    ]
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      posthog: {
+        apiKey: process.env.POSTHOG_KEY || 'posthog-key',
+      },
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: false,
@@ -84,6 +175,12 @@ const config = {
             docId: 'motor-sdk/intro',
             position: 'left',
             label: 'Integrate',
+          },
+          {
+            to: 'protodocs/registry/tx.proto',
+            activeBasePath: 'protodocs',
+            label: 'API Explorer',
+            position: 'right',
           },
           {
             href: 'https://github.com/sonr-io/sonr',

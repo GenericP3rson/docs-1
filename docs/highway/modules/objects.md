@@ -24,7 +24,7 @@ In this section we will define an example scenario with a comment on a social me
 Above we can see the following:
 - `from` contains an example `Address` which is an account which made this comment.
 - `payload` contains the actual data of the comment.
-- `timestamp` contains the time (in unix epoch format) the comment was made. 
+- `timestamp` contains the time (in unix epoch format) the comment was made.
 - `to` contains a list of who may view this comment.
 - `active` denotes if the given comment is still viewable
 
@@ -36,7 +36,7 @@ Next we will Create an Object with the schema above comment schema.
     "timestamp": 1662057089,
     "to": ["snr1d8cjuwkssr9uzf8zllkmmn0ekv6p7a7yuz2dpd", "snr1d8cjuwkssr9uzf8zllkmmn0ekv6p7a7yuz2dpd"],
     "active": true,
-	
+
 
 }
 ```
