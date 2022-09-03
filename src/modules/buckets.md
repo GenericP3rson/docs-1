@@ -58,7 +58,7 @@ message BucketItem {
   string schema_did = 5;
 }
 ```
-### example bucket item
+### Example bucket item
 ```json
   {
     "name": "jock-#1",
