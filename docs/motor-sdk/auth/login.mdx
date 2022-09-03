@@ -18,6 +18,24 @@ Users must be authenticated in order to utilize other Motor features. For more i
 If your user has previously created an account on the device, they can log in without a password. Alternatively, if the user's pre-shared key has been added to the device, they may login with a password.
 
 <Tabs groupId="platform">
+  <TabItem value="java" label="☕ Java (Android)">
+
+```java
+public void login(String password) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    LoginResponse response;
+    if (password.isEmpty()) {
+      response = mtr.login();
+    } else {
+      response = mtr.login(password);
+    }
+    System.out.println(mtr.getAddress);
+}
+```
+
+**Output:** Prints the blockchain address of the newly created account
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go" default>
 
 Login creates a motor node from a LoginRequest
@@ -39,25 +57,6 @@ func (mtr *motorNodeImpl) Login(request mt.LoginRequest) (mt.LoginResponse, erro
     // ...
 }
 ```
-
-  </TabItem>
-
-  <TabItem value="java" label="☕ Java">
-
-```java
-public void login(String password) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    LoginResponse response;
-    if (password.isEmpty()) {
-      response = mtr.login();
-    } else {
-      response = mtr.login(password);
-    }
-    System.out.println(mtr.getAddress);
-}
-```
-
-**Output:** Prints the blockchain address of the newly created account
 
   </TabItem>
 

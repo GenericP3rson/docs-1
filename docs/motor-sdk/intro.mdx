@@ -18,16 +18,7 @@ import TabItem from "@theme/TabItem";
 > Select your target platform to get started and setup a new Motor integrated project.
 
 <Tabs groupId="platform">
-  <TabItem value="go" label="🐹 Go" default>
-
-Start by adding the `sonr` package to your project.
-
-```bash
-go get -u github.com/sonr-io/sonr
-```
-
-  </TabItem>
-  <TabItem value="android" label="☕ Java">
+  <TabItem value="android" label="☕ Java (Android)">
 
 :::note
 
@@ -37,7 +28,7 @@ This guide assumes you're familiar with Android development and [Android Studio]
 Start by creating a new project.
 
 <img
-  src="https://raw.githubusercontent.com/sonr-io/docs/main/assets/new-project.png"
+  src="/assets/new-project.png"
   width="100%"
 />
 
@@ -46,18 +37,27 @@ Next, grab the latest version of Motoroid from [Jitpack.io](https://jitpack.io/#
 Your project level `build.gradle` should look like this when you're done...
 
 <img
-  src="https://raw.githubusercontent.com/sonr-io/docs/main/assets/build-gradle.png"
+  src="/assets/build-gradle.png"
   width="100%"
 />
 
 ...and your `:app` level `build.gradle` should look like this.
 
 <img
-  src="https://raw.githubusercontent.com/sonr-io/docs/main/assets/build-gradle-app.png"
+  src="/assets/build-gradle-app.png"
   width="100%"
 />
 
 Note: You may need to delete the `dependencyResolutionManagement` section from `settings.gradle` if you receive an error.
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go" default>
+
+Start by adding the `sonr` package to your project.
+
+```bash
+go get -u github.com/sonr-io/sonr
+```
 
   </TabItem>
   <TabItem value="flutter" label="🎯 Dart">
@@ -85,6 +85,42 @@ Clone the Plugin, Compile the most up-to-date protobuf files, and Download the l
 > Spawning a new Motor instance is the first step in using the SDK. This is where you'll configure your app's connection to the Sonr network.
 
 <Tabs groupId="platform">
+  <TabItem value="android" label="☕ Java (Android)">
+    With Motoroid added to your project, all you need to do is initialize the `Motoroid` instance and you'll have access to a singleton throughout the lifetime of your application! It's a good idea to do this early on the lifetime of your app. For example, in your app's `onCreate` handler.
+
+```java
+...
+import io.sonr.motoroid.Motoroid;
+
+...
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    // Initialize motor
+    try {
+        Motoroid.init(getApplicationContext());
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    ...
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="🎯 Dart">
+
+```dart
+Future<InitializeResponse?> initialize() async {
+    final peerInfo = await PeerInformation.fetch();
+    final req = peerInfo.toInitializeRequest(enableLibp2p: false);
+    return await MotorFlutterPlatform.instance.init(req);
+}
+```
+
+</TabItem>
   <TabItem value="go" label="🐹 Go" default>
 There should exist only one instance of `Motor` throughout the lifetime of your application.
 
@@ -161,42 +197,6 @@ loginResponse, err := mtr.Login(mt.LoginRequest{
 ```
 
   </TabItem>
-  <TabItem value="android" label="☕ Java">
-    With Motoroid added to your project, all you need to do is initialize the `Motoroid` instance and you'll have access to a singleton throughout the lifetime of your application! It's a good idea to do this early on the lifetime of your app. For example, in your app's `onCreate` handler.
-
-```java
-...
-import io.sonr.motoroid.Motoroid;
-
-...
-
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-
-    // Initialize motor
-    try {
-        Motoroid.init(getApplicationContext());
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-
-    ...
-}
-```
-
-  </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
-
-```dart
-Future<InitializeResponse?> initialize() async {
-    final peerInfo = await PeerInformation.fetch();
-    final req = peerInfo.toInitializeRequest(enableLibp2p: false);
-    return await MotorFlutterPlatform.instance.init(req);
-}
-```
-
-</TabItem>
 </Tabs>
 
 ## Next Steps

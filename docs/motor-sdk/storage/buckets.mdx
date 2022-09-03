@@ -11,6 +11,24 @@ Buckets on Sonr are a great way to store related Documents—think of them like 
 Like everything on Sonr, you need a bucket's DID in order to fetch it.
 
 <Tabs groupId="platform">
+	<TabItem value="android" label="☕ Java (Android)">
+
+```java
+public void getBucket(String did) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    Bucket bucket = mtr.getBucket(did);
+
+    // iterate over all documents
+    for (Document d : bucket.getDocuments()) {
+      // print the 'fieldName' property from the Document
+      System.out.println(d.get("fieldName"));
+    }
+
+    // get a single document with its CID
+    Document d = bucket.getDocument("<CID>");
+}
+```
+  </TabItem>
   <TabItem value="go" label="🐹 Go" default>
 
 ```go
@@ -46,25 +64,6 @@ func GetBucketObjects(bucketDid string) ([]byte, error) {
 ```
 
   </TabItem>
-  <TabItem value="android" label="☕ Java">
-
-```java
-public void getBucket(String did) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    Bucket bucket = mtr.getBucket(did);
-
-    // iterate over all documents
-    for (Document d : bucket.getDocuments()) {
-      // print the 'fieldName' property from the Document
-      System.out.println(d.get("fieldName"));
-    }
-
-    // get a single document with its CID
-    Document d = bucket.getDocument("<CID>");
-}
-```
-
-  </TabItem>
   <TabItem value="flutter" label="🎯 Dart">
 
 ```dart
@@ -79,6 +78,25 @@ Future<QueryWhereIsResponse?> queryBucket(String q) async {
 In addition to documents, you can also fetch child buckets.
 
 <Tabs groupId="platform">
+	<TabItem value="android" label="☕ Java (Android)">
+
+```java
+public void getSubBucket(String did) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    Bucket bucket = mtr.getBucket(did);
+
+    // iterate over all sub bucket DIDs
+    for (String subBucketDid : bucket.getSubBucketDids()) {
+      // Resolve the sub-bucket. This bucket behaves exactly like the parent it came from
+      Bucket subBucket = bucket.getBucket(subBucketDid);
+    }
+
+    // get a single document with its CID
+    Document d = bucket.getDocument("<CID>");
+}
+```
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go" default>
 
 ```go
@@ -102,25 +120,6 @@ func ResolveSubBucket(bucketDid, subBucketDid string) error {
 	}
 
 	return nil
-}
-```
-
-  </TabItem>
-  <TabItem value="android" label="☕ Java">
-
-```java
-public void getSubBucket(String did) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    Bucket bucket = mtr.getBucket(did);
-
-    // iterate over all sub bucket DIDs
-    for (String subBucketDid : bucket.getSubBucketDids()) {
-      // Resolve the sub-bucket. This bucket behaves exactly like the parent it came from
-      Bucket subBucket = bucket.getBucket(subBucketDid);
-    }
-
-    // get a single document with its CID
-    Document d = bucket.getDocument("<CID>");
 }
 ```
 

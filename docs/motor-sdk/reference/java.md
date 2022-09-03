@@ -1,5 +1,5 @@
 ---
-title: Java
+title: Java (Android)
 sidebar_position: 1
 displayed_sidebar: motorSidebar
 ---
