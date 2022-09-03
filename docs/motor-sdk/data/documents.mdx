@@ -13,6 +13,29 @@ Schema Documents store end-to-end encrypted user data on the Sonr network. You c
 Documents can be created using the `DocumentBuilder` API. You simply need to provide the [DID](#) of the [Schema](#) this document will conform to. When you create an document without adding it to a bucket, you as the developer must take care to keep track of the CID.
 
 <Tabs groupId="platform">
+   <TabItem value="android" label="☕ Java">
+
+```java
+public void createDocument(String schemaDid) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    DocumentBuilder builder = mtr.createDocumentBuilder(schemaDid);
+
+    builder.set("key", "value");
+    // ... set other fields ...
+
+    // validates and builds the document
+    Document d = builder.build();
+
+    // builds and uploads the document
+    UploadObjectResponse result = builder.upload();
+
+    // print the CID of the newly created object
+    System.out.println(result.getReference().getCid());
+}
+
+```
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go" default>
 
 ```go
@@ -49,29 +72,6 @@ After initializing a new builder, the following are a couple of methods that can
 For a full list of methods, see the [ObjectBuilder](https://pkg.go.dev/github.com/sonr-io/sonr@v0.4.0/bind/motor-mobile) documentation.
 
   </TabItem>
-  <TabItem value="android" label="☕ Java">
-
-```java
-public void createDocument(String schemaDid) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    DocumentBuilder builder = mtr.createDocumentBuilder(schemaDid);
-
-    builder.set("key", "value");
-    // ... set other fields ...
-
-    // validates and builds the document
-    Document d = builder.build();
-
-    // builds and uploads the document
-    UploadObjectResponse result = builder.upload();
-
-    // print the CID of the newly created object
-    System.out.println(result.getReference().getCid());
-}
-
-```
-
-  </TabItem>
   <TabItem value="flutter" label="🎯 Dart">
 
     ### 🚧 Under Construction 🚧
@@ -84,6 +84,16 @@ public void createDocument(String schemaDid) throws Exception {
 With a Document's CID, you can fetch an document directly from `Motoroid`.
 
 <Tabs groupId="platform">
+    <TabItem value="android" label="☕ Java">
+
+```java
+public void getDocument(String cid) {
+    Motoroid mtr = Motoroid.getInstance();
+    JSONObject d = mtr.getDocument(cid);
+}
+```
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go" default>
 
 ```go
@@ -103,16 +113,6 @@ func GetObject(cid string) ([]byte, error) {
 ```
 
   </TabItem>
-  <TabItem value="android" label="☕ Java">
-
-```java
-public void getDocument(String cid) {
-    Motoroid mtr = Motoroid.getInstance();
-    JSONObject d = mtr.getDocument(cid);
-}
-```
-
-  </TabItem>
   <TabItem value="flutter" label="🎯 Dart">
 
     ### 🚧 Under Construction 🚧
@@ -123,12 +123,7 @@ public void getDocument(String cid) {
 Without a _Schema_, documents are returned as JSON objects. You can provide a schema's DID to get a `Document` instance.
 
 <Tabs groupId="platform">
-  <TabItem value="go" label="🐹 Go" default>
-
-    ### 🚧 Under Construction 🚧
-
-  </TabItem>
-  <TabItem value="android" label="☕ Java">
+    <TabItem value="android" label="☕ Java">
 
 ```java
 public void getDocument(String cid, SchemaDefinition schema) {
@@ -136,12 +131,12 @@ public void getDocument(String cid, SchemaDefinition schema) {
     Document d = mtr.getDocument(cid, schema);
 }
 ```
-
+  </TabItem>
+  <TabItem value="go" label="🐹 Go" default>
+    ### 🚧 Under Construction 🚧
   </TabItem>
   <TabItem value="flutter" label="🎯 Dart">
-
     ### 🚧 Under Construction 🚧
-
   </TabItem>
 </Tabs>
 
