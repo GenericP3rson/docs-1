@@ -16,7 +16,7 @@ Schema Documents store end-to-end encrypted user data on the Sonr network. You c
 Documents can be created using the `DocumentBuilder` API. You simply need to provide the [DID](#) of the [Schema](#) this document will conform to. When you create an document without adding it to a bucket, you as the developer must take care to keep track of the CID.
 
 <Tabs groupId="platform">
-   <TabItem value="android" label="☕ Java (Android)">
+   <TabItem value="android" label="☕ Java (Android)" default>
 
 ```java
 public void createDocument(String schemaDid) throws Exception {
@@ -39,7 +39,7 @@ public void createDocument(String schemaDid) throws Exception {
 ```
 
   </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
 
 ```go
 func NewObjectBuilder(name, schemaDid string) error {
@@ -87,7 +87,7 @@ For a full list of methods, see the [ObjectBuilder](https://pkg.go.dev/github.co
 With a Document's CID, you can fetch an document directly from `Motoroid`.
 
 <Tabs groupId="platform">
-    <TabItem value="android" label="☕ Java (Android)">
+    <TabItem value="android" label="☕ Java (Android)" default>
 
 ```java
 public void getDocument(String cid) {
@@ -97,7 +97,7 @@ public void getDocument(String cid) {
 ```
 
   </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
 
 ```go
 func GetObject(cid string) ([]byte, error) {
@@ -136,7 +136,7 @@ public void getDocument(String cid, SchemaDefinition schema) {
 ```
 
   </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
     ### 🚧 Under Construction 🚧
   </TabItem>
   <TabItem value="flutter" label="🎯 Dart">

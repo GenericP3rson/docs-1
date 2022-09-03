@@ -23,7 +23,7 @@ Creating an account bootstraps the Motor `libp2p` node and generates the `MPC Wa
 To create an account, you simply need to provide a recovery password to the [create account method](/docs/motor-sdk/intro.mdx#initialization).. Account creation can take up to three minutes, so entertain your users :).
 
 <Tabs groupId="platform">
-  <TabItem value="java" label="☕ Java (Android)">
+  <TabItem value="java" label="☕ Java (Android)" default>
 
 ```java
 public void createAccount(String password) throws Exception {
@@ -36,7 +36,7 @@ public void createAccount(String password) throws Exception {
 **Output:** Prints the blockchain address of the newly created account
 
   </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
 
 ```go
 func (mtr *motorNodeImpl) CreateAccount(request mt.CreateAccountRequest) (mt.CreateAccountResponse, error) {
