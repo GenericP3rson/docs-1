@@ -75,7 +75,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'speedway/quick-start',
+            docId: 'speedway/introduction',
             position: 'left',
             label: 'Build',
           },

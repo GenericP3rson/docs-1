@@ -1,0 +1,121 @@
+---
+title: Introduction
+displayed_sidebar: speedwaySidebar
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+![DID and channel schema](/img/speedway.png)
+
+### What is Speedway?
+
+Speedway is a suite of developer tools that allow you to create, update, deprecate and query schemas, objects and buckets on the Sonr Network. The Speedway Suite consists of the Speedway CLI, the Speedway API, and the Speedway UI which is a web application that allows you to interact with the Speedway API.
+
+Speedway currently utilizes four modules on the Sonr Blockchain. The modules are listed below for a wholistic overview.
+
+- [Registry Documentation](/docs/highway/modules/registry.md)
+- [Schema Documentation](/docs/highway/modules/schemas.md)
+- [Object Documentation](/docs/highway/modules/objects.md)
+- [Bucket Documentation](/docs/highway/modules/buckets.md)
+
+---
+
+### Installation
+
+The Speedway CLI allows developers all the comforts of Speedway into a command-line interface. Speedway User-Interface gives developers the ability to visually create schemas, objects and buckets in a web application.
+
+<Tabs groupId="package">
+  <TabItem value="cli" label="🖥️ CLI" default>
+
+#### 1. Build the Speedway CLI
+
+```bash
+go build -o speedway cmd/speedway-cli/main.go
+```
+
+#### 2. Run the help command
+
+```bash
+./speedway help
+```
+
+  </TabItem>
+  <TabItem value="web" label="🎨 Web UI">
+
+#### 1. Install all the front end dependencies
+
+```bash
+npm install
+```
+
+#### 2, Build the frontend
+
+```bash
+npm run build
+```
+
+#### 3. Serve the backend
+
+```bash
+task server:start:release
+```
+
+#### 4. Open your Browser to [localhost:4040](http://localhost:4040)
+
+  </TabItem>
+  <TabItem value="backend" label="🧪 Mock Server">
+
+To build for dev, run `task server:start:debug` instead of `task server:start:release`
+
+This mode is ideal for UI development. Changes to the code will reflect on the browser automatically and there is no need to build. Any data generated will be local only. Behavior may not perfectly match the Sonr Speedway Backend.
+
+#### 1. Install Dependencies and Serve Frontend
+
+```bash
+npm install
+npm start
+```
+
+#### 2. In a new terminal, serve the backend
+
+```bash
+cd server-in-memory
+npm install
+npm start
+```
+
+The UI should open automatically on your browser, but if that's not the case, it can be found under [`localhost:3000`](http://localhost:3000)
+
+#### 3. To reset the local data, go to
+
+```bash
+localhost:4040/reset
+```
+
+  </TabItem>
+</Tabs>
+
+---
+
+### Known Issues
+
+#### Speedway UI: Cannot use types other than string in objects or it causes issues with validation
+
+- Workaround: Use strings for all data-types
+- Workaround: Use the cli
+- Workaround: Use the <code>--file &lt;file&gt;</code> flag on the CLI commands
+
+#### The server sometimes fails due to `Concurrent Map Writes`
+
+- Workaround: Restart the server and repeat the action
+
+---
+
+### Next Steps
+
+The Speedway API was created in tandem with the Speedway UI to give developers the ability to utilize the Speedway suite in a web application.
+
+- [Getting Started](/docs/speedway/getting-started.md)
+<!-- - [Example Flutter App](/docs/speedway/flutter-example.md) -->
+- [Speedway CLI Reference](/docs/speedway/cli-cmds.mdx)

@@ -1,5 +1,5 @@
 ---
-title: Basics of the CLI
+title: Getting Started
 displayed_sidebar: speedwaySidebar
 ---
 

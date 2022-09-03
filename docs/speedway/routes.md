@@ -1,10 +1,10 @@
 ---
-title: Routes
+title: REST Routes
 displayed_sidebar: speedwaySidebar
 ---
 ## Summary
 
-The Speedway API is a RESTful API that allows you to interact with the Speedway UI. The API is used to create, update, and delete Speedway resources such as **Schemas**, **Objects**, and ****Buckets****. The API is also used in tandem with the Speedway UI allowing developers to create or view data on the Sonr blockchain, in a web application.
+The Speedway API is a RESTful API that allows you to interact with the Speedway UI. The API is used to create, update, and delete Speedway resources such as **Schemas**, **Objects**, and **Buckets**. The API is also used in tandem with the Speedway UI allowing developers to create or view data on the Sonr blockchain, in a web application.
 
 ## Access API Reference
 Currently the Speedway API reference is hosted on the Speedway API server. To access the API reference, you must first login to the Speedway UI. Once you are logged in, you can access the API reference by clicking the "Access API" button in the top right corner of the UI.
