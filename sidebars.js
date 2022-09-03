@@ -63,7 +63,8 @@ const sidebars = {
     {
       type: 'category',
       label: 'Guides',
-      collapsed: true,
+      collapsed: false,
+      collapsible: false,
       items: ['speedway/cli-example', 'speedway/flutter-example'],
     },
     {

@@ -29,20 +29,9 @@ const config = {
   },
   plugins: [
     [
-      "docusaurus-plugin-openapi-docs",
-      {
-        id: "openapi",
-        docsPluginId: "classic",
-        config: {
-          blockchain: {
-            specPath: "static/blockchain.yaml",
-            outputDir: "docs/api",
-          },
-        },
-      },
     ],
   ],
-  themes: ["docusaurus-theme-openapi-docs"],
+  themes: [],
   presets: [
     [
       'classic',
