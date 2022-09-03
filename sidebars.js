@@ -49,7 +49,6 @@ const sidebars = {
   // But you can create a sidebar manually
   highwaySidebar: [
     'what-is-sonr',
-    'getting-started',
     {
       type: 'category',
       label: 'Modules',

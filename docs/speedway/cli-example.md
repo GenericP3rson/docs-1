@@ -1,5 +1,5 @@
 ---
-title: Basic - CLI
+title: Using the CLI
 displayed_sidebar: speedwaySidebar
 ---
 

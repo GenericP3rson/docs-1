@@ -9,9 +9,9 @@ Speedway provides a set of scripts to help you generate, serve, and deploy your 
 #### Below is a list of Speedway CLI commands and their usages:
 
 - [`speedway account`](#speedway-account)
+- [`speedway schema`](#speedway-schema)
 - [`speedway bucket`](#speedway-bucket)
 - [`speedway object`](#speedway-object)
-- [`speedway schema`](#speedway-schema)
 - [`speedway serve`](#speedway-serve)
 
 :::caution
@@ -39,6 +39,28 @@ speedway account [subcmd] [--flags]
 
 ```bash
   -h, --help   help for account
+```
+
+## `speedway schema`
+
+The schema commands are based on Sonr's Schema module. The schema module is used to create, update, deprecate and query schemas on the Sonr Network.
+
+```bash
+speedway bucket [subcmd] [--flags]
+```
+
+### Subcommands
+
+| Command     | Description                                                                     | Module     |
+| ----------- | ------------------------------------------------------------------------------- | ---------- |
+| `create`    | Creates a Schema definition with file path. Launches form when no flags present | **Schema** |
+| `get all`   | Retrieves all Schemas for the provided users account                            | **Schema** |
+| `get [did]` | Returns a schema matching the did, if not provided the cli will prompt          | **Schema** |
+
+### Options
+
+```bash
+  -h, --help   help for bucket
 ```
 
 ## `speedway bucket`
@@ -92,28 +114,6 @@ speedway object [subcmd] [--flags]
 
   # Get command options
      --cid    CID  of the object to resolve
-```
-
-## `speedway schema`
-
-The schema commands are based on Sonr's Schema module. The schema module is used to create, update, deprecate and query schemas on the Sonr Network.
-
-```bash
-speedway bucket [subcmd] [--flags]
-```
-
-### Subcommands
-
-| Command     | Description                                                                     | Module     |
-| ----------- | ------------------------------------------------------------------------------- | ---------- |
-| `create`    | Creates a Schema definition with file path. Launches form when no flags present | **Schema** |
-| `get all`   | Retrieves all Schemas for the provided users account                            | **Schema** |
-| `get [did]` | Returns a schema matching the did, if not provided the cli will prompt          | **Schema** |
-
-### Options
-
-```bash
-  -h, --help   help for bucket
 ```
 
 ## `speedway serve`
