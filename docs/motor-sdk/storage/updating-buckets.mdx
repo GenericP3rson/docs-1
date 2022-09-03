@@ -16,6 +16,26 @@ New documents can be added or removed from a bucket using the Bucket class. This
 Adding a document both uploads the document to IPFS and adds a reference to the bucket. The result of the upload is returned containing the CID and other information.
 
 <Tabs groupId="platform">
+	<TabItem value="android" label="☕ Java (Android)">
+
+```java
+public void addDocumentToBucket(String bucketDid, Document d) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    Bucket bucket = mtr.getBucket(bucketDid);
+
+    UploadObjectResponse response = bucket.addDocument(d);
+
+    // print the CID
+    System.out.println(response.getReference().getCid());
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="🎯 Dart">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go" default>
 
 ```go
@@ -42,31 +62,23 @@ func AddBucketObject(bucketDid string, obj []byte) error {
 ```
 
   </TabItem>
-  <TabItem value="android" label="☕ Java">
-
-```java
-public void addDocumentToBucket(String bucketDid, Document d) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    Bucket bucket = mtr.getBucket(bucketDid);
-
-    UploadObjectResponse response = bucket.addDocument(d);
-
-    // print the CID
-    System.out.println(response.getReference().getCid());
-}
-```
-
-  </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
-
-    ### 🚧 Under Construction 🚧
-
-  </TabItem>
 </Tabs>
 
 Using the returned CID, you can remove the Document from the Bucket.
 
 <Tabs groupId="platform">
+	<TabItem value="android" label="☕ Java (Android)">
+
+```java
+public void removeDocumentFromBucket(String bucketDid, String cid) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    Bucket bucket = mtr.getBucket(bucketDid);
+
+    bucket.removeDocument(cid);
+}
+```
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go" default>
 
 ```go
@@ -94,18 +106,6 @@ func RemoveBucketObject(bucketDid, cid string) error {
 
 	_, err = instance.UpdateBucketItems(context.Background(), bucketDid, newObjects)
 	return err
-}
-```
-
-  </TabItem>
-  <TabItem value="android" label="☕ Java">
-
-```java
-public void removeDocumentFromBucket(String bucketDid, String cid) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    Bucket bucket = mtr.getBucket(bucketDid);
-
-    bucket.removeDocument(cid);
 }
 ```
 
