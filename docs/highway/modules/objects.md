@@ -3,14 +3,14 @@ title: Overview
 ---
 
 # Objects
-Objects are data persisted within an off chain storage network and given a content identifier, which represents the object in the network, not kept on the `blockchain`. When uploading an object for storage, there must be validation against a [schema](./schemas.md) in order to match in both property name, and type. 
+Objects are data persisted within an off chain storage network and given a content identifier, which represents the object in the network, not kept on the `blockchain`. When uploading an object for storage, there must be validation against a [schema](/docs/highway/modules/schemas.md) in order to match in both property name, and type. 
 
 # Defining Objects
-Objects are represented as `JSON`. Which makes it simple to define objects quickly. Support for JSON is found within most modern IDE and Code editors. However, depending on the [motor-sdk](../motor-sdk/overview.md) target you are using, there will be different ways of representing object data.
+Objects are represented as `JSON`. Which makes it simple to define objects quickly. Support for JSON is found within most modern IDE and Code editors. However, depending on the [motor-sdk](/docs/motor-sdk/intro.mdx) target you are using, there will be different ways of representing object data.
 
 
 # Example of an Object definition
-In this section we will define an example scenario with a comment on a social media post. Below is the [schema](./schemas.md) for our social media comment.
+In this section we will define an example scenario with a comment on a social media post. Below is the [schema](/docs/highway/modules/schemas.md) for our social media comment.
 ```json
 {
     "from": STRING,
@@ -56,11 +56,9 @@ When an object is stored, it will be given its Identifier (`cid`) and `DID` whic
 # Storage/Referencing
  It should be noted that once an object is stored. The `cid` must be associated with a [bucket](./buckets.md) to be retrievable. Buckets allow objects to be searched upon by schema, and meta-data. Currently (9/1/2022), only searching by a schema is supported, but indexing of buckets is expected soon.
 
- # Framework Implementations
- Currently framework docs refer to `Objects` as `Documents` they are the same as what is in this documentation.
-
- # Relating Objects
- see [bucket](./buckets.md) for more information on how Objects can be related to other objects.
- # Examples
-See [Speedway](../motor-sdk/speedway/overview.md) Documentation for information on how to upload content through a managed Content environment or our `CLI`. 
-See [Motor-SDK](../motor-sdk/overview.md) Documentation for how to interface with objects through there for framework for creating Objects.
+## Usage
+Currently framework docs refer to `Objects` as `Documents` they are the same as what is in this documentation.
+- See [Bucket](/docs/highway/modules/buckets.md) for more information on how Objects can be related to other objects.
+- See [Speedway](/docs/speedway/cli-cmds.mdx) documentation on usage of objects through our management tooling.
+- See [Motor-SDK](/docs/motor-sdk/data/documents.mdx) documentation in our SDK targets.
+- Read [ADR-2](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/2.md) for a more in depth technical explanation of the design decisions made for the Schema module.
