@@ -13,7 +13,7 @@ New documents can be added or removed from a bucket using the Bucket class. This
 Adding a document both uploads the document to IPFS and adds a reference to the bucket. The result of the upload is returned containing the CID and other information.
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="☕ Java">
+	<TabItem value="android" label="☕ Java (Android)">
 
 ```java
 public void addDocumentToBucket(String bucketDid, Document d) throws Exception {
@@ -64,7 +64,7 @@ func AddBucketObject(bucketDid string, obj []byte) error {
 Using the returned CID, you can remove the Document from the Bucket.
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="☕ Java">
+	<TabItem value="android" label="☕ Java (Android)">
 
 ```java
 public void removeDocumentFromBucket(String bucketDid, String cid) throws Exception {
