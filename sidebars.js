@@ -42,7 +42,7 @@ const sidebars = {
       type: 'category',
       label: 'API Reference',
       collapsed: true,
-      items: ['motor-sdk/reference/java', 'motor-sdk/reference/dart', 'motor-sdk/reference/go'],
+      items: ['motor-sdk/reference/go', 'motor-sdk/reference/java', 'motor-sdk/reference/dart'],
     },
   ],
 
