@@ -1,0 +1,33 @@
+---
+title: ipns.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `ipns.proto`
+_**path** common/v1/ipns.proto_
+
+_**package** sonrio.common.v1_
+
+
+
+---
+
+## Messages
+
+
+### `IpnsEntry`
+<ProtoMessage key={0} message={{"name":"IpnsEntry","longName":"IpnsEntry","fullName":"sonrio.common.v1.IpnsEntry","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"value","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"signature","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"validityType","description":"","label":"","type":"ValidityType","longType":"IpnsEntry.ValidityType","fullType":"sonrio.common.v1.IpnsEntry.ValidityType","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/ipns.proto#ipnsentryvaliditytype"},{"name":"validity","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"sequence","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"ttl","description":"","label":"","type":"uint64","longType":"uint64","fullType":"uint64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"pubKey","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+---
+## Enums
+
+
+### `IpnsEntry.ValidityType`
+<ProtoEnum key={0} enumb={{"name":"ValidityType","longName":"IpnsEntry.ValidityType","fullName":"sonrio.common.v1.IpnsEntry.ValidityType","description":"","values":[{"name":"EOL","number":"0","description":"setting an EOL says \"this record is valid until...\""}]}} />
+
+---
+
+
+  

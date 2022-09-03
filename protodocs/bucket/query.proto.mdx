@@ -1,0 +1,79 @@
+---
+title: query.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `query.proto`
+_**path** bucket/query.proto_
+
+_**package** sonrio.sonr.bucket_
+
+
+
+---
+
+## Messages
+
+
+### `QueryAllWhereIsRequest`
+<ProtoMessage key={0} message={{"name":"QueryAllWhereIsRequest","longName":"QueryAllWhereIsRequest","fullName":"sonrio.sonr.bucket.QueryAllWhereIsRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"pagination","description":"","label":"","type":"PageRequest","longType":"cosmos.base.query.v1beta1.PageRequest","fullType":"cosmos.base.query.v1beta1.PageRequest","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryAllWhereIsResponse`
+<ProtoMessage key={1} message={{"name":"QueryAllWhereIsResponse","longName":"QueryAllWhereIsResponse","fullName":"sonrio.sonr.bucket.QueryAllWhereIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"where_is","description":"","label":"repeated","type":"WhereIs","longType":"WhereIs","fullType":"sonrio.sonr.bucket.WhereIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#whereis"},{"name":"pagination","description":"","label":"","type":"PageResponse","longType":"cosmos.base.query.v1beta1.PageResponse","fullType":"cosmos.base.query.v1beta1.PageResponse","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryGetWhereIsByCreatorRequest`
+<ProtoMessage key={2} message={{"name":"QueryGetWhereIsByCreatorRequest","longName":"QueryGetWhereIsByCreatorRequest","fullName":"sonrio.sonr.bucket.QueryGetWhereIsByCreatorRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"pagination","description":"","label":"","type":"PageRequest","longType":"cosmos.base.query.v1beta1.PageRequest","fullType":"cosmos.base.query.v1beta1.PageRequest","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryGetWhereIsByCreatorResponse`
+<ProtoMessage key={3} message={{"name":"QueryGetWhereIsByCreatorResponse","longName":"QueryGetWhereIsByCreatorResponse","fullName":"sonrio.sonr.bucket.QueryGetWhereIsByCreatorResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"where_is","description":"","label":"repeated","type":"WhereIs","longType":"WhereIs","fullType":"sonrio.sonr.bucket.WhereIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#whereis"},{"name":"pagination","description":"","label":"","type":"PageResponse","longType":"cosmos.base.query.v1beta1.PageResponse","fullType":"cosmos.base.query.v1beta1.PageResponse","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryGetWhereIsRequest`
+<ProtoMessage key={4} message={{"name":"QueryGetWhereIsRequest","longName":"QueryGetWhereIsRequest","fullName":"sonrio.sonr.bucket.QueryGetWhereIsRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryGetWhereIsResponse`
+<ProtoMessage key={5} message={{"name":"QueryGetWhereIsResponse","longName":"QueryGetWhereIsResponse","fullName":"sonrio.sonr.bucket.QueryGetWhereIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"where_is","description":"","label":"","type":"WhereIs","longType":"WhereIs","fullType":"sonrio.sonr.bucket.WhereIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#whereis"}]}} />
+
+
+### `QueryParamsRequest`
+<ProtoMessage key={6} message={{"name":"QueryParamsRequest","longName":"QueryParamsRequest","fullName":"sonrio.sonr.bucket.QueryParamsRequest","description":"QueryParamsRequest is request type for the Query/Params RPC method.","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `QueryParamsResponse`
+<ProtoMessage key={7} message={{"name":"QueryParamsResponse","longName":"QueryParamsResponse","fullName":"sonrio.sonr.bucket.QueryParamsResponse","description":"QueryParamsResponse is response type for the Query/Params RPC method.","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"params","description":"params holds all the parameters of this module.","label":"","type":"Params","longType":"Params","fullType":"sonrio.sonr.bucket.Params","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/params.proto#params"}]}} />
+
+---
+## Services
+
+
+### `Query`
+
+Query defines the gRPC querier service.
+
+
+#### `Params`
+<ProtoServiceMethod key={'Params-0'} method={{"name":"Params","description":"Parameters queries the parameters of the module.","requestType":"QueryParamsRequest","requestLongType":"QueryParamsRequest","requestFullType":"sonrio.sonr.bucket.QueryParamsRequest","requestStreaming":false,"responseType":"QueryParamsResponse","responseLongType":"QueryParamsResponse","responseFullType":"sonrio.sonr.bucket.QueryParamsResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/bucket/params"}]}},"requestTypeLink":"/protodocs/bucket/query.proto#queryparamsrequest","responseTypeLink":"/protodocs/bucket/query.proto#queryparamsresponse"}} />
+
+
+#### `WhereIs`
+<ProtoServiceMethod key={'WhereIs-1'} method={{"name":"WhereIs","description":"Queries a WhereIs by did and creator.","requestType":"QueryGetWhereIsRequest","requestLongType":"QueryGetWhereIsRequest","requestFullType":"sonrio.sonr.bucket.QueryGetWhereIsRequest","requestStreaming":false,"responseType":"QueryGetWhereIsResponse","responseLongType":"QueryGetWhereIsResponse","responseFullType":"sonrio.sonr.bucket.QueryGetWhereIsResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/bucket/where_is/{creator}/{did}"}]}},"requestTypeLink":"/protodocs/bucket/query.proto#querygetwhereisrequest","responseTypeLink":"/protodocs/bucket/query.proto#querygetwhereisresponse"}} />
+
+
+#### `WhereIsByCreator`
+<ProtoServiceMethod key={'WhereIsByCreator-2'} method={{"name":"WhereIsByCreator","description":"Queries all WhereIs by creator.","requestType":"QueryGetWhereIsByCreatorRequest","requestLongType":"QueryGetWhereIsByCreatorRequest","requestFullType":"sonrio.sonr.bucket.QueryGetWhereIsByCreatorRequest","requestStreaming":false,"responseType":"QueryGetWhereIsByCreatorResponse","responseLongType":"QueryGetWhereIsByCreatorResponse","responseFullType":"sonrio.sonr.bucket.QueryGetWhereIsByCreatorResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/bucket/where_is/{creator}"}]}},"requestTypeLink":"/protodocs/bucket/query.proto#querygetwhereisbycreatorrequest","responseTypeLink":"/protodocs/bucket/query.proto#querygetwhereisbycreatorresponse"}} />
+
+
+#### `WhereIsAll`
+<ProtoServiceMethod key={'WhereIsAll-3'} method={{"name":"WhereIsAll","description":"Queries a list of WhereIs items.","requestType":"QueryAllWhereIsRequest","requestLongType":"QueryAllWhereIsRequest","requestFullType":"sonrio.sonr.bucket.QueryAllWhereIsRequest","requestStreaming":false,"responseType":"QueryAllWhereIsResponse","responseLongType":"QueryAllWhereIsResponse","responseFullType":"sonrio.sonr.bucket.QueryAllWhereIsResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/bucket/where_is"}]}},"requestTypeLink":"/protodocs/bucket/query.proto#queryallwhereisrequest","responseTypeLink":"/protodocs/bucket/query.proto#queryallwhereisresponse"}} />
+
+
+---
+
+
+  

@@ -1,0 +1,34 @@
+---
+title: exchange.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `exchange.proto`
+_**path** service/v1/exchange.proto_
+
+_**package** sonrio.motor.service.v1_
+
+
+
+---
+
+## Messages
+
+
+### `InviteRequest`
+<ProtoMessage key={0} message={{"name":"InviteRequest","longName":"InviteRequest","fullName":"sonrio.motor.service.v1.InviteRequest","description":"Invitation Message sent on RPC","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"body","description":"Attached Data","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"signature","description":"Signature of the Attached Data","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"from","description":"Users Peer Data","label":"","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"},{"name":"to","description":"Receivers Peer Data","label":"","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"}]}} />
+
+
+### `InviteResponse`
+<ProtoMessage key={1} message={{"name":"InviteResponse","longName":"InviteResponse","fullName":"sonrio.motor.service.v1.InviteResponse","description":"Reply Message sent on RPC","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"decision","description":"Success","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"body","description":"Attached Data","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"signature","description":"Signature of the Attached Data","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"from","description":"Users Peer Data","label":"","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"},{"name":"to","description":"Receivers Peer Data","label":"","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"}]}} />
+
+
+### `MailboxMessage`
+<ProtoMessage key={2} message={{"name":"MailboxMessage","longName":"MailboxMessage","fullName":"sonrio.motor.service.v1.MailboxMessage","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"id","description":"ID is the Message ID","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"body","description":"Payload is the message data","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"from","description":"Users Peer Data","label":"","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"},{"name":"to","description":"Receivers Peer Data","label":"","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"},{"name":"signature","description":"Signature of the Attached Data","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"created_at","description":"Timestamp","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+---
+
+
+  

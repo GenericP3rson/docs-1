@@ -1,0 +1,55 @@
+---
+title: tx.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `tx.proto`
+_**path** schema/v1/tx.proto_
+
+_**package** sonrio.sonr.schema_
+
+
+
+---
+
+## Messages
+
+
+### `MsgCreateSchema`
+<ProtoMessage key={0} message={{"name":"MsgCreateSchema","longName":"MsgCreateSchema","fullName":"sonrio.sonr.schema.MsgCreateSchema","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"definition","description":"definition of schema to be persisted","label":"","type":"SchemaDefinition","longType":"SchemaDefinition","fullType":"sonrio.sonr.schema.SchemaDefinition","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/schema.proto#schemadefinition"},{"name":"metadata","description":"Metadata is a map of key-value pairs that can be used to store additional information about the WhatIs (Schema)","label":"repeated","type":"MetadataDefintion","longType":"MetadataDefintion","fullType":"sonrio.sonr.schema.MetadataDefintion","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/schema.proto#metadatadefintion"}]}} />
+
+
+### `MsgCreateSchemaResponse`
+<ProtoMessage key={1} message={{"name":"MsgCreateSchemaResponse","longName":"MsgCreateSchemaResponse","fullName":"sonrio.sonr.schema.MsgCreateSchemaResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"Status code of the response","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"message","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"what_is","description":"WhatIs object created on chain","label":"","type":"WhatIs","longType":"WhatIs","fullType":"sonrio.sonr.schema.WhatIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/what_is.proto#whatis"}]}} />
+
+
+### `MsgDeprecateSchema`
+<ProtoMessage key={2} message={{"name":"MsgDeprecateSchema","longName":"MsgDeprecateSchema","fullName":"sonrio.sonr.schema.MsgDeprecateSchema","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `MsgDeprecateSchemaResponse`
+<ProtoMessage key={3} message={{"name":"MsgDeprecateSchemaResponse","longName":"MsgDeprecateSchemaResponse","fullName":"sonrio.sonr.schema.MsgDeprecateSchemaResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"message","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+---
+## Services
+
+
+### `Msg`
+
+Msg defines the Msg service.
+
+
+#### `CreateSchema`
+<ProtoServiceMethod key={'CreateSchema-0'} method={{"name":"CreateSchema","description":"CreateSchema defines a new on-chain schema.","requestType":"MsgCreateSchema","requestLongType":"MsgCreateSchema","requestFullType":"sonrio.sonr.schema.MsgCreateSchema","requestStreaming":false,"responseType":"MsgCreateSchemaResponse","responseLongType":"MsgCreateSchemaResponse","responseFullType":"sonrio.sonr.schema.MsgCreateSchemaResponse","responseStreaming":false,"requestTypeLink":"/protodocs/schema/v1/tx.proto#msgcreateschema","responseTypeLink":"/protodocs/schema/v1/tx.proto#msgcreateschemaresponse"}} />
+
+
+#### `DeprecateSchema`
+<ProtoServiceMethod key={'DeprecateSchema-1'} method={{"name":"DeprecateSchema","description":"DeprecateSchema deactivates a schema.","requestType":"MsgDeprecateSchema","requestLongType":"MsgDeprecateSchema","requestFullType":"sonrio.sonr.schema.MsgDeprecateSchema","requestStreaming":false,"responseType":"MsgDeprecateSchemaResponse","responseLongType":"MsgDeprecateSchemaResponse","responseFullType":"sonrio.sonr.schema.MsgDeprecateSchemaResponse","responseStreaming":false,"requestTypeLink":"/protodocs/schema/v1/tx.proto#msgdeprecateschema","responseTypeLink":"/protodocs/schema/v1/tx.proto#msgdeprecateschemaresponse"}} />
+
+
+---
+
+
+  

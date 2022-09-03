@@ -1,0 +1,38 @@
+---
+title: did.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `did.proto`
+_**path** registry/did.proto_
+
+_**package** sonrio.sonr.registry_
+
+
+
+---
+
+## Messages
+
+
+### `DIDDocument`
+<ProtoMessage key={0} message={{"name":"DIDDocument","longName":"DIDDocument","fullName":"sonrio.sonr.registry.DIDDocument","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"context","description":"optional","label":"repeated","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"id","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"controller","description":"optional","label":"repeated","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"verification_method","description":"optional","label":"repeated","type":"VerificationMethod","longType":"VerificationMethod","fullType":"sonrio.sonr.registry.VerificationMethod","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/did.proto#verificationmethod"},{"name":"authentication","description":"optional","label":"repeated","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"assertion_method","description":"optional","label":"repeated","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"capability_invocation","description":"optional","label":"repeated","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"capability_delegation","description":"optional","label":"repeated","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"key_agreement","description":"optional","label":"repeated","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"service","description":"optional","label":"repeated","type":"Service","longType":"Service","fullType":"sonrio.sonr.registry.Service","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/did.proto#service"},{"name":"also_known_as","description":"optional","label":"repeated","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `KeyValuePair`
+<ProtoMessage key={1} message={{"name":"KeyValuePair","longName":"KeyValuePair","fullName":"sonrio.sonr.registry.KeyValuePair","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"key","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"value","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `Service`
+<ProtoMessage key={2} message={{"name":"Service","longName":"Service","fullName":"sonrio.sonr.registry.Service","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"id","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"type","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"service_endpoint","description":"","label":"repeated","type":"KeyValuePair","longType":"KeyValuePair","fullType":"sonrio.sonr.registry.KeyValuePair","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/did.proto#keyvaluepair"}]}} />
+
+
+### `VerificationMethod`
+<ProtoMessage key={3} message={{"name":"VerificationMethod","longName":"VerificationMethod","fullName":"sonrio.sonr.registry.VerificationMethod","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"id","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"type","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"controller","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"public_key_jwk","description":"optional","label":"repeated","type":"KeyValuePair","longType":"KeyValuePair","fullType":"sonrio.sonr.registry.KeyValuePair","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/did.proto#keyvaluepair"},{"name":"public_key_base58","description":"optional","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"credential_json","description":"optional","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+---
+
+
+  

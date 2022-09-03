@@ -1,0 +1,45 @@
+---
+title: info.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `info.proto`
+_**path** common/v1/info.proto_
+
+_**package** sonrio.common.v1_
+
+
+
+---
+
+## Messages
+
+
+### `AuthInfo`
+<ProtoMessage key={0} message={{"name":"AuthInfo","longName":"AuthInfo","fullName":"sonrio.common.v1.AuthInfo","description":"AuthInfo is a object used by Motor clients to store authentication information in Biometric storage","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"address","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"aes_dsc_key","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"aes_psk_key","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"password","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"timestamp","description":"","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `Peer`
+<ProtoMessage key={1} message={{"name":"Peer","longName":"Peer","fullName":"sonrio.common.v1.Peer","description":"Basic Info Sent to Peers to Establish Connections","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"peer_id","description":"Peer ID of Libp2p Peer","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"did","description":"User Sonr Domain","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"status","description":"Peer Status","label":"","type":"Status","longType":"Peer.Status","fullType":"sonrio.common.v1.Peer.Status","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peerstatus"}]}} />
+
+---
+## Enums
+
+
+### `BlockchainModule`
+<ProtoEnum key={0} enumb={{"name":"BlockchainModule","longName":"BlockchainModule","fullName":"sonrio.common.v1.BlockchainModule","description":"","values":[{"name":"REGISTRY","number":"0","description":"Query x/registry module"},{"name":"SCHEMA","number":"1","description":"Query x/schema module"},{"name":"BUCKET","number":"2","description":"Query x/bucket module"}]}} />
+
+
+### `EntityKind`
+<ProtoEnum key={1} enumb={{"name":"EntityKind","longName":"EntityKind","fullName":"sonrio.common.v1.EntityKind","description":"","values":[{"name":"ADDRESS","number":"0","description":""},{"name":"DID","number":"1","description":""},{"name":"CID","number":"2","description":""}]}} />
+
+
+### `Peer.Status`
+<ProtoEnum key={2} enumb={{"name":"Status","longName":"Peer.Status","fullName":"sonrio.common.v1.Peer.Status","description":"Peers Active Status","values":[{"name":"STATUS_UNSPECIFIED","number":"0","description":"Offline - Not Online or Not a Full Node"},{"name":"STATUS_ONLINE","number":"1","description":"Online - Full Node Available"},{"name":"STATUS_AWAY","number":"2","description":"Away - Not Online, but has a full node"},{"name":"STATUS_BUSY","number":"3","description":"Busy - Online, but busy with Transfer"}]}} />
+
+---
+
+
+  

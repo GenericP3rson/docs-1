@@ -1,0 +1,91 @@
+---
+title: query.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `query.proto`
+_**path** registry/query.proto_
+
+_**package** sonrio.sonr.registry_
+
+
+
+---
+
+## Messages
+
+
+### `QueryAllWhoIsRequest`
+<ProtoMessage key={0} message={{"name":"QueryAllWhoIsRequest","longName":"QueryAllWhoIsRequest","fullName":"sonrio.sonr.registry.QueryAllWhoIsRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"pagination","description":"","label":"","type":"PageRequest","longType":"cosmos.base.query.v1beta1.PageRequest","fullType":"cosmos.base.query.v1beta1.PageRequest","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryAllWhoIsResponse`
+<ProtoMessage key={1} message={{"name":"QueryAllWhoIsResponse","longName":"QueryAllWhoIsResponse","fullName":"sonrio.sonr.registry.QueryAllWhoIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"WhoIs","description":"","label":"repeated","type":"WhoIs","longType":"WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"},{"name":"pagination","description":"","label":"","type":"PageResponse","longType":"cosmos.base.query.v1beta1.PageResponse","fullType":"cosmos.base.query.v1beta1.PageResponse","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryParamsRequest`
+<ProtoMessage key={2} message={{"name":"QueryParamsRequest","longName":"QueryParamsRequest","fullName":"sonrio.sonr.registry.QueryParamsRequest","description":"QueryParamsRequest is request type for the Query/Params RPC method.","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `QueryParamsResponse`
+<ProtoMessage key={3} message={{"name":"QueryParamsResponse","longName":"QueryParamsResponse","fullName":"sonrio.sonr.registry.QueryParamsResponse","description":"QueryParamsResponse is response type for the Query/Params RPC method.","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"params","description":"params holds all the parameters of this module.","label":"","type":"Params","longType":"Params","fullType":"sonrio.sonr.registry.Params","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/params.proto#params"}]}} />
+
+
+### `QueryWhoIsAliasRequest`
+<ProtoMessage key={4} message={{"name":"QueryWhoIsAliasRequest","longName":"QueryWhoIsAliasRequest","fullName":"sonrio.sonr.registry.QueryWhoIsAliasRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"alias","description":"Alias of a WhoIs.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryWhoIsAliasResponse`
+<ProtoMessage key={5} message={{"name":"QueryWhoIsAliasResponse","longName":"QueryWhoIsAliasResponse","fullName":"sonrio.sonr.registry.QueryWhoIsAliasResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"WhoIs","description":"","label":"","type":"WhoIs","longType":"WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+
+### `QueryWhoIsControllerRequest`
+<ProtoMessage key={6} message={{"name":"QueryWhoIsControllerRequest","longName":"QueryWhoIsControllerRequest","fullName":"sonrio.sonr.registry.QueryWhoIsControllerRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"controller","description":"Controller did string","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryWhoIsControllerResponse`
+<ProtoMessage key={7} message={{"name":"QueryWhoIsControllerResponse","longName":"QueryWhoIsControllerResponse","fullName":"sonrio.sonr.registry.QueryWhoIsControllerResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"WhoIs","description":"","label":"","type":"WhoIs","longType":"WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+
+### `QueryWhoIsRequest`
+<ProtoMessage key={8} message={{"name":"QueryWhoIsRequest","longName":"QueryWhoIsRequest","fullName":"sonrio.sonr.registry.QueryWhoIsRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryWhoIsResponse`
+<ProtoMessage key={9} message={{"name":"QueryWhoIsResponse","longName":"QueryWhoIsResponse","fullName":"sonrio.sonr.registry.QueryWhoIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"WhoIs","description":"","label":"","type":"WhoIs","longType":"WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+---
+## Services
+
+
+### `Query`
+
+Query defines the gRPC querier service.
+
+
+#### `Params`
+<ProtoServiceMethod key={'Params-0'} method={{"name":"Params","description":"Parameters queries the parameters of the module.","requestType":"QueryParamsRequest","requestLongType":"QueryParamsRequest","requestFullType":"sonrio.sonr.registry.QueryParamsRequest","requestStreaming":false,"responseType":"QueryParamsResponse","responseLongType":"QueryParamsResponse","responseFullType":"sonrio.sonr.registry.QueryParamsResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/registry/params"}]}},"requestTypeLink":"/protodocs/registry/query.proto#queryparamsrequest","responseTypeLink":"/protodocs/registry/query.proto#queryparamsresponse"}} />
+
+
+#### `WhoIs`
+<ProtoServiceMethod key={'WhoIs-1'} method={{"name":"WhoIs","description":"Queries a WhoIs by id.","requestType":"QueryWhoIsRequest","requestLongType":"QueryWhoIsRequest","requestFullType":"sonrio.sonr.registry.QueryWhoIsRequest","requestStreaming":false,"responseType":"QueryWhoIsResponse","responseLongType":"QueryWhoIsResponse","responseFullType":"sonrio.sonr.registry.QueryWhoIsResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/registry/who_is/{did}"}]}},"requestTypeLink":"/protodocs/registry/query.proto#querywhoisrequest","responseTypeLink":"/protodocs/registry/query.proto#querywhoisresponse"}} />
+
+
+#### `WhoIsAll`
+<ProtoServiceMethod key={'WhoIsAll-2'} method={{"name":"WhoIsAll","description":"Queries a list of WhoIs items.","requestType":"QueryAllWhoIsRequest","requestLongType":"QueryAllWhoIsRequest","requestFullType":"sonrio.sonr.registry.QueryAllWhoIsRequest","requestStreaming":false,"responseType":"QueryAllWhoIsResponse","responseLongType":"QueryAllWhoIsResponse","responseFullType":"sonrio.sonr.registry.QueryAllWhoIsResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/registry/who_is"}]}},"requestTypeLink":"/protodocs/registry/query.proto#queryallwhoisrequest","responseTypeLink":"/protodocs/registry/query.proto#queryallwhoisresponse"}} />
+
+
+#### `WhoIsAlias`
+<ProtoServiceMethod key={'WhoIsAlias-3'} method={{"name":"WhoIsAlias","description":"Queries a list of WhoIsAlias items.","requestType":"QueryWhoIsAliasRequest","requestLongType":"QueryWhoIsAliasRequest","requestFullType":"sonrio.sonr.registry.QueryWhoIsAliasRequest","requestStreaming":false,"responseType":"QueryWhoIsAliasResponse","responseLongType":"QueryWhoIsAliasResponse","responseFullType":"sonrio.sonr.registry.QueryWhoIsAliasResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/registry/who_is_alias/{alias}"}]}},"requestTypeLink":"/protodocs/registry/query.proto#querywhoisaliasrequest","responseTypeLink":"/protodocs/registry/query.proto#querywhoisaliasresponse"}} />
+
+
+#### `WhoIsController`
+<ProtoServiceMethod key={'WhoIsController-4'} method={{"name":"WhoIsController","description":"Queries a list of WhoIsController items.","requestType":"QueryWhoIsControllerRequest","requestLongType":"QueryWhoIsControllerRequest","requestFullType":"sonrio.sonr.registry.QueryWhoIsControllerRequest","requestStreaming":false,"responseType":"QueryWhoIsControllerResponse","responseLongType":"QueryWhoIsControllerResponse","responseFullType":"sonrio.sonr.registry.QueryWhoIsControllerResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/registry/who_is_controller/{controller}"}]}},"requestTypeLink":"/protodocs/registry/query.proto#querywhoiscontrollerrequest","responseTypeLink":"/protodocs/registry/query.proto#querywhoiscontrollerresponse"}} />
+
+
+---
+
+
+  

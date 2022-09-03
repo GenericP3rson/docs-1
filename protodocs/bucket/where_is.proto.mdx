@@ -1,0 +1,57 @@
+---
+title: where_is.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `where_is.proto`
+_**path** bucket/where_is.proto_
+
+_**package** sonrio.sonr.bucket_
+
+
+
+---
+
+## Messages
+
+
+### `AclJwks`
+<ProtoMessage key={0} message={{"name":"AclJwks","longName":"AclJwks","fullName":"sonrio.sonr.bucket.AclJwks","description":"AclJwks is a map of JWKs for a given Schema","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"encrypted_jwks","description":"","label":"repeated","type":"EncryptedJwksEntry","longType":"AclJwks.EncryptedJwksEntry","fullType":"sonrio.sonr.bucket.AclJwks.EncryptedJwksEntry","ismap":true,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#acljwksencryptedjwksentry"}]}} />
+
+
+### `AclJwks.EncryptedJwksEntry`
+<ProtoMessage key={1} message={{"name":"EncryptedJwksEntry","longName":"AclJwks.EncryptedJwksEntry","fullName":"sonrio.sonr.bucket.AclJwks.EncryptedJwksEntry","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"key","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"value","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `BucketItem`
+<ProtoMessage key={2} message={{"name":"BucketItem","longName":"BucketItem","fullName":"sonrio.sonr.bucket.BucketItem","description":"BucketItem is a pointer to a single piece of content in a bucket.","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"name","description":"Name of the bucket item.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"uri","description":"DID of the item. If applicable // optional","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"timestamp","description":"Timestamp of the last update. // optional","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"type","description":"Type of the resource","label":"","type":"ResourceIdentifier","longType":"ResourceIdentifier","fullType":"sonrio.sonr.bucket.ResourceIdentifier","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#resourceidentifier"},{"name":"schema_did","description":"References the schema and item within the bucket is associated with.\nBucket items do not need to use the same schema if the bucket is \"generic\" // optional","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `WhereIs`
+<ProtoMessage key={3} message={{"name":"WhereIs","longName":"WhereIs","fullName":"sonrio.sonr.bucket.WhereIs","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"did","description":"DID of the created bucket.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"creator","description":"Creator of the new bucket","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"label","description":"Label of the new bucket.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"visibility","description":"Visibility of the new bucket.","label":"","type":"BucketVisibility","longType":"BucketVisibility","fullType":"sonrio.sonr.bucket.BucketVisibility","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#bucketvisibility"},{"name":"role","description":"Role of the creator of the new bucket.","label":"","type":"BucketRole","longType":"BucketRole","fullType":"sonrio.sonr.bucket.BucketRole","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#bucketrole"},{"name":"is_active","description":"IsActive flag of the new bucket.","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"content","description":"Content of the new bucket map of DIDs to CIDs.","label":"repeated","type":"BucketItem","longType":"BucketItem","fullType":"sonrio.sonr.bucket.BucketItem","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#bucketitem"},{"name":"content_acl","description":"JWKs of the new bucket.","label":"repeated","type":"ContentAclEntry","longType":"WhereIs.ContentAclEntry","fullType":"sonrio.sonr.bucket.WhereIs.ContentAclEntry","ismap":true,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#whereiscontentaclentry"},{"name":"timestamp","description":"Timestamp of the new bucket.","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `WhereIs.ContentAclEntry`
+<ProtoMessage key={4} message={{"name":"ContentAclEntry","longName":"WhereIs.ContentAclEntry","fullName":"sonrio.sonr.bucket.WhereIs.ContentAclEntry","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"key","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"value","description":"","label":"","type":"AclJwks","longType":"AclJwks","fullType":"sonrio.sonr.bucket.AclJwks","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#acljwks"}]}} />
+
+---
+## Enums
+
+
+### `BucketRole`
+<ProtoEnum key={0} enumb={{"name":"BucketRole","longName":"BucketRole","fullName":"sonrio.sonr.bucket.BucketRole","description":"BucketRole is the role of the creator of the bucket.","values":[{"name":"NONE","number":"0","description":"Bucket does not have role set."},{"name":"APPLICATION","number":"1","description":"Bucket is visible to anyone."},{"name":"USER","number":"2","description":"Bucket is visible to anyone who has access token."}]}} />
+
+
+### `BucketVisibility`
+<ProtoEnum key={1} enumb={{"name":"BucketVisibility","longName":"BucketVisibility","fullName":"sonrio.sonr.bucket.BucketVisibility","description":"BucketVisibility is the visibility of the bucket to authorized users of an application","values":[{"name":"UNSPECIFIED","number":"0","description":"Bucket does not have visibility set."},{"name":"PUBLIC","number":"1","description":"Bucket is visible to anyone."},{"name":"PRIVATE","number":"2","description":"Bucket is visible to anyone who has access token."}]}} />
+
+
+### `ResourceIdentifier`
+<ProtoEnum key={2} enumb={{"name":"ResourceIdentifier","longName":"ResourceIdentifier","fullName":"sonrio.sonr.bucket.ResourceIdentifier","description":"","values":[{"name":"None","number":"0","description":""},{"name":"DID","number":"1","description":""},{"name":"CID","number":"2","description":""}]}} />
+
+---
+
+
+  

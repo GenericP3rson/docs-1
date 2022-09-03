@@ -1,0 +1,30 @@
+---
+title: discover.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `discover.proto`
+_**path** service/v1/discover.proto_
+
+_**package** sonrio.motor.service.v1_
+
+
+
+---
+
+## Messages
+
+
+### `LobbyMessage`
+<ProtoMessage key={0} message={{"name":"LobbyMessage","longName":"LobbyMessage","fullName":"sonrio.motor.service.v1.LobbyMessage","description":"LobbyMessage is message passed from Peer in Lobby","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"from","description":"Users Peer Data","label":"","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"},{"name":"body","description":"Payload is the message data","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"signature","description":"Signature of the Attached Data","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"created_at","description":"Timestamp","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `RefreshEvent`
+<ProtoMessage key={1} message={{"name":"RefreshEvent","longName":"RefreshEvent","fullName":"sonrio.motor.service.v1.RefreshEvent","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"topic_name","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"peers","description":"","label":"repeated","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"},{"name":"received_at","description":"","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+---
+
+
+  

@@ -1,0 +1,73 @@
+---
+title: transmit.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `transmit.proto`
+_**path** service/v1/transmit.proto_
+
+_**package** sonrio.motor.service.v1_
+
+
+
+---
+
+## Messages
+
+
+### `FileItem`
+<ProtoMessage key={0} message={{"name":"FileItem","longName":"FileItem","fullName":"sonrio.motor.service.v1.FileItem","description":"For Transfer File Payload","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"mime","description":"Standard Mime Type","label":"","type":"MIME","longType":"MIME","fullType":"sonrio.motor.service.v1.MIME","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#mime"},{"name":"name","description":"File Name without Path","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"path","description":"File Location","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"size","description":"File Size in Bytes","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"thumbnail","description":"Thumbnail of File","label":"","type":"Thumbnail","longType":"Thumbnail","fullType":"sonrio.motor.service.v1.Thumbnail","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#thumbnail"},{"name":"last_modified","description":"Last Modified Time in Seconds","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `MIME`
+<ProtoMessage key={1} message={{"name":"MIME","longName":"MIME","fullName":"sonrio.motor.service.v1.MIME","description":"Standard MIME with Additional Extensions","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"type","description":"Type of File","label":"","type":"Type","longType":"MIME.Type","fullType":"sonrio.motor.service.v1.MIME.Type","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#mimetype"},{"name":"subtype","description":"Extension of File","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"value","description":"Type/Subtype i.e. (image/jpeg)","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `Payload`
+<ProtoMessage key={2} message={{"name":"Payload","longName":"Payload","fullName":"sonrio.motor.service.v1.Payload","description":"Payload is Data thats being Passed","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"items","description":"Payload Items","label":"repeated","type":"Item","longType":"Payload.Item","fullType":"sonrio.motor.service.v1.Payload.Item","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#payloaditem"},{"name":"owner","description":"PROFILE: General Sender Info","label":"","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"},{"name":"size","description":"Payload Size in Bytes","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"created_at","description":"Payload Creation Time in Seconds","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `Payload.Item`
+<ProtoMessage key={3} message={{"name":"Item","longName":"Payload.Item","fullName":"sonrio.motor.service.v1.Payload.Item","description":"Item in Payload","hasExtensions":false,"hasFields":true,"hasOneofs":true,"extensions":[],"fields":[{"name":"mime","description":"MIME of the Item","label":"","type":"MIME","longType":"MIME","fullType":"sonrio.motor.service.v1.MIME","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#mime"},{"name":"size","description":"Size of the Item in Bytes","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"file","description":"FILE: File Item","label":"","type":"FileItem","longType":"FileItem","fullType":"sonrio.motor.service.v1.FileItem","ismap":false,"isoneof":true,"oneofdecl":"data","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#fileitem"},{"name":"url","description":"URL: Url Item","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":true,"oneofdecl":"data","defaultValue":""},{"name":"message","description":"MESSAGE: Message Item","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":true,"oneofdecl":"data","defaultValue":""},{"name":"thumbnail","description":"Thumbnail of the Item\n\nThumbnail of the Item","label":"","type":"Thumbnail","longType":"Thumbnail","fullType":"sonrio.motor.service.v1.Thumbnail","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#thumbnail"}]}} />
+
+
+### `Session`
+<ProtoMessage key={4} message={{"name":"Session","longName":"Session","fullName":"sonrio.motor.service.v1.Session","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"direction","description":"","label":"","type":"Direction","longType":"Direction","fullType":"sonrio.motor.service.v1.Direction","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#direction"},{"name":"from","description":"","label":"","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"},{"name":"to","description":"","label":"","type":"Peer","longType":"sonrio.common.v1.Peer","fullType":"sonrio.common.v1.Peer","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#peer"},{"name":"payload","description":"","label":"","type":"Payload","longType":"Payload","fullType":"sonrio.motor.service.v1.Payload","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#payload"},{"name":"last_updated","description":"","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"items","description":"","label":"repeated","type":"SessionItem","longType":"SessionItem","fullType":"sonrio.motor.service.v1.SessionItem","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#sessionitem"},{"name":"current_index","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"results","description":"","label":"repeated","type":"ResultsEntry","longType":"Session.ResultsEntry","fullType":"sonrio.motor.service.v1.Session.ResultsEntry","ismap":true,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#sessionresultsentry"}]}} />
+
+
+### `Session.ResultsEntry`
+<ProtoMessage key={5} message={{"name":"ResultsEntry","longName":"Session.ResultsEntry","fullName":"sonrio.motor.service.v1.Session.ResultsEntry","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"key","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"value","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `SessionItem`
+<ProtoMessage key={6} message={{"name":"SessionItem","longName":"SessionItem","fullName":"sonrio.motor.service.v1.SessionItem","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"index","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"count","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"item","description":"","label":"","type":"FileItem","longType":"FileItem","fullType":"sonrio.motor.service.v1.FileItem","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#fileitem"},{"name":"written","description":"","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"size","description":"","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"total_size","description":"","label":"","type":"int64","longType":"int64","fullType":"int64","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"direction","description":"","label":"","type":"Direction","longType":"Direction","fullType":"sonrio.motor.service.v1.Direction","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#direction"},{"name":"path","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `SessionPayload`
+<ProtoMessage key={7} message={{"name":"SessionPayload","longName":"SessionPayload","fullName":"sonrio.motor.service.v1.SessionPayload","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"payload","description":"","label":"","type":"Payload","longType":"Payload","fullType":"sonrio.motor.service.v1.Payload","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#payload"},{"name":"direction","description":"","label":"","type":"Direction","longType":"Direction","fullType":"sonrio.motor.service.v1.Direction","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#direction"}]}} />
+
+
+### `SupplyItem`
+<ProtoMessage key={8} message={{"name":"SupplyItem","longName":"SupplyItem","fullName":"sonrio.motor.service.v1.SupplyItem","description":"SupplyItem is an item supplied to be a payload","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"path","description":"Supply Path","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"thumbnail","description":"Supply Path of the Thumbnail","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `Thumbnail`
+<ProtoMessage key={9} message={{"name":"Thumbnail","longName":"Thumbnail","fullName":"sonrio.motor.service.v1.Thumbnail","description":"Thumbnail of File","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"buffer","description":"Thumbnail Buffer","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"mime","description":"Mime Type","label":"","type":"MIME","longType":"MIME","fullType":"sonrio.motor.service.v1.MIME","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/service/v1/transmit.proto#mime"}]}} />
+
+---
+## Enums
+
+
+### `Direction`
+<ProtoEnum key={0} enumb={{"name":"Direction","longName":"Direction","fullName":"sonrio.motor.service.v1.Direction","description":"Direction is the direction of a stream.","values":[{"name":"DIRECTION_UNSPECIFIED","number":"0","description":"Unspecified is the default value."},{"name":"DIRECTION_INCOMING","number":"1","description":"Incoming is the direction of an incoming stream."},{"name":"DIRECTION_OUTGOING","number":"2","description":"Outgoing is the direction of an outgoing stream."}]}} />
+
+
+### `MIME.Type`
+<ProtoEnum key={1} enumb={{"name":"Type","longName":"MIME.Type","fullName":"sonrio.motor.service.v1.MIME.Type","description":"File Content Type","values":[{"name":"TYPE_UNSPECIFIED","number":"0","description":"Other File Type - If cannot derive from Subtype"},{"name":"TYPE_AUDIO","number":"1","description":"Sound, Audio Files"},{"name":"TYPE_DOCUMENT","number":"2","description":"Document Files - PDF, Word, Excel, etc."},{"name":"TYPE_IMAGE","number":"3","description":"Image Files"},{"name":"TYPE_TEXT","number":"4","description":"Text Based Files"},{"name":"TYPE_VIDEO","number":"5","description":"Video Files"},{"name":"TYPE_URL","number":"6","description":"URL Links"},{"name":"TYPE_CRYPTO","number":"7","description":"Crypto Files"}]}} />
+
+---
+
+
+  
