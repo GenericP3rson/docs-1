@@ -1,0 +1,79 @@
+---
+title: Working with Schemas
+displayed_sidebar: motorSidebar
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+# Schemas
+
+Schemas are the data types of the Sonr, adding structure to data stored on the network. Schemas are ubiquitous, meaning you're not limited to using the Schemas you created. Check out [Speedway](#) for information on viewing schemas.
+
+## Fetching Schemas
+
+If you know a schema's DID, you have all you need to get it.
+
+<Tabs groupId="platform">
+  <TabItem value="go" label="🐹 Go" default>
+
+Querying for a Schema requires a single string value which corresponds to the [Sonr DID Spec](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/1.md)
+
+```go
+func (mtr *motorNodeImpl) QueryWhatIs(req mt.QueryWhatIsRequest) (*mt.QueryWhatIsResponse, error) {
+	if wi, _, ok := mtr.Resources.GetSchema(req.Did); ok {
+		return &mt.QueryWhatIsResponse{
+			Code:   http.StatusAccepted,
+			WhatIs: wi,
+		}, nil
+	}
+
+	resp, err := mtr.GetClient().QueryWhatIs(mtr.GetDID().String(), req.Did)
+	if err != nil {
+		return nil, err
+	}
+
+	// store reference to schema
+	schema, err := mtr.Resources.StoreWhatIs(resp)
+	if err != nil {
+		return nil, fmt.Errorf("store WhatIs: %s", err)
+	}
+
+	return &mt.QueryWhatIsResponse{
+		Code:   http.StatusAccepted,
+		WhatIs: mtr.Resources.whatIsStore[req.Did],
+		Schema: schema,
+	}, nil
+}
+```
+
+  </TabItem>
+  <TabItem value="android" label="☕ Java">
+
+Querying for a Schema requires a single string value which corresponds to the [Sonr DID Spec](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/1.md)
+
+```java
+public void getSchema(String schemaDid) throws Exception {
+    QueryWhatIsResponse response = mtr.queryWhatIsByDid(schemaDid);
+    SchemaDefinition schema = response.getSchema();
+
+    // Print the fields of the schema
+    System.out.println(schema.getFieldsList());
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="🎯 Dart">
+
+Querying for a Schema requires a single string value which corresponds to the [Sonr DID Spec](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/1.md)
+
+```dart
+Future<QueryWhatIsResponse?> querySchema(String q) async {
+  return await MotorFlutterPlatform.instance.querySchema(QueryWhatIsRequest(did: q));
+}
+```
+
+  </TabItem>
+</Tabs>
+
+To create schemas, use the [Speedway CLI](#).

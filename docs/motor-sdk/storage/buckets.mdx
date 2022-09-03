@@ -1,0 +1,135 @@
+---
+title: Fetch Buckets
+displayed_sidebar: motorSidebar
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
+Buckets on Sonr are a great way to store related Documents—think of them like folders. They contain Document references as well as other buckets.
+
+Like everything on Sonr, you need a bucket's DID in order to fetch it.
+
+<Tabs groupId="platform">
+  <TabItem value="go" label="🐹 Go" default>
+
+```go
+func GetBucketObjects(bucketDid string) ([]byte, error) {
+	if instance == nil {
+		return nil, errWalletNotExists
+	}
+
+	bucket, err := instance.GetBucket(bucketDid)
+	if err != nil {
+		return nil, err
+	}
+
+	buckets := make([]*bt.BucketContent, 0)
+	items := bucket.GetBucketItems()
+	for _, item := range items {
+		c, err := bucket.GetContentById(item.Uri)
+		if err != nil {
+			return nil, err
+		}
+
+		if c.ContentType != bt.ResourceIdentifier_CID {
+			continue
+		}
+		buckets = append(buckets, c)
+	}
+
+	list := &mt.BucketContentList{
+		Buckets: buckets,
+	}
+	return list.Marshal()
+}
+```
+
+  </TabItem>
+  <TabItem value="android" label="☕ Java">
+
+```java
+public void getBucket(String did) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    Bucket bucket = mtr.getBucket(did);
+
+    // iterate over all documents
+    for (Document d : bucket.getDocuments()) {
+      // print the 'fieldName' property from the Document
+      System.out.println(d.get("fieldName"));
+    }
+
+    // get a single document with its CID
+    Document d = bucket.getDocument("<CID>");
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="🎯 Dart">
+
+```dart
+Future<QueryWhereIsResponse?> queryBucket(String q) async {
+  return await MotorFlutterPlatform.instance.queryBucket(QueryWhereIsRequest(did: q));
+}
+```
+
+  </TabItem>
+</Tabs>
+
+In addition to documents, you can also fetch child buckets.
+
+<Tabs groupId="platform">
+  <TabItem value="go" label="🐹 Go" default>
+
+```go
+func ResolveSubBucket(bucketDid, subBucketDid string) error {
+	if instance == nil {
+		return errWalletNotExists
+	}
+
+	bucket, err := instance.GetBucket(bucketDid)
+	if err != nil {
+		return err
+	}
+
+	for _, b := range bucket.GetBuckets() {
+		if err = b.ResolveContent(); err != nil {
+			return err
+		}
+		if err = b.ResolveBuckets(); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+```
+
+  </TabItem>
+  <TabItem value="android" label="☕ Java">
+
+```java
+public void getSubBucket(String did) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    Bucket bucket = mtr.getBucket(did);
+
+    // iterate over all sub bucket DIDs
+    for (String subBucketDid : bucket.getSubBucketDids()) {
+      // Resolve the sub-bucket. This bucket behaves exactly like the parent it came from
+      Bucket subBucket = bucket.getBucket(subBucketDid);
+    }
+
+    // get a single document with its CID
+    Document d = bucket.getDocument("<CID>");
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="🎯 Dart">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
+</Tabs>
+
+Like schemas, buckets must be created via the [Speedway CLI](#).

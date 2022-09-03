@@ -1,0 +1,132 @@
+---
+title: CLI Reference
+description: Speedway provides a set of scripts to help you generate, serve, and deploy your Sonr powered App.
+displayed_sidebar: speedwaySidebar
+---
+
+Speedway provides a set of scripts to help you generate, serve, and deploy your Sonr powered App. Manage your account, create and manage your schemas, objects and buckets.
+
+#### Below is a list of Speedway CLI commands and their usages:
+
+- [`speedway account`](#speedway-account)
+- [`speedway schema`](#speedway-schema)
+- [`speedway bucket`](#speedway-bucket)
+- [`speedway object`](#speedway-object)
+- [`speedway serve`](#speedway-serve)
+
+:::caution
+
+This project is under **extreme active development**. The API is subject to change at any time, and proceeding with caution is advised.
+
+:::
+
+## `speedway account`
+
+The account commands are based on Sonr's Registry module. The registry module is used to create an account and login to an account on the Sonr Network.
+
+```bash
+speedway account [subcmd] [--flags]
+```
+
+### Subcommands
+
+| Command  | Description                                     | Module       |
+| -------- | ----------------------------------------------- | ------------ |
+| `create` | Register a new account on the Sonr Blockchain   | **Registry** |
+| `login`  | Login to an existing account for the Blockchain | **Registry** |
+
+### Options
+
+```bash
+  -h, --help   help for account
+```
+
+## `speedway schema`
+
+The schema commands are based on Sonr's Schema module. The schema module is used to create, update, deprecate and query schemas on the Sonr Network.
+
+```bash
+speedway bucket [subcmd] [--flags]
+```
+
+### Subcommands
+
+| Command     | Description                                                                     | Module     |
+| ----------- | ------------------------------------------------------------------------------- | ---------- |
+| `create`    | Creates a Schema definition with file path. Launches form when no flags present | **Schema** |
+| `get all`   | Retrieves all Schemas for the provided users account                            | **Schema** |
+| `get [did]` | Returns a schema matching the did, if not provided the cli will prompt          | **Schema** |
+
+### Options
+
+```bash
+  -h, --help   help for bucket
+```
+
+## `speedway bucket`
+
+The buckets commands are based on Sonr's Bucket module. The buckets module is used to create, update, deprecate and get buckets on the Sonr Network.
+
+```bash
+speedway bucket [subcmd] [--flags]
+```
+
+### Subcommands
+
+| Command         | Description                                                       | Module     |
+| --------------- | ----------------------------------------------------------------- | ---------- |
+| `create`        | Creates a new bucket and accompanying WhereIs document            | **Bucket** |
+| `get all`       | Retrieves all buckets for specified user's account                | **Bucket** |
+| `get id`        | Retrieves a bucket based on the provided DID                      | **Bucket** |
+| `search schema` | Queries bucket contents and returns items matching the Schema DID | **Bucket** |
+
+### Options
+
+```bash
+  -h, --help   help for bucket
+```
+
+## `speedway object`
+
+The objects commands are based on Sonr's Object module. The objects module is used to build and querying objects on the Sonr Network.
+
+```bash
+speedway object [subcmd] [--flags]
+```
+
+### Subcommands
+
+| Command | Description                                                                     | Module   |
+| ------- | ------------------------------------------------------------------------------- | -------- |
+| `build` | Builds an object verified against a schema, launches form when no flags present | **IPFS** |
+| `get`   | retrieves and object from storage referenced by it's content identifier         | **IPFS** |
+
+### Options
+
+```bash
+  # Root command options
+  -h, --help   help for bucket
+
+  # Build command options
+      --did string     identifier of a schema to associate with the object
+      --file string    path to an object definition matching a provided schema
+      --label string   given label for the object being built
+
+  # Get command options
+     --cid    CID  of the object to resolve
+```
+
+## `speedway serve`
+
+This command serves the Speedway Web UI on localhost
+
+```bash
+speedway serve [flags]
+```
+
+### Options
+
+```bash
+  -h, --help       help for serve
+      --port int   override the default port (4040) (default 4040)
+```
