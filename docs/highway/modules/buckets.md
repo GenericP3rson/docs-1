@@ -1,6 +1,7 @@
 ---
 title: Buckets
 displayed_sidebar: highwaySidebar
+position_in_sidebar: 4
 ---
 
 # Buckets
