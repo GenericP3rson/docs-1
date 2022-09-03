@@ -4,6 +4,8 @@ sidebar_position: 1
 displayed_sidebar: motorSidebar
 ---
 
+# Introducing the Motor SDK
+
 The Motor SDK is a set of developer tools for building decentralized applications on the Sonr network. It currently supports Desktop, Android, and Flutter targets with plans to support iOS, React Native, and Web in the near future.
 
 Motor Android is an Android library designed to help developers utilize Sonr in their apps. You can find the source code on [Github](https://github.com/sonr-io/motor-android).
@@ -11,7 +13,7 @@ Motor Android is an Android library designed to help developers utilize Sonr in 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-## Project Setup
+## Setting Up
 
 > Select your target platform to get started and setup a new Motor integrated project.
 
@@ -103,7 +105,7 @@ createResponse, err := mtr.CreateAccount(mt.CreateAccountRequest{
 		AesDscKey: aesKey,
 })
 
-// store the preshared key somewhere
+// store the pre-shared key somewhere
 store(createResponse.AesPskKey)
 ```
 
@@ -111,7 +113,7 @@ Logging in uses a combination of the below.
 
 - DID - The DID generated during account creation
 - DSC - Device Specific Credential. A 32-byte AES key used to represent the device. Keep this stored in the device's keychain.
-- PSK - Preshared key. A 32-byte AES key. This key is meant to be shared between all devices
+- PSK - Pre-shared key. A 32-byte AES key. This key is meant to be shared between all devices
 - Password - The password used during account creation
 
 To login you must provide the PSK and one of either the password or DSC.

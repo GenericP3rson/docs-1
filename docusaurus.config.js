@@ -28,8 +28,6 @@ const config = {
     locales: ['en'],
   },
   plugins: [
-    [
-    ],
   ],
   themes: [],
   presets: [
@@ -43,8 +41,8 @@ const config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/sonr-io/docs/tree/dev/packages/create-docusaurus/templates/shared/',
-          docLayoutComponent: "@theme/DocPage",
-          docItemComponent: "@theme/ApiItem" // Derived from docusaurus-theme-openapi-docs
+          docLayoutComponent: '@theme/DocPage',
+          docItemComponent: '@theme/DocItem',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
