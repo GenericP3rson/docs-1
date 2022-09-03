@@ -13,7 +13,7 @@ Schema Documents store end-to-end encrypted user data on the Sonr network. You c
 Documents can be created using the `DocumentBuilder` API. You simply need to provide the [DID](#) of the [Schema](#) this document will conform to. When you create an document without adding it to a bucket, you as the developer must take care to keep track of the CID.
 
 <Tabs groupId="platform">
-   <TabItem value="android" label="☕ Java">
+   <TabItem value="android" label="☕ Java (Android)">
 
 ```java
 public void createDocument(String schemaDid) throws Exception {
@@ -84,7 +84,7 @@ For a full list of methods, see the [ObjectBuilder](https://pkg.go.dev/github.co
 With a Document's CID, you can fetch an document directly from `Motoroid`.
 
 <Tabs groupId="platform">
-    <TabItem value="android" label="☕ Java">
+    <TabItem value="android" label="☕ Java (Android)">
 
 ```java
 public void getDocument(String cid) {
