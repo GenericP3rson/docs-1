@@ -55,7 +55,7 @@ When an object is stored, it will be given its Identifier (`cid`) and `DID` whic
 }
 ```
 # Storage/Referencing
- It should be noted that once an object is stored. The `cid` must be associated with a [bucket](./buckets.md) to be retrievable. Buckets allow objects to be searched upon by schema, and meta-data. Currently (9/1/2022), only searching by a schema is supported, but indexing of buckets is expected soon.
+ It should be noted that once an object is stored. The `cid` must be associated with a [bucket](/docs/highway/modules/buckets.mdx) to be retrievable. Buckets allow objects to be searched upon by schema, and meta-data. Currently (9/1/2022), only searching by a schema is supported, but indexing of buckets is expected soon.
 
 ## Usage
 Currently framework docs refer to `Objects` as `Documents` they are the same as what is in this documentation.
