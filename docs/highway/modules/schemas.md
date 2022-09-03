@@ -121,7 +121,7 @@ message SchemaReference{
 ```
 
 ### Examples
-The following are example Schemas and [Objects](./objects.md) which outline how types declared within a schema map to the objects which are defined from them. Below are two examples: An `User Status`, and a `Pet`.
+The following are example Schemas and [Objects](/docs/highway/modules/objects.md) which outline how types declared within a schema map to the objects which are defined from them. Below are two examples: An `User Status`, and a `Pet`.
 
 The following is an example schema for a `User Status`
 
@@ -166,3 +166,9 @@ Below is a pet object defined by the above schema
   "owner": "snr1d8cjuwkssr9uzf8zllkmmn0ekv6p7a7yuz2dpc"
 }
 ```
+
+## Usage
+The schema module has been integrated in the Sonr [Motor SDK](/docs/motor-sdk/intro.mdx) implementations since `v0.3.9`.
+- See [Speedway](/docs/speedway/cli-cmds.mdx) documentation on usage of DIDs through our management tooling.
+- See [Motor-SDK](/docs/motor-sdk/data/schemas.mdx) documentation in our SDK targets.
+- Read [ADR-2](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/2.md) for a more in depth technical explanation of the design decisions made for the schema module.
