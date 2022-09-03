@@ -1,0 +1,49 @@
+---
+title: schema.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `schema.proto`
+_**path** schema/v1/schema.proto_
+
+_**package** sonrio.sonr.schema_
+
+
+
+---
+
+## Messages
+
+
+### `MetadataDefintion`
+<ProtoMessage key={0} message={{"name":"MetadataDefintion","longName":"MetadataDefintion","fullName":"sonrio.sonr.schema.MetadataDefintion","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"key","description":"key of the metadata","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"value","description":"metadata","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `SchemaDefinition`
+<ProtoMessage key={1} message={{"name":"SchemaDefinition","longName":"SchemaDefinition","fullName":"sonrio.sonr.schema.SchemaDefinition","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"did","description":"Represents the types of fields a schema can have\nthe DID for this schema","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"creator","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"label","description":"an alternative reference point","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"fields","description":"the properties of this schema","label":"repeated","type":"SchemaKindDefinition","longType":"SchemaKindDefinition","fullType":"sonrio.sonr.schema.SchemaKindDefinition","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/schema.proto#schemakinddefinition"}]}} />
+
+
+### `SchemaKindDefinition`
+<ProtoMessage key={2} message={{"name":"SchemaKindDefinition","longName":"SchemaKindDefinition","fullName":"sonrio.sonr.schema.SchemaKindDefinition","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"name","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"field","description":"Type of a single schema property","label":"","type":"SchemaKind","longType":"SchemaKind","fullType":"sonrio.sonr.schema.SchemaKind","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/schema.proto#schemakind"},{"name":"link_kind","description":"Optional field for a link context if `SchemaKind` is of type `Link`","label":"","type":"LinkKind","longType":"LinkKind","fullType":"sonrio.sonr.schema.LinkKind","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/schema.proto#linkkind"},{"name":"link","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `SchemaReference`
+<ProtoMessage key={3} message={{"name":"SchemaReference","longName":"SchemaReference","fullName":"sonrio.sonr.schema.SchemaReference","description":"Schema defines the shapes of schemas on Sonr","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"did","description":"the DID for this schema","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"label","description":"an alternative reference point","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"cid","description":"a reference to information stored within an IPFS node.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+---
+## Enums
+
+
+### `LinkKind`
+<ProtoEnum key={0} enumb={{"name":"LinkKind","longName":"LinkKind","fullName":"sonrio.sonr.schema.LinkKind","description":"","values":[{"name":"UNKNOWN","number":"0","description":""},{"name":"OBJECT","number":"1","description":""},{"name":"SCHEMA","number":"2","description":""},{"name":"BUCKET","number":"3","description":""}]}} />
+
+
+### `SchemaKind`
+<ProtoEnum key={1} enumb={{"name":"SchemaKind","longName":"SchemaKind","fullName":"sonrio.sonr.schema.SchemaKind","description":"","values":[{"name":"LIST","number":"0","description":""},{"name":"BOOL","number":"1","description":""},{"name":"INT","number":"2","description":""},{"name":"FLOAT","number":"3","description":""},{"name":"STRING","number":"4","description":""},{"name":"BYTES","number":"5","description":""},{"name":"LINK","number":"6","description":""},{"name":"ANY","number":"7","description":""}]}} />
+
+---
+
+
+  

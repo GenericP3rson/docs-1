@@ -1,0 +1,106 @@
+---
+title: response.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `response.proto`
+_**path** motor/v1/response.proto_
+
+_**package** sonrio.motor.api.v1_
+
+
+
+---
+
+## Messages
+
+
+### `BucketContentList`
+<ProtoMessage key={0} message={{"name":"BucketContentList","longName":"BucketContentList","fullName":"sonrio.motor.api.v1.BucketContentList","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"buckets","description":"","label":"repeated","type":"BucketContent","longType":"sonrio.sonr.bucket.BucketContent","fullType":"sonrio.sonr.bucket.BucketContent","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/bucket.proto#bucketcontent"}]}} />
+
+
+### `CreateAccountResponse`
+<ProtoMessage key={1} message={{"name":"CreateAccountResponse","longName":"CreateAccountResponse","fullName":"sonrio.motor.api.v1.CreateAccountResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"aes_psk","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"aes_dsc","description":"","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"address","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"who_is","description":"","label":"","type":"WhoIs","longType":"sonrio.sonr.registry.WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+
+### `CreateBucketResponse`
+<ProtoMessage key={2} message={{"name":"CreateBucketResponse","longName":"CreateBucketResponse","fullName":"sonrio.motor.api.v1.CreateBucketResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `CreateSchemaResponse`
+<ProtoMessage key={3} message={{"name":"CreateSchemaResponse","longName":"CreateSchemaResponse","fullName":"sonrio.motor.api.v1.CreateSchemaResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"status","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"what_is","description":"","label":"","type":"WhatIs","longType":"sonrio.sonr.schema.WhatIs","fullType":"sonrio.sonr.schema.WhatIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/what_is.proto#whatis"}]}} />
+
+
+### `InitializeResponse`
+<ProtoMessage key={4} message={{"name":"InitializeResponse","longName":"InitializeResponse","fullName":"sonrio.motor.api.v1.InitializeResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"success","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `LoginResponse`
+<ProtoMessage key={5} message={{"name":"LoginResponse","longName":"LoginResponse","fullName":"sonrio.motor.api.v1.LoginResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"success","description":"","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"who_is","description":"","label":"","type":"WhoIs","longType":"sonrio.sonr.registry.WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+
+### `ObjectReference`
+<ProtoMessage key={6} message={{"name":"ObjectReference","longName":"ObjectReference","fullName":"sonrio.motor.api.v1.ObjectReference","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"label","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"cid","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `PaymentResponse`
+<ProtoMessage key={7} message={{"name":"PaymentResponse","longName":"PaymentResponse","fullName":"sonrio.motor.api.v1.PaymentResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"message","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"tx_hash","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"updated_balance","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryResponse`
+<ProtoMessage key={8} message={{"name":"QueryResponse","longName":"QueryResponse","fullName":"sonrio.motor.api.v1.QueryResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"query","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"module","description":"","label":"","type":"BlockchainModule","longType":"sonrio.common.v1.BlockchainModule","fullType":"sonrio.common.v1.BlockchainModule","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#blockchainmodule"},{"name":"results","description":"","label":"repeated","type":"QueryResultItem","longType":"QueryResultItem","fullType":"sonrio.motor.api.v1.QueryResultItem","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/motor/v1/response.proto#queryresultitem"}]}} />
+
+
+### `QueryResultItem`
+<ProtoMessage key={9} message={{"name":"QueryResultItem","longName":"QueryResultItem","fullName":"sonrio.motor.api.v1.QueryResultItem","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"kind","description":"","label":"","type":"EntityKind","longType":"sonrio.common.v1.EntityKind","fullType":"sonrio.common.v1.EntityKind","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/common/v1/info.proto#entitykind"},{"name":"who_is","description":"optional","label":"","type":"WhoIs","longType":"sonrio.sonr.registry.WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"},{"name":"what_is","description":"optional","label":"","type":"WhatIs","longType":"sonrio.sonr.schema.WhatIs","fullType":"sonrio.sonr.schema.WhatIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/what_is.proto#whatis"},{"name":"schema_definition","description":"optional","label":"","type":"SchemaDefinition","longType":"sonrio.sonr.schema.SchemaDefinition","fullType":"sonrio.sonr.schema.SchemaDefinition","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/schema.proto#schemadefinition"},{"name":"where_is","description":"optional","label":"","type":"WhereIs","longType":"sonrio.sonr.bucket.WhereIs","fullType":"sonrio.sonr.bucket.WhereIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#whereis"},{"name":"where_is_list","description":"optional","label":"repeated","type":"WhereIs","longType":"sonrio.sonr.bucket.WhereIs","fullType":"sonrio.sonr.bucket.WhereIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#whereis"}]}} />
+
+
+### `QueryWhatIsByCreatorResponse`
+<ProtoMessage key={10} message={{"name":"QueryWhatIsByCreatorResponse","longName":"QueryWhatIsByCreatorResponse","fullName":"sonrio.motor.api.v1.QueryWhatIsByCreatorResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"what_is","description":"","label":"repeated","type":"WhatIs","longType":"sonrio.sonr.schema.WhatIs","fullType":"sonrio.sonr.schema.WhatIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/what_is.proto#whatis"},{"name":"schemas","description":"","label":"repeated","type":"SchemasEntry","longType":"QueryWhatIsByCreatorResponse.SchemasEntry","fullType":"sonrio.motor.api.v1.QueryWhatIsByCreatorResponse.SchemasEntry","ismap":true,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/motor/v1/response.proto#querywhatisbycreatorresponseschemasentry"}]}} />
+
+
+### `QueryWhatIsByCreatorResponse.SchemasEntry`
+<ProtoMessage key={11} message={{"name":"SchemasEntry","longName":"QueryWhatIsByCreatorResponse.SchemasEntry","fullName":"sonrio.motor.api.v1.QueryWhatIsByCreatorResponse.SchemasEntry","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"key","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"value","description":"","label":"","type":"SchemaDefinition","longType":"sonrio.sonr.schema.SchemaDefinition","fullType":"sonrio.sonr.schema.SchemaDefinition","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/schema.proto#schemadefinition"}]}} />
+
+
+### `QueryWhatIsResponse`
+<ProtoMessage key={12} message={{"name":"QueryWhatIsResponse","longName":"QueryWhatIsResponse","fullName":"sonrio.motor.api.v1.QueryWhatIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"what_is","description":"","label":"","type":"WhatIs","longType":"sonrio.sonr.schema.WhatIs","fullType":"sonrio.sonr.schema.WhatIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/what_is.proto#whatis"},{"name":"schema","description":"","label":"","type":"SchemaDefinition","longType":"sonrio.sonr.schema.SchemaDefinition","fullType":"sonrio.sonr.schema.SchemaDefinition","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/schema.proto#schemadefinition"}]}} />
+
+
+### `QueryWhereIsByCreatorResponse`
+<ProtoMessage key={13} message={{"name":"QueryWhereIsByCreatorResponse","longName":"QueryWhereIsByCreatorResponse","fullName":"sonrio.motor.api.v1.QueryWhereIsByCreatorResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"where_is","description":"","label":"repeated","type":"WhereIs","longType":"sonrio.sonr.bucket.WhereIs","fullType":"sonrio.sonr.bucket.WhereIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#whereis"}]}} />
+
+
+### `QueryWhereIsResponse`
+<ProtoMessage key={14} message={{"name":"QueryWhereIsResponse","longName":"QueryWhereIsResponse","fullName":"sonrio.motor.api.v1.QueryWhereIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"where_is","description":"","label":"","type":"WhereIs","longType":"sonrio.sonr.bucket.WhereIs","fullType":"sonrio.sonr.bucket.WhereIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#whereis"}]}} />
+
+
+### `QueryWhoIsResponse`
+<ProtoMessage key={15} message={{"name":"QueryWhoIsResponse","longName":"QueryWhoIsResponse","fullName":"sonrio.motor.api.v1.QueryWhoIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"who_is","description":"","label":"","type":"WhoIs","longType":"sonrio.sonr.registry.WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+
+### `SearchBucketContentBySchemaResponse`
+<ProtoMessage key={16} message={{"name":"SearchBucketContentBySchemaResponse","longName":"SearchBucketContentBySchemaResponse","fullName":"sonrio.motor.api.v1.SearchBucketContentBySchemaResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"status","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"bucket_did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"schema_did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"content","description":"","label":"repeated","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `SearchResponse`
+<ProtoMessage key={17} message={{"name":"SearchResponse","longName":"SearchResponse","fullName":"sonrio.motor.api.v1.SearchResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"status","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"resource_did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"content_did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"content","description":"","label":"repeated","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `StatResponse`
+<ProtoMessage key={18} message={{"name":"StatResponse","longName":"StatResponse","fullName":"sonrio.motor.api.v1.StatResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"address","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"did_document","description":"","label":"","type":"DIDDocument","longType":"sonrio.sonr.registry.DIDDocument","fullType":"sonrio.sonr.registry.DIDDocument","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/did.proto#diddocument"},{"name":"balance","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"stake","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `UpdateBucketResponse`
+<ProtoMessage key={19} message={{"name":"UpdateBucketResponse","longName":"UpdateBucketResponse","fullName":"sonrio.motor.api.v1.UpdateBucketResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"status","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"where_is","description":"","label":"","type":"WhereIs","longType":"sonrio.sonr.bucket.WhereIs","fullType":"sonrio.sonr.bucket.WhereIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/bucket/where_is.proto#whereis"}]}} />
+
+
+### `UploadObjectResponse`
+<ProtoMessage key={20} message={{"name":"UploadObjectResponse","longName":"UploadObjectResponse","fullName":"sonrio.motor.api.v1.UploadObjectResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"code","description":"","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"reference","description":"","label":"","type":"ObjectReference","longType":"ObjectReference","fullType":"sonrio.motor.api.v1.ObjectReference","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/motor/v1/response.proto#objectreference"},{"name":"message","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+---
+
+
+  

@@ -1,0 +1,103 @@
+---
+title: query.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `query.proto`
+_**path** schema/v1/query.proto_
+
+_**package** sonrio.sonr.schema_
+
+
+
+---
+
+## Messages
+
+
+### `QueryAllWhatIsRequest`
+<ProtoMessage key={0} message={{"name":"QueryAllWhatIsRequest","longName":"QueryAllWhatIsRequest","fullName":"sonrio.sonr.schema.QueryAllWhatIsRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"pagination","description":"","label":"","type":"PageRequest","longType":"cosmos.base.query.v1beta1.PageRequest","fullType":"cosmos.base.query.v1beta1.PageRequest","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryAllWhatIsResponse`
+<ProtoMessage key={1} message={{"name":"QueryAllWhatIsResponse","longName":"QueryAllWhatIsResponse","fullName":"sonrio.sonr.schema.QueryAllWhatIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"what_is","description":"","label":"repeated","type":"WhatIs","longType":"WhatIs","fullType":"sonrio.sonr.schema.WhatIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/what_is.proto#whatis"},{"name":"pagination","description":"","label":"","type":"PageResponse","longType":"cosmos.base.query.v1beta1.PageResponse","fullType":"cosmos.base.query.v1beta1.PageResponse","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryParamsRequest`
+<ProtoMessage key={2} message={{"name":"QueryParamsRequest","longName":"QueryParamsRequest","fullName":"sonrio.sonr.schema.QueryParamsRequest","description":"QueryParamsRequest is request type for the Query/Params RPC method.","hasExtensions":false,"hasFields":false,"hasOneofs":false,"extensions":[],"fields":[]}} />
+
+
+### `QueryParamsResponse`
+<ProtoMessage key={3} message={{"name":"QueryParamsResponse","longName":"QueryParamsResponse","fullName":"sonrio.sonr.schema.QueryParamsResponse","description":"QueryParamsResponse is response type for the Query/Params RPC method.","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"params","description":"params holds all the parameters of this module.","label":"","type":"Params","longType":"Params","fullType":"sonrio.sonr.schema.Params","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/params.proto#params"}]}} />
+
+
+### `QuerySchemaRequest`
+<ProtoMessage key={4} message={{"name":"QuerySchemaRequest","longName":"QuerySchemaRequest","fullName":"sonrio.sonr.schema.QuerySchemaRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QuerySchemaResponse`
+<ProtoMessage key={5} message={{"name":"QuerySchemaResponse","longName":"QuerySchemaResponse","fullName":"sonrio.sonr.schema.QuerySchemaResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"definition","description":"Definition of schema","label":"","type":"SchemaDefinition","longType":"SchemaDefinition","fullType":"sonrio.sonr.schema.SchemaDefinition","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/schema.proto#schemadefinition"}]}} />
+
+
+### `QueryWhatIsByDidRequest`
+<ProtoMessage key={6} message={{"name":"QueryWhatIsByDidRequest","longName":"QueryWhatIsByDidRequest","fullName":"sonrio.sonr.schema.QueryWhatIsByDidRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"pagination","description":"pageination values","label":"","type":"PageRequest","longType":"cosmos.base.query.v1beta1.PageRequest","fullType":"cosmos.base.query.v1beta1.PageRequest","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryWhatIsByDidResponse`
+<ProtoMessage key={7} message={{"name":"QueryWhatIsByDidResponse","longName":"QueryWhatIsByDidResponse","fullName":"sonrio.sonr.schema.QueryWhatIsByDidResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"what_is","description":"","label":"","type":"WhatIs","longType":"WhatIs","fullType":"sonrio.sonr.schema.WhatIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/what_is.proto#whatis"}]}} />
+
+
+### `QueryWhatIsCreatorRequest`
+<ProtoMessage key={8} message={{"name":"QueryWhatIsCreatorRequest","longName":"QueryWhatIsCreatorRequest","fullName":"sonrio.sonr.schema.QueryWhatIsCreatorRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"address of the schema creator","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"pagination","description":"pageination values","label":"","type":"PageRequest","longType":"cosmos.base.query.v1beta1.PageRequest","fullType":"cosmos.base.query.v1beta1.PageRequest","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryWhatIsCreatorResponse`
+<ProtoMessage key={9} message={{"name":"QueryWhatIsCreatorResponse","longName":"QueryWhatIsCreatorResponse","fullName":"sonrio.sonr.schema.QueryWhatIsCreatorResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"what_is","description":"Schema Repersentation","label":"repeated","type":"WhatIs","longType":"WhatIs","fullType":"sonrio.sonr.schema.WhatIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/what_is.proto#whatis"}]}} />
+
+
+### `QueryWhatIsRequest`
+<ProtoMessage key={10} message={{"name":"QueryWhatIsRequest","longName":"QueryWhatIsRequest","fullName":"sonrio.sonr.schema.QueryWhatIsRequest","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"did","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `QueryWhatIsResponse`
+<ProtoMessage key={11} message={{"name":"QueryWhatIsResponse","longName":"QueryWhatIsResponse","fullName":"sonrio.sonr.schema.QueryWhatIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"what_is","description":"Schema Repersentation","label":"","type":"WhatIs","longType":"WhatIs","fullType":"sonrio.sonr.schema.WhatIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/schema/v1/what_is.proto#whatis"}]}} />
+
+---
+## Services
+
+
+### `Query`
+
+Query defines the gRPC querier service.
+
+
+#### `Params`
+<ProtoServiceMethod key={'Params-0'} method={{"name":"Params","description":"Parameters queries the parameters of the module.","requestType":"QueryParamsRequest","requestLongType":"QueryParamsRequest","requestFullType":"sonrio.sonr.schema.QueryParamsRequest","requestStreaming":false,"responseType":"QueryParamsResponse","responseLongType":"QueryParamsResponse","responseFullType":"sonrio.sonr.schema.QueryParamsResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/schema/params"}]}},"requestTypeLink":"/protodocs/schema/v1/query.proto#queryparamsrequest","responseTypeLink":"/protodocs/schema/v1/query.proto#queryparamsresponse"}} />
+
+
+#### `Schema`
+<ProtoServiceMethod key={'Schema-1'} method={{"name":"Schema","description":"Queries a Schema by creator and did","requestType":"QuerySchemaRequest","requestLongType":"QuerySchemaRequest","requestFullType":"sonrio.sonr.schema.QuerySchemaRequest","requestStreaming":false,"responseType":"QuerySchemaResponse","responseLongType":"QuerySchemaResponse","responseFullType":"sonrio.sonr.schema.QuerySchemaResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/schema/query/schema"}]}},"requestTypeLink":"/protodocs/schema/v1/query.proto#queryschemarequest","responseTypeLink":"/protodocs/schema/v1/query.proto#queryschemaresponse"}} />
+
+
+#### `WhatIs`
+<ProtoServiceMethod key={'WhatIs-2'} method={{"name":"WhatIs","description":"Queries a whatis by creator and did","requestType":"QueryWhatIsRequest","requestLongType":"QueryWhatIsRequest","requestFullType":"sonrio.sonr.schema.QueryWhatIsRequest","requestStreaming":false,"responseType":"QueryWhatIsResponse","responseLongType":"QueryWhatIsResponse","responseFullType":"sonrio.sonr.schema.QueryWhatIsResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/schema/query/what_is"}]}},"requestTypeLink":"/protodocs/schema/v1/query.proto#querywhatisrequest","responseTypeLink":"/protodocs/schema/v1/query.proto#querywhatisresponse"}} />
+
+
+#### `WhatIsByCreator`
+<ProtoServiceMethod key={'WhatIsByCreator-3'} method={{"name":"WhatIsByCreator","description":"Queries a whatis by creator","requestType":"QueryWhatIsCreatorRequest","requestLongType":"QueryWhatIsCreatorRequest","requestFullType":"sonrio.sonr.schema.QueryWhatIsCreatorRequest","requestStreaming":false,"responseType":"QueryWhatIsCreatorResponse","responseLongType":"QueryWhatIsCreatorResponse","responseFullType":"sonrio.sonr.schema.QueryWhatIsCreatorResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/schema/query/what_is/{creator}"}]}},"requestTypeLink":"/protodocs/schema/v1/query.proto#querywhatiscreatorrequest","responseTypeLink":"/protodocs/schema/v1/query.proto#querywhatiscreatorresponse"}} />
+
+
+#### `WhatIsByDid`
+<ProtoServiceMethod key={'WhatIsByDid-4'} method={{"name":"WhatIsByDid","description":"","requestType":"QueryWhatIsByDidRequest","requestLongType":"QueryWhatIsByDidRequest","requestFullType":"sonrio.sonr.schema.QueryWhatIsByDidRequest","requestStreaming":false,"responseType":"QueryWhatIsByDidResponse","responseLongType":"QueryWhatIsByDidResponse","responseFullType":"sonrio.sonr.schema.QueryWhatIsByDidResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/schema/query/what_is/{did}"}]}},"requestTypeLink":"/protodocs/schema/v1/query.proto#querywhatisbydidrequest","responseTypeLink":"/protodocs/schema/v1/query.proto#querywhatisbydidresponse"}} />
+
+
+#### `WhatIsAll`
+<ProtoServiceMethod key={'WhatIsAll-5'} method={{"name":"WhatIsAll","description":"Queries all whatIs definitions supports pagination","requestType":"QueryAllWhatIsRequest","requestLongType":"QueryAllWhatIsRequest","requestFullType":"sonrio.sonr.schema.QueryAllWhatIsRequest","requestStreaming":false,"responseType":"QueryAllWhatIsResponse","responseLongType":"QueryAllWhatIsResponse","responseFullType":"sonrio.sonr.schema.QueryAllWhatIsResponse","responseStreaming":false,"options":{"google.api.http":{"rules":[{"method":"GET","pattern":"/sonr-io/sonr/schema/query/all_schemas"}]}},"requestTypeLink":"/protodocs/schema/v1/query.proto#queryallwhatisrequest","responseTypeLink":"/protodocs/schema/v1/query.proto#queryallwhatisresponse"}} />
+
+
+---
+
+
+  

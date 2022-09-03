@@ -5,13 +5,16 @@ displayed_sidebar: motorSidebar
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import APIButton from "@site/src/components/APIButton";
+
+<APIButton href="/api/bucket" label="Bucket API" type="info" />
 
 Buckets on Sonr are a great way to store related Documents—think of them like folders. They contain Document references as well as other buckets.
 
 Like everything on Sonr, you need a bucket's DID in order to fetch it.
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="☕ Java (Android)">
+	<TabItem value="android" label="🤖 Android" default>
 
 ```java
 public void getBucket(String did) throws Exception {
@@ -28,8 +31,9 @@ public void getBucket(String did) throws Exception {
     Document d = bucket.getDocument("<CID>");
 }
 ```
+
   </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
 
 ```go
 func GetBucketObjects(bucketDid string) ([]byte, error) {
@@ -64,7 +68,7 @@ func GetBucketObjects(bucketDid string) ([]byte, error) {
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
 ```dart
 Future<QueryWhereIsResponse?> queryBucket(String q) async {
@@ -78,7 +82,7 @@ Future<QueryWhereIsResponse?> queryBucket(String q) async {
 In addition to documents, you can also fetch child buckets.
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="☕ Java (Android)">
+	<TabItem value="android" label="🤖 Android" default>
 
 ```java
 public void getSubBucket(String did) throws Exception {
@@ -97,7 +101,7 @@ public void getSubBucket(String did) throws Exception {
 ```
 
   </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
 
 ```go
 func ResolveSubBucket(bucketDid, subBucketDid string) error {
@@ -124,7 +128,7 @@ func ResolveSubBucket(bucketDid, subBucketDid string) error {
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
     ### 🚧 Under Construction 🚧
 

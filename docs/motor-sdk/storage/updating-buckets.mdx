@@ -5,6 +5,9 @@ displayed_sidebar: motorSidebar
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
+import APIButton from "@site/src/components/APIButton";
+
+<APIButton href="/api/bucket" label="Bucket API" type="info" />
 
 New documents can be added or removed from a bucket using the Bucket class. This does not delete the document (data cannot be completely deleted from Sonr).
 
@@ -13,7 +16,7 @@ New documents can be added or removed from a bucket using the Bucket class. This
 Adding a document both uploads the document to IPFS and adds a reference to the bucket. The result of the upload is returned containing the CID and other information.
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="☕ Java (Android)">
+	<TabItem value="android" label="🤖 Android" default>
 
 ```java
 public void addDocumentToBucket(String bucketDid, Document d) throws Exception {
@@ -28,12 +31,12 @@ public void addDocumentToBucket(String bucketDid, Document d) throws Exception {
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
     ### 🚧 Under Construction 🚧
 
   </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
 
 ```go
 func AddBucketObject(bucketDid string, obj []byte) error {
@@ -64,7 +67,7 @@ func AddBucketObject(bucketDid string, obj []byte) error {
 Using the returned CID, you can remove the Document from the Bucket.
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="☕ Java (Android)">
+	<TabItem value="android" label="🤖 Android" default>
 
 ```java
 public void removeDocumentFromBucket(String bucketDid, String cid) throws Exception {
@@ -76,7 +79,7 @@ public void removeDocumentFromBucket(String bucketDid, String cid) throws Except
 ```
 
   </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
 
 ```go
 func RemoveBucketObject(bucketDid, cid string) error {
@@ -107,7 +110,7 @@ func RemoveBucketObject(bucketDid, cid string) error {
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
     ### 🚧 Under Construction 🚧
 

@@ -8,6 +8,9 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import Highlight from "@site/src/components/Highlight";
+import APIButton from "@site/src/components/APIButton";
+
+<APIButton href="/api/registry" label="Registry API" type="info" />
 
 :::note
 
@@ -18,7 +21,7 @@ Users must be authenticated in order to utilize other Motor features. For more i
 If your user has previously created an account on the device, they can log in without a password. Alternatively, if the user's pre-shared key has been added to the device, they may login with a password.
 
 <Tabs groupId="platform">
-  <TabItem value="java" label="☕ Java (Android)">
+  <TabItem value="java" label="🤖 Android" default>
 
 ```java
 public void login(String password) throws Exception {
@@ -36,7 +39,7 @@ public void login(String password) throws Exception {
 **Output:** Prints the blockchain address of the newly created account
 
   </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
 
 Login creates a motor node from a LoginRequest
 
@@ -60,7 +63,7 @@ func (mtr *motorNodeImpl) Login(request mt.LoginRequest) (mt.LoginResponse, erro
 
   </TabItem>
 
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
 ```dart
 Future<LoginResponse?> login(String did, String password, List<int> aesDscKey, List<int> aesPskKey) async {

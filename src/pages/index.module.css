@@ -30,3 +30,27 @@
   margin: 8;
   padding: 8;
 }
+
+.heroSubtitle {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 8;
+  padding: 8;
+}
+
+@media screen and (max-width: 996px) {
+
+.heroTitle {
+  font-size: 40px;
+  font-weight: 800;
+  margin: 8;
+  padding: 8;
+}
+
+.heroSubtitle {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 8;
+  padding: 8;
+}
+}

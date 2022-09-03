@@ -8,34 +8,31 @@
 
  Create as many sidebars as you want.
  */
-
 // @ts-check
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
-  // By default, Docusaurus generates a sidebar from the docs folder structure
+  // Get protodocs sidebar items from genSidebarsProtodocs.js
 
+  // By default, Docusaurus generates a sidebar from the docs folder structure
   motorSidebar: [
     'motor-sdk/intro',
     {
       type: 'category',
       label: 'Authorization',
       collapsed: false,
-      collapsible: false,
       items: ['motor-sdk/auth/register', 'motor-sdk/auth/login'],
     },
     {
       type: 'category',
       label: 'Managing Data',
       collapsed: false,
-      collapsible: false,
       items: ['motor-sdk/data/schemas', 'motor-sdk/data/documents'],
     },
     {
       type: 'category',
       label: 'Utilizing Storage',
       collapsed: false,
-      collapsible: false,
       items: ['motor-sdk/storage/buckets', 'motor-sdk/storage/updating-buckets',],
     },
     {
@@ -53,9 +50,8 @@ const sidebars = {
       type: 'category',
       label: 'Modules',
       collapsed: false,
-      collapsible: false,
       items: ['highway/modules/registry', 'highway/modules/schemas', 'highway/modules/buckets', 'highway/modules/objects',],
-    },
+    }
   ],
   speedwaySidebar: [
     'speedway/introduction',

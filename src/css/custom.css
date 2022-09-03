@@ -81,9 +81,16 @@ html[data-theme='dark'] .navbar__logo:hover {
   opacity: 0.8;
 }
 
+.api-button-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 16px;
+  margin-top: -8px;
+}
+
 .section {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   padding-left: 5%;
   padding-right: 5%;
   background-color: #f0f9ff;
@@ -98,10 +105,19 @@ html[data-theme='dark'] .section {
 }
 
 .section-hero {
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 160px;
+  padding-bottom: 160px;
   padding-left: 5%;
   padding-right: 5%;
+}
+
+@media screen and (max-width: 996px) {
+  .section-hero {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 .menu__list-item-collapsible {
@@ -116,7 +132,7 @@ html[data-theme='dark'] .section {
   padding-right: 16px;
 }
 
-/* Override non-category links to be horizonally compact */
+/* Override non-category links to be horizontally compact */
 li > a.menu__link {
   justify-content: flex-start;
 }

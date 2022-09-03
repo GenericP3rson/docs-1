@@ -1,0 +1,107 @@
+---
+title: tx.proto
+hide_title: true
+---
+
+import { ProtoMessage, ProtoServiceMethod, ProtoEnum } from '@theme/ProtoFile';
+
+## `tx.proto`
+_**path** registry/tx.proto_
+
+_**package** sonrio.sonr.registry_
+
+
+
+---
+
+## Messages
+
+
+### `MsgBuyAlias`
+<ProtoMessage key={0} message={{"name":"MsgBuyAlias","longName":"MsgBuyAlias","fullName":"sonrio.sonr.registry.MsgBuyAlias","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"Creator is the wallet address of the creator of the transaction.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"name","description":"Name is the name of the alias app extension to be bought. i.e. example.snr/{name}","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `MsgBuyAliasResponse`
+<ProtoMessage key={1} message={{"name":"MsgBuyAliasResponse","longName":"MsgBuyAliasResponse","fullName":"sonrio.sonr.registry.MsgBuyAliasResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"success","description":"Did is the top level DID of the WhoIs.","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"who_is","description":"WhoIs is the updated WhoIs, contains the DID document and associated metadata.","label":"","type":"WhoIs","longType":"WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+
+### `MsgCreateWhoIs`
+<ProtoMessage key={2} message={{"name":"MsgCreateWhoIs","longName":"MsgCreateWhoIs","fullName":"sonrio.sonr.registry.MsgCreateWhoIs","description":"swagger:model MsgCreateWhoIs","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"Creator is the wallet address of the creator of the transaction.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"pubkey","description":"Secp256k1PublicKey is the public key of the creator.","label":"","type":"PubKey","longType":"cosmos.crypto.secp256k1.PubKey","fullType":"cosmos.crypto.secp256k1.PubKey","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"did_document","description":"DidDocument is the DID document to be stored, in JSON format (see https://w3c-ccg.github.io/did-spec/#did-json-ld).","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"whois_type","description":"WhoIsType is the type of the WhoIs to be created. Possible values are: \"USER\", \"APPLICATION\".","label":"","type":"WhoIsType","longType":"WhoIsType","fullType":"sonrio.sonr.registry.WhoIsType","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whoistype"}]}} />
+
+
+### `MsgCreateWhoIsResponse`
+<ProtoMessage key={3} message={{"name":"MsgCreateWhoIsResponse","longName":"MsgCreateWhoIsResponse","fullName":"sonrio.sonr.registry.MsgCreateWhoIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"success","description":"Did is the top level DID of the created WhoIs.","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"who_is","description":"WhoIs is the created WhoIs, contains the DID document and associated metadata.","label":"","type":"WhoIs","longType":"WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+
+### `MsgDeactivateWhoIs`
+<ProtoMessage key={4} message={{"name":"MsgDeactivateWhoIs","longName":"MsgDeactivateWhoIs","fullName":"sonrio.sonr.registry.MsgDeactivateWhoIs","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"Creator is the wallet address of the creator of the transaction.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `MsgDeactivateWhoIsResponse`
+<ProtoMessage key={5} message={{"name":"MsgDeactivateWhoIsResponse","longName":"MsgDeactivateWhoIsResponse","fullName":"sonrio.sonr.registry.MsgDeactivateWhoIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"success","description":"Success is true if the WhoIs was successfully deactivated.","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"did","description":"Did is the top level DID of the WhoIs.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `MsgSellAlias`
+<ProtoMessage key={6} message={{"name":"MsgSellAlias","longName":"MsgSellAlias","fullName":"sonrio.sonr.registry.MsgSellAlias","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"Creator is the wallet address of the creator of the transaction.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"alias","description":"Alias is the name of the app alias to be transferred to the recipient.  i.e. example.snr/{name}","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"amount","description":"Amount is the amount of the alias to be transferred.","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `MsgSellAliasResponse`
+<ProtoMessage key={7} message={{"name":"MsgSellAliasResponse","longName":"MsgSellAliasResponse","fullName":"sonrio.sonr.registry.MsgSellAliasResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"success","description":"Success is true if the Alias was successfully transferred.","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"who_is","description":"WhoIs is the updated WhoIs, contains the DID document and associated metadata.","label":"","type":"WhoIs","longType":"WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+
+### `MsgTransferAlias`
+<ProtoMessage key={8} message={{"name":"MsgTransferAlias","longName":"MsgTransferAlias","fullName":"sonrio.sonr.registry.MsgTransferAlias","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"Creator is the wallet address of the creator of the transaction.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"alias","description":"Alias is the name of the user domain alias to be transferred to the recipient. i.e. {alias}.snr","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"recipient","description":"Recipient is the wallet address of the recipient of the alias.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"amount","description":"Amount is the amount of the alias to be transferred.","label":"","type":"int32","longType":"int32","fullType":"int32","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `MsgTransferAliasResponse`
+<ProtoMessage key={9} message={{"name":"MsgTransferAliasResponse","longName":"MsgTransferAliasResponse","fullName":"sonrio.sonr.registry.MsgTransferAliasResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"success","description":"Success is true if the Alias was successfully transferred.","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"who_is","description":"WhoIs is the updated WhoIs, contains the DID document and associated metadata.","label":"","type":"WhoIs","longType":"WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+
+### `MsgUpdateWhoIs`
+<ProtoMessage key={10} message={{"name":"MsgUpdateWhoIs","longName":"MsgUpdateWhoIs","fullName":"sonrio.sonr.registry.MsgUpdateWhoIs","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"creator","description":"Creator is the wallet address of the creator of the transaction.","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"did_document","description":"DidDocument is the DID document to be stored, in JSON format (see https://w3c-ccg.github.io/did-spec/#did-json-ld).","label":"","type":"bytes","longType":"bytes","fullType":"bytes","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"metadata","description":"Metadata is the metadata to be stored with the DID document.","label":"repeated","type":"MetadataEntry","longType":"MsgUpdateWhoIs.MetadataEntry","fullType":"sonrio.sonr.registry.MsgUpdateWhoIs.MetadataEntry","ismap":true,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/tx.proto#msgupdatewhoismetadataentry"}]}} />
+
+
+### `MsgUpdateWhoIs.MetadataEntry`
+<ProtoMessage key={11} message={{"name":"MetadataEntry","longName":"MsgUpdateWhoIs.MetadataEntry","fullName":"sonrio.sonr.registry.MsgUpdateWhoIs.MetadataEntry","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"key","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"value","description":"","label":"","type":"string","longType":"string","fullType":"string","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""}]}} />
+
+
+### `MsgUpdateWhoIsResponse`
+<ProtoMessage key={12} message={{"name":"MsgUpdateWhoIsResponse","longName":"MsgUpdateWhoIsResponse","fullName":"sonrio.sonr.registry.MsgUpdateWhoIsResponse","description":"","hasExtensions":false,"hasFields":true,"hasOneofs":false,"extensions":[],"fields":[{"name":"success","description":"Did is the top level DID of the WhoIs.","label":"","type":"bool","longType":"bool","fullType":"bool","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":""},{"name":"who_is","description":"WhoIs is the created WhoIs, contains the DID document and associated metadata.","label":"","type":"WhoIs","longType":"WhoIs","fullType":"sonrio.sonr.registry.WhoIs","ismap":false,"isoneof":false,"oneofdecl":"","defaultValue":"","typeLink":"/protodocs/registry/who_is.proto#whois"}]}} />
+
+---
+## Services
+
+
+### `Msg`
+
+Msg defines the Msg service.
+
+
+#### `CreateWhoIs`
+<ProtoServiceMethod key={'CreateWhoIs-0'} method={{"name":"CreateWhoIs","description":"","requestType":"MsgCreateWhoIs","requestLongType":"MsgCreateWhoIs","requestFullType":"sonrio.sonr.registry.MsgCreateWhoIs","requestStreaming":false,"responseType":"MsgCreateWhoIsResponse","responseLongType":"MsgCreateWhoIsResponse","responseFullType":"sonrio.sonr.registry.MsgCreateWhoIsResponse","responseStreaming":false,"requestTypeLink":"/protodocs/registry/tx.proto#msgcreatewhois","responseTypeLink":"/protodocs/registry/tx.proto#msgcreatewhoisresponse"}} />
+
+
+#### `UpdateWhoIs`
+<ProtoServiceMethod key={'UpdateWhoIs-1'} method={{"name":"UpdateWhoIs","description":"","requestType":"MsgUpdateWhoIs","requestLongType":"MsgUpdateWhoIs","requestFullType":"sonrio.sonr.registry.MsgUpdateWhoIs","requestStreaming":false,"responseType":"MsgUpdateWhoIsResponse","responseLongType":"MsgUpdateWhoIsResponse","responseFullType":"sonrio.sonr.registry.MsgUpdateWhoIsResponse","responseStreaming":false,"requestTypeLink":"/protodocs/registry/tx.proto#msgupdatewhois","responseTypeLink":"/protodocs/registry/tx.proto#msgupdatewhoisresponse"}} />
+
+
+#### `DeactivateWhoIs`
+<ProtoServiceMethod key={'DeactivateWhoIs-2'} method={{"name":"DeactivateWhoIs","description":"","requestType":"MsgDeactivateWhoIs","requestLongType":"MsgDeactivateWhoIs","requestFullType":"sonrio.sonr.registry.MsgDeactivateWhoIs","requestStreaming":false,"responseType":"MsgDeactivateWhoIsResponse","responseLongType":"MsgDeactivateWhoIsResponse","responseFullType":"sonrio.sonr.registry.MsgDeactivateWhoIsResponse","responseStreaming":false,"requestTypeLink":"/protodocs/registry/tx.proto#msgdeactivatewhois","responseTypeLink":"/protodocs/registry/tx.proto#msgdeactivatewhoisresponse"}} />
+
+
+#### `BuyAlias`
+<ProtoServiceMethod key={'BuyAlias-3'} method={{"name":"BuyAlias","description":"","requestType":"MsgBuyAlias","requestLongType":"MsgBuyAlias","requestFullType":"sonrio.sonr.registry.MsgBuyAlias","requestStreaming":false,"responseType":"MsgBuyAliasResponse","responseLongType":"MsgBuyAliasResponse","responseFullType":"sonrio.sonr.registry.MsgBuyAliasResponse","responseStreaming":false,"requestTypeLink":"/protodocs/registry/tx.proto#msgbuyalias","responseTypeLink":"/protodocs/registry/tx.proto#msgbuyaliasresponse"}} />
+
+
+#### `SellAlias`
+<ProtoServiceMethod key={'SellAlias-4'} method={{"name":"SellAlias","description":"","requestType":"MsgSellAlias","requestLongType":"MsgSellAlias","requestFullType":"sonrio.sonr.registry.MsgSellAlias","requestStreaming":false,"responseType":"MsgSellAliasResponse","responseLongType":"MsgSellAliasResponse","responseFullType":"sonrio.sonr.registry.MsgSellAliasResponse","responseStreaming":false,"requestTypeLink":"/protodocs/registry/tx.proto#msgsellalias","responseTypeLink":"/protodocs/registry/tx.proto#msgsellaliasresponse"}} />
+
+
+#### `TransferAlias`
+<ProtoServiceMethod key={'TransferAlias-5'} method={{"name":"TransferAlias","description":"this line is used by starport scaffolding # proto/tx/rpc","requestType":"MsgTransferAlias","requestLongType":"MsgTransferAlias","requestFullType":"sonrio.sonr.registry.MsgTransferAlias","requestStreaming":false,"responseType":"MsgTransferAliasResponse","responseLongType":"MsgTransferAliasResponse","responseFullType":"sonrio.sonr.registry.MsgTransferAliasResponse","responseStreaming":false,"requestTypeLink":"/protodocs/registry/tx.proto#msgtransferalias","responseTypeLink":"/protodocs/registry/tx.proto#msgtransferaliasresponse"}} />
+
+
+---
+
+
+  

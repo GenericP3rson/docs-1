@@ -6,6 +6,21 @@ displayed_sidebar: motorSidebar
 
 # Introducing the Motor SDK
 
+<div style={{ "margin-bottom": "16px", "margin-top": "-8px" }}>
+<div class="row">
+  <div class="col col--1">
+    <span class="badge badge--success">Android</span>
+  </div>
+  <div class="col col--1">
+    <span class="badge badge--info">Golang</span>
+  </div>
+    <div class="col col--1">
+    <span class="badge badge--primary">Flutter</span>
+  </div>
+</div>
+
+</div>
+
 The Motor SDK is a set of developer tools for building decentralized applications on the Sonr network. It currently supports Desktop, Android, and Flutter targets with plans to support iOS, React Native, and Web in the near future.
 
 Motor Android is an Android library designed to help developers utilize Sonr in their apps. You can find the source code on [Github](https://github.com/sonr-io/motor-android).
@@ -18,7 +33,7 @@ import TabItem from "@theme/TabItem";
 > Select your target platform to get started and setup a new Motor integrated project.
 
 <Tabs groupId="platform">
-  <TabItem value="android" label="☕ Java (Android)">
+  <TabItem value="android" label="🤖 Android" default>
 
 :::note
 
@@ -27,31 +42,22 @@ This guide assumes you're familiar with Android development and [Android Studio]
 :::
 Start by creating a new project.
 
-<img
-  src="/assets/new-project.png"
-  width="100%"
-/>
+<img src="/assets/new-project.png" width="100%" />
 
 Next, grab the latest version of Motoroid from [Jitpack.io](https://jitpack.io/#sonr-io/motor-android). Select the "motoroid" sub-project and follow the instructions to finish adding the dependency.
 
 Your project level `build.gradle` should look like this when you're done...
 
-<img
-  src="/assets/build-gradle.png"
-  width="100%"
-/>
+<img src="/assets/build-gradle.png" width="100%" />
 
 ...and your `:app` level `build.gradle` should look like this.
 
-<img
-  src="/assets/build-gradle-app.png"
-  width="100%"
-/>
+<img src="/assets/build-gradle-app.png" width="100%" />
 
 Note: You may need to delete the `dependencyResolutionManagement` section from `settings.gradle` if you receive an error.
 
   </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
 
 Start by adding the `sonr` package to your project.
 
@@ -60,7 +66,7 @@ go get -u github.com/sonr-io/sonr
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
 Add `motor_flutter` as a dependency in your existing project's `pubspec.yaml` file.
 
@@ -85,7 +91,7 @@ Clone the Plugin, Compile the most up-to-date protobuf files, and Download the l
 > Spawning a new Motor instance is the first step in using the SDK. This is where you'll configure your app's connection to the Sonr network.
 
 <Tabs groupId="platform">
-  <TabItem value="android" label="☕ Java (Android)">
+  <TabItem value="android" label="🤖 Android" default>
     With Motoroid added to your project, all you need to do is initialize the `Motoroid` instance and you'll have access to a singleton throughout the lifetime of your application! It's a good idea to do this early on the lifetime of your app. For example, in your app's `onCreate` handler.
 
 ```java
@@ -110,7 +116,7 @@ protected void onCreate(Bundle savedInstanceState) {
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🎯 Dart">
+  <TabItem value="flutter" label="🐦 Flutter">
 
 ```dart
 Future<InitializeResponse?> initialize() async {
@@ -121,7 +127,7 @@ Future<InitializeResponse?> initialize() async {
 ```
 
 </TabItem>
-  <TabItem value="go" label="🐹 Go" default>
+  <TabItem value="go" label="🐹 Go">
 There should exist only one instance of `Motor` throughout the lifetime of your application.
 
 ```go
