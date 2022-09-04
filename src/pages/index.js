@@ -20,6 +20,13 @@ function HomepageHeader() {
             to="/docs/what-is-sonr">
             Lets get started 🚀
           </Link>
+
+          <Link
+            className="button button--primary button--lg white-text"
+            to="https://sonr.fyi/">
+            See Roadmap →
+          </Link>
+
         </div>
       </div>
     </header >
