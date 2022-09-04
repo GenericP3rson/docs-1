@@ -147,7 +147,7 @@ const config = {
             type: 'doc',
             docId: 'motor-sdk/intro',
             position: 'left',
-            label: 'Integrate',
+            label: 'SDKs',
           },
           {
             to: 'protodocs/registry/tx.proto',
