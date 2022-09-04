@@ -136,3 +136,13 @@ html[data-theme='dark'] .section {
 li > a.menu__link {
   justify-content: flex-start;
 }
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
