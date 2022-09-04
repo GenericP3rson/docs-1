@@ -18,7 +18,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/what-is-sonr">
-            "Let's get started 🚀"
+            Let's get started 🚀
           </Link>
 
           <Link
