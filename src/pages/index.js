@@ -18,7 +18,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/what-is-sonr">
-            Lets get started 🚀
+            Let's get started 🚀
           </Link>
 
           <Link
@@ -38,7 +38,7 @@ export default function Home() {
   return (
     <Layout
       title={`Hello Sonr Devs!`}
-      description="Lets build a better Internet together.">
+      description="Let's build a better Internet together.">
       <HomepageHeader />
       <main>
         <div className="section">
