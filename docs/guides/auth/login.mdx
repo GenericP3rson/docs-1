@@ -1,0 +1,101 @@
+---
+title: Login to Existing Account
+sidebar_position: 2
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import Highlight from "@site/src/components/Highlight";
+import APIButton from "@site/src/components/APIButton";
+
+import {
+  CreateAccountTerminalView,
+  CreateSchemaTerminalView,
+  CreateObjectTerminalView,
+  CreateBucketTerminalView,
+} from "@site/src/components/Terminal";
+
+<APIButton href="/api/registry" label="Registry API" type="info" />
+
+:::note
+
+Users must be authenticated in order to utilize other Motor features. For more information on how authentication works on Sonr, see [TODO](#)
+
+:::
+
+If your user has previously created an account on the device, they can log in without a password. Alternatively, if the user's pre-shared key has been added to the device, they may login with a password.
+
+<Tabs groupId="platform">
+  <TabItem value="cli" label="🖥️ CLI" default>
+To create an account, run the following command:
+
+```sh
+speedway account create
+```
+
+<div style={{ maxWidth: 600, marginBottom: 16 }}>
+  <CreateAccountTerminalView />
+</div>
+
+You will be prompted to enter a password. This password will be used to encrypt your vault.
+
+  </TabItem>
+
+  <TabItem value="java" label="🤖 Android">
+
+```java
+public void login(String password) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    LoginResponse response;
+    if (password.isEmpty()) {
+      response = mtr.login();
+    } else {
+      response = mtr.login(password);
+    }
+    System.out.println(mtr.getAddress);
+}
+```
+
+**Output:** Prints the blockchain address of the newly created account
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+
+Login creates a motor node from a LoginRequest
+
+```go
+func (mtr *motorNodeImpl) Login(request mt.LoginRequest) (mt.LoginResponse, error) {
+    // 1. Fetch Shards from the Vault
+    shards, _ := vault.New().GetVaultShards(request.Did)
+
+    // 2. Reconstruct the Wallet
+    configs, _ := createWalletConfigs(mtr.DeviceID, request, shards)
+
+    // 3. Fetch DID document from Blockchain
+    whoIs, _ := mtr.Cosmos.QueryWhoIs(request.Did)
+
+    // 4. Bootstrap the Motor Node
+    // ...
+    // - Assign Shards to the Wallet and populate DIDDocument
+    // ...
+}
+```
+
+  </TabItem>
+
+  <TabItem value="flutter" label="🐦 Flutter">
+
+```dart
+Future<LoginResponse?> login(String did, String password, List<int> aesDscKey, List<int> aesPskKey) async {
+  return await MotorFlutterPlatform.instance.login(LoginRequest(
+    password: password,
+    did: did,
+    aesDscKey: aesDscKey,
+    aesPskKey: aesPskKey,
+  ));
+}
+```
+
+  </TabItem>
+</Tabs>

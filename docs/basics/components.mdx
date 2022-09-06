@@ -1,0 +1,36 @@
+---
+title: Components
+sidebar_position: 3
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import APIButton from "@site/src/components/APIButton";
+
+The Sonr network is collectively made up of `motor nodes` and `highway nodes`. `Motor nodes` act as clients and represent end-users, while `highway nodes` are the Sonr network’s servers for data transmission.
+
+- **Real-time peer-to-peer network:** To enable cross-device discovery, delivery, and transmission, Sonr leverages the [`LibP2P`](https://libp2p.io/) framework. With `LibP2P`, nodes in the Sonr network can dial other nodes in the network to exchange messages using various transports, like QUIC, TCP, WebSocket, and Bluetooth. Nodes can run on any device, as a cloud service, mobile application or in the browser and talk to each other as long as they are connected on the Sonr network.
+
+- **Verifiable user identity:** Sonr enables verifiable on-chain identity verification via its implementation of the DID specification. Access to this experience is unlocked via procurement of a .snr subdomain. This subdomain gives users one central point of access for being able to securely store user data on the blockchain.
+
+**Example:** Prad secures the prad.snr subdomain. If he wants to access _Netflicks_, a blockchain-based movie recommendation platform built on the Sonr blockchain, he can access his data at prad.snr/Netflicks and also grant other nodes access to his data.
+
+- #### [Blockchain](#blockchain)
+- #### [Highway](#highway)
+- #### [Motor](#motor)
+
+## Blockchain
+
+## Highway
+
+<img src="/img/speedway.png" style={{ maxWidth: 760 }} />
+
+### What is Speedway?
+
+Speedway is a suite of developer tools that allow you to create, update, deprecate and query schemas, objects and buckets on the Sonr Network. The Speedway Suite consists of the Speedway CLI, the Speedway API, and the Speedway UI which is a web application that allows you to interact with the Speedway API.
+
+Speedway currently utilizes four modules on the Sonr Blockchain. The modules are listed below for a wholistic overview.
+
+---
+
+## Motor

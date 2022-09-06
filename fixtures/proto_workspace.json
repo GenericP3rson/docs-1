@@ -59,22 +59,22 @@
           "name": "ResourceIdentifier",
           "longName": "ResourceIdentifier",
           "fullName": "sonrio.sonr.bucket.ResourceIdentifier",
-          "description": "",
+          "description": "ResourceIdentifier is a type of resource.",
           "values": [
             {
               "name": "None",
               "number": "0",
-              "description": ""
+              "description": "Resource is not specified."
             },
             {
               "name": "DID",
               "number": "1",
-              "description": ""
+              "description": "DID is a reference to another bucket (WhereIs)"
             },
             {
               "name": "CID",
               "number": "2",
-              "description": ""
+              "description": "CID is a reference to content (map[string]interface{})"
             }
           ]
         }
@@ -93,7 +93,7 @@
           "fields": [
             {
               "name": "encrypted_jwks",
-              "description": "",
+              "description": "Encrypted JWKs for a given Schema and the associated DID as a map",
               "label": "repeated",
               "type": "EncryptedJwksEntry",
               "longType": "AclJwks.EncryptedJwksEntry",
@@ -217,7 +217,7 @@
           "name": "WhereIs",
           "longName": "WhereIs",
           "fullName": "sonrio.sonr.bucket.WhereIs",
-          "description": "",
+          "description": "WhereIs is the record stored on chain for a given bucket",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -387,7 +387,7 @@
           "name": "BucketContent",
           "longName": "BucketContent",
           "fullName": "sonrio.sonr.bucket.BucketContent",
-          "description": "Wraps items within a bucket. Items will be one of the following\nDID -\u003e reference to another bucket (WhereIs)\nCID -\u003e reference to content (map[string]interface{})",
+          "description": "BucketContent Wraps items within a bucket. Items will be one of the following",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -419,7 +419,7 @@
             },
             {
               "name": "content_type",
-              "description": "",
+              "description": "Content type either a DID or CID",
               "label": "",
               "type": "ResourceIdentifier",
               "longType": "ResourceIdentifier",
@@ -482,7 +482,7 @@
           "fields": [
             {
               "name": "params",
-              "description": "",
+              "description": "Initial params",
               "label": "",
               "type": "Params",
               "longType": "Params",
@@ -494,7 +494,7 @@
             },
             {
               "name": "where_is_list",
-              "description": "this line is used by starport scaffolding # genesis/proto/state",
+              "description": "Initial Bucket list\n\nthis line is used by starport scaffolding # genesis/proto/state",
               "label": "repeated",
               "type": "WhereIs",
               "longType": "WhereIs",
@@ -524,7 +524,7 @@
           "name": "QueryAllWhereIsRequest",
           "longName": "QueryAllWhereIsRequest",
           "fullName": "sonrio.sonr.bucket.QueryAllWhereIsRequest",
-          "description": "",
+          "description": "QueryAllWhereIsRequest is request type for the Query/WhereIsAll RPC method.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -532,7 +532,7 @@
           "fields": [
             {
               "name": "pagination",
-              "description": "",
+              "description": "Pagination defines an optional pagination for the request.",
               "label": "",
               "type": "PageRequest",
               "longType": "cosmos.base.query.v1beta1.PageRequest",
@@ -548,7 +548,7 @@
           "name": "QueryAllWhereIsResponse",
           "longName": "QueryAllWhereIsResponse",
           "fullName": "sonrio.sonr.bucket.QueryAllWhereIsResponse",
-          "description": "",
+          "description": "QueryAllWhereIsResponse is response type for the Query/WhereIsAll RPC method.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -556,7 +556,7 @@
           "fields": [
             {
               "name": "where_is",
-              "description": "",
+              "description": "List of Bucket records.",
               "label": "repeated",
               "type": "WhereIs",
               "longType": "WhereIs",
@@ -568,7 +568,7 @@
             },
             {
               "name": "pagination",
-              "description": "",
+              "description": "Pagination defines the pagination in the response.",
               "label": "",
               "type": "PageResponse",
               "longType": "cosmos.base.query.v1beta1.PageResponse",
@@ -584,7 +584,7 @@
           "name": "QueryGetWhereIsByCreatorRequest",
           "longName": "QueryGetWhereIsByCreatorRequest",
           "fullName": "sonrio.sonr.bucket.QueryGetWhereIsByCreatorRequest",
-          "description": "",
+          "description": "QueryGetWhereIsByCreatorRequest is the message request to query a WhereIs by creator.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -592,7 +592,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "Creator is the account address of the owner of the WhereIs.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -604,7 +604,7 @@
             },
             {
               "name": "pagination",
-              "description": "",
+              "description": "Pagination defines an optional pagination for the request.",
               "label": "",
               "type": "PageRequest",
               "longType": "cosmos.base.query.v1beta1.PageRequest",
@@ -620,7 +620,7 @@
           "name": "QueryGetWhereIsByCreatorResponse",
           "longName": "QueryGetWhereIsByCreatorResponse",
           "fullName": "sonrio.sonr.bucket.QueryGetWhereIsByCreatorResponse",
-          "description": "",
+          "description": "QueryGetWhereIsByCreatorResponse is the message response for querying a WhereIs by creator.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -628,7 +628,7 @@
           "fields": [
             {
               "name": "where_is",
-              "description": "",
+              "description": "The blockchain record for the bucket.",
               "label": "repeated",
               "type": "WhereIs",
               "longType": "WhereIs",
@@ -640,7 +640,7 @@
             },
             {
               "name": "pagination",
-              "description": "",
+              "description": "Pagination defines the pagination in the response.",
               "label": "",
               "type": "PageResponse",
               "longType": "cosmos.base.query.v1beta1.PageResponse",
@@ -656,7 +656,7 @@
           "name": "QueryGetWhereIsRequest",
           "longName": "QueryGetWhereIsRequest",
           "fullName": "sonrio.sonr.bucket.QueryGetWhereIsRequest",
-          "description": "",
+          "description": "QueryGetWhereIsRequest is the message request to query a WhereIs by did and creator.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -664,7 +664,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "Creator is the account address of the owner of the WhereIs.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -676,7 +676,7 @@
             },
             {
               "name": "did",
-              "description": "",
+              "description": "Did is the DID of the WhereIs.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -692,7 +692,7 @@
           "name": "QueryGetWhereIsResponse",
           "longName": "QueryGetWhereIsResponse",
           "fullName": "sonrio.sonr.bucket.QueryGetWhereIsResponse",
-          "description": "",
+          "description": "QueryGetWhereIsResponse is the message response for querying a WhereIs by did and creator.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -700,7 +700,7 @@
           "fields": [
             {
               "name": "where_is",
-              "description": "",
+              "description": "The blockchain record for the bucket.",
               "label": "",
               "type": "WhereIs",
               "longType": "WhereIs",
@@ -753,7 +753,7 @@
           "name": "Query",
           "longName": "Query",
           "fullName": "sonrio.sonr.bucket.Query",
-          "description": "Query defines the gRPC querier service.",
+          "description": "Query defines the gRPC querier service for the bucket module.",
           "methods": [
             {
               "name": "Params",
@@ -779,7 +779,7 @@
             },
             {
               "name": "WhereIs",
-              "description": "Queries a WhereIs by did and creator.",
+              "description": "Queries a Bucket record by did and creator.",
               "requestType": "QueryGetWhereIsRequest",
               "requestLongType": "QueryGetWhereIsRequest",
               "requestFullType": "sonrio.sonr.bucket.QueryGetWhereIsRequest",
@@ -801,7 +801,7 @@
             },
             {
               "name": "WhereIsByCreator",
-              "description": "Queries all WhereIs by creator.",
+              "description": "Queries all buckets for the given creator.",
               "requestType": "QueryGetWhereIsByCreatorRequest",
               "requestLongType": "QueryGetWhereIsByCreatorRequest",
               "requestFullType": "sonrio.sonr.bucket.QueryGetWhereIsByCreatorRequest",
@@ -823,7 +823,7 @@
             },
             {
               "name": "WhereIsAll",
-              "description": "Queries a list of WhereIs items.",
+              "description": "Returns all buckets stored in the state.",
               "requestType": "QueryAllWhereIsRequest",
               "requestLongType": "QueryAllWhereIsRequest",
               "requestFullType": "sonrio.sonr.bucket.QueryAllWhereIsRequest",
@@ -862,7 +862,7 @@
           "name": "MsgCreateWhereIs",
           "longName": "MsgCreateWhereIs",
           "fullName": "sonrio.sonr.bucket.MsgCreateWhereIs",
-          "description": "",
+          "description": "The message sent to the CreateWhereIs method in order to create a new bucket",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -870,7 +870,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "The account address of the bucket creator",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -882,7 +882,7 @@
             },
             {
               "name": "label",
-              "description": "",
+              "description": "The human-readable name of the bucket",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -894,7 +894,7 @@
             },
             {
               "name": "visibility",
-              "description": "",
+              "description": "The buckets public visibility setting",
               "label": "",
               "type": "BucketVisibility",
               "longType": "BucketVisibility",
@@ -906,7 +906,7 @@
             },
             {
               "name": "role",
-              "description": "",
+              "description": "The role of the bucket creator",
               "label": "",
               "type": "BucketRole",
               "longType": "BucketRole",
@@ -918,7 +918,7 @@
             },
             {
               "name": "content",
-              "description": "",
+              "description": "The list of items in the bucket",
               "label": "repeated",
               "type": "BucketItem",
               "longType": "BucketItem",
@@ -930,7 +930,7 @@
             },
             {
               "name": "content_acl",
-              "description": "",
+              "description": "The list of users with access to the bucket",
               "label": "repeated",
               "type": "ContentAclEntry",
               "longType": "MsgCreateWhereIs.ContentAclEntry",
@@ -982,7 +982,7 @@
           "name": "MsgCreateWhereIsResponse",
           "longName": "MsgCreateWhereIsResponse",
           "fullName": "sonrio.sonr.bucket.MsgCreateWhereIsResponse",
-          "description": "",
+          "description": "The message returned by the CreateWhereIs method in order to confirm the creation of a new bucket",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -990,7 +990,7 @@
           "fields": [
             {
               "name": "status",
-              "description": "",
+              "description": "The response status of the bucket creation",
               "label": "",
               "type": "int32",
               "longType": "int32",
@@ -1002,7 +1002,7 @@
             },
             {
               "name": "where_is",
-              "description": "",
+              "description": "The returned blockchain record of the bucket",
               "label": "",
               "type": "WhereIs",
               "longType": "WhereIs",
@@ -1018,7 +1018,7 @@
           "name": "MsgDeleteWhereIs",
           "longName": "MsgDeleteWhereIs",
           "fullName": "sonrio.sonr.bucket.MsgDeleteWhereIs",
-          "description": "",
+          "description": "The message sent to the DeleteWhereIs method in order to delete an existing bucket",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -1026,7 +1026,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "The account address of the bucket creator",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1038,7 +1038,7 @@
             },
             {
               "name": "did",
-              "description": "",
+              "description": "The DID of the associated bucket",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1054,7 +1054,7 @@
           "name": "MsgDeleteWhereIsResponse",
           "longName": "MsgDeleteWhereIsResponse",
           "fullName": "sonrio.sonr.bucket.MsgDeleteWhereIsResponse",
-          "description": "",
+          "description": "The message returned by the DeleteWhereIs method in order to confirm the deletion of an existing bucket",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -1062,7 +1062,7 @@
           "fields": [
             {
               "name": "status",
-              "description": "",
+              "description": "The response status of the bucket deletion",
               "label": "",
               "type": "int32",
               "longType": "int32",
@@ -1078,7 +1078,7 @@
           "name": "MsgUpdateWhereIs",
           "longName": "MsgUpdateWhereIs",
           "fullName": "sonrio.sonr.bucket.MsgUpdateWhereIs",
-          "description": "",
+          "description": "The message sent to the UpdateWhereIs method in order to update an existing bucket",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -1086,7 +1086,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "The account address of the bucket creator",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1098,7 +1098,7 @@
             },
             {
               "name": "did",
-              "description": "",
+              "description": "The DID of the associated bucket",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1110,7 +1110,7 @@
             },
             {
               "name": "label",
-              "description": "",
+              "description": "The human-readable name of the bucket",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1122,7 +1122,7 @@
             },
             {
               "name": "visibility",
-              "description": "",
+              "description": "The buckets public visibility setting",
               "label": "",
               "type": "BucketVisibility",
               "longType": "BucketVisibility",
@@ -1134,7 +1134,7 @@
             },
             {
               "name": "role",
-              "description": "",
+              "description": "The role of the bucket creator",
               "label": "",
               "type": "BucketRole",
               "longType": "BucketRole",
@@ -1146,7 +1146,7 @@
             },
             {
               "name": "content",
-              "description": "",
+              "description": "The list of items in the bucket",
               "label": "repeated",
               "type": "BucketItem",
               "longType": "BucketItem",
@@ -1158,7 +1158,7 @@
             },
             {
               "name": "content_acl",
-              "description": "",
+              "description": "The list of users with access to the bucket",
               "label": "repeated",
               "type": "ContentAclEntry",
               "longType": "MsgUpdateWhereIs.ContentAclEntry",
@@ -1210,7 +1210,7 @@
           "name": "MsgUpdateWhereIsResponse",
           "longName": "MsgUpdateWhereIsResponse",
           "fullName": "sonrio.sonr.bucket.MsgUpdateWhereIsResponse",
-          "description": "",
+          "description": "The message returned by the UpdateWhereIs method in order to confirm the update of an existing bucket",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -1218,7 +1218,7 @@
           "fields": [
             {
               "name": "status",
-              "description": "",
+              "description": "The response status of the bucket update",
               "label": "",
               "type": "int32",
               "longType": "int32",
@@ -1230,7 +1230,7 @@
             },
             {
               "name": "where_is",
-              "description": "",
+              "description": "The returned blockchain record of the bucket",
               "label": "",
               "type": "WhereIs",
               "longType": "WhereIs",
@@ -1248,11 +1248,11 @@
           "name": "Msg",
           "longName": "Msg",
           "fullName": "sonrio.sonr.bucket.Msg",
-          "description": "Msg defines the Msg service.",
+          "description": "The available Bucket module methods on the blockchain.",
           "methods": [
             {
               "name": "CreateWhereIs",
-              "description": "",
+              "description": "Create a new bucket",
               "requestType": "MsgCreateWhereIs",
               "requestLongType": "MsgCreateWhereIs",
               "requestFullType": "sonrio.sonr.bucket.MsgCreateWhereIs",
@@ -1264,7 +1264,7 @@
             },
             {
               "name": "UpdateWhereIs",
-              "description": "",
+              "description": "Update an existing bucket",
               "requestType": "MsgUpdateWhereIs",
               "requestLongType": "MsgUpdateWhereIs",
               "requestFullType": "sonrio.sonr.bucket.MsgUpdateWhereIs",
@@ -1276,7 +1276,7 @@
             },
             {
               "name": "DeleteWhereIs",
-              "description": "this line is used by starport scaffolding # proto/tx/rpc",
+              "description": "Delete an existing bucket\n\nthis line is used by starport scaffolding # proto/tx/rpc",
               "requestType": "MsgDeleteWhereIs",
               "requestLongType": "MsgDeleteWhereIs",
               "requestFullType": "sonrio.sonr.bucket.MsgDeleteWhereIs",
@@ -1303,7 +1303,7 @@
           "name": "BlockchainModule",
           "longName": "BlockchainModule",
           "fullName": "sonrio.common.v1.BlockchainModule",
-          "description": "",
+          "description": "BlockchainModule is a helper enum to help identify the blockchain module for an action",
           "values": [
             {
               "name": "REGISTRY",
@@ -1326,22 +1326,22 @@
           "name": "EntityKind",
           "longName": "EntityKind",
           "fullName": "sonrio.common.v1.EntityKind",
-          "description": "",
+          "description": "EntityKind defines the type of entity being referenced",
           "values": [
             {
               "name": "ADDRESS",
               "number": "0",
-              "description": ""
+              "description": "Address is a public key address"
             },
             {
               "name": "DID",
               "number": "1",
-              "description": ""
+              "description": "DID is a Decentralized Identifier per W3C"
             },
             {
               "name": "CID",
               "number": "2",
-              "description": ""
+              "description": "CID is a Content Identifier per IPFS"
             }
           ]
         },
@@ -1377,90 +1377,6 @@
       "extensions": [],
       "messages": [
         {
-          "name": "AuthInfo",
-          "longName": "AuthInfo",
-          "fullName": "sonrio.common.v1.AuthInfo",
-          "description": "AuthInfo is a object used by Motor clients to store authentication information in Biometric storage",
-          "hasExtensions": false,
-          "hasFields": true,
-          "hasOneofs": false,
-          "extensions": [],
-          "fields": [
-            {
-              "name": "address",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "did",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "aes_dsc_key",
-              "description": "",
-              "label": "",
-              "type": "bytes",
-              "longType": "bytes",
-              "fullType": "bytes",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "aes_psk_key",
-              "description": "",
-              "label": "",
-              "type": "bytes",
-              "longType": "bytes",
-              "fullType": "bytes",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "password",
-              "description": "",
-              "label": "",
-              "type": "string",
-              "longType": "string",
-              "fullType": "string",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
-              "name": "timestamp",
-              "description": "",
-              "label": "",
-              "type": "int64",
-              "longType": "int64",
-              "fullType": "int64",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
           "name": "Peer",
           "longName": "Peer",
           "fullName": "sonrio.common.v1.Peer",
@@ -1484,7 +1400,7 @@
             },
             {
               "name": "did",
-              "description": "User Sonr Domain",
+              "description": "User Sonr Identity",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1496,7 +1412,7 @@
             },
             {
               "name": "status",
-              "description": "Peer Status",
+              "description": "Current Peer Status",
               "label": "",
               "type": "Status",
               "longType": "Peer.Status",
@@ -1524,7 +1440,7 @@
           "name": "ValidityType",
           "longName": "IpnsEntry.ValidityType",
           "fullName": "sonrio.common.v1.IpnsEntry.ValidityType",
-          "description": "",
+          "description": "ValidityType is the type of validity for the record.",
           "values": [
             {
               "name": "EOL",
@@ -1540,7 +1456,7 @@
           "name": "IpnsEntry",
           "longName": "IpnsEntry",
           "fullName": "sonrio.common.v1.IpnsEntry",
-          "description": "",
+          "description": "IpnsEntry is a record that is stored in IPNS.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -1548,7 +1464,7 @@
           "fields": [
             {
               "name": "value",
-              "description": "",
+              "description": "Value is the value of the record.",
               "label": "",
               "type": "bytes",
               "longType": "bytes",
@@ -1560,7 +1476,7 @@
             },
             {
               "name": "signature",
-              "description": "",
+              "description": "Signature of the owner of the record.",
               "label": "",
               "type": "bytes",
               "longType": "bytes",
@@ -1572,7 +1488,7 @@
             },
             {
               "name": "validityType",
-              "description": "",
+              "description": "The Validity type of the record.",
               "label": "",
               "type": "ValidityType",
               "longType": "IpnsEntry.ValidityType",
@@ -1584,7 +1500,7 @@
             },
             {
               "name": "validity",
-              "description": "",
+              "description": "The Validity of the record.",
               "label": "",
               "type": "bytes",
               "longType": "bytes",
@@ -1596,7 +1512,7 @@
             },
             {
               "name": "sequence",
-              "description": "",
+              "description": "The sequence number of the record.",
               "label": "",
               "type": "uint64",
               "longType": "uint64",
@@ -1608,7 +1524,7 @@
             },
             {
               "name": "ttl",
-              "description": "",
+              "description": "The time to live of the record.",
               "label": "",
               "type": "uint64",
               "longType": "uint64",
@@ -1620,7 +1536,7 @@
             },
             {
               "name": "pubKey",
-              "description": "",
+              "description": "The public key of the record.",
               "label": "",
               "type": "bytes",
               "longType": "bytes",
@@ -1648,27 +1564,27 @@
           "name": "LinkKind",
           "longName": "LinkKind",
           "fullName": "sonrio.sonr.schema.LinkKind",
-          "description": "",
+          "description": "LinkKind is the kind of link between two entities.",
           "values": [
             {
               "name": "UNKNOWN",
               "number": "0",
-              "description": ""
+              "description": "Unknown is the default value."
             },
             {
               "name": "OBJECT",
               "number": "1",
-              "description": ""
+              "description": "Points to an object."
             },
             {
               "name": "SCHEMA",
               "number": "2",
-              "description": ""
+              "description": "Points to a schema."
             },
             {
               "name": "BUCKET",
               "number": "3",
-              "description": ""
+              "description": "Points to a bucket"
             }
           ]
         },
@@ -1676,47 +1592,47 @@
           "name": "SchemaKind",
           "longName": "SchemaKind",
           "fullName": "sonrio.sonr.schema.SchemaKind",
-          "description": "",
+          "description": "The kind of field in a schema property",
           "values": [
             {
               "name": "LIST",
               "number": "0",
-              "description": ""
+              "description": "List is the default value."
             },
             {
               "name": "BOOL",
               "number": "1",
-              "description": ""
+              "description": "Boolean value (true or false)"
             },
             {
               "name": "INT",
               "number": "2",
-              "description": ""
+              "description": "Integer value (64-bit)"
             },
             {
               "name": "FLOAT",
               "number": "3",
-              "description": ""
+              "description": "Float value (64-bit)"
             },
             {
               "name": "STRING",
               "number": "4",
-              "description": ""
+              "description": "String value"
             },
             {
               "name": "BYTES",
               "number": "5",
-              "description": ""
+              "description": "Bytes value or buffer"
             },
             {
               "name": "LINK",
               "number": "6",
-              "description": ""
+              "description": "Link to another entity"
             },
             {
               "name": "ANY",
               "number": "7",
-              "description": ""
+              "description": "Any value"
             }
           ]
         }
@@ -1727,7 +1643,7 @@
           "name": "MetadataDefintion",
           "longName": "MetadataDefintion",
           "fullName": "sonrio.sonr.schema.MetadataDefintion",
-          "description": "",
+          "description": "The metadata for a schema property",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -1763,7 +1679,7 @@
           "name": "SchemaDefinition",
           "longName": "SchemaDefinition",
           "fullName": "sonrio.sonr.schema.SchemaDefinition",
-          "description": "",
+          "description": "Schem definition is the actual representation of a schema",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -1771,7 +1687,7 @@
           "fields": [
             {
               "name": "did",
-              "description": "Represents the types of fields a schema can have\nthe DID for this schema",
+              "description": "Represents the types of fields a schema can have the DID for this schema",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1823,7 +1739,7 @@
           "name": "SchemaKindDefinition",
           "longName": "SchemaKindDefinition",
           "fullName": "sonrio.sonr.schema.SchemaKindDefinition",
-          "description": "",
+          "description": "The definition of a schema property",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -1831,7 +1747,7 @@
           "fields": [
             {
               "name": "name",
-              "description": "",
+              "description": "Name of the schema kind",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1867,7 +1783,7 @@
             },
             {
               "name": "link",
-              "description": "",
+              "description": "Optional field for a link context if `SchemaKind` is of type `Link`",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1953,7 +1869,7 @@
           "fields": [
             {
               "name": "password",
-              "description": "",
+              "description": "The user specified password",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -1965,7 +1881,7 @@
             },
             {
               "name": "aes_dsc_key",
-              "description": "",
+              "description": "The device generated random 32 byte key thats stored in secure storage",
               "label": "",
               "type": "bytes",
               "longType": "bytes",
@@ -1977,7 +1893,7 @@
             },
             {
               "name": "metadata",
-              "description": "",
+              "description": "Any additional data that needs to be stored in the account",
               "label": "repeated",
               "type": "MetadataEntry",
               "longType": "CreateAccountRequest.MetadataEntry",
@@ -2029,7 +1945,7 @@
           "name": "CreateBucketRequest",
           "longName": "CreateBucketRequest",
           "fullName": "sonrio.motor.api.v1.CreateBucketRequest",
-          "description": "",
+          "description": "A request to create a new bucket on the blockchain",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2037,7 +1953,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "The address of the bucket owner",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2049,7 +1965,7 @@
             },
             {
               "name": "label",
-              "description": "",
+              "description": "The name of the bucket",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2061,7 +1977,7 @@
             },
             {
               "name": "visibility",
-              "description": "",
+              "description": "The public visibility of the bucket",
               "label": "",
               "type": "BucketVisibility",
               "longType": "sonrio.sonr.bucket.BucketVisibility",
@@ -2073,7 +1989,7 @@
             },
             {
               "name": "role",
-              "description": "",
+              "description": "The role of the bucket owner",
               "label": "",
               "type": "BucketRole",
               "longType": "sonrio.sonr.bucket.BucketRole",
@@ -2085,7 +2001,7 @@
             },
             {
               "name": "content",
-              "description": "",
+              "description": "The items that make up the bucket",
               "label": "repeated",
               "type": "BucketItem",
               "longType": "sonrio.sonr.bucket.BucketItem",
@@ -2101,7 +2017,7 @@
           "name": "CreateSchemaRequest",
           "longName": "CreateSchemaRequest",
           "fullName": "sonrio.motor.api.v1.CreateSchemaRequest",
-          "description": "-----------------------------------------------------------------------------\nSchema Models\n-----------------------------------------------------------------------------",
+          "description": "A request to create a new schema definition on the blockchain",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2109,7 +2025,7 @@
           "fields": [
             {
               "name": "label",
-              "description": "",
+              "description": "A human readable name for the schema",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2121,7 +2037,7 @@
             },
             {
               "name": "fields",
-              "description": "",
+              "description": "The fields that make up the schema",
               "label": "repeated",
               "type": "FieldsEntry",
               "longType": "CreateSchemaRequest.FieldsEntry",
@@ -2133,7 +2049,7 @@
             },
             {
               "name": "metadata",
-              "description": "",
+              "description": "Any additional data that needs to be stored in the schema",
               "label": "repeated",
               "type": "MetadataEntry",
               "longType": "CreateSchemaRequest.MetadataEntry",
@@ -2221,7 +2137,7 @@
           "name": "InitializeRequest",
           "longName": "InitializeRequest",
           "fullName": "sonrio.motor.api.v1.InitializeRequest",
-          "description": "-----------------------------------------------------------------------------\nMotor Node API\n-----------------------------------------------------------------------------\n(Client) InitializeRequest Message to Establish Sonr Host/API/Room",
+          "description": "InitializeRequest is the request sent to the Initialize method to setup the motor node",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2353,7 +2269,7 @@
           "name": "LoginRequest",
           "longName": "LoginRequest",
           "fullName": "sonrio.motor.api.v1.LoginRequest",
-          "description": "Login requires the DID of the account being logged into,\nand optionally a password if the vault pw is being used\nThe PSK and DSC will be fetched from the keychain",
+          "description": "Login requires the DID of the account being logged into, and optionally a password if the vault pw is being used. The PSK and DSC will be fetched from the keychain",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2361,7 +2277,7 @@
           "fields": [
             {
               "name": "did",
-              "description": "",
+              "description": "The DID of the account being logged into",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2373,7 +2289,7 @@
             },
             {
               "name": "password",
-              "description": "",
+              "description": "The user specified password",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2385,7 +2301,7 @@
             },
             {
               "name": "aes_dsc_key",
-              "description": "",
+              "description": "The device generated random 32 byte key thats stored in secure storage",
               "label": "",
               "type": "bytes",
               "longType": "bytes",
@@ -2397,7 +2313,7 @@
             },
             {
               "name": "aes_psk_key",
-              "description": "",
+              "description": "The signed challenge from the Motor node also used for authentication",
               "label": "",
               "type": "bytes",
               "longType": "bytes",
@@ -2413,7 +2329,7 @@
           "name": "PaymentRequest",
           "longName": "PaymentRequest",
           "fullName": "sonrio.motor.api.v1.PaymentRequest",
-          "description": "",
+          "description": "This is a request to issue a payment to a given account",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2421,7 +2337,7 @@
           "fields": [
             {
               "name": "to",
-              "description": "",
+              "description": "Address of the account to send the payment to",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2433,7 +2349,7 @@
             },
             {
               "name": "from",
-              "description": "",
+              "description": "Address of the account to send the payment from",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2445,11 +2361,11 @@
             },
             {
               "name": "amount",
-              "description": "",
+              "description": "Amount of the payment",
               "label": "",
-              "type": "int32",
-              "longType": "int32",
-              "fullType": "int32",
+              "type": "int64",
+              "longType": "int64",
+              "fullType": "int64",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -2457,7 +2373,7 @@
             },
             {
               "name": "memo",
-              "description": "",
+              "description": "An optional note to be included in the payment",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2473,7 +2389,7 @@
           "name": "QueryRequest",
           "longName": "QueryRequest",
           "fullName": "sonrio.motor.api.v1.QueryRequest",
-          "description": "",
+          "description": "QueryRequest is a generic request for querying the Motor node",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2481,7 +2397,7 @@
           "fields": [
             {
               "name": "query",
-              "description": "",
+              "description": "The query to be executed",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2493,7 +2409,7 @@
             },
             {
               "name": "kind",
-              "description": "",
+              "description": "The query entity type",
               "label": "",
               "type": "EntityKind",
               "longType": "sonrio.common.v1.EntityKind",
@@ -2505,7 +2421,7 @@
             },
             {
               "name": "module",
-              "description": "",
+              "description": "The module to execute the query on",
               "label": "",
               "type": "BlockchainModule",
               "longType": "sonrio.common.v1.BlockchainModule",
@@ -2521,7 +2437,7 @@
           "name": "QuerySchemaRequest",
           "longName": "QuerySchemaRequest",
           "fullName": "sonrio.motor.api.v1.QuerySchemaRequest",
-          "description": "",
+          "description": "A request to query for a specific schema definition on the blockchain",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2529,7 +2445,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "The creator of the schema",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2541,7 +2457,7 @@
             },
             {
               "name": "did",
-              "description": "",
+              "description": "The did of the schema",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2557,7 +2473,7 @@
           "name": "QueryWhatIsByCreatorRequest",
           "longName": "QueryWhatIsByCreatorRequest",
           "fullName": "sonrio.motor.api.v1.QueryWhatIsByCreatorRequest",
-          "description": "",
+          "description": "A request to return all schemas created by a given account",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2565,7 +2481,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "The creator of the schemas",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2581,7 +2497,7 @@
           "name": "QueryWhatIsRequest",
           "longName": "QueryWhatIsRequest",
           "fullName": "sonrio.motor.api.v1.QueryWhatIsRequest",
-          "description": "",
+          "description": "A request to search for a WhatIs on the blockchain",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2589,7 +2505,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "The creator of the schema",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2601,7 +2517,7 @@
             },
             {
               "name": "did",
-              "description": "",
+              "description": "The did of the schema",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2617,7 +2533,7 @@
           "name": "QueryWhereIsByCreatorRequest",
           "longName": "QueryWhereIsByCreatorRequest",
           "fullName": "sonrio.motor.api.v1.QueryWhereIsByCreatorRequest",
-          "description": "",
+          "description": "A request to return all buckets created by a given account",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2625,7 +2541,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "The creator of the buckets",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2641,7 +2557,7 @@
           "name": "QueryWhereIsRequest",
           "longName": "QueryWhereIsRequest",
           "fullName": "sonrio.motor.api.v1.QueryWhereIsRequest",
-          "description": "-----------------------------------------------------------------------------\nBucket Models\n-----------------------------------------------------------------------------",
+          "description": "A request to query for a bucket by user/bucket_did",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2649,7 +2565,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "The user that owns the bucket",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2661,7 +2577,7 @@
             },
             {
               "name": "did",
-              "description": "",
+              "description": "The did of the bucket",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2677,7 +2593,7 @@
           "name": "QueryWhoIsRequest",
           "longName": "QueryWhoIsRequest",
           "fullName": "sonrio.motor.api.v1.QueryWhoIsRequest",
-          "description": "-----------------------------------------------------------------------------\nRegistry Models\n-----------------------------------------------------------------------------",
+          "description": "Query the blockchain for a specific WhoIs record for a DID",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2685,7 +2601,7 @@
           "fields": [
             {
               "name": "did",
-              "description": "",
+              "description": "DID to query for",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2701,7 +2617,7 @@
           "name": "SeachBucketContentBySchemaRequest",
           "longName": "SeachBucketContentBySchemaRequest",
           "fullName": "sonrio.motor.api.v1.SeachBucketContentBySchemaRequest",
-          "description": "",
+          "description": "This request searches a bucket for a specific item",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2749,7 +2665,7 @@
           "name": "UpdateBucketRequest",
           "longName": "UpdateBucketRequest",
           "fullName": "sonrio.motor.api.v1.UpdateBucketRequest",
-          "description": "",
+          "description": "This message is used to update a bucket configuration",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -2757,7 +2673,7 @@
           "fields": [
             {
               "name": "creator",
-              "description": "",
+              "description": "The address of the account that owns the bucket",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2769,7 +2685,7 @@
             },
             {
               "name": "did",
-              "description": "",
+              "description": "The DID of the bucket",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2781,7 +2697,7 @@
             },
             {
               "name": "label",
-              "description": "",
+              "description": "The human readable name of the bucket",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -2793,7 +2709,7 @@
             },
             {
               "name": "visibility",
-              "description": "",
+              "description": "The visibility of the bucket",
               "label": "",
               "type": "BucketVisibility",
               "longType": "sonrio.sonr.bucket.BucketVisibility",
@@ -2805,7 +2721,7 @@
             },
             {
               "name": "role",
-              "description": "",
+              "description": "The role of the account making the request",
               "label": "",
               "type": "BucketRole",
               "longType": "sonrio.sonr.bucket.BucketRole",
@@ -2817,7 +2733,7 @@
             },
             {
               "name": "content",
-              "description": "",
+              "description": "The items to be added to the bucket",
               "label": "repeated",
               "type": "BucketItem",
               "longType": "sonrio.sonr.bucket.BucketItem",
@@ -2847,7 +2763,7 @@
           "name": "DIDDocument",
           "longName": "DIDDocument",
           "fullName": "sonrio.sonr.registry.DIDDocument",
-          "description": "",
+          "description": "DIDDocument is a DID Document as defined by the W3C",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -3240,7 +3156,7 @@
           "name": "WhoIs",
           "longName": "WhoIs",
           "fullName": "sonrio.sonr.registry.WhoIs",
-          "description": "",
+          "description": "WhoIs is the record of a DIDDocument stored in the registry module on the blockchain.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -3398,7 +3314,7 @@
           "name": "WhatIs",
           "longName": "WhatIs",
           "fullName": "sonrio.sonr.schema.WhatIs",
-          "description": "",
+          "description": "WhatIs is the blockchain record of a SchemaDefinition on the blockchain.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -3556,7 +3472,7 @@
           "name": "CreateAccountResponse",
           "longName": "CreateAccountResponse",
           "fullName": "sonrio.motor.api.v1.CreateAccountResponse",
-          "description": "",
+          "description": "The message returned after an Account is created.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -3575,24 +3491,24 @@
               "defaultValue": ""
             },
             {
-              "name": "aes_dsc",
-              "description": "",
-              "label": "",
-              "type": "bytes",
-              "longType": "bytes",
-              "fullType": "bytes",
-              "ismap": false,
-              "isoneof": false,
-              "oneofdecl": "",
-              "defaultValue": ""
-            },
-            {
               "name": "address",
               "description": "",
               "label": "",
               "type": "string",
               "longType": "string",
               "fullType": "string",
+              "ismap": false,
+              "isoneof": false,
+              "oneofdecl": "",
+              "defaultValue": ""
+            },
+            {
+              "name": "did_document",
+              "description": "",
+              "label": "",
+              "type": "bytes",
+              "longType": "bytes",
+              "fullType": "bytes",
               "ismap": false,
               "isoneof": false,
               "oneofdecl": "",
@@ -3640,7 +3556,7 @@
           "name": "CreateSchemaResponse",
           "longName": "CreateSchemaResponse",
           "fullName": "sonrio.motor.api.v1.CreateSchemaResponse",
-          "description": "",
+          "description": "The message returned after a schema is created.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -3676,7 +3592,7 @@
           "name": "InitializeResponse",
           "longName": "InitializeResponse",
           "fullName": "sonrio.motor.api.v1.InitializeResponse",
-          "description": "",
+          "description": "The response message returned after initializing a Motor node.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -3700,7 +3616,7 @@
           "name": "LoginResponse",
           "longName": "LoginResponse",
           "fullName": "sonrio.motor.api.v1.LoginResponse",
-          "description": "",
+          "description": "The message returned after a user is logged in.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -3844,7 +3760,7 @@
           "name": "QueryResponse",
           "longName": "QueryResponse",
           "fullName": "sonrio.motor.api.v1.QueryResponse",
-          "description": "",
+          "description": "The message returned after a generic query is made.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -3852,7 +3768,7 @@
           "fields": [
             {
               "name": "code",
-              "description": "",
+              "description": "The status of the method call.",
               "label": "",
               "type": "int32",
               "longType": "int32",
@@ -3864,7 +3780,7 @@
             },
             {
               "name": "query",
-              "description": "",
+              "description": "The provided query.",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -3876,7 +3792,7 @@
             },
             {
               "name": "module",
-              "description": "",
+              "description": "The provided query module",
               "label": "",
               "type": "BlockchainModule",
               "longType": "sonrio.common.v1.BlockchainModule",
@@ -3888,7 +3804,7 @@
             },
             {
               "name": "results",
-              "description": "",
+              "description": "The result of the query.",
               "label": "repeated",
               "type": "QueryResultItem",
               "longType": "QueryResultItem",
@@ -3904,7 +3820,7 @@
           "name": "QueryResultItem",
           "longName": "QueryResultItem",
           "fullName": "sonrio.motor.api.v1.QueryResultItem",
-          "description": "",
+          "description": "An item in the QueryResponse.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -3912,7 +3828,7 @@
           "fields": [
             {
               "name": "did",
-              "description": "",
+              "description": "The identifier of the query result item",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -3924,7 +3840,7 @@
             },
             {
               "name": "kind",
-              "description": "",
+              "description": "The type of the query result item",
               "label": "",
               "type": "EntityKind",
               "longType": "sonrio.common.v1.EntityKind",
@@ -3936,7 +3852,7 @@
             },
             {
               "name": "who_is",
-              "description": "optional",
+              "description": "An optional whoIs result item\n\noptional",
               "label": "",
               "type": "WhoIs",
               "longType": "sonrio.sonr.registry.WhoIs",
@@ -3948,7 +3864,7 @@
             },
             {
               "name": "what_is",
-              "description": "optional",
+              "description": "An optional whatIs result item\n\noptional",
               "label": "",
               "type": "WhatIs",
               "longType": "sonrio.sonr.schema.WhatIs",
@@ -3960,7 +3876,7 @@
             },
             {
               "name": "schema_definition",
-              "description": "optional",
+              "description": "An optional schemaDefinition result item\n\noptional",
               "label": "",
               "type": "SchemaDefinition",
               "longType": "sonrio.sonr.schema.SchemaDefinition",
@@ -3972,7 +3888,7 @@
             },
             {
               "name": "where_is",
-              "description": "optional",
+              "description": "An optional whereIs result item\n\noptional",
               "label": "",
               "type": "WhereIs",
               "longType": "sonrio.sonr.bucket.WhereIs",
@@ -3984,7 +3900,7 @@
             },
             {
               "name": "where_is_list",
-              "description": "optional",
+              "description": "An optional list of buckets\n\noptional",
               "label": "repeated",
               "type": "WhereIs",
               "longType": "sonrio.sonr.bucket.WhereIs",
@@ -4000,7 +3916,7 @@
           "name": "QueryWhatIsByCreatorResponse",
           "longName": "QueryWhatIsByCreatorResponse",
           "fullName": "sonrio.motor.api.v1.QueryWhatIsByCreatorResponse",
-          "description": "",
+          "description": "This is the message response for querying a whoIs by did",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -4084,7 +4000,7 @@
           "name": "QueryWhatIsResponse",
           "longName": "QueryWhatIsResponse",
           "fullName": "sonrio.motor.api.v1.QueryWhatIsResponse",
-          "description": "",
+          "description": "This is the message response for querying a whatIs by did and creator",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -4204,7 +4120,7 @@
           "name": "QueryWhoIsResponse",
           "longName": "QueryWhoIsResponse",
           "fullName": "sonrio.motor.api.v1.QueryWhoIsResponse",
-          "description": "",
+          "description": "This is the message response for querying a whoIs by did",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -5519,11 +5435,11 @@
           "name": "Msg",
           "longName": "Msg",
           "fullName": "sonrio.sonr.registry.Msg",
-          "description": "Msg defines the Msg service.",
+          "description": "Msg defines the Msg service available for the registry module.",
           "methods": [
             {
               "name": "CreateWhoIs",
-              "description": "",
+              "description": "Create a new account or application on the registry.",
               "requestType": "MsgCreateWhoIs",
               "requestLongType": "MsgCreateWhoIs",
               "requestFullType": "sonrio.sonr.registry.MsgCreateWhoIs",
@@ -5535,7 +5451,7 @@
             },
             {
               "name": "UpdateWhoIs",
-              "description": "",
+              "description": "Update an existing account or application on the registry.",
               "requestType": "MsgUpdateWhoIs",
               "requestLongType": "MsgUpdateWhoIs",
               "requestFullType": "sonrio.sonr.registry.MsgUpdateWhoIs",
@@ -5547,7 +5463,7 @@
             },
             {
               "name": "DeactivateWhoIs",
-              "description": "",
+              "description": "Deactivate an existing account or application on the registry.",
               "requestType": "MsgDeactivateWhoIs",
               "requestLongType": "MsgDeactivateWhoIs",
               "requestFullType": "sonrio.sonr.registry.MsgDeactivateWhoIs",
@@ -5559,7 +5475,7 @@
             },
             {
               "name": "BuyAlias",
-              "description": "",
+              "description": "Buy a domain name.",
               "requestType": "MsgBuyAlias",
               "requestLongType": "MsgBuyAlias",
               "requestFullType": "sonrio.sonr.registry.MsgBuyAlias",
@@ -5571,7 +5487,7 @@
             },
             {
               "name": "SellAlias",
-              "description": "",
+              "description": "Sell a domain name.",
               "requestType": "MsgSellAlias",
               "requestLongType": "MsgSellAlias",
               "requestFullType": "sonrio.sonr.registry.MsgSellAlias",
@@ -5583,7 +5499,7 @@
             },
             {
               "name": "TransferAlias",
-              "description": "this line is used by starport scaffolding # proto/tx/rpc",
+              "description": "Transfer a domain name.\n\nthis line is used by starport scaffolding # proto/tx/rpc",
               "requestType": "MsgTransferAlias",
               "requestLongType": "MsgTransferAlias",
               "requestFullType": "sonrio.sonr.registry.MsgTransferAlias",
@@ -6347,7 +6263,7 @@
           "name": "Msg",
           "longName": "Msg",
           "fullName": "sonrio.sonr.schema.Msg",
-          "description": "Msg defines the Msg service.",
+          "description": "Msg defines the Msg service for the schema module.",
           "methods": [
             {
               "name": "CreateSchema",
@@ -6452,7 +6368,7 @@
           "name": "RefreshEvent",
           "longName": "RefreshEvent",
           "fullName": "sonrio.motor.service.v1.RefreshEvent",
-          "description": "",
+          "description": "RefresEvent is a message that contains a list of peers in the current pub/sub topic",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -6460,7 +6376,7 @@
           "fields": [
             {
               "name": "topic_name",
-              "description": "",
+              "description": "Name of the topic",
               "label": "",
               "type": "string",
               "longType": "string",
@@ -6472,7 +6388,7 @@
             },
             {
               "name": "peers",
-              "description": "",
+              "description": "List of peers in the topic",
               "label": "repeated",
               "type": "Peer",
               "longType": "sonrio.common.v1.Peer",
@@ -6484,7 +6400,7 @@
             },
             {
               "name": "received_at",
-              "description": "",
+              "description": "Timestamp of the event",
               "label": "",
               "type": "int64",
               "longType": "int64",
@@ -6646,7 +6562,7 @@
           "name": "MailboxMessage",
           "longName": "MailboxMessage",
           "fullName": "sonrio.motor.service.v1.MailboxMessage",
-          "description": "",
+          "description": "MailboxMessage is a message that is sent to a mailbox for a user",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -7092,7 +7008,7 @@
           "name": "Session",
           "longName": "Session",
           "fullName": "sonrio.motor.service.v1.Session",
-          "description": "",
+          "description": "Session is the engagement of passing data between two peers.",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -7236,7 +7152,7 @@
           "name": "SessionItem",
           "longName": "SessionItem",
           "fullName": "sonrio.motor.service.v1.SessionItem",
-          "description": "",
+          "description": "SessionItem is an item in a session",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,
@@ -7344,7 +7260,7 @@
           "name": "SessionPayload",
           "longName": "SessionPayload",
           "fullName": "sonrio.motor.service.v1.SessionPayload",
-          "description": "",
+          "description": "SessionPayload is the payload of a session",
           "hasExtensions": false,
           "hasFields": true,
           "hasOneofs": false,

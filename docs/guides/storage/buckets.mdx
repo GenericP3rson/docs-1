@@ -1,0 +1,138 @@
+---
+title: Using Buckets
+sidebar_position: 1
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import APIButton from "@site/src/components/APIButton";
+import {
+  CreateAccountTerminalView,
+  CreateSchemaTerminalView,
+  CreateObjectTerminalView,
+  CreateBucketTerminalView,
+} from "@site/src/components/Terminal";
+
+## Creating a Bucket
+
+To create a bucket, run the following command:
+
+```
+speedway bucket create
+```
+
+<div style={{ maxWidth: 600, marginBottom: 16 }}>
+  <CreateBucketTerminalView />
+</div>
+
+The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the bucket label. After entering the bucket label, the CLI will prompt you to enter the visibility of the bucket. The visibility can be one of the following: `public`, `private`. The role can be one of the following: `application`, `user`. Application buckets are visible to all users. User buckets are visible only to the user who created the bucket. The CLI will then create the bucket and display the bucket DID.
+
+<APIButton href="/api/bucket" label="Bucket API" type="info" />
+
+New documents can be added or removed from a bucket using the Bucket class. This does not delete the document (data cannot be completely deleted from Sonr).
+
+## Add a Document
+
+Adding a document both uploads the document to IPFS and adds a reference to the bucket. The result of the upload is returned containing the CID and other information.
+
+<Tabs groupId="platform">
+	<TabItem value="android" label="🤖 Android" default>
+
+```java
+public void addDocumentToBucket(String bucketDid, Document d) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    Bucket bucket = mtr.getBucket(bucketDid);
+
+    UploadObjectResponse response = bucket.addDocument(d);
+
+    // print the CID
+    System.out.println(response.getReference().getCid());
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="🐦 Flutter">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+
+```go
+func AddBucketObject(bucketDid string, obj []byte) error {
+	if instance == nil {
+		return errWalletNotExists
+	}
+
+	newObject := &bt.BucketItem{}
+	if err := newObject.Unmarshal(obj); err != nil {
+		return err
+	}
+
+	b, err := instance.GetBucket(bucketDid)
+	if err != nil {
+		return err
+	}
+
+	newObjects := append(b.GetBucketItems(), newObject)
+	_, err = instance.UpdateBucketItems(context.Background(), bucketDid, newObjects)
+
+	return err
+}
+```
+
+  </TabItem>
+</Tabs>
+
+Using the returned CID, you can remove the Document from the Bucket.
+
+<Tabs groupId="platform">
+	<TabItem value="android" label="🤖 Android" default>
+
+```java
+public void removeDocumentFromBucket(String bucketDid, String cid) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    Bucket bucket = mtr.getBucket(bucketDid);
+
+    bucket.removeDocument(cid);
+}
+```
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+
+```go
+func RemoveBucketObject(bucketDid, cid string) error {
+	if instance == nil {
+		return errWalletNotExists
+	}
+
+	b, err := instance.GetBucket(bucketDid)
+	if err != nil {
+		return err
+	}
+
+	items := b.GetBucketItems()
+	newObjects := make([]*bt.BucketItem, len(items)-1)
+	var skip int
+	for i, item := range items {
+		if item.Uri == cid {
+			skip += 1
+			continue
+		}
+
+		newObjects[i-skip] = item
+	}
+
+	_, err = instance.UpdateBucketItems(context.Background(), bucketDid, newObjects)
+	return err
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="🐦 Flutter">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
+</Tabs>

@@ -1,0 +1,169 @@
+---
+title: Building Documents
+---
+
+import {
+  CreateAccountTerminalView,
+  CreateSchemaTerminalView,
+  CreateObjectTerminalView,
+  CreateBucketTerminalView,
+} from "@site/src/components/Terminal";
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import APIButton from "@site/src/components/APIButton";
+
+<APIButton href="/api/schema" label="Schema API" type="info" />
+
+Schema Documents store end-to-end encrypted user data on the Sonr network. You can think of this feature like a decentralized MongoDB. All Documents are stored on [IPFS](https://ipfs.io) and therefor have a CID which represent the content. You don't need to understand how IPFS works in order to use Sonr, just that CID's are _content identifiers_. Later we'll go over how Documents can be stored in [Buckets](/docs/motor-sdk/storage/buckets.mdx) for easier referencing and organization.
+
+## Creating a Document
+
+Documents can be created using the `DocumentBuilder` API. You simply need to provide the [DID](#) of the [Schema](#) this document will conform to. When you create an document without adding it to a bucket, you as the developer must take care to keep track of the CID.
+
+<Tabs>
+    <TabItem value="cli" label="🖥️ CLI" default>
+
+To create an object, run the following command:
+
+```bash
+speedway object build
+```
+
+<div style={{ maxWidth: 600, marginBottom: 16 }}>
+  <CreateObjectTerminalView />
+</div>
+
+The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema ID. After entering the schema ID, the CLI will prompt you to enter the object fields. Object Fields are entered via a prompt from the CLI, you will be required to enter the `field_value` for a `field_name`. The CLI will then create the object and display the object CID.
+
+  </TabItem>
+
+   <TabItem value="android" label="🤖 Android">
+
+```java
+public void createDocument(String schemaDid) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    DocumentBuilder builder = mtr.createDocumentBuilder(schemaDid);
+
+    builder.set("key", "value");
+    // ... set other fields ...
+
+    // validates and builds the document
+    Document d = builder.build();
+
+    // builds and uploads the document
+    UploadObjectResponse result = builder.upload();
+
+    // print the CID of the newly created object
+    System.out.println(result.getReference().getCid());
+}
+
+```
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+
+```go
+func NewObjectBuilder(name, schemaDid string) error {
+	if instance == nil {
+		return errWalletNotExists
+	}
+
+	builder, err := instance.NewObjectBuilder(schemaDid)
+	if err != nil {
+		return err
+	}
+
+	objectBuilders[name] = builder
+	return nil
+}
+```
+
+After initializing a new builder, the following are a couple of methods that can be used to add data to the document.
+
+```go
+- SetObjectLabel(key, value string)
+- SetBool(key string, value int)
+- SetInt(name, fieldName string, v int)
+- SetFloat(name, fieldName string, v float32)
+- SetString(name, fieldName, value string)
+- SetBytes(name, fieldName string, v []byte)
+- SetLink(name, fieldName, value string)
+- RemoveObjectField(name, fieldName string)
+- BuildObject(name string)
+- UploadObject(name string)
+```
+
+For a full list of methods, see the [ObjectBuilder](https://pkg.go.dev/github.com/sonr-io/sonr@v0.4.0/bind/motor-mobile) documentation.
+
+  </TabItem>
+  <TabItem value="flutter" label="🐦 Flutter">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
+</Tabs>
+
+## Fetching a Document
+
+With a Document's CID, you can fetch an document directly from `Motoroid`.
+
+<Tabs groupId="platform">
+    <TabItem value="android" label="🤖 Android" default>
+
+```java
+public void getDocument(String cid) {
+    Motoroid mtr = Motoroid.getInstance();
+    JSONObject d = mtr.getDocument(cid);
+}
+```
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+
+```go
+func GetObject(cid string) ([]byte, error) {
+	if instance == nil {
+		return nil, errWalletNotExists
+	}
+
+	res, err := instance.QueryObject(cid)
+	if err != nil {
+		return nil, err
+	}
+
+	// Using JSON marshalling here for arbitrary object types
+	return json.Marshal(res)
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="🐦 Flutter">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
+</Tabs>
+
+Without a _Schema_, documents are returned as JSON objects. You can provide a schema's DID to get a `Document` instance.
+
+<Tabs groupId="platform">
+    <TabItem value="android" label="☕ Java">
+
+```java
+public void getDocument(String cid, SchemaDefinition schema) {
+    Motoroid mtr = Motoroid.getInstance();
+    Document d = mtr.getDocument(cid, schema);
+}
+```
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+    ### 🚧 Under Construction 🚧
+  </TabItem>
+  <TabItem value="flutter" label="🐦 Flutter">
+    ### 🚧 Under Construction 🚧
+  </TabItem>
+</Tabs>
+
+For details on how to get a `SchemaDefinition`, see [Schemas](/docs/highway/modules/schemas.mdx).

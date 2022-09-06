@@ -11,100 +11,70 @@
 // @ts-check
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
-const sidebars = {
-  // Get protodocs sidebar items from genSidebarsProtodocs.js
-
-  // By default, Docusaurus generates a sidebar from the docs folder structure
-  motorSidebar: [
-    'motor-sdk/intro',
-    {
-      type: 'category',
-      label: 'Authorization',
-      collapsed: false,
-      items: ['motor-sdk/auth/register', 'motor-sdk/auth/login'],
-    },
-    {
-      type: 'category',
-      label: 'Managing Data',
-      collapsed: false,
-      items: ['motor-sdk/data/schemas', 'motor-sdk/data/documents'],
-    },
-    {
-      type: 'category',
-      label: 'Utilizing Storage',
-      collapsed: false,
-      items: ['motor-sdk/storage/buckets', 'motor-sdk/storage/updating-buckets',],
-    },
-    {
-      type: 'category',
-      label: 'API Reference',
-      collapsed: true,
-      items: ['motor-sdk/reference/go', 'motor-sdk/reference/java', 'motor-sdk/reference/dart'],
-    },
-  ],
-
-  // But you can create a sidebar manually
-  highwaySidebar: [
-    'what-is-sonr',
-    {
-      type: 'category',
-      label: 'Modules',
-      collapsed: false,
-      items: ['highway/modules/registry', 'highway/modules/schemas', 'highway/modules/buckets', 'highway/modules/objects',],
-    }
-  ],
-  speedwaySidebar: [
-    'speedway/introduction',
-    'speedway/getting-started',
-    // {
-    //   type: 'category',
-    //   label: 'Guides',
-    //   collapsed: false,
-    //   collapsible: false,
-    //   items: [
-    //     'speedway/cli-example',
-    //     //'speedway/flutter-example',
-    //   ],
-    // },
-    {
-      type: 'category',
-      label: 'API',
-      collapsed: false,
-      collapsible: false,
-      items: ['speedway/cli-cmds', 'speedway/routes'],
-    },
-  ],
-};
-
-
 module.exports = {
   docs: {
-    Docusaurus: ['introduction', 'design-principles', 'contributing'],
-    'Getting Started': ['installation', 'configuration'],
-    Guides: [
-      'creating-pages',
-      'styling-layout',
-      'static-assets',
+    Introduction: ['basics/introduction', 'basics/components', 'basics/features', {
+      type: 'link',
+      label: 'Roadmap',
+      href: 'https://sonr.fyi',
+    }],
+    'Getting Started': [
+      'guides/overview',
+      'guides/install',
       {
         type: 'category',
-        label: 'Docs',
-        items: ['markdown-features', 'sidebar', 'versioning'],
+        label: 'Authorization',
+        collapsed: false,
+        collapsible: false,
+        items: ['guides/auth/register', 'guides/auth/login'],
       },
-      'blog',
-      'search',
-      'deployment',
-      'migrating-from-v1-to-v2',
+      {
+        type: 'category',
+        label: 'Managing Data',
+        collapsed: false,
+        collapsible: false,
+        items: ['guides/data/schemas', 'guides/data/documents'],
+      },
+      {
+        type: 'category',
+        label: 'Utilizing Storage',
+        collapsed: false,
+        collapsible: false,
+        items: ['guides/storage/buckets', 'guides/storage/fetch',],
+      },
     ],
-    'Advanced Guides': ['using-plugins', 'using-themes', 'presets'],
     'API Reference': [
-      'cli',
-      'docusaurus-core',
-      'docusaurus.config.js',
-      'lifecycle-apis',
-      'theme-classic',
+      {
+        type: 'category',
+        label: 'CLI',
+        collapsed: false,
+        items: [
+          'reference/speedway/cli',
+          'reference/speedway/routes',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Motor SDK',
+        collapsed: false,
+        items: [
+          'reference/motor/go',
+          'reference/motor/java',
+          'reference/motor/dart',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'Modules',
+        collapsed: false,
+        items: [
+          'reference/modules/registry',
+          'reference/modules/schemas',
+          'reference/modules/buckets',
+          'reference/modules/objects',
+        ],
+      },
+
     ],
   },
 };
-
-
-//module.exports = sidebars;

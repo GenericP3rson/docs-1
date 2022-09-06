@@ -92,9 +92,15 @@ const config = {
           docLayoutComponent: '@theme/DocPage',
           docItemComponent: '@theme/DocItem',
         },
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
-
         },
       }),
     ],
@@ -135,7 +141,7 @@ const config = {
           {
             type: 'doc',
             position: 'left',
-            docId: 'introduction',
+            docId: 'basics/introduction',
             label: 'Docs',
           },
           {
@@ -144,30 +150,7 @@ const config = {
             position: 'left',
             label: 'API',
           },
-          {
-            type: 'doc',
-            docId: 'speedway/introduction',
-            position: 'left',
-            label: 'Guides',
-          },
-          {
-            type: 'doc',
-            docId: 'motor-sdk/intro',
-            position: 'left',
-            label: 'Showcase',
-          },
-          {
-            type: 'doc',
-            docId: 'motor-sdk/intro',
-            position: 'left',
-            label: 'Community',
-          },
-          {
-            to: 'protodocs/registry/tx.proto',
-            activeBasePath: 'protodocs',
-            label: 'API Explorer',
-            position: 'right',
-          },
+          { to: '/blog', label: 'Guides', position: 'left' },
           {
             href: 'https://github.com/sonr-io/sonr',
             position: 'right',
