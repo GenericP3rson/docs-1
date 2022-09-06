@@ -13,11 +13,7 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 module.exports = {
   docs: {
-    Introduction: ['basics/introduction', 'basics/components', 'basics/features', {
-      type: 'link',
-      label: 'Roadmap',
-      href: 'https://sonr.fyi',
-    }],
+    Introduction: ['basics/introduction', 'basics/components', 'basics/features'],
     'Getting Started': [
       'guides/overview',
       'guides/install',
