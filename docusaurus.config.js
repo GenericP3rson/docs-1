@@ -150,7 +150,7 @@ const config = {
             position: 'left',
             label: 'API',
           },
-          { to: '/blog', label: 'Tutorials', position: 'left' },
+          { to: '/blog', label: 'Guides', position: 'left' },
           {
             href: 'https://github.com/sonr-io/sonr',
             position: 'right',

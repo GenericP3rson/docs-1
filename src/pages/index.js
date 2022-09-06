@@ -16,15 +16,15 @@ function HomepageHeader() {
         <div className={styles.heroSubtitle}>{siteConfig.tagline}</div>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className="button button--secondary button--lg buttonHeroMargin"
             to="/docs/basics/introduction">
-            Let's get started 🚀
+            Start Building 🚀
           </Link>
 
           <Link
-            className="button button--primary button--lg white-text"
+            className="button button--primary button--lg white-text buttonHeroMargin"
             to="https://sonr.fyi/">
-            See Roadmap →
+            Visit Roadmap →
           </Link>
 
         </div>
