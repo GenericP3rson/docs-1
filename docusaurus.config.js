@@ -92,9 +92,15 @@ const config = {
           docLayoutComponent: '@theme/DocPage',
           docItemComponent: '@theme/DocItem',
         },
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
-
         },
       }),
     ],
@@ -124,37 +130,27 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        //title: 'Sonr Docs',
+        hideOnScroll: true,
         logo: {
           alt: 'Sonr Docs Logo',
           src: 'img/logo.svg',
+          srcDark: 'img/logo-dark.svg',
           className: 'navbar-logo',
         },
         items: [
           {
             type: 'doc',
-            docId: 'what-is-sonr',
             position: 'left',
-            label: 'Learn',
-          },
-          {
-            type: 'doc',
-            docId: 'speedway/introduction',
-            position: 'left',
-            label: 'Build',
-          },
-          {
-            type: 'doc',
-            docId: 'motor-sdk/intro',
-            position: 'left',
-            label: 'SDKs',
+            docId: 'basics/introduction',
+            label: 'Docs',
           },
           {
             to: 'protodocs/registry/tx.proto',
             activeBasePath: 'protodocs',
-            label: 'API Explorer',
-            position: 'right',
+            position: 'left',
+            label: 'API',
           },
+          { to: '/blog', label: 'Guides', position: 'left' },
           {
             href: 'https://github.com/sonr-io/sonr',
             position: 'right',

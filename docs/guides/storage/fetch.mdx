@@ -1,0 +1,145 @@
+---
+title: Retrieve Buckets
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import APIButton from "@site/src/components/APIButton";
+import SupportedClients from "@site/src/components/SupportedClients";
+
+<APIButton href="/api/bucket" label="Bucket API" type="info" />
+
+Buckets on Sonr are a great way to store related Documents—think of them like folders. They contain Document references as well as other buckets.
+
+## Fetch Buckets
+
+Like everything on Sonr, you need a bucket's DID in order to fetch it.
+
+<SupportedClients list={["a", "g", "f"]} />
+<Tabs groupId="platform">
+	<TabItem value="android" label="🤖 Android" default>
+
+```java
+public void getBucket(String did) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    Bucket bucket = mtr.getBucket(did);
+
+    // iterate over all documents
+    for (Document d : bucket.getDocuments()) {
+      // print the 'fieldName' property from the Document
+      System.out.println(d.get("fieldName"));
+    }
+
+    // get a single document with its CID
+    Document d = bucket.getDocument("<CID>");
+}
+```
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+
+```go
+func GetBucketObjects(bucketDid string) ([]byte, error) {
+	if instance == nil {
+		return nil, errWalletNotExists
+	}
+
+	bucket, err := instance.GetBucket(bucketDid)
+	if err != nil {
+		return nil, err
+	}
+
+	buckets := make([]*bt.BucketContent, 0)
+	items := bucket.GetBucketItems()
+	for _, item := range items {
+		c, err := bucket.GetContentById(item.Uri)
+		if err != nil {
+			return nil, err
+		}
+
+		if c.ContentType != bt.ResourceIdentifier_CID {
+			continue
+		}
+		buckets = append(buckets, c)
+	}
+
+	list := &mt.BucketContentList{
+		Buckets: buckets,
+	}
+	return list.Marshal()
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="🐦 Flutter">
+
+```dart
+Future<QueryWhereIsResponse?> queryBucket(String q) async {
+  return await MotorFlutterPlatform.instance.queryBucket(QueryWhereIsRequest(did: q));
+}
+```
+
+  </TabItem>
+</Tabs>
+
+## Fetch Child Buckets
+
+In addition to documents, you can also fetch child buckets.
+
+<SupportedClients list={["a", "g"]} />
+
+<Tabs groupId="platform">
+	<TabItem value="android" label="🤖 Android" default>
+
+```java
+public void getSubBucket(String did) throws Exception {
+    Motoroid mtr = Motoroid.getInstance();
+    Bucket bucket = mtr.getBucket(did);
+
+    // iterate over all sub bucket DIDs
+    for (String subBucketDid : bucket.getSubBucketDids()) {
+      // Resolve the sub-bucket. This bucket behaves exactly like the parent it came from
+      Bucket subBucket = bucket.getBucket(subBucketDid);
+    }
+
+    // get a single document with its CID
+    Document d = bucket.getDocument("<CID>");
+}
+```
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+
+```go
+func ResolveSubBucket(bucketDid, subBucketDid string) error {
+	if instance == nil {
+		return errWalletNotExists
+	}
+
+	bucket, err := instance.GetBucket(bucketDid)
+	if err != nil {
+		return err
+	}
+
+	for _, b := range bucket.GetBuckets() {
+		if err = b.ResolveContent(); err != nil {
+			return err
+		}
+		if err = b.ResolveBuckets(); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+```
+
+  </TabItem>
+  <TabItem value="flutter" label="🐦 Flutter">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
+</Tabs>
+
+Like schemas, buckets must be created via the [Speedway CLI](#).

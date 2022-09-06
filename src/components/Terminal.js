@@ -266,7 +266,6 @@ function CreateObjectTerminalView({ action }) {
 };
 
 function CreateBucketTerminalView({ action }) {
-
     const createAccountLines = [
         {
             text: "speedway bucket create",
@@ -339,15 +338,6 @@ function CreateBucketTerminalView({ action }) {
     ];
     return <Terminal lines={createAccountLines} interval={40} height={400} />;
 };
-
-// "where_is": {
-//     "did": "did:snr:12eca44f50e34ea8b10403688567b02d",
-//         "creator": "snr1tt9mrl9duhl3978rsr7s04f6emf6xrfv35cr5q",
-//             "label": "contacts",
-//                 "visibility": 1,
-//                     "is_active": true,
-//                         "timestamp": 1662272569
-// }
 
 export {
     CreateAccountTerminalView,

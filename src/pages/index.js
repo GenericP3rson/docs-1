@@ -16,15 +16,15 @@ function HomepageHeader() {
         <div className={styles.heroSubtitle}>{siteConfig.tagline}</div>
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
-            to="/docs/what-is-sonr">
-            Let's get started 🚀
+            className="button button--secondary button--lg buttonHeroMargin"
+            to="/docs/basics/introduction">
+            Start Building 🚀
           </Link>
 
           <Link
-            className="button button--primary button--lg white-text"
+            className="button button--primary button--lg white-text buttonHeroMargin"
             to="https://sonr.fyi/">
-            See Roadmap →
+            Visit Roadmap →
           </Link>
 
         </div>
@@ -37,7 +37,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello Sonr Devs!`}
+      title={`The Sonr Docs`}
       description="Let's build a better Internet together.">
       <HomepageHeader />
       <main>
