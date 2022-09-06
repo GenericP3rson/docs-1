@@ -16,7 +16,7 @@ function RootButtonGrid({ children, color }) {
                             alignItems="center"
                         >
                             <Grid item xs={2} md={2}>
-                                <img src="/img/icons/icon-72x72.png" />
+                                <img src="/img/roadmap.png" />
                             </Grid>
                             <Grid item>
                                 {" "}
@@ -38,7 +38,7 @@ function RootButtonGrid({ children, color }) {
                         >
                             <Grid item xs={2} md={2}>
 
-                                <img src="/img/icons/icon-72x72.png" />
+                                <img src="/img/components.png" />
 
                             </Grid>
                             <Grid item>
@@ -60,7 +60,7 @@ function RootButtonGrid({ children, color }) {
                             alignItems="center"
                         >
                             <Grid item xs={2} md={2}>
-                                <img src="/img/icons/icon-72x72.png" />
+                                <img src="/img/features.png" />
                             </Grid>
                             <Grid item>
                                 {" "}
@@ -81,7 +81,7 @@ function RootButtonGrid({ children, color }) {
                             alignItems="center"
                         >
                             <Grid item xs={2} md={2}>
-                                <img src="/img/icons/icon-72x72.png" />
+                                <img src="/img/advanced.png" />
 
                             </Grid>
                             <Grid item>
