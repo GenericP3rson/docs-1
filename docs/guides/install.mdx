@@ -6,12 +6,13 @@ sidebar_position: 1
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import APIButton from "@site/src/components/APIButton";
+import SupportedClients from "@site/src/components/SupportedClients";
 
 The process of creating a Sonr App involves utilizing the Sonr CLI to create a new project, and then integrating the project to the Sonr Motor SDK. This guide will walk you through the process of installing our libraries, creating a new project, and deploying it to the Sonr platform.
 
 ## Setting up CLI
 
-<APIButton href="/docs/speedway/cli-cmds" label="CLI Reference" />
+<APIButton href="/docs/reference/speedway/cli.mdx" label="CLI Reference" />
 
 The Speedway CLI allows developers all the comforts of Speedway into a command-line interface. Speedway User-Interface gives developers the ability to visually create schemas, objects and buckets in a web application.
 
@@ -38,21 +39,6 @@ go build -o speedway cmd/speedway-cli/main.go
 ---
 
 ## Integrating with Motor SDK
-
-<div style={{ "margin-bottom": "16px", "margin-top": "-8px" }}>
-<div class="row">
-  <div class="col col--1">
-    <span class="badge badge--success">Android</span>
-  </div>
-  <div class="col col--1">
-    <span class="badge badge--info">Golang</span>
-  </div>
-    <div class="col col--1">
-    <span class="badge badge--primary">Flutter</span>
-  </div>
-</div>
-
-</div>
 
 The Motor SDK is a set of developer tools for building decentralized applications on the Sonr network. It currently supports Desktop, Android, and Flutter targets with plans to support iOS, React Native, and Web in the near future.
 
@@ -239,7 +225,7 @@ loginResponse, err := mtr.Login(mt.LoginRequest{
 
 You're ready to start using Motor in your app! Check out one of the guides for next steps.
 
-- [Authentication](/motor-sdk/auth/register.mdx)
-- [Documents](/docs/motor-sdk/data/documents.mdx)
-- [Buckets](/docs/motor-sdk/storage/buckets.mdx)
-- [Reference](/docs/motor-sdk/reference/go)
+- [Authentication](/docs/guides/auth/register.mdx)
+- [Documents](/docs/guides/data/documents.mdx)
+- [Buckets](/docs/guides/storage/buckets.mdx)
+- [Reference](/docs/reference/motor/go.md)

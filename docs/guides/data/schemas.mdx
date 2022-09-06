@@ -5,7 +5,7 @@ title: Using Schemas
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import APIButton from "@site/src/components/APIButton";
-
+import SupportedClients from "@site/src/components/SupportedClients";
 import {
   CreateAccountTerminalView,
   CreateSchemaTerminalView,
@@ -19,6 +19,8 @@ Schemas are the data types of the Sonr, adding structure to data stored on the n
 
 ## Creating a Schema
 
+<SupportedClients list={["c"]} />
+
 To create a schema, run the following command using the Speedway CLI.
 
 ```bash
@@ -30,6 +32,8 @@ speedway schema create
 </div>
 
 ## Fetching Schemas
+
+<SupportedClients list={["a", "g", "f"]} />
 
 If you know a schema's DID, you have all you need to get it.
 

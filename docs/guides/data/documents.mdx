@@ -8,16 +8,18 @@ import {
   CreateObjectTerminalView,
   CreateBucketTerminalView,
 } from "@site/src/components/Terminal";
-
+import SupportedClients from "@site/src/components/SupportedClients";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import APIButton from "@site/src/components/APIButton";
 
 <APIButton href="/api/schema" label="Schema API" type="info" />
 
-Schema Documents store end-to-end encrypted user data on the Sonr network. You can think of this feature like a decentralized MongoDB. All Documents are stored on [IPFS](https://ipfs.io) and therefor have a CID which represent the content. You don't need to understand how IPFS works in order to use Sonr, just that CID's are _content identifiers_. Later we'll go over how Documents can be stored in [Buckets](/docs/motor-sdk/storage/buckets.mdx) for easier referencing and organization.
+Schema Documents store end-to-end encrypted user data on the Sonr network. You can think of this feature like a decentralized MongoDB. All Documents are stored on [IPFS](https://ipfs.io) and therefor have a CID which represent the content. You don't need to understand how IPFS works in order to use Sonr, just that CID's are _content identifiers_. Later we'll go over how Documents can be stored in [Buckets](/docs/guides/storage/buckets.mdx) for easier referencing and organization.
 
 ## Creating a Document
+
+<SupportedClients list={["a", "g", "c"]} />
 
 Documents can be created using the `DocumentBuilder` API. You simply need to provide the [DID](#) of the [Schema](#) this document will conform to. When you create an document without adding it to a bucket, you as the developer must take care to keep track of the CID.
 
@@ -106,6 +108,8 @@ For a full list of methods, see the [ObjectBuilder](https://pkg.go.dev/github.co
 
 ## Fetching a Document
 
+<SupportedClients list={["a"]} />
+
 With a Document's CID, you can fetch an document directly from `Motoroid`.
 
 <Tabs groupId="platform">
@@ -159,11 +163,15 @@ public void getDocument(String cid, SchemaDefinition schema) {
 
   </TabItem>
   <TabItem value="go" label="🐹 Go">
+
     ### 🚧 Under Construction 🚧
+
   </TabItem>
   <TabItem value="flutter" label="🐦 Flutter">
+
     ### 🚧 Under Construction 🚧
+
   </TabItem>
 </Tabs>
 
-For details on how to get a `SchemaDefinition`, see [Schemas](/docs/highway/modules/schemas.mdx).
+For details on how to get a `SchemaDefinition`, see [Schemas](/docs/reference/modules/schemas.mdx).

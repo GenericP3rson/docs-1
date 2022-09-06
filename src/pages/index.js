@@ -17,7 +17,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/introduction">
+            to="/docs/basics/introduction">
             Let's get started 🚀
           </Link>
 
@@ -37,7 +37,7 @@ export default function Home() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello Sonr Devs!`}
+      title={`The Sonr Docs`}
       description="Let's build a better Internet together.">
       <HomepageHeader />
       <main>

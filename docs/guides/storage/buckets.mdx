@@ -6,6 +6,7 @@ sidebar_position: 1
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import APIButton from "@site/src/components/APIButton";
+import SupportedClients from "@site/src/components/SupportedClients";
 import {
   CreateAccountTerminalView,
   CreateSchemaTerminalView,
@@ -14,6 +15,8 @@ import {
 } from "@site/src/components/Terminal";
 
 ## Creating a Bucket
+
+<SupportedClients list={["c"]} />
 
 To create a bucket, run the following command:
 
@@ -32,6 +35,8 @@ The CLI will attempt to automatically login. Once logged in, you will be prompte
 New documents can be added or removed from a bucket using the Bucket class. This does not delete the document (data cannot be completely deleted from Sonr).
 
 ## Add a Document
+
+<SupportedClients list={["a", "g"]} />
 
 Adding a document both uploads the document to IPFS and adds a reference to the bucket. The result of the upload is returned containing the CID and other information.
 
