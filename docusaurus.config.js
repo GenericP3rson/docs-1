@@ -124,30 +124,43 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        //title: 'Sonr Docs',
+        hideOnScroll: true,
         logo: {
           alt: 'Sonr Docs Logo',
           src: 'img/logo.svg',
+          srcDark: 'img/logo-dark.svg',
           className: 'navbar-logo',
         },
         items: [
           {
             type: 'doc',
-            docId: 'what-is-sonr',
             position: 'left',
-            label: 'Learn',
+            docId: 'introduction',
+            label: 'Docs',
+          },
+          {
+            to: 'protodocs/registry/tx.proto',
+            activeBasePath: 'protodocs',
+            position: 'left',
+            label: 'API',
           },
           {
             type: 'doc',
             docId: 'speedway/introduction',
             position: 'left',
-            label: 'Build',
+            label: 'Guides',
           },
           {
             type: 'doc',
             docId: 'motor-sdk/intro',
             position: 'left',
-            label: 'SDKs',
+            label: 'Showcase',
+          },
+          {
+            type: 'doc',
+            docId: 'motor-sdk/intro',
+            position: 'left',
+            label: 'Community',
           },
           {
             to: 'protodocs/registry/tx.proto',

@@ -76,4 +76,35 @@ const sidebars = {
   ],
 };
 
-module.exports = sidebars;
+
+module.exports = {
+  docs: {
+    Docusaurus: ['introduction', 'design-principles', 'contributing'],
+    'Getting Started': ['installation', 'configuration'],
+    Guides: [
+      'creating-pages',
+      'styling-layout',
+      'static-assets',
+      {
+        type: 'category',
+        label: 'Docs',
+        items: ['markdown-features', 'sidebar', 'versioning'],
+      },
+      'blog',
+      'search',
+      'deployment',
+      'migrating-from-v1-to-v2',
+    ],
+    'Advanced Guides': ['using-plugins', 'using-themes', 'presets'],
+    'API Reference': [
+      'cli',
+      'docusaurus-core',
+      'docusaurus.config.js',
+      'lifecycle-apis',
+      'theme-classic',
+    ],
+  },
+};
+
+
+//module.exports = sidebars;
