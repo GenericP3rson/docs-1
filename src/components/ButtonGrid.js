@@ -102,7 +102,7 @@ function GetStartedButtonGrid({ children, color }) {
     return (
         <div class="pagination-nav buttonGridTopMargin">
             <div class="pagination-nav__item pagination-nav__item--next">
-                <a class="pagination-nav__link pagination-nav__item--next" href="/docs/guides/overview">
+                <a class="pagination-nav__link pagination-nav__item--next" href="/docs/guides/install">
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid
                             container
@@ -111,30 +111,7 @@ function GetStartedButtonGrid({ children, color }) {
                             alignItems="center"
                         >
                             <Grid item xs={2} md={2}>
-                                <img src="/3d/2-overview.png" />
-                            </Grid>
-                            <Grid item>
-                                {" "}
-                                <div class="pagination-nav__sublabel">Structure of a Sonr App</div>
-                                <div class="pagination-nav__label">Overview</div>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </a>
-            </div>
-            <div class="pagination-nav__item pagination-nav__item--next">
-                <a class="pagination-nav__link" href="/docs/guides/install">
-                    <Box sx={{ flexGrow: 1 }}>
-                        <Grid
-                            container
-                            spacing={2}
-                            justifyContent="flex-start"
-                            alignItems="center"
-                        >
-                            <Grid item xs={2} md={2}>
-
                                 <img src="/3d/2-install.png" />
-
                             </Grid>
                             <Grid item>
                                 {" "}
@@ -155,12 +132,35 @@ function GetStartedButtonGrid({ children, color }) {
                             alignItems="center"
                         >
                             <Grid item xs={2} md={2}>
+
                                 <img src="/3d/2-tutorials.png" />
+
                             </Grid>
                             <Grid item>
                                 {" "}
                                 <div class="pagination-nav__sublabel">Guides for building on Sonr</div>
                                 <div class="pagination-nav__label">Tutorials</div>
+                            </Grid>
+                        </Grid>
+                    </Box>
+                </a>
+            </div>
+            <div class="pagination-nav__item pagination-nav__item--next">
+                <a class="pagination-nav__link" href="https://github.com/sonr-io">
+                    <Box sx={{ flexGrow: 1 }}>
+                        <Grid
+                            container
+                            spacing={2}
+                            justifyContent="flex-start"
+                            alignItems="center"
+                        >
+                            <Grid item xs={2} md={2}>
+                                <img src="/3d/2-github.png" />
+                            </Grid>
+                            <Grid item>
+                                {" "}
+                                <div class="pagination-nav__sublabel">Visit our Github Org</div>
+                                <div class="pagination-nav__label">Github</div>
                             </Grid>
                         </Grid>
                     </Box>
