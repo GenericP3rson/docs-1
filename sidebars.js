@@ -13,7 +13,7 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 module.exports = {
   docs: {
-    Introduction: ['basics/introduction', 'basics/components', 'basics/features'],
+    Introduction: ['main', 'basics/components', 'basics/features'],
     'Getting Started': [
       'guides/overview',
       'guides/install',

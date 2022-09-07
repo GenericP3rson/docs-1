@@ -1,51 +1,8 @@
 import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import { Redirect } from '@docusaurus/router';
 
-import styles from './index.module.css';
 
-function HomepageHeader() {
-  const { siteConfig } = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container section-hero">
-        <div className={styles.heroTitle}>{siteConfig.title}</div>
-        <div className={styles.heroSubtitle}>{siteConfig.tagline}</div>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg buttonHeroMargin"
-            to="/docs/basics/introduction">
-            Start Building 🚀
-          </Link>
-
-          <Link
-            className="button button--primary button--lg white-text buttonHeroMargin"
-            to="https://sonr.fyi/">
-            Visit Roadmap →
-          </Link>
-
-        </div>
-      </div>
-    </header >
-  );
-}
 
 export default function Home() {
-  const { siteConfig } = useDocusaurusContext();
-  return (
-    <Layout
-      title={`The Sonr Docs`}
-      description="Let's build a better Internet together.">
-      <HomepageHeader />
-      <main>
-        <div className="section">
-          <HomepageFeatures />
-        </div>
-
-      </main>
-    </Layout>
-  );
+  return <Redirect to="/docs" />;
 }
