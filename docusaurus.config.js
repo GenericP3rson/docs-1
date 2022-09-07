@@ -43,7 +43,7 @@ const config = {
           { to: '/protodocs/registry/did.proto', from: '/api/registry/did' },
 
           // Schema redirects
-          { to: '/protodocs/schema/v1/tx.proto', from: '/api/schema' },
+          { to: '/protodocs/schema/v1/schema.proto', from: '/api/schema' },
           { to: '/protodocs/schema/v1/tx.proto', from: '/api/schema/tx' },
           { to: '/protodocs/schema/v1/query.proto', from: '/api/schema/query' },
           { to: '/protodocs/schema/v1/genesis.proto', from: '/api/schema/genesis' },
