@@ -75,25 +75,19 @@ func NewObjectBuilder(name, schemaDid string) error {
 	if err != nil {
 		return err
 	}
-
-	objectBuilders[name] = builder
+  builder.Set("foo", "bar")
+  builder.Set("bar", 1)
+  err := builder.upload()
+  if err != nil {
+    // Handle error from builder
+  }
 	return nil
 }
 ```
 
-After initializing a new builder, the following are a couple of methods that can be used to add data to the document.
-
+After initializing a new builder, you may use `Set` to add `key` `value` pairs to the object by using the `Set` method.
 ```go
-- SetObjectLabel(key, value string)
-- SetBool(key string, value int)
-- SetInt(name, fieldName string, v int)
-- SetFloat(name, fieldName string, v float32)
-- SetString(name, fieldName, value string)
-- SetBytes(name, fieldName string, v []byte)
-- SetLink(name, fieldName, value string)
-- RemoveObjectField(name, fieldName string)
-- BuildObject(name string)
-- UploadObject(name string)
+  Set(k string, v interface)
 ```
 
 For a full list of methods, see the [ObjectBuilder](https://pkg.go.dev/github.com/sonr-io/sonr@v0.4.0/bind/motor-mobile) documentation.

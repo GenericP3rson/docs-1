@@ -65,21 +65,19 @@ public void login(String password) throws Exception {
 Login creates a motor node from a LoginRequest
 
 ```go
-func (mtr *motorNodeImpl) Login(request mt.LoginRequest) (mt.LoginResponse, error) {
-    // 1. Fetch Shards from the Vault
-    shards, _ := vault.New().GetVaultShards(request.Did)
+  // Provide Psk from keyring or storage location
+  // Provide address of the account
+  req := mt.LoginRequest{
+        Did: address,
+        Password:  "password123",
+        AesPskKey: pskKey,
+  }
 
-    // 2. Reconstruct the Wallet
-    configs, _ := createWalletConfigs(mtr.DeviceID, request, shards)
+  m, _ := EmptyMotor(&mt.InitializeRequest{
+    DeviceId: "test_device",
+  }, common.DefaultCallback())
+  _, err := m.Login(req)
 
-    // 3. Fetch DID document from Blockchain
-    whoIs, _ := mtr.Cosmos.QueryWhoIs(request.Did)
-
-    // 4. Bootstrap the Motor Node
-    // ...
-    // - Assign Shards to the Wallet and populate DIDDocument
-    // ...
-}
 ```
 
   </TabItem>

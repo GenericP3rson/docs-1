@@ -62,38 +62,24 @@ public void createAccount(String password) throws Exception {
   <TabItem value="go" label="🐹 Go">
 
 ```go
-func (mtr *motorNodeImpl) CreateAccount(request mt.CreateAccountRequest) (mt.CreateAccountResponse, error) {
-// 1. Initialize a new MotorNode
-	err := initMotor(mtr)
-    checkError(err)
+  key, err := mpc.NewAesKey()
+  if err != nil {
+    // handle error
+  }
+  // Note: the generate key should be stored to be used for Authenticaiton.
+  // it is recommended to use the platforms `keyring`
+  req := mt.CreateAccountRequest{
+		Password:  "password123",
+		AesDscKey: aesKey,
+	}
 
-// 2. Request SNR tokens from Faucet
-	err = mtr.Cosmos.RequestFaucet(mtr.Address)
-    checkError(err)
+	m, _ := EmptyMotor(&mt.InitializeRequest{
+		DeviceId: "test_device",
+	}, common.DefaultCallback())
+	res, err := m.CreateAccount(req)
+  // if the account is created successfully, you may now interact with the `motor` instance
+  m.GetAddress()
 
-// 3. Configure Initial MPC Shards
-	mtr.deviceShard, mr.sharedShard, mtr.recShard, mtr.unusedShards, err = mtr.Wallet.CreateInitialShards()
-    checkError(err)
-
-// 4. Create the DID Document
-	_, err := did.NewDocument(mtr.DID.String())
-    checkError(err)
-
-// 5. create Vault shards then encrypt dsc and psk shards
-	vc := vault.New()
-	_, err := createWhoIs(mtr)
-    checkError(err)
-
-    // ...
-    // (ENCRYPTION STEP)
-    // ...
-
-// 6. Broadcast new DIDDocument to the network
-    // ...
-    // - Assign Shards to the Wallet and populate DIDDocument
-    // ...
-}
-}
 ```
 
   </TabItem>
