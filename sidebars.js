@@ -17,6 +17,7 @@ module.exports = {
     'Getting Started': [
       'guides/overview',
       'guides/install',
+      'guides/setup',
       {
         type: 'category',
         label: 'Authorization',
