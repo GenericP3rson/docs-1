@@ -64,14 +64,11 @@ public void addDocumentToBucket(String bucketDid, Document d) throws Exception {
   <TabItem value="go" label="🐹 Go">
 
 ```go
-func AddBucketObject(bucketDid string, obj []byte) error {
-	if instance == nil {
-		return errWalletNotExists
-	}
-
-	newObject := &bt.BucketItem{}
-	if err := newObject.Unmarshal(obj); err != nil {
-		return err
+	newObject := &bt.BucketItem{
+		Name: "cool new content",
+		Uri: "bafyreihnj3feeesb6wmd46lmsvtwalvuckns647ghy44xn63lfsfed3ydm",
+		Timestamp: time.Now().Unix(),
+		Type:      bt.ResourceIdentifier_CID,
 	}
 
 	b, err := instance.GetBucket(bucketDid)
@@ -80,10 +77,8 @@ func AddBucketObject(bucketDid string, obj []byte) error {
 	}
 
 	newObjects := append(b.GetBucketItems(), newObject)
-	_, err = instance.UpdateBucketItems(context.Background(), bucketDid, newObjects)
+	resp, err = instance.UpdateBucketItems(context.Background(), bucketDid, newObjects)
 
-	return err
-}
 ```
 
   </TabItem>
@@ -107,10 +102,6 @@ public void removeDocumentFromBucket(String bucketDid, String cid) throws Except
   <TabItem value="go" label="🐹 Go">
 
 ```go
-func RemoveBucketObject(bucketDid, cid string) error {
-	if instance == nil {
-		return errWalletNotExists
-	}
 
 	b, err := instance.GetBucket(bucketDid)
 	if err != nil {
@@ -131,7 +122,6 @@ func RemoveBucketObject(bucketDid, cid string) error {
 
 	_, err = instance.UpdateBucketItems(context.Background(), bucketDid, newObjects)
 	return err
-}
 ```
 
   </TabItem>

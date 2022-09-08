@@ -20,11 +20,11 @@ import {
 
 :::note
 
-Users must be authenticated in order to utilize other Motor features. For more information on how authentication works on Sonr, see [TODO](#)
+A User must be authenticated in order to utilize other Motor features. For more information on how authentication works on Sonr, see [TODO](#)
 
 :::
 
-If your user has previously created an account on the device, they can log in without a password. Alternatively, if the user's pre-shared key has been added to the device, they may login with a password.
+If a user has previously created an account on the device, they can log in without a password. Alternatively, if the user's pre-shared key has been added to the device, they may login with a password.
 
 <Tabs groupId="platform">
   <TabItem value="cli" label="🖥️ CLI" default>
@@ -65,20 +65,19 @@ public void login(String password) throws Exception {
 Login creates a motor node from a LoginRequest
 
 ```go
-func (mtr *motorNodeImpl) Login(request mt.LoginRequest) (mt.LoginResponse, error) {
-    // 1. Fetch Shards from the Vault
-    shards, _ := vault.New().GetVaultShards(request.Did)
+func Login(instance *motorNodeImpl, pskKey []byte, acctPassword string, acctAddress string) {
+  req := mt.LoginRequest{
+          Did: acctAddress,
+          Password: acctPassword, 
+          AesPskKey: pskKey,
+    }
 
-    // 2. Reconstruct the Wallet
-    configs, _ := createWalletConfigs(mtr.DeviceID, request, shards)
+  response, err := instance.Login(req)
+  if err != nil {
+    // handle error
+  }
 
-    // 3. Fetch DID document from Blockchain
-    whoIs, _ := mtr.Cosmos.QueryWhoIs(request.Did)
-
-    // 4. Bootstrap the Motor Node
-    // ...
-    // - Assign Shards to the Wallet and populate DIDDocument
-    // ...
+  fmt.Println(instance.getAddress())
 }
 ```
 
