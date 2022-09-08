@@ -20,11 +20,11 @@ import {
 
 :::note
 
-Users must be authenticated in order to utilize other Motor features. For more information on how authentication works on Sonr, see [TODO](#)
+A User must be authenticated in order to utilize other Motor features. For more information on how authentication works on Sonr, see [TODO](#)
 
 :::
 
-If your user has previously created an account on the device, they can log in without a password. Alternatively, if the user's pre-shared key has been added to the device, they may login with a password.
+If a user has previously created an account on the device, they can log in without a password. Alternatively, if the user's pre-shared key has been added to the device, they may login with a password.
 
 <Tabs groupId="platform">
   <TabItem value="cli" label="🖥️ CLI" default>
@@ -65,19 +65,20 @@ public void login(String password) throws Exception {
 Login creates a motor node from a LoginRequest
 
 ```go
-  // Provide Psk from keyring or storage location
-  // Provide address of the account
+func Login(instance *motorNodeImpl, pskKey []byte, acctPassword string, acctAddress string) {
   req := mt.LoginRequest{
-        Did: address,
-        Password:  "password123",
-        AesPskKey: pskKey,
+          Did: acctAddress,
+          Password: acctPassword, 
+          AesPskKey: pskKey,
+    }
+
+  response, err := instance.Login(req)
+  if err != nil {
+    // handle error
   }
 
-  m, _ := EmptyMotor(&mt.InitializeRequest{
-    DeviceId: "test_device",
-  }, common.DefaultCallback())
-  _, err := m.Login(req)
-
+  fmt.Println(instance.getAddress())
+}
 ```
 
   </TabItem>

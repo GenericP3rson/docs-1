@@ -58,19 +58,15 @@ public void getSchema(String schemaDid) throws Exception {
 Querying for a Schema requires a single string value which corresponds to the [Sonr DID Spec](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/1.md)
 
 ```go
-	createSchemaRequest := mt.CreateSchemaRequest{
-		Label: "Cat 🐈‍⬛",
-		Fields: map[string]st.SchemaKind{
-			"name":     st.SchemaKind_STRING,
-			"breed": st.SchemaKind_STRING,
-			"age":       st.SchemaKind_INT,
-		},
-	}
+func GetSchema(instance *motorNodeImpl, schemaDid string) {
+  resp, err := motorInstance.QueryWhatIsByDid(schemaDid)
+  if err != nil {
+    // handle error
+  }
 
-	resp, err := m.CreateSchema(createSchemaRequest)
-	if err != nil {
-		// handle error
-	}
+  // Resturns the schema referenced by the `WhatIs`
+  schema := resp.GetSchema()
+}
 ```
 
   </TabItem>

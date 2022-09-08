@@ -66,7 +66,7 @@ public void createDocument(String schemaDid) throws Exception {
   <TabItem value="go" label="🐹 Go">
 
 ```go
-func NewObjectBuilder(name, schemaDid string) error {
+func NewObjectBuilder(instance *motorNodeImpl, name, schemaDid string) error {
 	if instance == nil {
 		return errWalletNotExists
 	}
@@ -120,10 +120,7 @@ public void getDocument(String cid) {
   <TabItem value="go" label="🐹 Go">
 
 ```go
-func GetObject(cid string) ([]byte, error) {
-	if instance == nil {
-		return nil, errWalletNotExists
-	}
+func GetObject(instance *motorNodeImpl, cid string) ([]byte, error) {
 
 	res, err := instance.QueryObject(cid)
 	if err != nil {
