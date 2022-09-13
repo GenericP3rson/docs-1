@@ -52,19 +52,33 @@ go get -u github.com/sonr-io/sonr
   </TabItem>
   <TabItem value="flutter" label="🐦 Flutter">
 
-Add `motor_flutter` as a dependency in your existing project's `pubspec.yaml` file.
+#### 1. Add the dependency
+
+Add `motor_flutter` as a dependency in your existing project:
+
+```bash
+flutter pub add motor_flutter
+```
+
+or add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  motor_flutter: ^0.0.1
+  motor_flutter: ^0.2.2
 ```
 
-Clone the Plugin, Compile the most up-to-date protobuf files, and Download the latest xcframework and AAR
+#### 2. iOS setup
 
-```bash
-  git clone git@github.com:sonr-io/motor-flutter.git
-  sh scripts/download.sh
-  sh scripts/proto.sh
+Add the following to the top of your `ios/Podfile`:
+
+```ruby
+platform :ios, '13.0'
+```
+
+Then, **remove** the following line from your `ios/Podfile`:
+
+```ruby
+use_frameworks!
 ```
 
   </TabItem>
@@ -178,11 +192,22 @@ loginResponse, err := mtr.Login(mt.LoginRequest{
   </TabItem>
   <TabItem value="flutter" label="🐦 Flutter">
 
+The Motor Flutter SDK uses the [GetX](https://pub.dev/packages/get) package to manage state. This means that you must wrap the `MotorFlutter` service into the `Get.putAsync` method. For more
+information on this, please refer to their [documentation](https://pub.dev/packages/get#getxservice).
+
 ```dart
-Future<InitializeResponse?> initialize() async {
-    final peerInfo = await PeerInformation.fetch();
-    final req = peerInfo.toInitializeRequest(enableLibp2p: false);
-    return await MotorFlutterPlatform.instance.init(req);
+import 'package:motor_flutter/motor_flutter.dart';
+
+Future<void> main() async {
+  // Init Services
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Motor Flutter uses GetX!
+  await Get.putAsync(
+    () => MotorFlutter().init(),
+    permanent: true,
+  );
+  runApp(const MyApp());
 }
 ```
 

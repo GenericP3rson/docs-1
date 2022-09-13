@@ -28,7 +28,7 @@ Creating an account bootstraps the Motor `libp2p` node and generates the `MPC Wa
 
 :::
 
-To create an account, you simply need to provide a recovery password to the [create account method](/api/registry/tx). Account creation can take up to three minutes, so entertain your users :).
+To create an account, you simply need to provide a recovery password to the create account method. Account creation can take up to three minutes, so entertain your users :).
 
 <Tabs groupId="platform">
     <TabItem value="cli" label="🖥️ CLI" default>
@@ -61,7 +61,7 @@ public void createAccount(String password) throws Exception {
   </TabItem>
   <TabItem value="go" label="🐹 Go">
 
-:::note  
+:::note
 
 The Golang SDK target requires you to to generate an `aes` key along with the provided pass phrase from the user.
 Functionality for key generation can be found within the `Sonr` package `sonr/pkg/crypto/wallet`
@@ -91,15 +91,16 @@ func Register(instance *motorNodeImpl, passPhrase string) {
   </TabItem>
   <TabItem value="flutter" label="🐦 Flutter">
 
-```dart
-  Future<CreateAccountResponse?> createAccount(String password, {Map<String, String>? metadata}) async {
-    final resp = await MotorFlutterPlatform.instance.createAccount(CreateAccountRequest(
-      password: password,
-      metadata: metadata,
-    ));
-    return resp;
-  }
-```
+The createAccount method returns a `Future` that resolves to a [`CreateAccountResponse`](/protodocs/motor/v1/response.proto#createaccountresponse) object.
 
+```dart
+import 'package:motor_flutter/motor_flutter.dart';
+
+// Create a new account and print the address
+final resp = await MotorFlutter.to.createAccount("secure-password-123");
+if (resp != null) {
+  print(resp.address);
+}
+```
   </TabItem>
 </Tabs>
