@@ -45,30 +45,6 @@ With the alias flag you can pass the alias you want to purchase:
 
 *Please note that the purchase of an Alias costs 10 SNR* 
 
-### Sell an Alias
-Sell an Alias with the following command: 
-``` speedway account sell-alias ```
-
-If the alias flag is not passed you will be prompted to enter the desired alias you want to sell.
-
-If the price flag is not passed you will be prompted to enter the price you would like to sell the alias. 
-
-With the alias flag you can pass the alias you want to sell:
-``` speedway account sell-alias --alias <alias> --price <price>```
-
-### Transfer an Alias
-Tansfer an Alias to another user with the following command:
-``` speedway account transfer-alias ```
-
-If the alias flag is not passed you will be prompted to enter the desired alias you want to transfer.
-
-If the recipient flag is not passed you will be prompted to enter the wallet address of the user you would like to transfer the Alias to. 
-
-If the amount flag is not passed you will be promptd to enter an amount of Alias to be transferred (0-100).
-
-With the alias flag you can pass the alias you want to transfer:
-``` speedway account transfer-alias --alias <alias> --recipient <recipient> --amount <amount>```
-
 ## Schemas
 Schemas are used to store the records of verifiable objects for a specific application. Schemas are used to create a developer's custom application protocols which can be asserted on in order to verify your application data. Schemas are ubiquitous by nature, meaning you're not limited to using the Schemas you created.
 
@@ -150,6 +126,9 @@ Building an Object with the did and label flags:
 Building an Object with the file flag:
 ``` speedway object build --file <PATH_TO_FILE> ```
 
+Example of an Object file in JSON:
+![Object Example](./object_file.png)
+
 ### Querying an Object
 To Query an Object run the following command:
 ``` speedway object query ```
@@ -162,7 +141,7 @@ Similar to Amazon S3 or DigitalOcean Spaces, developers can leverage our decentr
 To create a Bucket run the following command: 
 ``` speedway bucket create ```
 
-Upon being automatically logged in, 
+Upon being automatically logged in, you will be prompted to enter the label of the Bucket. The label is simply the title of the Bucket. e.g. "Team Bucket". Afterwards you will be prompted to enter the owner address of the Bucket. The owner address is the address of the developer who owns the Bucket. e.g. "snr16u3ukzrlx96la25j7w52h2ev87282vhquuy3yk". Lastly, you will be prompted to enter the visibility type of the Bucket. The role type is the type of access the Bucket has. e.g. "public" or "private" & "user" or "application".
 ### Querying a Bucket
 To Query a Bucket run the following command:
 ``` speedway bucket get ```
