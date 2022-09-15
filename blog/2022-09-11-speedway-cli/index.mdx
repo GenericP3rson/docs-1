@@ -36,11 +36,14 @@ Logging into your account on the Speedway CLI is very simple. As of now, you sim
 ## Alias
 ### Purchase an Alias
 Purchase an Alias with the following command:
-``` speedway account buy-alias ```
+``` speedway account buy-alias ``` 
 
-If the alias flag is not passed you will be prompted to enter your desired alias. 
+If the alias flag is not passed you will be prompted to enter your desired alias.
 
-*Please note that the purchase of an Alias costs 10 SNR.* 
+With the alias flag you can pass the alias you want to purchase:
+``` speedway account buy-alias --alias <alias> ```
+
+*Please note that the purchase of an Alias costs 10 SNR* 
 
 ### Sell an Alias
 Sell an Alias with the following command: 
@@ -49,6 +52,9 @@ Sell an Alias with the following command:
 If the alias flag is not passed you will be prompted to enter the desired alias you want to sell.
 
 If the price flag is not passed you will be prompted to enter the price you would like to sell the alias. 
+
+With the alias flag you can pass the alias you want to sell:
+``` speedway account sell-alias --alias <alias> --price <price>```
 
 ### Transfer an Alias
 Tansfer an Alias to another user with the following command:
@@ -59,6 +65,9 @@ If the alias flag is not passed you will be prompted to enter the desired alias 
 If the recipient flag is not passed you will be prompted to enter the wallet address of the user you would like to transfer the Alias to. 
 
 If the amount flag is not passed you will be promptd to enter an amount of Alias to be transferred (0-100).
+
+With the alias flag you can pass the alias you want to transfer:
+``` speedway account transfer-alias --alias <alias> --recipient <recipient> --amount <amount>```
 
 ## Schemas
 Schemas are used to store the records of verifiable objects for a specific application. Schemas are used to create a developer's custom application protocols which can be asserted on in order to verify your application data. Schemas are ubiquitous by nature, meaning you're not limited to using the Schemas you created.
@@ -145,7 +154,7 @@ Building an Object with the file flag:
 To Query an Object run the following command:
 ``` speedway object query ```
 
-If the CID has not been passed with the command via a flag, you will be prompted to provide the Schema CID. 
+If the CID has not been passed with the command via a flag, you will be prompted to provide the Object CID. 
 
 ## Buckets
 Similar to Amazon S3 or DigitalOcean Spaces, developers can leverage our decentralized storage module for uploading either application specific assets or user specific assets. The Sonr bucket module is used to record the defined collections of Objects utilized by an Application on the Sonr Network. A bucket can be either public access, private access, or restricted access based on Developer configuration.
