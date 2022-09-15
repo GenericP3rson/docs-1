@@ -18,7 +18,7 @@ jobs:
         with:
           files: .
           config_file: .markdownlint.jsonc
-          ignore_path: .vscode, .github, .git, .vitebook
+          ignore_files: .vscode/*, .github/*, .git/*, .vitebook/*
 
   spell-check:
     runs-on: ubuntu-latest
