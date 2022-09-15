@@ -15,3 +15,11 @@ michael.snr/:
   title: Head of Relations
   url: https://twitter.com/mkamoako
   image_url: https://pbs.twimg.com/profile_images/1534626786746695682/XoWfJfgM_400x400.jpg
+
+# TODO: Fix image url
+ntindle.snr/:
+  name: Nicholas Tindle
+  title: Head of Engineering
+  url: https://twitter.com/nicktindle
+  image_url: https://pbs.twimg.com/profile_images/1501047725655306241/uUh-grof_400x400.png
+
