@@ -16,7 +16,8 @@ jobs:
       - name: Lint
         uses: avto-dev/markdown-lint@v1
         with:
-          config: ".markdownlint.jsonc"
+          config: '/.markdownlint.jsonc'
+          args: '**/*.md'
 
   spell-check:
     runs-on: ubuntu-latest
