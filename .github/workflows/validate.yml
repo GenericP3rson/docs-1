@@ -13,8 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Super-Linter
-        uses: github/super-linter@v4.9.5
+      - name: Lint
+        uses: avto-dev/markdown-lint@v1
+
   spell-check:
     runs-on: ubuntu-latest
     steps:
