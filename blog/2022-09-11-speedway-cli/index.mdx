@@ -1,0 +1,164 @@
+---
+slug: speedway-cli-overview
+title: An In-Depth Overview of the Speedway CLI
+authors: [ian.snr/]
+tags: [speedway,speedway-cli,sonr]
+---
+## Introduction
+In this dissertation, we will be going over Speedway Command-Line Interface (CLI). Speedway is a developer tool used to create appliations on the Sonr Network. First, we'll dive into the installation of Speedway binary and how to create an account on the Sonr network using Speedway CLI. Then we will go over the modules of Sonr ([Registry](https://www.sonr.dev/docs/reference/modules/registry), [Schemas](https://www.sonr.dev/docs/reference/modules/schemas), [Objects](https://www.sonr.dev/docs/reference/modules/objects) & [Buckets](https://www.sonr.dev/docs/reference/modules/buckets)) and how to build applications with them. We will also be building the initial components of a simple application using Speedway CLI.
+
+## Installation of Binary
+Follow along our documentation to [install](https://www.sonr.dev/docs/guides/install) the Speedway CLI.
+### Operating System
+Speedway CLI is supported for the following operating systems:
+- GNU/Linux
+- macOS
+
+### How to run Speedway CLI
+After the [installation process](https://www.sonr.dev/docs/guides/install) simply run ``` speedway ``` in your terminal.
+
+## Account
+### Creating an Account
+Creating an account on the Sonr Network is very simple. To create an account utilizing the Speedway CLI simply run the following command:
+``` speedway account create ```
+
+You will be prompted to enter a password, please enter your desired password proceed with the registration.
+
+*Please note that creating an account can take some time, do not quit the process.*
+
+After the account has been created you will given your wallet address. *e.g. snr17j0p89ugmd96dd95uzaygkd8w9ey8lu3ayuey7*
+This wallet address is utilized to login, recieve funds and is used for some transactions on the ecosystem.
+The DSC and PSK are also saved into your Keychain automatically.
+
+### Logging in
+Logging into your account on the Speedway CLI is very simple. As of now, you simply need to execute a command and the CLI will auto-login to the account when needed. 
+
+## Alias
+### Purchase an Alias
+Purchase an Alias with the following command:
+``` speedway account buy-alias ```
+
+If the alias flag is not passed you will be prompted to enter your desired alias. 
+
+*Please note that the purchase of an Alias costs 10 SNR.* 
+
+### Sell an Alias
+Sell an Alias with the following command: 
+``` speedway account sell-alias ```
+
+If the alias flag is not passed you will be prompted to enter the desired alias you want to sell.
+
+If the price flag is not passed you will be prompted to enter the price you would like to sell the alias. 
+
+### Transfer an Alias
+Tansfer an Alias to another user with the following command:
+``` speedway account transfer-alias ```
+
+If the alias flag is not passed you will be prompted to enter the desired alias you want to transfer.
+
+If the recipient flag is not passed you will be prompted to enter the wallet address of the user you would like to transfer the Alias to. 
+
+If the amount flag is not passed you will be promptd to enter an amount of Alias to be transferred (0-100).
+
+## Schemas
+Schemas are used to store the records of verifiable objects for a specific application. Schemas are used to create a developer's custom application protocols which can be asserted on in order to verify your application data. Schemas are ubiquitous by nature, meaning you're not limited to using the Schemas you created.
+
+### Creating a Schema
+To create a schema run the following command:
+```speedway schema create ```
+
+The Speedway CLI will attempt to auto-login to your account utilizing the address and keys stored in your keychain. *If the process fails, you will be prompted to enter your address and keys manually.* 
+
+Once logged in, you will be prompted for the label of the schema. The label is simply the title of the schema. e.g. "Team Schema"
+
+Secondly, you will be prompted to enter the label & fields of the schema. The field types consist of string, integers, booleans, and floats. The label and field type should be entered as the following ``` label:type ``` for multiple fields simply seperate them with a comma (no spaces) e.g. ``` name:string,age:int,isAdult:bool,personality:float ```
+
+Creating a Schema with flags:
+Speedway CLI also offers the ability to create a schema with a pre-written JSON file. 
+``` speeway schema create --file <PATH_TO_FILE> ```
+
+Example of a Schema file in JSON:
+![Schema Example](./schema_file.png)
+
+When creating a schema with a JSON file, the fields are instead entered as an integer. The integer represents the type of field. The types are as follows:
+```
+  LIST = 0
+  BOOL = 1
+  INT = 2
+  FLOAT = 3
+  STRING = 4
+  BYTES = 5
+  LINK = 6
+```
+
+*Note that if the file cannot be read you will be prompted to create the schema as explained previously.*
+
+### Querying a Schema
+To Get a Schema run the following command:
+``` speedway schema get [DID]```
+
+If the DID has not been passed with the command you will be prompted to provide the Schema DID. 
+
+## Objects
+Objects are data persisted within an off-chain storage network and given a content identifier (CID), which represents the object in the network. When uploading an object for storage, there must be validation against a schema in order to match in both property, name and type.
+### Building an Object
+To build an Object run the following command: 
+``` speedway object build ```
+
+Once logged in, you will be prompted to enter the Schema DID that will be associated with this new object. After the Schema has been resolved and printed out you are required to enter the associated Object & value for that Object.
+
+Upon the Object being built, the CLI will return an Object Reference which contains a CID (Content ID), DID (Digital Identifier) & a Label (Label for the Object).
+
+Example of Resolved Schema (using our previous "Team Schema" example):
+``` 
+Resolved Schema: {
+	"creator": "snr16u3ukzrlx96la25j7w52h2ev87282vhquuy3yk",
+	"label": "Team Schema",
+	"fields": [
+		{
+			"name": "name",
+			"field": 4
+		},
+		{
+			"name": "age",
+			"field": 2
+		},
+		{
+			"name": "isAdult",
+			"field": 1
+		},
+    {
+			"name": "personality",
+			"field": 3
+		}
+	]
+}
+```
+
+Building an Object with the did and label flags:
+``` speedway object build --did <DID_of_associated_schema> --label <Name_of_Object> ```
+
+Building an Object with the file flag:
+``` speedway object build --file <PATH_TO_FILE> ```
+
+### Querying an Object
+To Query an Object run the following command:
+``` speedway object query ```
+
+If the CID has not been passed with the command via a flag, you will be prompted to provide the Schema CID. 
+
+## Buckets
+Similar to Amazon S3 or DigitalOcean Spaces, developers can leverage our decentralized storage module for uploading either application specific assets or user specific assets. The Sonr bucket module is used to record the defined collections of Objects utilized by an Application on the Sonr Network. A bucket can be either public access, private access, or restricted access based on Developer configuration.
+### Creating a Bucket
+To create a Bucket run the following command: 
+``` speedway bucket create ```
+
+Upon being automatically logged in, 
+### Querying a Bucket
+To Query a Bucket run the following command:
+``` speedway bucket get ```
+
+If the DID has not been passed with the command, you will be prompted to provide the Bucket DID.
+
+## Conclusion
+After reading this guide, you should have a good understanding of how to use the Speedway CLI and will have created the initial components of an application on the Sonr Network. All that is needed now is to create an web or mobile application that utilizes the Schema, Objects and Buckets you have created.
