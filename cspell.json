@@ -2,12 +2,6 @@
     "version": "0.2",
     "language": "en",
     "words": [
-        "mkdirp",
-        "tsmerge",
-        "githubusercontent",
-        "streetsidesoftware",
-        "vsmarketplacebadge",
-        "visualstudio",
         "afyreihfrzall",
         "Amoako",
         "awbypnapm",
@@ -22,6 +16,7 @@
         "DIDURL",
         "dwqvphwfq",
         "ebvoq",
+        "githubusercontent",
         "Infima",
         "IPFS",
         "IPLD",
@@ -33,6 +28,7 @@
         "libp",
         "lxzxt",
         "mcaq",
+        "mkdirp",
         "Motoroid",
         "Netflicks",
         "Nukala",
@@ -40,6 +36,7 @@
         "posthog",
         "Prad",
         "Println",
+        "proto",
         "protobuf",
         "protoc",
         "protodocs",
@@ -48,15 +45,20 @@
         "secp",
         "Sonr",
         "sonrio",
+        "streetsidesoftware",
         "subcmd",
         "sublabel",
+        "textlint",
+        "tsmerge",
         "Unmarshal",
         "UNQTCBP",
+        "visualstudio",
+        "vsmarketplacebadge",
         "xcframework",
         "zllkmmn"
     ],
-    "flagWords": [
-
-    ],
-    "ignorePaths": [".vscode/"]
+    "flagWords": [],
+    "ignorePaths": [
+        ".vscode/"
+    ]
 }
