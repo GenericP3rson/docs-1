@@ -22,5 +22,3 @@ jobs:
       - uses: streetsidesoftware/cspell-action@v2
         with:
           config: cspell.json
-          
-
