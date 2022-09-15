@@ -4,6 +4,7 @@
     "words": [
         "afyreihfrzall",
         "Amoako",
+        "avto",
         "awbypnapm",
         "bafyreidmlmqnkxtpxs",
         "bawqlh",
@@ -27,6 +28,7 @@
         "lestrrat",
         "libp",
         "lxzxt",
+        "markdownlint",
         "mcaq",
         "mkdirp",
         "Motoroid",
@@ -59,6 +61,12 @@
     ],
     "flagWords": [],
     "ignorePaths": [
-        ".vscode/"
+        ".vscode/",
+        "package.json",
+        "package-lock.json",
+        "node_modules/",
+        "dist/",
+        "build/",
+        ".markdownlint.jsonc"
     ]
 }

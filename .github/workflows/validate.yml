@@ -15,6 +15,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Lint
         uses: avto-dev/markdown-lint@v1
+        with:
+          config: ".markdownlint.jsonc"
 
   spell-check:
     runs-on: ubuntu-latest
