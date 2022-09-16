@@ -25,6 +25,10 @@ flutter doctor
 If you run into installation issues, we suggest checking out [stack overflow](https://stackoverflow.com/search?q=flutter+install)!
 :::
 
+:::tip
+You can open this repo in GitPod to follow along with this tutorial.
+gitpod.io/#/github.com/ntindle/todo_app
+:::
 
 ## Creating a new project
 To create a new project, run the following command:
@@ -570,6 +574,66 @@ void _login() async {
     print(res);
   } else {
     print('Login failed');
+  }
+}
+```
+
+### Handling the response
+The `.login` function returns a `LoginResponse` object.
+If you look at the [documentation](https://motor.build/motor_flutter/LoginResponse-class.html) for the `LoginResponse` object, you'll see that it has a `success` property.
+If the login was successful, this will be `true`.
+If it was not successful, it will be `false`.
+We can use this to determine if the login was successful or not.
+```dart title="lib/login_page.dart"
+void _login() async {
+  print("logging in");
+  final res = await Get.find<MotorFlutter>()
+      .login(password: passwordController.text, address: addressController.text);
+  if (res != null) {
+    if (res.success) {
+      print('Login successful');
+    } else {
+      print('Login failed');
+    }
+  } else {
+    print('Login failed');
+  }
+}
+```
+Above, we print if it was successful, but you should probably do something more useful than that.
+Lets change the `print` to a `Get.snackbar` so the user can see the result of their login attempt.
+```dart title="lib/login_page.dart"
+void _login() async {
+  print("logging in");
+  final res = await Get.find<MotorFlutter>()
+      .login(password: passwordController.text, address: addressController.text);
+  if (res != null) {
+    if (res.success) {
+      Get.snackbar("Login", "Login successful");
+    } else {
+      Get.snackbar("Login", "Login failed");
+    }
+  } else {
+    Get.snackbar("Login", "Login failed");
+  }
+}
+```
+Now, when you login, you should see a snackbar at the bottom of the screen telling you if it was successful or not.
+Additonally, if the login was successful, we should push them towards the app we were supposed to be building this whole time.
+We can do this by calling `Get.offAll` and passing it the `MyHomePage` widget (Someone should probably rename `MyHomePage` to `HomePage`, but it won't be me.)
+```dart title="lib/login_page.dart"
+void _login() async {
+  final res = await Get.find<MotorFlutter>()
+      .login(password: passwordController.text, address: addressController.text);
+  if (res != null) {
+    if (res.success) {
+      Get.snackbar("Login", "Login successful");
+      Get.offAll(() => const MyHomePage(title: "Home"));
+    } else {
+      Get.snackbar("Login", "Login failed");
+    }
+  } else {
+    Get.snackbar("Login", "Login failed");
   }
 }
 ```
