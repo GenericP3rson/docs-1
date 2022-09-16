@@ -1,0 +1,30 @@
+name: Validate Docs
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  lint:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: markdownlint-cli
+        uses: nosborn/github-action-markdown-cli@v3.0.1
+        with:
+          files: .
+          config_file: .markdownlint.jsonc
+          ignore_files: .vscode/*, .github/*, .git/*, .vitebook/*
+
+  spell-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: streetsidesoftware/cspell-action@v2
+        with:
+          config: cspell.json
