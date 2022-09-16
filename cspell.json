@@ -34,6 +34,7 @@
         "Motoroid",
         "Netflicks",
         "nosborn",
+        "ntindle",
         "Nukala",
         "permissionless",
         "posthog",
@@ -52,6 +53,7 @@
         "subcmd",
         "sublabel",
         "textlint",
+        "Tindle",
         "tsmerge",
         "Unmarshal",
         "UNQTCBP",
@@ -59,7 +61,8 @@
         "vitebook",
         "vsmarketplacebadge",
         "xcframework",
-        "zllkmmn"
+        "zllkmmn",
+        "Podfile"
     ],
     "flagWords": [],
     "ignorePaths": [
