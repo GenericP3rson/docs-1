@@ -27,7 +27,14 @@ If you run into installation issues, we suggest checking out [stack overflow](ht
 
 :::tip
 You can open this repo in GitPod to follow along with this tutorial.
-gitpod.io/#/github.com/ntindle/todo_app
+
+<a href="https://gitpod.io/#/github.com/ntindle/todo_app">
+  <img
+    src="https://img.shields.io/badge/Buiild%20with-Gitpod-908a85?logo=gitpod"
+    alt="Contribute with Gitpod"
+  />
+</a>
+
 :::
 
 ## Creating a new project
@@ -64,7 +71,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  motor_flutter: ^0.3.4
+  motor_flutter: ^0.5.2
 ```
 
 > Note, your version may be different depending on when you read this. Check the [motor-flutter pub.dev page](https://pub.dev/packages/motor_flutter) for the latest version.
@@ -294,8 +301,8 @@ class _LoginPageState extends State<LoginPage> {
                 controller: addressController,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'SNR DID Address',
-                    hintText: 'Enter valid DID as did:snr:aksldjfenkjaof29oi'),
+                    labelText: 'SNR Address',
+                    hintText: 'Enter valid Address as snr1ioiaksldjfenkjaof29oi...'),
               ),
             ),
             Padding(
@@ -435,15 +442,15 @@ Widget build(BuildContext context) {
                       style: TextStyle(fontSize: 20))),
             ),
           ),
-          // 3. This is the text field for the SNR DID Address.
+          // 3. This is the text field for the SNR Address.
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: TextField(
               controller: addressController,
               decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'SNR DID Address',
-                  hintText: 'Enter valid DID as did:snr:aksldjfenkjaof29oi'),
+                  labelText: 'SNR Address',
+                  hintText: 'Enter valid Address as snr1ioiaksldjfenkjaof29oi...'),
             ),
           ),
           // 4. This is the text field for the password.
@@ -523,12 +530,21 @@ To do this, we will utilize the `showRegisterModal` that exists within the `moto
     // --
     onPressed: () async {
       Get.put(RegisterController());
-      final res =
-          await MotorFlutter.to.showRegisterModal(onError: (err) {
-        Get.snackbar("Error", err.toString());
-      });
+      final res = await MotorFlutter.to.showRegisterModal(
+        onKeysGenerated:
+            (deviceSharedKey, passwordSecuredKey) async {
+                GetStorage box = GetStorage();
+                // Store the keys in the box for later use
+                print("deviceSharedKey: $deviceSharedKey");
+                print("passwordSecuredKey: $passwordSecuredKey");
+                box.write("deviceSharedKey", deviceSharedKey);
+                box.write("passwordSecuredKey", passwordSecuredKey);
+            }, 
+        onError: (err) {
+            Get.snackbar("Error", err.toString());
+        });
       if (res != null) {
-        // Store the address in the controller???
+        GetStorage().write('address', res.address);
         Get.offAll(() => const LoginPage(title: "Login"));
       }
     },
@@ -538,25 +554,19 @@ To do this, we will utilize the `showRegisterModal` that exists within the `moto
   ![Register-Account](register-account.png)
 
   Once we register the user, we push them back to the login page.
-  However, the login page asks for their DID address and password.
+  However, the login page asks for their address and password.
 
-2. The user doesn't know their DID address yet, so we should pull it from memory and prefill it for them.
+2. The user doesn't know their address yet, so we should pull it from memory and prefill it for them.
   ```dart title="lib/login_page.dart"
   class _LoginPageState extends State<LoginPage> {
   TextEditingController addressController =
-      TextEditingController(text: Get.find<MotorFlutter>().address.toString());
+      TextEditingController(text: GetStorage().read("address"));
   TextEditingController passwordController = TextEditingController();
   //...
   }
   ```
-  Using `Get`, which we setup eariler, we cna find the `MotorFlutter` controller and pull the `didUrl` from it.
-  We then convert the `didUrl` to a string and pass it to the `addressController`'s `text` property.
-  This will prefill the address field for the user.
-  :::tip
-  If you wanted to be smarter about this, you can check if the didUrl returned is the default `did:snr:abc123` and only prefill if it's not.
-
-  That way if the user has already registered, it won't prefill the address field with nonsense they have to delete first.
-  :::
+GetStorage's `read` function will return the value stored in the box.
+If that value isn't there, it will return null and the TextController will be empty.
 
 ## Logging in
 Now that we have a login page and a way to create an account, we need to be able to log in.
@@ -564,76 +574,36 @@ We just have to fill out the `_login` function from earlier and we should be goo
 
 ### Calling the `.login` function on `MotorFlutter`
 The `MotorFlutter` controller has a `.login` function that we can call to log in.
-We just need to pass it the DID address and password.
+We just need to pass it the address and password.
 ```dart title="lib/login_page.dart"
 void _login() async {
-  print("logging in");
-  final res = await Get.find<MotorFlutter>()
-      .login(password: passwordController.text, address: addressController.text);
+  final res = await Get.find<MotorFlutter>().login(
+      password: passwordController.text,
+      address: addressController.text,
+      pskKey: GetStorage().read('passwordSecuredKey').cast<int>(),
+      dscKey: GetStorage().read('deviceSharedKey').cast<int>());
   if (res != null) {
-    print(res);
+    if (Get.find<MotorFlutter>().authorized.isTrue) {
+      Get.snackbar("Success", "Login successful");
+      Get.offAll(() => const MyHomePage(title: 'Flutter Demo Home Page'));
+    } else {
+      Get.snackbar('Error', 'Login failed');
+    }
   } else {
-    print('Login failed');
+    Get.snackbar("Login", "Login failed");
   }
 }
 ```
 
 ### Handling the response
-The `.login` function returns a `LoginResponse` object.
-If you look at the [documentation](https://motor.build/motor_flutter/LoginResponse-class.html) for the `LoginResponse` object, you'll see that it has a `success` property.
-If the login was successful, this will be `true`.
-If it was not successful, it will be `false`.
-We can use this to determine if the login was successful or not.
-```dart title="lib/login_page.dart"
-void _login() async {
-  print("logging in");
-  final res = await Get.find<MotorFlutter>()
-      .login(password: passwordController.text, address: addressController.text);
-  if (res != null) {
-    if (res.success) {
-      print('Login successful');
-    } else {
-      print('Login failed');
-    }
-  } else {
-    print('Login failed');
-  }
-}
-```
-Above, we print if it was successful, but you should probably do something more useful than that.
-Lets change the `print` to a `Get.snackbar` so the user can see the result of their login attempt.
-```dart title="lib/login_page.dart"
-void _login() async {
-  print("logging in");
-  final res = await Get.find<MotorFlutter>()
-      .login(password: passwordController.text, address: addressController.text);
-  if (res != null) {
-    if (res.success) {
-      Get.snackbar("Login", "Login successful");
-    } else {
-      Get.snackbar("Login", "Login failed");
-    }
-  } else {
-    Get.snackbar("Login", "Login failed");
-  }
-}
-```
-Now, when you login, you should see a snackbar at the bottom of the screen telling you if it was successful or not.
-Additonally, if the login was successful, we should push them towards the app we were supposed to be building this whole time.
-We can do this by calling `Get.offAll` and passing it the `MyHomePage` widget (Someone should probably rename `MyHomePage` to `HomePage`, but it won't be me.)
-```dart title="lib/login_page.dart"
-void _login() async {
-  final res = await Get.find<MotorFlutter>()
-      .login(password: passwordController.text, address: addressController.text);
-  if (res != null) {
-    if (res.success) {
-      Get.snackbar("Login", "Login successful");
-      Get.offAll(() => const MyHomePage(title: "Home"));
-    } else {
-      Get.snackbar("Login", "Login failed");
-    }
-  } else {
-    Get.snackbar("Login", "Login failed");
-  }
-}
-```
+The `.login` function returns a `LoginResponse?` object.
+The first thing we should do is check if the response is null.
+If it is, we can assume that the login failed.
+If it isn't null, we can check if the `authorized` property is true.
+That will let us know the login was successful.
+If it was successful, we should push the user to the home page so they can use the app.
+
+## Creating a home page
+Now that we have a login page, we need to create a home page.
+This is where we will be able to create To Do items and view them.
+
