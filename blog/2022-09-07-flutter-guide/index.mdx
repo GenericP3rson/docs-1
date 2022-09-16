@@ -60,7 +60,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  motor_flutter: ^0.2.2
+  motor_flutter: ^0.3.4
 ```
 
 > Note, your version may be different depending on when you read this. Check the [motor-flutter pub.dev page](https://pub.dev/packages/motor_flutter) for the latest version.
@@ -247,7 +247,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   void _handleLoginResponse(LoginResponse? resp) {
@@ -260,11 +260,9 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _login() {
-    setState(() {
       // TODO: Add login logic
-      print(nameController.text);
+      print(addressController.text);
       print(passwordController.text);
-    });
   }
 
   @override
@@ -291,11 +289,11 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
-                controller: nameController,
+                controller: addressController,
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'SNR Address',
-                    hintText: 'Enter valid wallet address as snr12kj....adsf'),
+                    labelText: 'SNR DID Address',
+                    hintText: 'Enter valid DID as did:snr:aksldjfenkjaof29oi'),
               ),
             ),
             Padding(
@@ -324,7 +322,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-
             Container(
               height: 50,
               width: 200,
@@ -362,7 +359,7 @@ flutter: aasdfasdf
 Before we can login though, we need to create an account.
 We will do this in the next section.
 
-Before that, let's walk through the code.
+First, let's walk through the code above.
 
 ### Login Page Widget
 
@@ -382,24 +379,14 @@ All this is doing is creating a page and attaching a state to it.
 
 ```dart title="lib/login_page.dart"
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  void _handleLoginResponse(LoginResponse? resp) {
-    if (resp != null && resp.success) {
-      // Login successful
-      print(resp);
-    } else {
-      // Login failed
-    }
-  }
-
   void _login() {
-    setState(() {
       // TODO: Add login logic
-      print(nameController.text);
+      print(addressController.text);
       print(passwordController.text);
-    });
+
   }
   //...
 }
@@ -409,31 +396,15 @@ This is where we store the state of the login page. We also defined a couple fun
 #### Login Function
 ```dart title="lib/login_page.dart"
   void _login() {
-    setState(() {
       // TODO: Add login logic
-      print(nameController.text);
+      print(addressController.text);
       print(passwordController.text);
-    });
   }
 ```
 This is the function that will be called when the user presses the login button.
 It will print the text in the text fields to the console.
 Later on, we will replace this with the actual login logic.
 
-#### _handleLoginResponse
-```dart title="lib/login_page.dart"
-  void _handleLoginResponse(LoginResponse? resp) {
-    if (resp != null && resp.success) {
-      // Login successful
-      print(resp);
-    } else {
-      // Login failed
-    }
-  }
-```
-This is a function that will be called when the login response is received from the motor.
-It's a placeholder for now as well.
-Your IDE may even warn you that it is unused.
 
 #### build
 ```dart title="lib/login_page.dart"
@@ -462,15 +433,15 @@ Widget build(BuildContext context) {
                       style: TextStyle(fontSize: 20))),
             ),
           ),
-          // 3. This is the text field for the SNR address.
+          // 3. This is the text field for the SNR DID Address.
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: TextField(
-              controller: nameController,
+              controller: addressController,
               decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'SNR Address',
-                  hintText: 'Enter wallet address as snr12kj...'),
+                  labelText: 'SNR DID Address',
+                  hintText: 'Enter valid DID as did:snr:aksldjfenkjaof29oi'),
             ),
           ),
           // 4. This is the text field for the password.
@@ -528,187 +499,79 @@ Widget build(BuildContext context) {
   );
 }
 ```
-This is the `build`` function.
+This is the `build` function.
 It's where we do the bulk of page layout. 
 I've broken it down into numbered sections to make it easier to follow.
 You should be able to match each of the sections to the image above.
 
 
 ## Creating an account
-Now that we have a login page, we can create an account.
-To do this, we will make a new page and add a button to navigate to it.
-
-1. Create a new file called `create_account_page.dart` in the `lib` folder.
-2. Change `lib/login_page.dart`'s `Create Account` button to navigate to the new page.
-
-  You will need to import the new page.
-  ```dart title="lib/login_page.dart"
-  import 'create_account_page.dart';
-  // ... the rest of the imports
-  ```
-  Then, add the `onPressed` actions to the button.
+Now that we have a login page, we need to be able to create an account.
+To do this, we will utilize the `showRegisterModal` that exists within the `motor_flutter` package.
+1. Change `lib/login_page.dart`'s `Create Account` button to navigate to the new page.
+  At the same time, we also add an `onPressed` function that will call `showRegisterModal` that will handle the registration for us.
+  You should still have the container around the `MaterialButton` widget.
   ```dart title="lib/login_page.dart"
   //...
-  Container(
-      height: 50,
-      width: 200,
-      margin: const EdgeInsets.only(top: 20),
-      child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.grey,
-          ),
-          // This next line is the only one changed.
-          onPressed: () => Get.to(const CreateAccountPage()),
-          child: const Text(
-          'Create Account',
-          style: TextStyle(color: Colors.white, fontSize: 18),
-          ),
-      ),
+  MaterialButton(
+    color: Colors.white,
+    child: const Text('Register Account'),
+    // --
+    // 2. Add the RegisterAccount ModalView on tap
+    // --
+    onPressed: () async {
+      Get.put(RegisterController());
+      final res =
+          await MotorFlutter.to.showRegisterModal(onError: (err) {
+        Get.snackbar("Error", err.toString());
+      });
+      if (res != null) {
+        // Store the address in the controller???
+        Get.offAll(() => const LoginPage(title: "Login"));
+      }
+    },
   ),
   ```
+  When you load this and click the button now, you should see the registration modal.
+  ![Register-Account](register-account.png)
 
-
-3. Add the following code to the `create_account_page.dart` file.:
-  ```dart title="lib/create_account_page.dart"
-  import 'package:flutter/material.dart';
-  import 'package:get/get.dart';
-  import 'package:motor_flutter/motor_flutter.dart';
-  import 'package:todo_app/login_page.dart';
+  Once we register the user, we push them back to the login page.
+  However, the login page asks for their DID address and password.
   
-  class CreateAccountPage extends StatefulWidget {
-    const CreateAccountPage({super.key, this.title = "Create Account"});
-  
-    final String title;
-  
-    @override
-    _CreateAccountPageState createState() => _CreateAccountPageState();
-  }
-  
-  class _CreateAccountPageState extends State<CreateAccountPage> {
-    TextEditingController passwordController = TextEditingController();
-  
-    // This is the function that will be called when the create account is processed on the motor.
-    void _handleCreateAccountResponse(CreateAccountResponse? response) {
-      if (response != null) {
-        print(response);
-        // TODO: Store the credentials in the secure storage
-        print(response.whoIs);
-        Get.off(const LoginPage(title: "Login here"));
-      }
-    }
-  
-    // The meat and potatos of the file is here.
-    // This uses Get to pull the motor from the context.
-    // Then, it calls the createAccount function, with a callback.
-    void _createAccount() {
-      setState(() {
-        MotorFlutter motor = Get.find<MotorFlutter>();
-        motor.createAccount(
-            passwordController.text, _handleCreateAccountResponse);
-      });
-    }
-  
-    @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(top: 60.0),
-                child: Center(
-                  child: Container(
-                      height: 150,
-                      padding: const EdgeInsets.only(
-                          left: 15.0, right: 15.0, top: 5, bottom: 0),
-                      child: const Text("Let's get creative!",
-                          style: TextStyle(fontSize: 20))),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 7.0),
-                child: Center(
-                  child: Container(
-                      width: 200,
-                      child: const Text("Please Enter a Password",
-                          style: TextStyle(fontSize: 15))),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 15.0, right: 15.0, top: 5, bottom: 0),
-                child: TextField(
-                  controller: passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                      hintText: 'Enter your secure password'),
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.all(25),
-                child: ElevatedButton(
-                  onPressed: _createAccount,
-                  child: const Text("Create Account"),
-                ),
-              )
-            ],
-          ),
-        ),
-      );
-    }
-  }
-  ```
-
-If you run this code, you should be able to create an account.
-```bash title="Terminal"
-2022/09/15 05:46:52 Generating wallet...
-2022/09/15 05:47:04 Wallet set to: snr1uxd54xmmuwfgr640hfa8ctmd23ae50hnhqgs33
-2022/09/15 05:47:04 Connection Endpoints:
-2022/09/15 05:47:04     REST: http://137.184.190.146:1317
-2022/09/15 05:47:04     RPC: 137.184.190.146:9090
-2022/09/15 05:47:04     Faucet: http://137.184.190.146:8000
-2022/09/15 05:47:04     IPFS: https://ipfs.sonr.ws
-2022/09/15 05:47:04     IPFS API: https://api.ipfs.sonr.ws
-2022/09/15 05:47:04 ✅ Motor Wallet initialized
-flutter: aesPsk: [33, 142, 96, 39, 56, 178, 206, 23, 176, 133, 41, 161, 254, 110, 176, 4, 208, 243, 30, 131, 76, 73, 50, 249, 13, 246, 45, 193, 77, 112, 183, 54]
-aesDsc: [115, 110, 114, 49, 117, 120, 100, 53, 52, 120, 109, 109, 117, 119, 102, 103, 114, 54, 52, 48, 104, 102, 97, 56, 99, 116, 109, 100, 50, 51, 97, 101, 53, 48, 104, 110, 104, 113, 103, 115, 51, 51]
-address: \^R*snr1uxd54xmmuwfgr640hfa8ctmd23ae50hnhqgs33\^Z�\^A
-\^\https://www.w3.org/ns/did/v1\^R/did:snr:1uxd54xmmuwfgr640hfa8ctmd23ae50hnhqgs33RU
-\^Uhttps://vault.sonr.ws\^R\^Evault\^Z5
-\^Ccid\^R.QmXtaRatqXEuY9624uqZ7CX5mVeVwzqhpqf8yXf9e<…>
-```
-However, it won't do anything with the credentials yet.
-We will fix that in the next section.
-First, we need to store some data that's returned from the motor.
-We will use `get_storage` to do this.
-#### Install `get_storage`
-1. Add `get_storage` to the `pubspec.yaml` file.
-  ```yaml title="pubspec.yaml"
-  dependencies:
-    flutter:
-      sdk: flutter
-    cupertino_icons: ^1.0.2
-    motor_flutter: ^0.2.2
-    get: ^4.6.5
-    get_storage: ^2.0.0
-  ```
-2. Run `flutter pub get` to install the new package.
-3. Import `get_storage` in all the dart files you've made so far.
-  ```dart title="main.dart"
-  import 'package:get_storage/get_storage.dart';
-  // ... the rest of the imports
-  ```
-  ```dart title="lib/create_account_page.dart"
-  import 'package:get_storage/get_storage.dart';
-  // ... the rest of the imports
-  ```
+2. The user doesn't know their DID address yet, so we should pull it from memory and prefill it for them.
   ```dart title="lib/login_page.dart"
-  import 'package:get_storage/get_storage.dart';
-  // ... the rest of the imports
+  class _LoginPageState extends State<LoginPage> {
+  TextEditingController addressController =
+      TextEditingController(text: Get.find<MotorFlutter>().address.toString());
+  TextEditingController passwordController = TextEditingController();
+  //...
+  }
   ```
+  Using `Get`, which we setup eariler, we cna find the `MotorFlutter` controller and pull the `didUrl` from it.
+  We then convert the `didUrl` to a string and pass it to the `addressController`'s `text` property.
+  This will prefill the address field for the user.
+  :::tip
+  If you wanted to be smarter about this, you can check if the didUrl returned is the default `did:snr:abc123` and only prefill if it's not.
+
+  That way if the user has already registered, it won't prefill the address field with nonsense they have to delete first.
+  :::
+
+## Logging in
+Now that we have a login page and a way to create an account, we need to be able to log in.
+We just have to fill out the `_login` function from earlier and we should be good to go.
+
+### Calling the `.login` function on `MotorFlutter`
+The `MotorFlutter` controller has a `.login` function that we can call to log in.
+We just need to pass it the DID address and password.
+```dart title="lib/login_page.dart"
+void _login() async {
+  print("logging in");
+  final res = await Get.find<MotorFlutter>()
+      .login(password: passwordController.text, address: addressController.text);
+  if (res != null) {
+    print(res);
+  } else {
+    print('Login failed');
+  }
+}
+```
