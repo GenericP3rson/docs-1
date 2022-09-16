@@ -1,6 +1,6 @@
 ---
 slug: first-app-in-motor-flutter
-title: Building an App with motor_flutter
+title: Building an App with flutter
 authors: [prad.snr/, ntindle.snr/]
 tags: [flutter, motor, cli]
 ---
@@ -22,7 +22,7 @@ You can check that Flutter successfully installed with Flutter doctor:
 flutter doctor
 ```
 
-If you get any errors, now is a great time to Google™️ for fixes.
+If you run into installation issues, we suggest checking out [stack overflow](https://stackoverflow.com/search?q=flutter+install)!
 :::
 
 
@@ -166,7 +166,7 @@ I prefer to use GetX to manage my state, so let's will make a few changes first.
   Future<void> main() async {
     // Don't worry about this line just yet
     WidgetsFlutterBinding.ensureInitialized();
-    // handle the motor intialization response
+    // handle the motor initialization response
     void handleMotorInitResponse(InitializeResponse? response) {
       if (response != null) {
         print('Motor initialized');
@@ -537,7 +537,7 @@ To do this, we will utilize the `showRegisterModal` that exists within the `moto
 
   Once we register the user, we push them back to the login page.
   However, the login page asks for their DID address and password.
-  
+
 2. The user doesn't know their DID address yet, so we should pull it from memory and prefill it for them.
   ```dart title="lib/login_page.dart"
   class _LoginPageState extends State<LoginPage> {
