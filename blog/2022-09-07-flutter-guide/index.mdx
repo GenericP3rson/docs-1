@@ -603,7 +603,19 @@ If it isn't null, we can check if the `authorized` property is true.
 That will let us know the login was successful.
 If it was successful, we should push the user to the home page so they can use the app.
 
+:::tip
+If you are going to make your own app based off this tutorial, heres where things get specific to the todo app.
+:::
+
 ## Creating a home page
 Now that we have a login page, we need to create a home page.
 This is where we will be able to create To Do items and view them.
 
+### Creating the data models
+We need to create a data model for our To Do items.
+There's a few ways to create the schemas we need. 
+1. [Speedway](https://github.com/sonr-io/speedway)
+2. Motor-CLI (See the other blog in the sidebar)
+3. Manually through MotorFlutter
+
+We will be using Speedway to create the schemas.
