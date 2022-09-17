@@ -91,3 +91,17 @@ Build the project (macOS & Linux)
 ```bash
 cd cmd/speedway-cli && chmod u+x build.sh && ./build.sh
 ```
+
+On some machines, a permissions error occurs:
+
+```bash
+mv: rename ./speedway to /usr/local/bin/speedway: Permission denied
+============
+Error: mv failed
+```
+
+In this case, use sudo to move the binary to /usr/local/bin:
+
+```bash
+sudo mv bin/speedway /usr/local/bin/ && rm -rf bin/
+```
