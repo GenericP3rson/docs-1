@@ -768,5 +768,21 @@ import 'package:todo_app/todo_page.dart';
 ### Creating a new document
 Now, we can add the `_addItem` function.
 ```dart title="lib/todo_page.dart"
-A
+void _addItem() async {
+  final String task = todoItemController.text;
+  final doc = Get.find<SchemaDefinition>(tag: 'taskSchema').newDocument();
+  doc.set<String>('task', task);
+  SchemaDocument? resp = await doc.save(task);
+  if (resp != null) {
+    Get.snackbar('Success', 'Item added');
+    print(resp.did);
+    todoItemController.clear();
+  } else {
+    Get.snackbar('Error', 'Item not added');
+  }
+}
 ```
+This function pulls the `SchemaDefinition` "taskSchema" from memory, creates a new document, sets the `task` field to the text in the text field, and then saves it.
+If the save is successful, we get a `SchemaDocument` back, which we can use to get the DID of the new document.
+We then clear the text field and show a success message.
+If the save fails, we show an error message and do not clear the text field.
