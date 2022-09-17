@@ -69,3 +69,25 @@ In this case, use sudo before `curl` and before `bash`:
 ```bash
 sudo curl http://i.sonrd.sh/sonr-io/speedway! | sudo bash
 ```
+
+## Building Speedway CLI from source
+
+Clone the repository
+
+```bash
+git clone https://github.com/sonr-io/speedway.git 
+```
+
+CD into the project directory
+
+```bash
+cd speedway
+```
+
+Build the project (macOS & Linux)
+
+*Note: During the build script you will be prompted to enter your Computer Password to move the binary to /usr/local/bin*
+
+```bash
+cd cmd/speedway-cli && chmod u+x build.sh && ./build.sh
+```
