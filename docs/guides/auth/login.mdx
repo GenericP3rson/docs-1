@@ -64,8 +64,8 @@ public void login(String password) throws Exception {
 
 Login creates a motor node from a LoginRequest
 :::note
-When performing a `Login` operation, an optional password. password can be provided but is not required.
-If a password is not provided, the operating system keychain will be provided.
+When performing a `Login` operation, an optional password can be provided but is not required.
+If a password is not provided, the operating system keychain will be used to load a `Private shared key` containing the passphrase.
 :::
 
 ```go
