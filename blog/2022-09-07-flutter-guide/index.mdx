@@ -71,7 +71,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  motor_flutter: ^0.5.2
+  motor_flutter: ^0.5.5
 ```
 
 > Note, your version may be different depending on when you read this. Check the [motor-flutter pub.dev page](https://pub.dev/packages/motor_flutter) for the latest version.
@@ -544,7 +544,7 @@ To do this, we will utilize the `showRegisterModal` that exists within the `moto
             Get.snackbar("Error", err.toString());
         });
       if (res != null) {
-        GetStorage().write('address', res.address);
+        GetStorage().write('address', res.owner);
         Get.offAll(() => const LoginPage(title: "Login"));
       }
     },
@@ -607,9 +607,11 @@ If it was successful, we should push the user to the home page so they can use t
 If you are going to make your own app based off this tutorial, heres where things get specific to the todo app.
 :::
 
-## Creating a home page
+## Preparing the home page
 Now that we have a login page, we need to create a home page.
 This is where we will be able to create To Do items and view them.
+This home page will be the main page of the app, and home to the list of To Do items.
+The first step of the page is defining what a To Do item is.
 
 ### Creating the data models
 We need to create a data model for our To Do items.
@@ -627,19 +629,18 @@ In `main.dart`, we will add a function called `_createSchema` that will create t
 //...
 Future<void> _createSchema() async {
   if (!Get.isRegistered<SchemaDefinition>(tag: "taskSchema")) {
-    CreateSchemaResponse? resp = await MotorFlutter.to.createSchema(
-        "task",
-        {'task': SchemaKind.STRING},
-        {'use': 'github.com/ntindle/todo_app'}, (schemaId) {
-      print("Schema created: $schemaId");
-      SchemaDefinition schema = SchemaDefinition(
-          did: schemaId?.whatIs.did,
-          creator: schemaId?.whatIs.creator,
-          label: schemaId?.whatIs.schema.label,
-          fields: schemaId?.whatIs.schema.fields);
-      Get.put(schema, tag: "taskSchema");
-    });
-    print(resp);
+    CreateSchemaResponse resp = await MotorFlutter.to.createSchema(
+        "task", {'task': SchemaKind.STRING},
+        metadata: {'use': 'github.com/ntindle/todo_app'});
+
+    print("Schema created: $resp");
+    SchemaDefinition schema = SchemaDefinition(
+        did: resp.whatIs.did,
+        creator: resp.whatIs.creator,
+        label: resp.whatIs.schema.label,
+        fields: resp.whatIs.schema.fields);
+    print("SchemaDefinition: $schema");
+    Get.put(schema, tag: "taskSchema");
   } else {
     print(
         "Schema already exists ${Get.find<SchemaDefinition>(tag: "taskSchema").did}");
@@ -667,9 +668,16 @@ void _incrementCounter() async {
   Get.to(const TodoPage(title: 'Add item'));
 }
 ```
-Now, when you click the <kbd>+</kbd> button, it will create/check the schema and push you to the todo page.
+:::tip
+Running into a weird bug you don't understand?
 
-### Adding a To Do item
+Try stopping the app and then uninstalling it from your simulator. Make sure to delete the app from your simulator, not just stop it.
+:::
+
+Now, when you click the <kbd>+</kbd> button, it will create/check the schema and push you to the todo page.
+Lets build that out now, and come back to the home page once we have some data to display.
+
+## Adding a To Do Page
 Now that we have a schema, we can create a new To Do item.
 We will be using the `newDocument` function from `MotorFlutter` to create a new document.
 Create a new file `todo_page.dart` and add the following code:
@@ -757,3 +765,24 @@ We can't forget to add the import to `main.dart`:
 ```dart title="lib/main.dart"
 import 'package:todo_app/todo_page.dart';
 ```
+### Creating a new document
+Now, we can add the `_addItem` function.
+```dart title="lib/todo_page.dart"
+void _addItem() async {
+  final String task = todoItemController.text;
+  final doc = Get.find<SchemaDefinition>(tag: 'taskSchema').newDocument();
+  doc.set<String>('task', task);
+  SchemaDocument? resp = await doc.save(task);
+  if (resp != null) {
+    Get.snackbar('Success', 'Item added');
+    print(resp.did);
+    todoItemController.clear();
+  } else {
+    Get.snackbar('Error', 'Item not added');
+  }
+}
+```
+This function pulls the `SchemaDefinition` "taskSchema" from memory, creates a new document, sets the `task` field to the text in the text field, and then saves it.
+If the save is successful, we get a `SchemaDocument` back, which we can use to get the DID of the new document.
+We then clear the text field and show a success message.
+If the save fails, we show an error message and do not clear the text field.
