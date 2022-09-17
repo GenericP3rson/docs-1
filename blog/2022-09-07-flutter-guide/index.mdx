@@ -1,20 +1,759 @@
 ---
 slug: first-app-in-motor-flutter
-title: Building an App with motor-flutter
-authors: [prad.snr/]
+title: Building an App with flutter
+authors: [prad.snr/, ntindle.snr/]
 tags: [flutter, motor, cli]
 ---
 
-Blog posts support [Docusaurus Markdown features](https://docusaurus.io/docs/markdown-features), such as [MDX](https://mdxjs.com/).
+Building apps has never been easier, especially today with tools like Flutter. 
+You can build apps in minutes.
+
+<!--{/* TODO: Add flavor to opening *} -->
+Let's Build a simple Flutter To Do app.
+
+To start, make sure you have [Flutter installed](https://docs.flutter.dev/get-started/install).
+If you're on MacOS, you can run `brew install --cask flutter` to install it.  
 
 :::tip
 
-Use the power of React to create interactive blog posts.
+You can check that Flutter successfully installed with Flutter doctor:
 
-```js
-<button onClick={() => alert("button clicked!")}>Click me!</button>
+```bash title="terminal"
+flutter doctor
 ```
 
-<button onClick={() => alert("button clicked!")}>Click me!</button>
+If you run into installation issues, we suggest checking out [stack overflow](https://stackoverflow.com/search?q=flutter+install)!
+:::
+
+:::tip
+You can open this repo in GitPod to follow along with this tutorial.
+
+<a href="https://gitpod.io/#/github.com/ntindle/todo_app">
+  <img
+    src="https://img.shields.io/badge/Buiild%20with-Gitpod-908a85?logo=gitpod"
+    alt="Contribute with Gitpod"
+  />
+</a>
 
 :::
+
+## Creating a new project
+To create a new project, run the following command:
+
+```bash title="terminal"
+flutter create todo_app
+```
+
+Now you can open the project in your favorite editor.
+Then, we will run it and make sure it works.
+
+```bash title="terminal"
+cd todo_app
+flutter run
+```
+
+You should see a screen like this:
+[![Flutter Demo](flutter-demo.png)](https://youtu.be/1gDhl4leEzA)
+> Note: this screenshot is from MacOS, yours may look different depending on the platform you're using.
+
+## Adding motor_flutter
+Next, we'll need to add the `motor_flutter` package to our project.
+To do this, we will use the `flutter pub add` command.
+
+```bash title="terminal"
+flutter pub add motor_flutter
+```
+
+Then, checking the `pubspec.yaml` file, you should see the following:
+
+```yaml title="pubspec.yaml"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  motor_flutter: ^0.5.2
+```
+
+> Note, your version may be different depending on when you read this. Check the [motor-flutter pub.dev page](https://pub.dev/packages/motor_flutter) for the latest version.
+
+To finish setting up on iOS, we need to make the following changes:
+
+1. Open `ios/Podfile` and add the following line to the top of the file:
+
+  ```ruby title="ios/Podfile"
+  platform :ios, '13.0'
+  ```
+  > Note: the 13.0 is the minimum version of iOS that motor_flutter supports.
+
+2. Remove the `use_frameworks!` line from the `Podfile`.
+
+  It should look like this:
+
+  ```ruby title="ios/Podfile"
+  # ...
+  target 'Runner' do
+    # Remove this next line
+    use_frameworks!
+    # ...
+  end
+  # ...
+  ```
+
+## Initializing motor_flutter
+Now that we have the package installed, we can initialize it.
+To do this, we want to import it in our `main.dart` file.
+
+```dart title="lib/main.dart"
+import 'package:motor_flutter/motor_flutter.dart';
+```
+
+Then, we can initialize it in the `main` function:
+
+```dart title="lib/main.dart"
+void main() {
+  void handleMotorInitResponse(InitializeResponse? response) {
+    if (response != null) {
+      print('Motor initialized');
+      print(response);
+    }
+  }
+  MotorFlutter().init(handleMotorInitResponse);
+  runApp(MyApp());
+}
+```
+You may notice it takes a while to load, keep reading, theres a problem with the above and it never will load.
+
+I prefer to use GetX to manage my state, so let's will make a few changes first.
+
+1. Add the `get` package to our project:
+
+  ```bash title="terminal"
+  flutter pub add get
+  ```
+
+2. Import the `get` package in our `main.dart` file:
+
+  ```dart title="lib/main.dart"
+  import 'package:get/get.dart';
+  ```
+
+3. Change the `MyApp` class to return `GetMaterialApp` instead of `MaterialApp`:
+
+  ```dart title="lib/main.dart"
+  class MyApp extends StatelessWidget {
+    const MyApp({super.key});
+  
+    // This widget is the root of your application.
+    @override
+    Widget build(BuildContext context) {
+    // This next line is the only change
+      return GetMaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // This is ...
+          primarySwatch: Colors.blue,
+        ),
+        home: const LoginPage(title: "Login here"),
+      );
+    }
+  }
+  ```
+
+### Fixing the initialization
+
+1. Change the `main` function to use `Future<void>` instead of `void`:
+  > This allows us to use `async` and `await` in the function.
+
+  ```dart title="lib/main.dart"
+  Future<void> main() async {
+   // ...
+    }
+  ```
+2. Initialize the `MotorFlutter` class in the `main` function using `Get`:
+
+  ```dart title="lib/main.dart"
+  Future<void> main() async {
+    // Don't worry about this line just yet
+    WidgetsFlutterBinding.ensureInitialized();
+    // handle the motor initialization response
+    void handleMotorInitResponse(InitializeResponse? response) {
+      if (response != null) {
+        print('Motor initialized');
+        print(response);
+      }
+    }
+  
+    MotorFlutter motor = // <-- this is the important line
+        Get.put(MotorFlutter(), permanent: true); // <-- this is the important line
+    motor.init(handleMotorInitResponse); // <-- this is the important line
+  
+    runApp(const MyApp()); // <-- Added const here to keep vs code happy
+  }
+  ```
+
+:::tip
+The `Get.put` function is used to initialize a class and make it available to the entire app.
+The `permanent: true` parameter makes sure the class is not destroyed when the widget is removed from the tree.
+:::
+
+You should see something along the lines of the following in your console:
+    
+```bash title="flutter log output"
+flutter: Motor initialized
+flutter: success: true
+```
+
+## Adding a login page
+Now that we have motor initialized, we can add a login page.
+To do this, we will make a new page and add a button to navigate to it.
+
+1. Create a new file called `login_page.dart` in the `lib` folder.
+1. Change `main.dart` to import the new file:
+
+  ```dart title="lib/main.dart"
+  import 'package:motor_flutter/motor_flutter.dart';
+  import 'login_page.dart'; // <-- this is the new line
+  ```
+1. Swap the home of the application to your login page.
+  ```dart title="lib/main.dart"
+    class MyApp extends StatelessWidget {
+    const MyApp({super.key});
+  
+    // This widget is the root of your application.
+    @override
+    Widget build(BuildContext context) {
+      return GetMaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // This is the theme ...
+          primarySwatch: Colors.blue,
+        ),
+        home: const LoginPage(title: 'Flutter Demo Home Page'), // <-- this is the changed line
+      );
+    }
+  }
+  ```
+1. Add the following UI Code to the file.
+
+:::tip
+This site has a neat feature where you can hover over the code block and a copy button will appear.
+
+A line wrap button also appears. It would be wise to use it here.
+:::
+
+```dart title="lib/login_page.dart"
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:motor_flutter/motor_flutter.dart';
+
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController addressController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  void _handleLoginResponse(LoginResponse? resp) {
+    if (resp != null && resp.success) {
+      // Login successful
+      print(resp);
+    } else {
+      // Login failed
+    }
+  }
+
+  void _login() {
+      // TODO: Add login logic
+      print(addressController.text);
+      print(passwordController.text);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text("Login Page"),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 60.0),
+              child: Center(
+                child: Container(
+                    width: 200,
+                    height: 150,
+                    padding: const EdgeInsets.all(25),
+                    child: const Text("Please Login",
+                        style: TextStyle(fontSize: 20))),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                controller: addressController,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'SNR Address',
+                    hintText: 'Enter valid Address as snr1ioiaksldjfenkjaof29oi...'),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 15.0, right: 15.0, top: 15, bottom: 0),
+              child: TextField(
+                controller: passwordController,
+                obscureText: true,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                    hintText: 'Enter your secure password'),
+              ),
+            ),
+            Container(
+              height: 50,
+              width: 250,
+              margin: const EdgeInsets.only(top: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+              child: ElevatedButton(
+                onPressed: () => _login(),
+                child: const Text(
+                  'Login',
+                  style: TextStyle(color: Colors.white, fontSize: 25),
+                ),
+              ),
+            ),
+            Container(
+              height: 50,
+              width: 200,
+              margin: const EdgeInsets.only(top: 20),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.grey,
+                ),
+                onPressed: () => Get.defaultDialog(
+                    title:
+                        "You pressed the Create Account button, but it's not implemented yet"),
+                child: const Text(
+                  'Create Account',
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+It should look something like this:
+![Login Page](login-page.png)
+
+
+If you attempt to use the Login button, you will see something like the following in the console:
+```bash title="flutter log output"
+flutter: adsfs
+flutter: aasdfasdf
+```
+
+Before we can login though, we need to create an account.
+We will do this in the next section.
+
+First, let's walk through the code above.
+
+### Login Page Widget
+
+```dart title="lib/login_page.dart"
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+```
+All this is doing is creating a page and attaching a state to it.
+
+### Login Page State
+
+```dart title="lib/login_page.dart"
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController addressController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  void _login() {
+      // TODO: Add login logic
+      print(addressController.text);
+      print(passwordController.text);
+
+  }
+  //...
+}
+```
+This is where we store the state of the login page. We also defined a couple functions to help us out. 
+
+#### Login Function
+```dart title="lib/login_page.dart"
+  void _login() {
+      // TODO: Add login logic
+      print(addressController.text);
+      print(passwordController.text);
+  }
+```
+This is the function that will be called when the user presses the login button.
+It will print the text in the text fields to the console.
+Later on, we will replace this with the actual login logic.
+
+
+#### build
+```dart title="lib/login_page.dart"
+@override
+Widget build(BuildContext context) {
+  // 1. This is the scaffold that will hold the page.
+  return Scaffold(
+    backgroundColor: Colors.white,
+    appBar: AppBar(
+      title: const Text("Login Page"),
+    ),
+    // 2. This is the body of the page. 
+    // All of our content will go within it.
+    // The visible item is the "Please Login" text.
+    body: SingleChildScrollView(
+      child: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(top: 60.0),
+            child: Center(
+              child: Container(
+                  width: 200,
+                  height: 150,
+                  padding: const EdgeInsets.all(25),
+                  child: const Text("Please Login",
+                      style: TextStyle(fontSize: 20))),
+            ),
+          ),
+          // 3. This is the text field for the SNR Address.
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: TextField(
+              controller: addressController,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'SNR Address',
+                  hintText: 'Enter valid Address as snr1ioiaksldjfenkjaof29oi...'),
+            ),
+          ),
+          // 4. This is the text field for the password.
+          Padding(
+            padding: const EdgeInsets.only(
+                left: 15.0, right: 15.0, top: 15, bottom: 0),
+            child: TextField(
+              controller: passwordController,
+              obscureText: true,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Password',
+                  hintText: 'Enter your secure password'),
+            ),
+          ),
+          // 5. This is the login button.
+          // This is where we call the _login function.
+          Container(
+            height: 50,
+            width: 250,
+            margin: const EdgeInsets.only(top: 20),
+            decoration: BoxDecoration(
+                color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+            child: ElevatedButton(
+              onPressed: () => _login(),
+              child: const Text(
+                'Login',
+                style: TextStyle(color: Colors.white, fontSize: 25),
+              ),
+            ),
+          ),
+          // 6. This is the create account button. 
+          // The Create Account button has a dialog attached to it. 
+          // This is just a placeholder for now.
+          Container(
+            height: 50,
+            width: 200,
+            margin: const EdgeInsets.only(top: 20),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey,
+              ),
+              onPressed: () => Get.defaultDialog(
+                  title:
+                      "You pressed the Create Account button, but it's not implemented yet"),
+              child: const Text(
+                'Create Account',
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+```
+This is the `build` function.
+It's where we do the bulk of page layout. 
+I've broken it down into numbered sections to make it easier to follow.
+You should be able to match each of the sections to the image above.
+
+
+## Creating an account
+Now that we have a login page, we need to be able to create an account.
+To do this, we will utilize the `showRegisterModal` that exists within the `motor_flutter` package.
+1. Change `lib/login_page.dart`'s `Create Account` button to navigate to the new page.
+  At the same time, we also add an `onPressed` function that will call `showRegisterModal` that will handle the registration for us.
+  You should still have the container around the `MaterialButton` widget.
+  ```dart title="lib/login_page.dart"
+  //...
+  MaterialButton(
+    color: Colors.white,
+    child: const Text('Register Account'),
+    // --
+    // 2. Add the RegisterAccount ModalView on tap
+    // --
+    onPressed: () async {
+      Get.put(RegisterController());
+      final res = await MotorFlutter.to.showRegisterModal(
+        onKeysGenerated:
+            (deviceSharedKey, passwordSecuredKey) async {
+                GetStorage box = GetStorage();
+                // Store the keys in the box for later use
+                print("deviceSharedKey: $deviceSharedKey");
+                print("passwordSecuredKey: $passwordSecuredKey");
+                box.write("deviceSharedKey", deviceSharedKey);
+                box.write("passwordSecuredKey", passwordSecuredKey);
+            }, 
+        onError: (err) {
+            Get.snackbar("Error", err.toString());
+        });
+      if (res != null) {
+        GetStorage().write('address', res.address);
+        Get.offAll(() => const LoginPage(title: "Login"));
+      }
+    },
+  ),
+  ```
+  When you load this and click the button now, you should see the registration modal.
+  ![Register-Account](register-account.png)
+
+  Once we register the user, we push them back to the login page.
+  However, the login page asks for their address and password.
+
+2. The user doesn't know their address yet, so we should pull it from memory and prefill it for them.
+  ```dart title="lib/login_page.dart"
+  class _LoginPageState extends State<LoginPage> {
+  TextEditingController addressController =
+      TextEditingController(text: GetStorage().read("address"));
+  TextEditingController passwordController = TextEditingController();
+  //...
+  }
+  ```
+GetStorage's `read` function will return the value stored in the box.
+If that value isn't there, it will return null and the TextController will be empty.
+
+## Logging in
+Now that we have a login page and a way to create an account, we need to be able to log in.
+We just have to fill out the `_login` function from earlier and we should be good to go.
+
+### Calling the `.login` function on `MotorFlutter`
+The `MotorFlutter` controller has a `.login` function that we can call to log in.
+We just need to pass it the address and password.
+```dart title="lib/login_page.dart"
+void _login() async {
+  final res = await Get.find<MotorFlutter>().login(
+      password: passwordController.text,
+      address: addressController.text,
+      pskKey: GetStorage().read('passwordSecuredKey').cast<int>(),
+      dscKey: GetStorage().read('deviceSharedKey').cast<int>());
+  if (res != null) {
+    if (Get.find<MotorFlutter>().authorized.isTrue) {
+      Get.snackbar("Success", "Login successful");
+      Get.offAll(() => const MyHomePage(title: 'Flutter Demo Home Page'));
+    } else {
+      Get.snackbar('Error', 'Login failed');
+    }
+  } else {
+    Get.snackbar("Login", "Login failed");
+  }
+}
+```
+
+### Handling the response
+The `.login` function returns a `LoginResponse?` object.
+The first thing we should do is check if the response is null.
+If it is, we can assume that the login failed.
+If it isn't null, we can check if the `authorized` property is true.
+That will let us know the login was successful.
+If it was successful, we should push the user to the home page so they can use the app.
+
+:::tip
+If you are going to make your own app based off this tutorial, heres where things get specific to the todo app.
+:::
+
+## Creating a home page
+Now that we have a login page, we need to create a home page.
+This is where we will be able to create To Do items and view them.
+
+### Creating the data models
+We need to create a data model for our To Do items.
+There's a few ways to create the schemas we need. 
+1. [Speedway](https://github.com/sonr-io/speedway)
+2. Speedway-CLI (See the other blog in the sidebar)
+3. Manually through MotorFlutter
+
+We will be using the third option.
+I would not recommend this in production, as it is very easy to make dupliate schemas.
+
+We are going to trigger it on the home page.
+In `main.dart`, we will add a function called `_createSchema` that will create the schema for us.
+```dart title="lib/main.dart"
+//...
+Future<void> _createSchema() async {
+  if (!Get.isRegistered<SchemaDefinition>(tag: "taskSchema")) {
+    CreateSchemaResponse? resp = await MotorFlutter.to.createSchema(
+        "task",
+        {'task': SchemaKind.STRING},
+        {'use': 'github.com/ntindle/todo_app'}, (schemaId) {
+      print("Schema created: $schemaId");
+      SchemaDefinition schema = SchemaDefinition(
+          did: schemaId?.whatIs.did,
+          creator: schemaId?.whatIs.creator,
+          label: schemaId?.whatIs.schema.label,
+          fields: schemaId?.whatIs.schema.fields);
+      Get.put(schema, tag: "taskSchema");
+    });
+    print(resp);
+  } else {
+    print(
+        "Schema already exists ${Get.find<SchemaDefinition>(tag: "taskSchema").did}");
+  }
+}
+```
+This function will check if the schema is already registered and stored in memory, and if not, it will create it.
+Do not do this in production, as it is very easy to create duplicate schemas.
+
+You can see above our data model is very simple.
+It only has one field, `task`, which is a string.
+We also have a label, also named `task`, and a metadata field `use` that we stored the name of the repo in.
+You can add any metadata you want to your schemas.
+
+When you create a schema, you can add a callback that is triggered when the schema is created.
+This is where we actually register the `SchemaDefinition` object in memory.
+`SchemaDefinitions` are used to create new instances of the schema using `newDocument`.
+
+We want to call our schema creator from our home page.
+I'm going to reuse the existing <kbd>+</kbd> button already on the screen to do so.
+Replace the `_incrementCounter` function with the following:
+```dart title="lib/main.dart"
+void _incrementCounter() async {
+  await _createSchema();
+  Get.to(const TodoPage(title: 'Add item'));
+}
+```
+Now, when you click the <kbd>+</kbd> button, it will create/check the schema and push you to the todo page.
+
+### Adding a To Do item
+Now that we have a schema, we can create a new To Do item.
+We will be using the `newDocument` function from `MotorFlutter` to create a new document.
+Create a new file `todo_page.dart` and add the following code:
+```dart title="lib/todo_page.dart"
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
+import 'package:motor_flutter/motor_flutter.dart';
+import 'package:todo_app/main.dart';
+
+class TodoPage extends StatefulWidget {
+  const TodoPage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<TodoPage> createState() => _TodoPageState();
+}
+
+class _TodoPageState extends State<TodoPage> {
+  GetStorage box = GetStorage();
+  TextEditingController todoItemController = TextEditingController();
+
+  // Create your new documents here
+  void _addItem() {}
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text("Add item"),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 60.0),
+              child: Center(
+                child: Container(
+                    width: 200,
+                    height: 150,
+                    padding: const EdgeInsets.all(25),
+                    child: const Text("Add a todo item",
+                        style: TextStyle(fontSize: 20))),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                controller: todoItemController,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Your Todo Item',
+                    hintText: 'Enter your todo item'),
+              ),
+            ),
+            Container(
+              height: 50,
+              width: 250,
+              margin: const EdgeInsets.only(top: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+              child: ElevatedButton(
+                onPressed: () => _addItem(),
+                child: const Text(
+                  'Add',
+                  style: TextStyle(color: Colors.white, fontSize: 25),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+This page should be pretty familiar to you by now.
+Its a simple page with a text field and a button to add a new item.
+
+We can't forget to add the import to `main.dart`:
+```dart title="lib/main.dart"
+import 'package:todo_app/todo_page.dart';
+```
