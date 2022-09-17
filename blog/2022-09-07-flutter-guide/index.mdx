@@ -615,7 +615,45 @@ This is where we will be able to create To Do items and view them.
 We need to create a data model for our To Do items.
 There's a few ways to create the schemas we need. 
 1. [Speedway](https://github.com/sonr-io/speedway)
-2. Motor-CLI (See the other blog in the sidebar)
+2. Speedway-CLI (See the other blog in the sidebar)
 3. Manually through MotorFlutter
 
-We will be using Speedway to create the schemas.
+We will be using the third option.
+I would not recommend this in production, as it is very easy to make dupliate schemas.
+
+We are going to trigger it on the home page.
+In `main.dart`, we will add a function called `_createSchema` that will create the schema for us.
+```dart title="lib/main.dart"
+//...
+Future<void> _createSchema() async {
+  if (!Get.isRegistered<SchemaDefinition>(tag: "taskSchema")) {
+    CreateSchemaResponse? resp = await MotorFlutter.to.createSchema(
+        "task",
+        {'task': SchemaKind.STRING},
+        {'use': 'github.com/ntindle/todo_app'}, (schemaId) {
+      print("Schema created: $schemaId");
+      SchemaDefinition schema = SchemaDefinition(
+          did: schemaId?.whatIs.did,
+          creator: schemaId?.whatIs.creator,
+          label: schemaId?.whatIs.schema.label,
+          fields: schemaId?.whatIs.schema.fields);
+      Get.put(schema, tag: "taskSchema");
+    });
+    print(resp);
+  } else {
+    print(
+        "Schema already exists ${Get.find<SchemaDefinition>(tag: "taskSchema").did}");
+  }
+}
+```
+This function will check if the schema is already registered and stored in memory, and if not, it will create it.
+Do not do this in production, as it is very easy to create duplicate schemas.
+
+You can see above our data model is very simple.
+It only has one field, `task`, which is a string.
+We also have a label, also named `task`, and a metadata field `use` that we stored the name of the repo in.
+You can add any metadata you want to your schemas.
+
+When you create a schema, you can add a callback that is triggered when the schema is created.
+This is where we actually register the `SchemaDefinition` object in memory.
+`SchemaDefinitions` are used to create new instances of the schema using `newDocument`.
