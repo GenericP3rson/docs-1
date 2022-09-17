@@ -71,7 +71,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  motor_flutter: ^0.5.2
+  motor_flutter: ^0.5.5
 ```
 
 > Note, your version may be different depending on when you read this. Check the [motor-flutter pub.dev page](https://pub.dev/packages/motor_flutter) for the latest version.
@@ -544,7 +544,7 @@ To do this, we will utilize the `showRegisterModal` that exists within the `moto
             Get.snackbar("Error", err.toString());
         });
       if (res != null) {
-        GetStorage().write('address', res.address);
+        GetStorage().write('address', res.owner);
         Get.offAll(() => const LoginPage(title: "Login"));
       }
     },
@@ -629,19 +629,18 @@ In `main.dart`, we will add a function called `_createSchema` that will create t
 //...
 Future<void> _createSchema() async {
   if (!Get.isRegistered<SchemaDefinition>(tag: "taskSchema")) {
-    CreateSchemaResponse? resp = await MotorFlutter.to.createSchema(
-        "task",
-        {'task': SchemaKind.STRING},
-        {'use': 'github.com/ntindle/todo_app'}, (schemaId) {
-      print("Schema created: $schemaId");
-      SchemaDefinition schema = SchemaDefinition(
-          did: schemaId?.whatIs.did,
-          creator: schemaId?.whatIs.creator,
-          label: schemaId?.whatIs.schema.label,
-          fields: schemaId?.whatIs.schema.fields);
-      Get.put(schema, tag: "taskSchema");
-    });
-    print(resp);
+    CreateSchemaResponse resp = await MotorFlutter.to.createSchema(
+        "task", {'task': SchemaKind.STRING},
+        metadata: {'use': 'github.com/ntindle/todo_app'});
+
+    print("Schema created: $resp");
+    SchemaDefinition schema = SchemaDefinition(
+        did: resp.whatIs.did,
+        creator: resp.whatIs.creator,
+        label: resp.whatIs.schema.label,
+        fields: resp.whatIs.schema.fields);
+    print("SchemaDefinition: $schema");
+    Get.put(schema, tag: "taskSchema");
   } else {
     print(
         "Schema already exists ${Get.find<SchemaDefinition>(tag: "taskSchema").did}");
@@ -669,6 +668,12 @@ void _incrementCounter() async {
   Get.to(const TodoPage(title: 'Add item'));
 }
 ```
+:::tip
+Running into a weird bug you don't understand?
+
+Try stopping the app and then uninstalling it from your simulator. Make sure to delete the app from your simulator, not just stop it.
+:::
+
 Now, when you click the <kbd>+</kbd> button, it will create/check the schema and push you to the todo page.
 Lets build that out now, and come back to the home page once we have some data to display.
 
