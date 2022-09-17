@@ -607,9 +607,11 @@ If it was successful, we should push the user to the home page so they can use t
 If you are going to make your own app based off this tutorial, heres where things get specific to the todo app.
 :::
 
-## Creating a home page
+## Preparing the home page
 Now that we have a login page, we need to create a home page.
 This is where we will be able to create To Do items and view them.
+This home page will be the main page of the app, and home to the list of To Do items.
+The first step of the page is defining what a To Do item is.
 
 ### Creating the data models
 We need to create a data model for our To Do items.
@@ -668,8 +670,9 @@ void _incrementCounter() async {
 }
 ```
 Now, when you click the <kbd>+</kbd> button, it will create/check the schema and push you to the todo page.
+Lets build that out now, and come back to the home page once we have some data to display.
 
-### Adding a To Do item
+## Adding a To Do Page
 Now that we have a schema, we can create a new To Do item.
 We will be using the `newDocument` function from `MotorFlutter` to create a new document.
 Create a new file `todo_page.dart` and add the following code:
@@ -757,7 +760,7 @@ We can't forget to add the import to `main.dart`:
 ```dart title="lib/main.dart"
 import 'package:todo_app/todo_page.dart';
 ```
-## Creating a new document
+### Creating a new document
 Now, we can add the `_addItem` function.
 ```dart title="lib/todo_page.dart"
 A
