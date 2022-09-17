@@ -657,3 +657,103 @@ You can add any metadata you want to your schemas.
 When you create a schema, you can add a callback that is triggered when the schema is created.
 This is where we actually register the `SchemaDefinition` object in memory.
 `SchemaDefinitions` are used to create new instances of the schema using `newDocument`.
+
+We want to call our schema creator from our home page.
+I'm going to reuse the existing <kbd>+</kbd> button already on the screen to do so.
+Replace the `_incrementCounter` function with the following:
+```dart title="lib/main.dart"
+void _incrementCounter() async {
+  await _createSchema();
+  Get.to(const TodoPage(title: 'Add item'));
+}
+```
+Now, when you click the <kbd>+</kbd> button, it will create/check the schema and push you to the todo page.
+
+### Adding a To Do item
+Now that we have a schema, we can create a new To Do item.
+We will be using the `newDocument` function from `MotorFlutter` to create a new document.
+Create a new file `todo_page.dart` and add the following code:
+```dart title="lib/todo_page.dart"
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
+import 'package:motor_flutter/motor_flutter.dart';
+import 'package:todo_app/main.dart';
+
+class TodoPage extends StatefulWidget {
+  const TodoPage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<TodoPage> createState() => _TodoPageState();
+}
+
+class _TodoPageState extends State<TodoPage> {
+  GetStorage box = GetStorage();
+  TextEditingController todoItemController = TextEditingController();
+
+  // Create your new documents here
+  void _addItem() {}
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: const Text("Add item"),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 60.0),
+              child: Center(
+                child: Container(
+                    width: 200,
+                    height: 150,
+                    padding: const EdgeInsets.all(25),
+                    child: const Text("Add a todo item",
+                        style: TextStyle(fontSize: 20))),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: TextField(
+                controller: todoItemController,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Your Todo Item',
+                    hintText: 'Enter your todo item'),
+              ),
+            ),
+            Container(
+              height: 50,
+              width: 250,
+              margin: const EdgeInsets.only(top: 20),
+              decoration: BoxDecoration(
+                  color: Colors.blue, borderRadius: BorderRadius.circular(20)),
+              child: ElevatedButton(
+                onPressed: () => _addItem(),
+                child: const Text(
+                  'Add',
+                  style: TextStyle(color: Colors.white, fontSize: 25),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+This page should be pretty familiar to you by now.
+Its a simple page with a text field and a button to add a new item.
+
+We can't forget to add the import to `main.dart`:
+```dart title="lib/main.dart"
+import 'package:todo_app/todo_page.dart';
+```
