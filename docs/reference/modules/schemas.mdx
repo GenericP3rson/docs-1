@@ -16,7 +16,7 @@ Schemas are implemented on the `IPLD Object Model` which allows developers to re
 
 ## Concepts
 
-### What Is records
+### WhatIs records
 
 A `WhatIs` record holds an instance of `SchemaDefinition`. This document holds all metadata and relationships for the `Schema` created
 
@@ -90,7 +90,7 @@ Currently a schema cannot be modified once it has been created. To Modify A Sche
 
 ### Schema Definition
 
-A `Schema Definition` is used to describe an application Schema that will be stored for later assertion against. The provided `Schema Definition` is then used to Derive both the `WhatIs` that will be recorded on chain. Schemas comply to the `IPLD Object` specification.
+A `SchemaDefinition` is used to describe an application Schema that will be stored for later assertion against. The provided `Schema Definition` is then used to derive the `WhatIs` that will be recorded on chain. Schemas comply to the `IPLD Object` specification.
 
 ```go
 message SchemaDefinition{
@@ -114,7 +114,7 @@ message SchemaDefinition{
 
 ### Schema Kind Definition
 
-Schema's declare the intended type of a property though IPLD Type `KIND` Each `KIND` is mapped to the name of a property. Each property defined must map to one of the given `IPLD` `KINDS`
+Schema's declare the intended type of a property though IPLD Type `KIND`. Each `KIND` is mapped to the name of a property. Each property defined must map to one of the given `IPLD KINDS`
 
 Fields contained within the `SchemaDefinition` are described below:
 Each field represents a `IPLD` Kind. More information can be found [here](https://ipld.io/docs/schemas/features/typekinds/).
