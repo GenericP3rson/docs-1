@@ -63,14 +63,17 @@ public void login(String password) throws Exception {
   <TabItem value="go" label="🐹 Go">
 
 Login creates a motor node from a LoginRequest
+:::note
+When performing a `Login` operation, an optional password can be provided but is not required.
+If a password is not provided, the operating system keychain will be used to load a `Private shared key` containing the passphrase.
+:::
 
 ```go
 func Login(instance *motorNodeImpl, pskKey []byte, acctPassword string, acctAddress string) {
   req := mt.LoginRequest{
           Did: acctAddress,
-          Password: acctPassword, 
-          AesPskKey: pskKey,
-    }
+          Password: acctPassword,
+  }
 
   response, err := instance.Login(req)
   if err != nil {

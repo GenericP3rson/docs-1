@@ -61,28 +61,14 @@ public void createAccount(String password) throws Exception {
   </TabItem>
   <TabItem value="go" label="🐹 Go">
 
-:::note
-
-The Golang SDK target requires you to to generate an `aes` key along with the provided pass phrase from the user.
-Functionality for key generation can be found within the `Sonr` package `sonr/pkg/crypto/wallet`
-
-:::
-
 ```go
 func Register(instance *motorNodeImpl, passPhrase string) {
-  // create a new key for the account
-  key, err := mpc.NewAesKey()
-    if err != nil {
-      // handle error
-    }
-    // Note: the generate key should be stored to be used for Authenticaiton.
-    // it is recommended to use the platforms `keyring`
     req := mt.CreateAccountRequest{
       Password:  passPhrase,
-      AesDscKey: aesKey,
     }
 
     res, err := instance.CreateAccount(req)
+    
     // if the account is created successfully, you may now interact with the `motor` instance
     m.GetAddress()
 }
