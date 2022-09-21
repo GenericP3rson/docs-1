@@ -84,12 +84,23 @@ CD into the project directory
 cd speedway
 ```
 
-Build the project (macOS & Linux)
+First Install the Node dependencies (for the Web UI) 
+```
+npm install
+```
+
+Then build the Web UI
+
+```bash
+npm run build:prod
+```
+
+Build the binary (macOS & Linux)
 
 *Note: During the build script you will be prompted to enter your Computer Password to move the binary to /usr/local/bin*
 
 ```bash
-cd cmd/speedway-cli && chmod u+x build.sh && ./build.sh
+cd cmd/speedway-cli && sudo ./build.sh
 ```
 
 On some machines, a permissions error occurs:
