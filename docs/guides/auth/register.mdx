@@ -86,19 +86,15 @@ Future<void> main() async {
 void createAccount() async {
     MotorFlutter motor = Get.find<MotorFlutter>();
     WhoIs? res = await motor.createAccount(
-      passwordController.text,
+      "A-Really_Strong_Password-123456",
       onKeysGenerated: (deviceSharedKey, passwordSecuredKey) async {
-        GetStorage box = GetStorage();
         print("deviceSharedKey: $deviceSharedKey");
         print("passwordSecuredKey: $passwordSecuredKey");
-        box.write("deviceSharedKey", deviceSharedKey);
-        box.write("passwordSecuredKey", passwordSecuredKey);
       },
     );
     if (res != null) {
-      print("WhatIs: $res");
-      GetStorage box = GetStorage();
-      box.write('address', res.owner);
+      print("WhoIs: $res");
+      // This doesn't automatically login the user, you need to call `login` to do that
       Get.offAll(() => const LoginPage(title: "Login"));
     }
 }
@@ -126,8 +122,6 @@ Container(
           onKeysGenerated:
               (deviceSharedKey, passwordSecuredKey) async {
         GetStorage box = GetStorage();
-        print("deviceSharedKey: $deviceSharedKey");
-        print("passwordSecuredKey: $passwordSecuredKey");
         box.write("deviceSharedKey", deviceSharedKey);
         box.write("passwordSecuredKey", passwordSecuredKey);
       }, onError: (err) {

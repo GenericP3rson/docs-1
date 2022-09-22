@@ -41,25 +41,6 @@ speedway account create
 You will be prompted to enter a password. This password will be used to encrypt your vault.
 
   </TabItem>
-
-  <TabItem value="java" label="🤖 Android">
-
-```java
-public void login(String password) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    LoginResponse response;
-    if (password.isEmpty()) {
-      response = mtr.login();
-    } else {
-      response = mtr.login(password);
-    }
-    System.out.println(mtr.getAddress);
-}
-```
-
-**Output:** Prints the blockchain address of the newly created account
-
-  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
 Login creates a motor node from a LoginRequest
@@ -89,14 +70,31 @@ func Login(instance *motorNodeImpl, pskKey []byte, acctPassword string, acctAddr
   <TabItem value="flutter" label="🐦 Flutter">
 
 ```dart
-Future<LoginResponse?> login(String did, String password, List<int> aesDscKey, List<int> aesPskKey) async {
-  return await MotorFlutterPlatform.instance.login(LoginRequest(
-    password: password,
-    did: did,
-    aesDscKey: aesDscKey,
-    aesPskKey: aesPskKey,
-  ));
+Future<LoginResponse?> login(String pasword, String address, List<int> aesDscKey, List<int> aesPskKey) async {
+  return await Get.find<MotorFlutter>().login(
+   password: password,
+   address: address,
+   pskKey: aesPskKey,
+   dscKey: aesDscKey,
+  );
 }
+final res = await login("A-Really_Strong_Password-123456", 
+          "snr1t9l8zefs3l2lc7avsm04gzm7pquws8avj368v7", 
+          [191, 58, 248, 160, 134, 191, 122, 85, 149, 29, 31, 60, 35, 234, 149, 91, 55, 217, 2, 157, 140, 230, 46, 166, 44, 48, 198, 8, 238, 155, 79, 60],
+          [226, 13, 9, 231, 68, 41, 177, 107, 96, 1, 142, 101, 73, 218, 169, 154, 158, 158, 188, 81, 63, 95, 48, 74, 137, 141, 60, 168, 3, 182, 42, 144]
+        )
+if (res != null) {
+  if (Get.find<MotorFlutter>().authorized.isTrue) {
+      Get.snackbar("Success", "Login successful");
+      Get.offAll(() => const MyHomePage(title: 'Flutter Demo Home Page'));
+    } else {
+      Get.snackbar('Error', 'Login failed');
+    }
+}
+else{
+  Get.snackbar('Error', 'Login failed');
+}
+
 ```
 
   </TabItem>
