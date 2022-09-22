@@ -16,19 +16,20 @@ import {
   CreateBucketTerminalView,
 } from "@site/src/components/Terminal";
 
-<SupportedClients list={["a", "g", "f", "c"]} />
+<SupportedClients list={["g", "f", "c"]} />
 
-Under the hood, Sonr uses an MPC-based wallet to secure your account and authenticate
-you. You can create and login to these accounts easily through motor. For more information
-check out [TODO](#).
+Under the hood, Sonr uses an MPC-based wallet to secure your account and authenticate you.
+You can create and login to these accounts easily through motor.
 
 :::tip
 
-Creating an account bootstraps the Motor `libp2p` node and generates the `MPC Wallet`. This results in the `MotorNode` or `Motoroid` instance being authenticated for the lifetime of the session.
+Creating an account bootstraps the Motor `libp2p` node and generates the `MPC Wallet`.
+This results in the `MotorNode` or `Motoroid` instance being authenticated for the lifetime of the session.
 
 :::
 
-To create an account, you simply need to provide a recovery password to the create account method. Account creation can take up to three minutes, so entertain your users :).
+To create an account, you simply need to provide a recovery password to the create account method.
+Account creation can take up to three minutes, so entertain your users :).
 
 <Tabs groupId="platform">
     <TabItem value="cli" label="🖥️ CLI" default>
@@ -43,20 +44,6 @@ speedway account create
 </div>
 
 You will be prompted to enter a password. This password will be used to encrypt your vault.
-
-  </TabItem>
-
-  <TabItem value="java" label="🤖 Android">
-
-```java
-public void createAccount(String password) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    CreateAccountResponse response = mtr.createAccount(password);
-    System.out.println(response.getAddress());
-}
-```
-
-**Output:** Prints the blockchain address of the newly created account
 
   </TabItem>
   <TabItem value="go" label="🐹 Go">
@@ -77,16 +64,86 @@ func Register(instance *motorNodeImpl, passPhrase string) {
   </TabItem>
   <TabItem value="flutter" label="🐦 Flutter">
 
-The createAccount method returns a `Future` that resolves to a [`CreateAccountResponse`](/protodocs/motor/v1/response.proto#createaccountresponse) object.
+The createAccount method returns a `Future` that resolves to a [`Whois`](/protodocs/motor/v1/response.proto#createaccountresponse) object.
+
+
+```dart
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:motor_flutter/motor_flutter.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
+
+  MotorFlutter motor =
+      Get.put(MotorFlutter(), permanent: true); // Initialize MotorFlutter
+  await MotorFlutter.init(enableStorage: true); // Initialize MotorFlutter
+
+  runApp(const MyApp());
+}
+
+void createAccount() async {
+    MotorFlutter motor = Get.find<MotorFlutter>();
+    WhoIs? res = await motor.createAccount(
+      passwordController.text,
+      onKeysGenerated: (deviceSharedKey, passwordSecuredKey) async {
+        GetStorage box = GetStorage();
+        print("deviceSharedKey: $deviceSharedKey");
+        print("passwordSecuredKey: $passwordSecuredKey");
+        box.write("deviceSharedKey", deviceSharedKey);
+        box.write("passwordSecuredKey", passwordSecuredKey);
+      },
+    );
+    if (res != null) {
+      print("WhatIs: $res");
+      GetStorage box = GetStorage();
+      box.write('address', res.owner);
+      Get.offAll(() => const LoginPage(title: "Login"));
+    }
+}
+```
+
+:::tip
+You can also use Register Account modal to create an account. This is much easier.
 
 ```dart
 import 'package:motor_flutter/motor_flutter.dart';
 
-// Create a new account and print the address
-final resp = await MotorFlutter.to.createAccount("secure-password-123");
-if (resp != null) {
-  print(resp.address);
-}
+Container(
+  height: 50,
+  width: 200,
+  margin: const EdgeInsets.only(top: 20),
+  child: MaterialButton(
+    color: Colors.white,
+    child: const Text('Register Account'),
+    // --
+    // 2. Add the RegisterAccount ModalView on tap
+    // --
+    onPressed: () async {
+      Get.put(RegisterController());
+      final res = await MotorFlutter.to.showRegisterModal(
+          onKeysGenerated:
+              (deviceSharedKey, passwordSecuredKey) async {
+        GetStorage box = GetStorage();
+        print("deviceSharedKey: $deviceSharedKey");
+        print("passwordSecuredKey: $passwordSecuredKey");
+        box.write("deviceSharedKey", deviceSharedKey);
+        box.write("passwordSecuredKey", passwordSecuredKey);
+      }, onError: (err) {
+        Get.snackbar("Error", err.toString());
+      });
+      if (res != null) {
+        box.write('address', res.owner);
+        // Store the address in the controller???
+        Get.offAll(() => const LoginPage(title: "Login"));
+      }
+    },
+  ),
+),
 ```
+:::
+
+
   </TabItem>
 </Tabs>
