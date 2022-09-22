@@ -70,6 +70,28 @@ In this case, use sudo before `curl` and before `bash`:
 sudo curl http://i.sonrd.sh/sonr-io/speedway! | sudo bash
 ```
 
+### Speedway Daemon
+
+Many commands in Speedway rely on a daemon process for authorization. To start the daemon process, run the following command.
+
+```bash
+speedway daemon start
+```
+
+You can now log in from any terminal using...
+
+```bash
+speedway auth login
+```
+
+...or create an account...
+
+```bash
+speedway auth create
+```
+
+Subsequent commands will use the existing auth session.
+
 ## Building Speedway CLI from source
 
 Clone the repository
