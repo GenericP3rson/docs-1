@@ -45,6 +45,20 @@ speedway account create
 You will be prompted to enter a password. This password will be used to encrypt your vault.
 
   </TabItem>
+  <TabItem value="flutter" label="🐦 Flutter">
+
+The createAccount method returns a `Future` that resolves to a [`CreateAccountResponse`](/protodocs/motor/v1/response.proto#createaccountresponse) object.
+
+```dart
+import 'package:motor_flutter/motor_flutter.dart';
+
+// Create a new account and print the address
+final resp = await MotorFlutter.to.createAccount("secure-password-123");
+if (resp != null) {
+  print(resp.address);
+}
+```
+  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
 ```go
@@ -60,19 +74,5 @@ func Register(instance *motorNodeImpl, passPhrase string) {
 }
 ```
 
-  </TabItem>
-  <TabItem value="flutter" label="🐦 Flutter">
-
-The createAccount method returns a `Future` that resolves to a [`CreateAccountResponse`](/protodocs/motor/v1/response.proto#createaccountresponse) object.
-
-```dart
-import 'package:motor_flutter/motor_flutter.dart';
-
-// Create a new account and print the address
-final resp = await MotorFlutter.to.createAccount("secure-password-123");
-if (resp != null) {
-  print(resp.address);
-}
-```
   </TabItem>
 </Tabs>

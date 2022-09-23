@@ -16,7 +16,7 @@ import {
   CreateBucketTerminalView,
 } from "@site/src/components/Terminal";
 
-<SupportedClients list={["g", "f", "c"]} />
+<SupportedClients list={["c", "f", "g"]} />
 
 :::note
 
@@ -39,6 +39,20 @@ speedway account create
 </div>
 
 You will be prompted to enter a password. This password will be used to encrypt your vault.
+
+  </TabItem>
+  <TabItem value="flutter" label="🐦 Flutter">
+
+```dart
+Future<LoginResponse?> login(String did, String password, List<int> aesDscKey, List<int> aesPskKey) async {
+  return await MotorFlutterPlatform.instance.login(LoginRequest(
+    password: password,
+    did: did,
+    aesDscKey: aesDscKey,
+    aesPskKey: aesPskKey,
+  ));
+}
+```
 
   </TabItem>
   <TabItem value="go" label="🐹 Go">
@@ -64,20 +78,5 @@ func Login(instance *motorNodeImpl, pskKey []byte, acctPassword string, acctAddr
   fmt.Println(instance.getAddress())
 }
 ```
-
-  </TabItem>
-  <TabItem value="flutter" label="🐦 Flutter">
-
-```dart
-Future<LoginResponse?> login(String did, String password, List<int> aesDscKey, List<int> aesPskKey) async {
-  return await MotorFlutterPlatform.instance.login(LoginRequest(
-    password: password,
-    did: did,
-    aesDscKey: aesDscKey,
-    aesPskKey: aesPskKey,
-  ));
-}
-```
-
   </TabItem>
 </Tabs>
