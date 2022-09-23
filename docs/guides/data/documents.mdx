@@ -39,30 +39,6 @@ speedway object build
 The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the schema ID. After entering the schema ID, the CLI will prompt you to enter the object fields. Object Fields are entered via a prompt from the CLI, you will be required to enter the `field_value` for a `field_name`. The CLI will then create the object and display the object CID.
 
   </TabItem>
-
-   <TabItem value="android" label="🤖 Android">
-
-```java
-public void createDocument(String schemaDid) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    DocumentBuilder builder = mtr.createDocumentBuilder(schemaDid);
-
-    builder.set("key", "value");
-    // ... set other fields ...
-
-    // validates and builds the document
-    Document d = builder.build();
-
-    // builds and uploads the document
-    UploadObjectResponse result = builder.upload();
-
-    // print the CID of the newly created object
-    System.out.println(result.getReference().getCid());
-}
-
-```
-
-  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
 ```go
@@ -107,16 +83,6 @@ For a full list of methods, see the [ObjectBuilder](https://pkg.go.dev/github.co
 With a Document's CID, you can fetch an document directly from `Motoroid`.
 
 <Tabs groupId="platform">
-    <TabItem value="android" label="🤖 Android" default>
-
-```java
-public void getDocument(String cid) {
-    Motoroid mtr = Motoroid.getInstance();
-    JSONObject d = mtr.getDocument(cid);
-}
-```
-
-  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
 ```go
@@ -143,16 +109,6 @@ func GetObject(instance *motorNodeImpl, cid string) ([]byte, error) {
 Without a _Schema_, documents are returned as JSON objects. You can provide a schema's DID to get a `Document` instance.
 
 <Tabs groupId="platform">
-    <TabItem value="android" label="☕ Java">
-
-```java
-public void getDocument(String cid, SchemaDefinition schema) {
-    Motoroid mtr = Motoroid.getInstance();
-    Document d = mtr.getDocument(cid, schema);
-}
-```
-
-  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
     ### 🚧 Under Construction 🚧
