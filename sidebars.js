@@ -55,9 +55,8 @@ module.exports = {
         label: 'Motor SDK',
         collapsed: false,
         items: [
-          'reference/motor/go',
-          'reference/motor/java',
           'reference/motor/dart',
+          'reference/motor/go',
         ],
       },
       {
@@ -67,8 +66,8 @@ module.exports = {
         items: [
           'reference/modules/registry',
           'reference/modules/schemas',
-          'reference/modules/buckets',
           'reference/modules/objects',
+          'reference/modules/buckets',
         ],
       },
 

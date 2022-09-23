@@ -17,25 +17,7 @@ Like everything on Sonr, you need a bucket's DID in order to fetch it.
 
 <SupportedClients list={["a", "g", "f"]} />
 <Tabs groupId="platform">
-	<TabItem value="android" label="🤖 Android" default>
 
-```java
-public void getBucket(String did) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    Bucket bucket = mtr.getBucket(did);
-
-    // iterate over all documents
-    for (Document d : bucket.getDocuments()) {
-      // print the 'fieldName' property from the Document
-      System.out.println(d.get("fieldName"));
-    }
-
-    // get a single document with its CID
-    Document d = bucket.getDocument("<CID>");
-}
-```
-
-  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
 ```go
@@ -68,25 +50,6 @@ In addition to documents, you can also fetch child buckets.
 <SupportedClients list={["a", "g"]} />
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="🤖 Android" default>
-
-```java
-public void getSubBucket(String did) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    Bucket bucket = mtr.getBucket(did);
-
-    // iterate over all sub bucket DIDs
-    for (String subBucketDid : bucket.getSubBucketDids()) {
-      // Resolve the sub-bucket. This bucket behaves exactly like the parent it came from
-      Bucket subBucket = bucket.getBucket(subBucketDid);
-    }
-
-    // get a single document with its CID
-    Document d = bucket.getDocument("<CID>");
-}
-```
-
-  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
 ```go
