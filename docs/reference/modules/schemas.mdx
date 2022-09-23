@@ -180,6 +180,10 @@ Below is an `Object` using the schema with the **foo** field defined above:
 a `SchemaKindDefinition` may contain an optional `SchemaItemKind` which expresses a type present within a collection. Currently there is only a single collection type `List`.
 A `SchemaItemKindDefinition` is not required, except if a list is to contain a `Link` which a item definition must be provided (see above examples for creating a link definition)
 
+
+## Example Item definition
+Below is a SchemaDefinition with a single field, which defines a collection of attributes, it expresses it's type as a `List` containing `string` items
+
 `Schema`
 ```json
 {
@@ -191,6 +195,7 @@ A `SchemaItemKindDefinition` is not required, except if a list is to contain a `
 }
 ```
 
+`Definition`
 ```json
 {
   "attributes": ["interesting", "curious", "brave", "insightful"]
@@ -199,6 +204,7 @@ A `SchemaItemKindDefinition` is not required, except if a list is to contain a `
 
 ## Nesting Lists with Item Kind Definitions
 multi dimensional lists can be expressed using item definitions, below is an example of a two dimensional list of integers. When explicitly definining item kinds, a max depth of 3 dimensions is allowed.
+
 ```json
 {
   "name": "level",
