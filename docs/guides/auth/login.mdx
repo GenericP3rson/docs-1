@@ -16,7 +16,7 @@ import {
   CreateBucketTerminalView,
 } from "@site/src/components/Terminal";
 
-<SupportedClients list={["a", "g", "f", "c"]} />
+<SupportedClients list={["c", "f", "g"]} />
 
 :::note
 
@@ -41,23 +41,18 @@ speedway account create
 You will be prompted to enter a password. This password will be used to encrypt your vault.
 
   </TabItem>
+  <TabItem value="flutter" label="🐦 Flutter">
 
-  <TabItem value="java" label="🤖 Android">
-
-```java
-public void login(String password) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    LoginResponse response;
-    if (password.isEmpty()) {
-      response = mtr.login();
-    } else {
-      response = mtr.login(password);
-    }
-    System.out.println(mtr.getAddress);
+```dart
+Future<LoginResponse?> login(String did, String password, List<int> aesDscKey, List<int> aesPskKey) async {
+  return await MotorFlutterPlatform.instance.login(LoginRequest(
+    password: password,
+    did: did,
+    aesDscKey: aesDscKey,
+    aesPskKey: aesPskKey,
+  ));
 }
 ```
-
-**Output:** Prints the blockchain address of the newly created account
 
   </TabItem>
   <TabItem value="go" label="🐹 Go">
@@ -83,21 +78,5 @@ func Login(instance *motorNodeImpl, pskKey []byte, acctPassword string, acctAddr
   fmt.Println(instance.getAddress())
 }
 ```
-
-  </TabItem>
-
-  <TabItem value="flutter" label="🐦 Flutter">
-
-```dart
-Future<LoginResponse?> login(String did, String password, List<int> aesDscKey, List<int> aesPskKey) async {
-  return await MotorFlutterPlatform.instance.login(LoginRequest(
-    password: password,
-    did: did,
-    aesDscKey: aesDscKey,
-    aesPskKey: aesPskKey,
-  ));
-}
-```
-
   </TabItem>
 </Tabs>
