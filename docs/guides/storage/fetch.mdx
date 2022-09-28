@@ -15,23 +15,13 @@ Buckets on Sonr are a great way to store related Documents—think of them like 
 
 Like everything on Sonr, you need a bucket's DID in order to fetch it.
 
-<SupportedClients list={["a", "g", "f"]} />
+<SupportedClients list={["f", "g"]} />
 <Tabs groupId="platform">
-	<TabItem value="android" label="🤖 Android" default>
+  <TabItem value="flutter" label="🐦 Flutter">
 
-```java
-public void getBucket(String did) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    Bucket bucket = mtr.getBucket(did);
-
-    // iterate over all documents
-    for (Document d : bucket.getDocuments()) {
-      // print the 'fieldName' property from the Document
-      System.out.println(d.get("fieldName"));
-    }
-
-    // get a single document with its CID
-    Document d = bucket.getDocument("<CID>");
+```dart
+Future<QueryWhereIsResponse?> queryBucket(String q) async {
+  return await MotorFlutterPlatform.instance.queryBucket(QueryWhereIsRequest(did: q));
 }
 ```
 
@@ -50,41 +40,18 @@ return buckets
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🐦 Flutter">
-
-```dart
-Future<QueryWhereIsResponse?> queryBucket(String q) async {
-  return await MotorFlutterPlatform.instance.queryBucket(QueryWhereIsRequest(did: q));
-}
-```
-
-  </TabItem>
 </Tabs>
 
 ## Fetch Child Buckets
 
 In addition to documents, you can also fetch child buckets.
 
-<SupportedClients list={["a", "g"]} />
+<SupportedClients list={["g"]} />
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="🤖 Android" default>
+  <TabItem value="flutter" label="🐦 Flutter">
 
-```java
-public void getSubBucket(String did) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    Bucket bucket = mtr.getBucket(did);
-
-    // iterate over all sub bucket DIDs
-    for (String subBucketDid : bucket.getSubBucketDids()) {
-      // Resolve the sub-bucket. This bucket behaves exactly like the parent it came from
-      Bucket subBucket = bucket.getBucket(subBucketDid);
-    }
-
-    // get a single document with its CID
-    Document d = bucket.getDocument("<CID>");
-}
-```
+    ### 🚧 Under Construction 🚧
 
   </TabItem>
   <TabItem value="go" label="🐹 Go">
@@ -112,11 +79,6 @@ func ResolveSubBucket(bucketDid, subBucketDid string) error {
 	return nil
 }
 ```
-
-  </TabItem>
-  <TabItem value="flutter" label="🐦 Flutter">
-
-    ### 🚧 Under Construction 🚧
 
   </TabItem>
 </Tabs>
