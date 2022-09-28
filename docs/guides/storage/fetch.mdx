@@ -15,9 +15,17 @@ Buckets on Sonr are a great way to store related Documents—think of them like 
 
 Like everything on Sonr, you need a bucket's DID in order to fetch it.
 
-<SupportedClients list={["a", "g", "f"]} />
+<SupportedClients list={["f", "g"]} />
 <Tabs groupId="platform">
+  <TabItem value="flutter" label="🐦 Flutter">
 
+```dart
+Future<QueryWhereIsResponse?> queryBucket(String q) async {
+  return await MotorFlutterPlatform.instance.queryBucket(QueryWhereIsRequest(did: q));
+}
+```
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
 ```go
@@ -32,24 +40,20 @@ return buckets
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🐦 Flutter">
-
-```dart
-Future<QueryWhereIsResponse?> queryBucket(String q) async {
-  return await MotorFlutterPlatform.instance.queryBucket(QueryWhereIsRequest(did: q));
-}
-```
-
-  </TabItem>
 </Tabs>
 
 ## Fetch Child Buckets
 
 In addition to documents, you can also fetch child buckets.
 
-<SupportedClients list={["a", "g"]} />
+<SupportedClients list={["g"]} />
 
 <Tabs groupId="platform">
+  <TabItem value="flutter" label="🐦 Flutter">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
 ```go
@@ -75,11 +79,6 @@ func ResolveSubBucket(bucketDid, subBucketDid string) error {
 	return nil
 }
 ```
-
-  </TabItem>
-  <TabItem value="flutter" label="🐦 Flutter">
-
-    ### 🚧 Under Construction 🚧
 
   </TabItem>
 </Tabs>

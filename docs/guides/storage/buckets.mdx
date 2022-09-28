@@ -36,11 +36,17 @@ New documents can be added or removed from a bucket using the Bucket class. This
 
 ## Add a Document
 
-<SupportedClients list={["a", "g"]} />
+<SupportedClients list={["g"]} />
 
 Adding a document both uploads the document to IPFS and adds a reference to the bucket. The result of the upload is returned containing the CID and other information.
 
 <Tabs groupId="platform">
+  <TabItem value="flutter" label="🐦 Flutter">
+
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
 ```go
@@ -62,17 +68,16 @@ Adding a document both uploads the document to IPFS and adds a reference to the 
 ```
 
   </TabItem>
-  <TabItem value="flutter" label="🐦 Flutter">
-
-
-    ### 🚧 Under Construction 🚧
-
-  </TabItem>
 </Tabs>
 
 Using the returned CID, you can remove the Document from the Bucket.
 
 <Tabs groupId="platform">
+  <TabItem value="flutter" label="🐦 Flutter">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go">
 
 ```go
@@ -97,11 +102,6 @@ Using the returned CID, you can remove the Document from the Bucket.
 	_, err = instance.UpdateBucketItems(context.Background(), bucketDid, newObjects)
 	return err
 ```
-
-  </TabItem>
-  <TabItem value="flutter" label="🐦 Flutter">
-
-    ### 🚧 Under Construction 🚧
 
   </TabItem>
 </Tabs>
