@@ -7,9 +7,6 @@ function buildButton(type) {
     if (type === 'cli' || type === 'c') {
         return <span class="badge badge--secondary">CLI</span>
     }
-    if (type === 'android' || type === 'a') {
-        return <span class="badge badge--success">Android</span>
-    }
     if (type === 'golang' || type === 'g') {
         return <span class="badge badge--info">Golang</span>
     }

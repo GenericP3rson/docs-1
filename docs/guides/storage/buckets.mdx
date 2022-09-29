@@ -36,27 +36,13 @@ New documents can be added or removed from a bucket using the Bucket class. This
 
 ## Add a Document
 
-<SupportedClients list={["a", "g"]} />
+<SupportedClients list={["g"]} />
 
 Adding a document both uploads the document to IPFS and adds a reference to the bucket. The result of the upload is returned containing the CID and other information.
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="🤖 Android" default>
-
-```java
-public void addDocumentToBucket(String bucketDid, Document d) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    Bucket bucket = mtr.getBucket(bucketDid);
-
-    UploadObjectResponse response = bucket.addDocument(d);
-
-    // print the CID
-    System.out.println(response.getReference().getCid());
-}
-```
-
-  </TabItem>
   <TabItem value="flutter" label="🐦 Flutter">
+
 
     ### 🚧 Under Construction 🚧
 
@@ -87,16 +73,9 @@ public void addDocumentToBucket(String bucketDid, Document d) throws Exception {
 Using the returned CID, you can remove the Document from the Bucket.
 
 <Tabs groupId="platform">
-	<TabItem value="android" label="🤖 Android" default>
+  <TabItem value="flutter" label="🐦 Flutter">
 
-```java
-public void removeDocumentFromBucket(String bucketDid, String cid) throws Exception {
-    Motoroid mtr = Motoroid.getInstance();
-    Bucket bucket = mtr.getBucket(bucketDid);
-
-    bucket.removeDocument(cid);
-}
-```
+    ### 🚧 Under Construction 🚧
 
   </TabItem>
   <TabItem value="go" label="🐹 Go">
@@ -123,11 +102,6 @@ public void removeDocumentFromBucket(String bucketDid, String cid) throws Except
 	_, err = instance.UpdateBucketItems(context.Background(), bucketDid, newObjects)
 	return err
 ```
-
-  </TabItem>
-  <TabItem value="flutter" label="🐦 Flutter">
-
-    ### 🚧 Under Construction 🚧
 
   </TabItem>
 </Tabs>
