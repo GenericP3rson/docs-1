@@ -70,6 +70,28 @@ In this case, use sudo before `curl` and before `bash`:
 sudo curl http://i.sonrd.sh/sonr-io/speedway! | sudo bash
 ```
 
+### Speedway Daemon
+
+Many commands in Speedway rely on a daemon process for authorization. To start the daemon process, run the following command.
+
+```bash
+speedway daemon start
+```
+
+You can now log in from any terminal using...
+
+```bash
+speedway auth login
+```
+
+...or create an account...
+
+```bash
+speedway auth create
+```
+
+Subsequent commands will use the existing auth session.
+
 ## Building Speedway CLI from source
 
 When you build Speedway CLI from source, you will need to have Go (version [1.17](https://go.dev/dl/#go1.17.13) or [1.18](https://go.dev/dl/#go1.18.6)) installed on your system. To bundle the Speedway UI into Speedway CLI (via the serve command) you will also need to have [Node.js](https://nodejs.org/en/) v16.17.0 installed on your system.
