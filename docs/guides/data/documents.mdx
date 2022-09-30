@@ -1,5 +1,5 @@
 ---
-title: Building Documents
+title: Uploading Documents
 ---
 
 import {
@@ -67,6 +67,7 @@ func NewObjectBuilder(instance *motorNodeImpl, name, schemaDid string) error {
 ```
 
 After initializing a new builder, you may use `Set` to add `key` `value` pairs to the object by using the `Set` method.
+
 ```go
   Set(k string, v interface)
 ```
@@ -75,6 +76,8 @@ For a full list of methods, see the [ObjectBuilder](https://pkg.go.dev/github.co
 
   </TabItem>
 </Tabs>
+
+---
 
 ## Fetching a Document
 

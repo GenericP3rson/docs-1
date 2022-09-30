@@ -1,6 +1,6 @@
 ---
-title: Setup Motor SDK
-sidebar_position: 3
+title: Setup your Project
+sidebar_position: 2
 ---
 
 import Tabs from "@theme/Tabs";
@@ -19,7 +19,7 @@ Motor Flutter is a Flutter library designed to help developers utilize Sonr in t
 <Tabs groupId="target">
   <TabItem value="flutter" label="🐦 Flutter">
 
-#### 1. Add the dependency
+### 1. Add the dependency
 
 Add `motor_flutter` as a dependency in your existing project:
 
@@ -31,10 +31,15 @@ or add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  motor_flutter: ^0.5.5
+  motor_flutter: ^0.7.0
 ```
 
-#### 2. iOS setup
+### Platform-Specific Setup
+
+If you want to integrate **Apple devices (iOS, MacOS)** into your project, you will need to modify the following:
+
+<Tabs groupId="platform-setup">
+  <TabItem value="ios" label="📱 iOS">
 
 Add the following to the top of your `ios/Podfile`:
 
@@ -49,12 +54,32 @@ use_frameworks!
 ```
 
   </TabItem>
+  <TabItem value="macos" label="🖥 macOS">
+
+Add the following to the top of your `macos/Podfile`:
+
+```ruby
+platform :osx, '10.11'
+```
+
+Then, **remove** the following line from your `macos/Podfile`:
+
+```ruby
+use_frameworks!
+```
+
+  </TabItem>
+</Tabs>
+
+  </TabItem>
   <TabItem value="go" label="🐹 Go">
+
 Start by adding the `sonr` package to your project.
 
 ```bash
 go get -u github.com/sonr-io/sonr
 ```
+
   </TabItem>
 </Tabs>
 
@@ -71,20 +96,20 @@ information on this, please refer to their [documentation](https://pub.dev/packa
 ```dart
 import 'package:motor_flutter/motor_flutter.dart';
 
+// Modify the main method to be Future<void>
 Future<void> main() async {
-  // Init Services
-  WidgetsFlutterBinding.ensureInitialized();
+  // Init method sets up State Management with GetX and ensures that Widgets are
+  // rendered before the Motor Node is ready.
+  await MotorFlutter().init();
 
-  // Motor Flutter uses GetX!
-  await Get.putAsync(
-    () => MotorFlutter().init(),
-    permanent: true,
-  );
+  // Start your App like normal
   runApp(const MyApp());
 }
 ```
+
   </TabItem>
   <TabItem value="go" label="🐹 Go">
+
 There should exist only one instance of `Motor` throughout the lifetime of your application.
 
 ```go

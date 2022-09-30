@@ -1,0 +1,27 @@
+---
+title: Finding Peers
+---
+
+import {
+  CreateAccountTerminalView,
+  CreateSchemaTerminalView,
+  CreateObjectTerminalView,
+  CreateBucketTerminalView,
+} from "@site/src/components/Terminal";
+import SupportedClients from "@site/src/components/SupportedClients";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import APIButton from "@site/src/components/APIButton";
+
+<SupportedClients list={["f"]} />
+
+### 🚧 Under Construction 🚧
+
+[`motor_flutter`](https://pub.dev/packages/motor_flutter) is a Flutter package for the Sonr Motor Node which provides a reactive property which can be listened to as a stream to identify nearby peers similar to AirDrop.
+This mechanism is utilizing the Motor [`DiscoveryProtocol`](/protodocs/service/v1/discover.proto) and is considered experimental. For more information, see the [`nearby_peers`](https://pub.dev/documentation/motor_flutter/latest/motor_flutter/MotorFlutter/nearbyPeers.html) property
+of the plugin.
+
+### Next Steps
+
+- Sonr Blockchain [Swagger API Console](https://v1-beta.sonr.ws)
+- [ADR-4](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/4.md) Full Reference

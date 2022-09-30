@@ -47,17 +47,33 @@ You will be prompted to enter a password. This password will be used to encrypt 
   </TabItem>
   <TabItem value="flutter" label="🐦 Flutter">
 
-The createAccount method returns a `Future` that resolves to a [`CreateAccountResponse`](/protodocs/motor/v1/response.proto#createaccountresponse) object.
+Creates a new Account with the given `password`. This process generates a two random 32 byte keys and stores them in the keychain during production and in the temporary
+storage during development. Returns [`CreateAccountResponse`](/protodocs/motor/v1/response.proto#createaccountresponse) if the account is created successfully.
 
 ```dart
 import 'package:motor_flutter/motor_flutter.dart';
 
 // Create a new account and print the address
-final resp = await MotorFlutter.to.createAccount("secure-password-123");
-if (resp != null) {
-  print(resp.address);
+Future<void> main() async {
+  final res = await MotorFlutter.to.createAccount('terrible-password-123');
+  if (res == null) {
+      throw Exception('Account creation failed');
+  }
+  print('Account created successfully: ${res.address}');
 }
 ```
+
+From here we can proceed to **Connect to the Sonr network.**
+
+```dart
+import 'package:motor_flutter/motor_flutter.dart';
+
+Future<void> main() async {
+  // Call the Connect method on an already initialized MotorFlutter instance
+  await MotorFlutter.to.connect();
+}
+```
+
   </TabItem>
   <TabItem value="go" label="🐹 Go">
 
@@ -68,7 +84,7 @@ func Register(instance *motorNodeImpl, passPhrase string) {
     }
 
     res, err := instance.CreateAccount(req)
-    
+
     // if the account is created successfully, you may now interact with the `motor` instance
     m.GetAddress()
 }
@@ -76,3 +92,12 @@ func Register(instance *motorNodeImpl, passPhrase string) {
 
   </TabItem>
 </Tabs>
+
+### Next Steps
+
+Developers can utilize any of our official Motor libraries, or integrate Sonr features into their existing codebase.
+
+- Login with the newly created account using [`login()`](/docs/guides/auth/login)
+- Issue payments to the account using [`sendTokens()`](/docs/guides/payments/issue)
+- Buy a .snr/ subdomain to simplify your account address using [`buyAlias()`](/docs/guides/auth/alias#buy-an-alias)
+- [ADR-1](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/1.md) Full Specification

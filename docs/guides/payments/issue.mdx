@@ -1,0 +1,46 @@
+---
+title: Sending Tokens
+---
+
+import {
+  CreateAccountTerminalView,
+  CreateSchemaTerminalView,
+  CreateObjectTerminalView,
+  CreateBucketTerminalView,
+} from "@site/src/components/Terminal";
+import SupportedClients from "@site/src/components/SupportedClients";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import APIButton from "@site/src/components/APIButton";
+
+<SupportedClients list={["f", "g"]} />
+
+<Tabs groupId="platform">
+  <TabItem value="flutter" label="🐦 Flutter">
+
+Creates a TX in order to deposit the `amount` of SNR into the `recipient` account. A successful transaction will return a [PaymentResponse](/protodocs/motor/v1/response.proto#paymentresponse) and will return null if the transaction fails.
+
+```dart
+import 'package:motor_flutter/motor_flutter.dart';
+
+// Issue tokens to a recipient
+Future<void> main() async {
+  final res = await MotorFlutter.to.deposit('did:snr:abc123', 3.29);
+  if (res == null) {
+    throw Exception('Failed to deposit SNR');
+  }
+  print(res); // prints: {txHash: '0x1234567890abcdef', amount: 3.29}
+}
+```
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
+</Tabs>
+
+### Next Steps
+
+- Sonr Blockchain [Swagger API Console](https://v1-beta.sonr.ws)
+- Find Sonr Peers using Query Methods & Nearby [here](/docs/guides/payments/peers)

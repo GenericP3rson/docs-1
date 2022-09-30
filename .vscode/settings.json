@@ -21,5 +21,14 @@
         "Contents.json": true,
         "**/node_modules": true
     },
+    "cSpell.words": [
+        "createaccountresponse",
+        "hulahoop",
+        "msgbuyaliasresponse",
+        "msgsellaliasresponse",
+        "msgtransferaliasresponse",
+        "paymentresponse",
+        "protodocs"
+    ],
 
 }
