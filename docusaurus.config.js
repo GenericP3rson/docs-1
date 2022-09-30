@@ -85,12 +85,33 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/sonr-io/docs/tree/main/',
           docLayoutComponent: '@theme/DocPage',
           docItemComponent: '@theme/DocItem',
+          showLastUpdateTime: true,
+          sidebarCollapsed: false,
+          async sidebarItemsGenerator({
+            defaultSidebarItemsGenerator,
+            numberPrefixParser,
+            item,
+            version,
+            docs,
+            isCategoryIndex,
+          }) {
+            // Use the provided data to generate a custom sidebar slice
+            return [
+              { type: 'doc', id: 'intro' },
+              {
+                type: 'category',
+                label: 'Tutorials',
+                items: [
+                  { type: 'doc', id: 'tutorial1' },
+                  { type: 'doc', id: 'tutorial2' },
+                ],
+              },
+            ];
+          },
         },
         blog: {
           showReadingTime: true,
@@ -170,6 +191,10 @@ const config = {
                 href: 'https://discord.gg/6Z3RmWs257',
               },
               {
+                label: 'Portal',
+                href: 'https://community.sonr.io',
+              },
+              {
                 label: 'Twitter',
                 href: 'https://twitter.com/sonr_io',
               },
@@ -185,6 +210,10 @@ const config = {
               {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/sonr',
+              },
+              {
+                label: 'Tokenomics',
+                href: 'https://sonr.money',
               },
             ],
           },

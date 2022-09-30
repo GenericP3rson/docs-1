@@ -13,7 +13,11 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 module.exports = {
   docs: {
-    Introduction: ['main', 'basics/components', 'basics/features'],
+    Introduction: ['main', 'basics/components', 'basics/features', {
+      type: 'link',
+      label: 'Tokenomics',
+      href: 'https://sonr.money',
+    },],
     'Getting Started': [
       'guides/overview',
       'guides/install',
@@ -44,7 +48,7 @@ module.exports = {
       {
         type: 'category',
         label: 'CLI',
-        collapsed: false,
+        collapsed: true,
         items: [
           'reference/speedway/cli',
           'reference/speedway/routes',
@@ -53,7 +57,7 @@ module.exports = {
       {
         type: 'category',
         label: 'Motor SDK',
-        collapsed: false,
+        collapsed: true,
         items: [
           'reference/motor/dart',
           'reference/motor/go',
@@ -62,7 +66,7 @@ module.exports = {
       {
         type: 'category',
         label: 'Modules',
-        collapsed: false,
+        collapsed: true,
         items: [
           'reference/modules/registry',
           'reference/modules/schemas',
@@ -70,7 +74,6 @@ module.exports = {
           'reference/modules/buckets',
         ],
       },
-
     ],
   },
 };
