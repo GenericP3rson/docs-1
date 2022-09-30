@@ -1,0 +1,145 @@
+---
+title: Using ".snr" Domains
+sidebar_position: 3
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import APIButton from "@site/src/components/APIButton";
+import SupportedClients from "@site/src/components/SupportedClients";
+import {
+  CreateAccountTerminalView,
+  CreateSchemaTerminalView,
+  CreateObjectTerminalView,
+  CreateBucketTerminalView,
+} from "@site/src/components/Terminal";
+
+<APIButton href="/api/registry" label="Registry API" type="info" />
+
+In Sonr ".snr Domains" or Aliases point a subdomain off the `.snr/` TLD to a user accounts DIDDocument. This will provide some nifty features down the line like automatic authorization from a domain, easier querying for user content across applications, and much more. Check out [Handshake (HNS)](https://handshake.org) for more information on how the .snr TLD functions.
+
+## Buying an Alias
+
+<SupportedClients list={["f", "g"]} />
+
+Purchases a new .snr/ domain for the current account if the `alias` is available. A successful transaction will return a [MsgBuyAliasResponse](/protodocs/registry/tx.proto#msgbuyaliasresponse).
+
+<Tabs groupId="platform">
+  <TabItem value="flutter" label="🐦 Flutter">
+
+```dart
+import 'package:motor_flutter/motor_flutter.dart';
+
+// Issue tokens to a recipient
+Future<void> main() async {
+  final res = await MotorFlutter.to.buyAlias('hulahoop');
+  if (res == null) {
+    throw Exception('Failed to buy alias');
+  }
+
+  // Print all owned domains
+  for (final alias in res.aliases) {
+    if(!alias.isForSale) {
+      print(alias.name); // prints: hulahoop.snr or hulahoop
+    }
+  }
+}
+```
+
+</TabItem>
+<TabItem value="go" label="🐹 Go">
+
+    ### 🚧 Under Construction 🚧
+
+</TabItem>
+</Tabs>
+
+### Next Steps
+
+- List your alias for auction with [`sellAlias()`](/docs/guides/auth/alias#listing-an-alias-for-sale)
+- [ADR-1](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/1.md) Full Reference
+
+---
+
+## Listing an Alias for Sale
+
+<SupportedClients list={["f", "g"]} />
+
+Lists an existing `alias` owned by the current account for sale at the given `amount`. The minimum price for an Alias is 10.0 SNR. A successful transaction will return a [MsgSellAliasResponse](/protodocs/registry/tx.proto#msgsellaliasresponse).
+
+<Tabs groupId="platform">
+  <TabItem value="flutter" label="🐦 Flutter">
+
+```dart
+import 'package:motor_flutter/motor_flutter.dart';
+
+// Issue tokens to a recipient
+Future<void> main() async {
+  final res = await MotorFlutter.to.sellAlias('hulahoop', 40.0);
+  if (res == null) {
+    throw Exception('Failed to sell alias');
+  }
+
+  // Print all domains for sale
+  for (final alias in res.aliases) {
+    if(alias.isForSale) {
+        print(alias.name); // prints: hulahoop.snr or hulahoop
+    }
+  }
+}
+```
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
+</Tabs>
+
+### Next Steps
+
+- Buy an alias listed for sale with [`transfer()`](/docs/guides/auth/alias#transferring-an-alias)
+- [ADR-1](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/1.md) Full Reference
+
+---
+
+## Transferring an Alias
+
+<SupportedClients list={["f", "g"]} />
+
+Transfers an existing `alias` listed for sale from the account which listed it, to the current active account. A successful transaction will return a [MsgTransferAliasResponse](/protodocs/registry/tx.proto#msgtransferaliasresponse), and will return
+an error if the provided `amount` is less than the listed price, or if the `alias` is not listed for sale by the `currentOwner`.
+
+<Tabs groupId="platform">
+  <TabItem value="flutter" label="🐦 Flutter">
+
+```dart
+import 'package:motor_flutter/motor_flutter.dart';
+
+// Transfer Alias from known owner who is Selling
+Future<void> main() async {
+  // Notice how the amount is greater than the previous listing price to have a successful transfer!!
+  final res = await MotorFlutter.to.transferAlias('hulahoop', 'did:snr:abc123', 42.0);
+  if (res == null) {
+    throw Exception('Failed to transfer alias');
+  }
+
+  // Print updated domains list
+  final allOwnedAliases = res.aliases.where((alias) => !alias.isForSale);
+  print(allOwnedAliases); // prints: [hulahoop.snr] or [hulahoop]
+}
+```
+
+  </TabItem>
+  <TabItem value="go" label="🐹 Go">
+
+    ### 🚧 Under Construction 🚧
+
+  </TabItem>
+</Tabs>
+
+### Next Steps
+
+- Issue payments to peers with [`sendTokens()`](/docs/guides/payments/issue)
+- [ADR-1](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/1.md) Full Reference

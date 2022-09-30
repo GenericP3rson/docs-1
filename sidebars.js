@@ -13,13 +13,12 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 module.exports = {
   docs: {
-    Introduction: ['main', 'basics/components', 'basics/features', {
+    Introduction: ['main', 'basics/overview', {
       type: 'link',
       label: 'Tokenomics',
       href: 'https://sonr.money',
     },],
     'Getting Started': [
-      'guides/overview',
       'guides/install',
       'guides/setup',
       {
@@ -27,7 +26,14 @@ module.exports = {
         label: 'Authorization',
         collapsed: false,
         collapsible: false,
-        items: ['guides/auth/register', 'guides/auth/login'],
+        items: ['guides/auth/register', 'guides/auth/login', 'guides/auth/alias'],
+      },
+      {
+        type: 'category',
+        label: 'Issue Payments',
+        collapsed: false,
+        collapsible: false,
+        items: ['guides/payments/issue', 'guides/payments/peers'],
       },
       {
         type: 'category',
