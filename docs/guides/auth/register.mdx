@@ -20,7 +20,7 @@ import {
 
 Under the hood, Sonr uses an MPC-based wallet to secure your account and authenticate
 you. You can create and login to these accounts easily through motor. For more information
-check out [TODO](#).
+check out [The Registry Module](https://www.sonr.dev/docs/reference/modules/registry).
 
 :::tip
 
@@ -50,6 +50,8 @@ You will be prompted to enter a password. This password will be used to encrypt 
 Creates a new Account with the given `password`. This process generates a two random 32 byte keys and stores them in the keychain during production and in the temporary
 storage during development. Returns [`CreateAccountResponse`](/protodocs/motor/v1/response.proto#createaccountresponse) if the account is created successfully.
 
+<h2>Flutter SDK Methods</h2>
+
 ```dart
 import 'package:motor_flutter/motor_flutter.dart';
 
@@ -62,6 +64,31 @@ Future<void> main() async {
   print('Account created successfully: ${res.address}');
 }
 ```
+
+<h2>Flutter Registry Widget</h2>
+
+```dart
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: Center(
+      child: RegisterButton(
+        variant: ButtonVariant.white,
+        onSuccess: (response) {
+          if (response != null) {
+            print('User successfully registered!');
+            }
+          },
+        onError: (error) {
+          print('Error registering user: $error');
+      },
+    ),
+  ),
+);
+```
+
+Example:
+<img src="/img/registry-widget.png" width="300" />
 
 From here we can proceed to **Connect to the Sonr network.**
 
