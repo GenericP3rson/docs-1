@@ -102,7 +102,7 @@ function GetStartedButtonGrid({ children, color }) {
     return (
         <div class="pagination-nav buttonGridTopMargin">
             <div class="pagination-nav__item pagination-nav__item--next">
-                <a class="pagination-nav__link pagination-nav__item--next" href="/docs/guides/install">
+                <a class="pagination-nav__link pagination-nav__item--next" href="/docs/tools/speedway/install">
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid
                             container
