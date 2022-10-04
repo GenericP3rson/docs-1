@@ -6,8 +6,6 @@ position_in_sidebar: 4
 
 import APIButton from "@site/src/components/APIButton";
 
-<APIButton href="/api/buckets" />
-
 Similar to Amazon S3 or DigitalOcean Spaces, developers can leverage our decentralized storage module for uploading either application specific assets or user specific assets.
 The Sonr bucket module is used to record the defined collections of Objects utilized by an Application on the Sonr Network. A bucket can be either public access, private access, or restricted access based on Developer configuration. A bucket is used to help organize similar objects for a given application. Much like folders on a file system, buckets can be nested in order to create a deeply nested structure of content.
 
@@ -49,7 +47,7 @@ message WhereIs {
 
 ### Bucket Items
 
-a `BucketItem` is a reference to either an [Object](/docs/reference/modules/objects.md), or another bucket itself.
+a `BucketItem` is a reference to either an [Object](/docs/intro/modules/objects.md), or another bucket itself.
 
 ```protobuf
 message BucketItem {
@@ -114,8 +112,8 @@ if a `BucketItem` contains an optional field `Schema Did` then it will support b
 
 ## Usage
 
-Buckets function as a storage of content which holds a loose relation to one another, buckets function as a wrapper around `Objects` to create relationships amongst them. Developers are recommended to think of buckets as `Categories of data`. It's recommended to make one Bucket per [schema](/docs/reference/modules/schemas.mdx).
+Buckets function as a storage of content which holds a loose relation to one another, buckets function as a wrapper around `Objects` to create relationships amongst them. Developers are recommended to think of buckets as `Categories of data`. It's recommended to make one Bucket per [schema](/docs/intro/modules/schemas.mdx).
 
-- See [Speedway](/docs/reference/speedway/cli.mdx) documentation on usage of buckets through our management tooling.
+- See [Speedway](/docs/tools/speedway/cli.mdx) documentation on usage of buckets through our management tooling.
 - See [Motor-SDK](/docs/guides/data/schemas.mdx) documentation in our SDK targets.
 - Read [ADR-3](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/3.md) for a more in depth technical explanation of the design decisions made for the bucket module.

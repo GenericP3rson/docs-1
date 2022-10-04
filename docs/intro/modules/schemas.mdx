@@ -6,8 +6,6 @@ position_in_sidebar: 2
 
 import APIButton from "@site/src/components/APIButton";
 
-<APIButton href="/api/schemas" />
-
 The Sonr Schema module is used to store the records of verifiable objects for a specific application powered by the Sonr Network. Schemas are used to create custom application protocols which can be asserted on in order to verify your application data. Application data uploaded can verify their data model through `Schemas`.
 
 ## Overview
@@ -235,7 +233,7 @@ multi dimensional lists can be expressed using item definitions, below is an exa
 
 ### Examples
 
-The following are example Schemas and [Objects](/docs/reference/modules/objects.md) which outline how types declared within a schema map to the objects which are defined from them. Below are two examples: An `User Status`, and a `Pet`.
+The following are example Schemas and [Objects](/docs/intro/modules/objects.md) which outline how types declared within a schema map to the objects which are defined from them. Below are two examples: An `User Status`, and a `Pet`.
 
 The following is an example schema for a `User Status`
 
@@ -314,6 +312,6 @@ Below is a pet object defined by the above schema
 
 The schema module has been integrated in the Sonr [Motor SDK](/docs/guides/setup.mdx) implementations since `v0.3.9`.
 
-- See [Speedway](/docs/reference/speedway/cli.mdx) documentation on usage of DIDs through our management tooling.
+- See [Speedway](/docs/tools/speedway/cli.mdx) documentation on usage of DIDs through our management tooling.
 - See [Motor-SDK](/docs/guides/data/schemas.mdx) documentation in our SDK targets.
 - Read [ADR-2](https://github.com/sonr-io/sonr/blob/dev/docs/architecture/2.md) for a more in depth technical explanation of the design decisions made for the schema module.

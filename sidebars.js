@@ -13,13 +13,27 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 module.exports = {
   docs: {
-    Introduction: ['main', 'basics/overview', {
+    Introduction: [
+      'main', 
+      'intro/concepts',
+      {
+        type: 'category',
+        label: 'Modules',
+        collapsed: true,
+        items: [
+          'intro/modules/registry',
+          'intro/modules/schemas',
+          'intro/modules/objects',
+          'intro/modules/buckets',
+        ],
+      },
+      {
       type: 'link',
       label: 'Tokenomics',
       href: 'https://sonr.money',
     },],
     'Getting Started': [
-      'guides/install',
+      'guides/define',
       'guides/setup',
       {
         type: 'category',
@@ -50,14 +64,16 @@ module.exports = {
         items: ['guides/storage/buckets', 'guides/storage/fetch',],
       },
     ],
-    'API Reference': [
+    'Tools': [
       {
         type: 'category',
-        label: 'CLI',
+        label: 'Speedway',
         collapsed: true,
         items: [
-          'reference/speedway/cli',
-          'reference/speedway/routes',
+          'tools/speedway/install',
+          'tools/speedway/cli',
+          'tools/speedway/webui',
+          'tools/speedway/routes',
         ],
       },
       {
@@ -65,21 +81,10 @@ module.exports = {
         label: 'Motor SDK',
         collapsed: true,
         items: [
-          'reference/motor/dart',
-          'reference/motor/go',
+          'tools/motor/flutter',
+          'tools/motor/go',
         ],
-      },
-      {
-        type: 'category',
-        label: 'Modules',
-        collapsed: true,
-        items: [
-          'reference/modules/registry',
-          'reference/modules/schemas',
-          'reference/modules/objects',
-          'reference/modules/buckets',
-        ],
-      },
+      }
     ],
   },
 };
