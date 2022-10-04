@@ -8,11 +8,10 @@ sidebar_position: 3
     ### 🚧 Under Construction 🚧
 ```
 
-## motor-go API
-
-For more documentation on the motor-go implementation, please refer to its [GoDoc](https://pkg.go.dev/github.com/sonr-io/sonr/bind/motor-mobile).
-
-The following interface is the underlying node used by the **Motor SDK** ([_Android_](https://github.com/sonr-io/motor-android), [_Flutter_](https://github.com/sonr-io/motor-flutter), [_Swift_](https://github.com/sonr-io/MotorKit)). It is not intended to be used directly.
+## motor-go interface
+The following interface is the underlying node used by the **Motor SDK**. It is
+not intended to be used directly. For more documentation on the motor-go node
+implementation, please refer to its [GoDoc](https://pkg.go.dev/github.com/sonr-io/sonr/bind/motor-mobile).
 
 ```go
 type MotorNode interface {
