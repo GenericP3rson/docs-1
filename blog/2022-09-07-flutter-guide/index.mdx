@@ -125,13 +125,21 @@ I prefer to use GetX to manage my state, so let's will make a few changes first.
   flutter pub add get
   ```
 
-2. Import the `get` package in our `main.dart` file:
+1. Add the `get_storage` package to our project:
+
+  ```bash title="terminal"
+  flutter pub add get_storage
+  ```
+
+1. Import the `get` and `get_storage` package in our `main.dart` file:
 
   ```dart title="lib/main.dart"
   import 'package:get/get.dart';
+  import 'package:get_storage/get_storage.dart';
+
   ```
 
-3. Change the `MyApp` class to return `GetMaterialApp` instead of `MaterialApp`:
+1. Change the `MyApp` class to return `GetMaterialApp` instead of `MaterialApp`:
 
   ```dart title="lib/main.dart"
   class MyApp extends StatelessWidget {
@@ -169,8 +177,8 @@ I prefer to use GetX to manage my state, so let's will make a few changes first.
   Future<void> main() async {
     // Don't worry about this line just yet
     WidgetsFlutterBinding.ensureInitialized();
-    await GetStorage.init();
-    await MotorFlutter.init();
+    await GetStorage.init(); // <-- Initializes the GetStorage Package
+    await MotorFlutter.init(); // <-- Initializes the MotorFlutter Package
     runApp(const MyApp()); // <-- Added const here to keep vs code happy
   }
   ```
