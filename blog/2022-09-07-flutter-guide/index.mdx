@@ -71,7 +71,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  motor_flutter: ^0.5.5
+  motor_flutter: ^0.8.2
 ```
 
 > Note, your version may be different depending on when you read this. Check the [motor-flutter pub.dev page](https://pub.dev/packages/motor_flutter) for the latest version.
@@ -111,13 +111,7 @@ Then, we can initialize it in the `main` function:
 
 ```dart title="lib/main.dart"
 void main() {
-  void handleMotorInitResponse(InitializeResponse? response) {
-    if (response != null) {
-      print('Motor initialized');
-      print(response);
-    }
-  }
-  MotorFlutter().init(handleMotorInitResponse);
+  MotorFlutter().init();
   runApp(MyApp());
 }
 ```
@@ -175,17 +169,8 @@ I prefer to use GetX to manage my state, so let's will make a few changes first.
   Future<void> main() async {
     // Don't worry about this line just yet
     WidgetsFlutterBinding.ensureInitialized();
-    // handle the motor initialization response
-    void handleMotorInitResponse(InitializeResponse? response) {
-      if (response != null) {
-        print('Motor initialized');
-        print(response);
-      }
-    }
   
-    MotorFlutter motor = // <-- this is the important line
-        Get.put(MotorFlutter(), permanent: true); // <-- this is the important line
-    motor.init(handleMotorInitResponse); // <-- this is the important line
+    MotorFlutter.init(); // <-- this is the important line
   
     runApp(const MyApp()); // <-- Added const here to keep vs code happy
   }
