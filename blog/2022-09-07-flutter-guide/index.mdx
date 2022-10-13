@@ -169,17 +169,12 @@ I prefer to use GetX to manage my state, so let's will make a few changes first.
   Future<void> main() async {
     // Don't worry about this line just yet
     WidgetsFlutterBinding.ensureInitialized();
-  
-    MotorFlutter.init(); // <-- this is the important line
-  
+    await GetStorage.init();
+    await MotorFlutter.init();
     runApp(const MyApp()); // <-- Added const here to keep vs code happy
   }
   ```
 
-:::tip
-The `Get.put` function is used to initialize a class and make it available to the entire app.
-The `permanent: true` parameter makes sure the class is not destroyed when the widget is removed from the tree.
-:::
 
 You should see something along the lines of the following in your console:
     
