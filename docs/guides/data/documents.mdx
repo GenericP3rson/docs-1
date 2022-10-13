@@ -21,7 +21,7 @@ Schema Documents store end-to-end encrypted user data on the Sonr network. You c
 
 <SupportedClients list={["c", "g"]} />
 
-Documents can be created using the `DocumentBuilder` API. You simply need to provide the [DID](#) of the [Schema](#) this document will conform to. When you create an document without adding it to a bucket, you as the developer must take care to keep track of the CID.
+Documents can be created using the `DocumentBuilder` API. You simply need to provide the [DID](#) of the [Schema](#) this document will conform to. When you create a Document without adding it to a bucket, you as the developer must take care to keep track of the CID.
 
 <Tabs>
   <TabItem value="cli" label="🖥️ CLI" default>
@@ -41,7 +41,13 @@ The CLI will attempt to automatically login. Once logged in, you will be prompte
   </TabItem>
   <TabItem value="flutter" label="🐦 Flutter">
 
-    ### 🚧 Under Construction 🚧
+Using a Schema that's already been fetched, you can create a new Document and set its properties.
+```dart
+var myDoc = mySchema.newDocument();
+myDoc.set("age", 24);
+myDoc.set("name", "Sonr");
+var response = await myDoc.upload("my company");
+```
 
   </TabItem>
   <TabItem value="go" label="🐹 Go">
@@ -88,7 +94,7 @@ With a Document's CID, you can fetch an document directly from `Motoroid`.
 <Tabs groupId="platform">
   <TabItem value="flutter" label="🐦 Flutter">
 
-    ### 🚧 Under Construction 🚧
+    
 
   </TabItem>
   <TabItem value="go" label="🐹 Go">
