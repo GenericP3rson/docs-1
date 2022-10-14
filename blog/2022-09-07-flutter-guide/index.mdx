@@ -213,7 +213,7 @@ To do this, we will make a new page and add a button to navigate to it.
     }
   }
   ```
-1. Add the following UI Code to the file.
+1. Add the following UI code to the file.
 
 :::tip
 This site has a neat feature where you can hover over the code block and a copy button will appear.
@@ -222,8 +222,11 @@ A line wrap button also appears. It would be wise to use it here.
 :::
 
 ```dart title="lib/login_page.dart"
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
 import 'package:motor_flutter/motor_flutter.dart';
 
 class LoginPage extends StatefulWidget {
@@ -239,19 +242,10 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController addressController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  void _handleLoginResponse(LoginResponse? resp) {
-    if (resp != null && resp.success) {
-      // Login successful
-      print(resp);
-    } else {
-      // Login failed
-    }
-  }
-
   void _login() {
       // TODO: Add login logic
-      print(addressController.text);
-      print(passwordController.text);
+      debugPrint(addressController.text);
+      debugPrint(passwordController.text);
   }
 
   @override
@@ -321,9 +315,9 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 onPressed: () => Get.defaultDialog(
                     title:
-                        "You pressed the Create Account button, but it's not implemented yet"),
+                        "You pressed the Create Account button, but it's not implemented yet. We will swap it with the Continue on Sonr button"),
                 child: const Text(
-                  'Create Account',
+                  'Continue on Sonr',
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ),
@@ -334,6 +328,13 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+void debugPrint(Object? message) {
+  if (kDebugMode) {
+    print(message);
+  }
+}
+
 ```
 It should look something like this:
 ![Login Page](login-page.png)
@@ -465,6 +466,7 @@ Widget build(BuildContext context) {
           // 6. This is the create account button. 
           // The Create Account button has a dialog attached to it. 
           // This is just a placeholder for now.
+          // We will swap this to the Continue on Sonr button.
           Container(
             height: 50,
             width: 200,
@@ -496,46 +498,30 @@ You should be able to match each of the sections to the image above.
 
 ## Creating an account
 Now that we have a login page, we need to be able to create an account.
-To do this, we will utilize the `showRegisterModal` that exists within the `motor_flutter` package.
-1. Change `lib/login_page.dart`'s `Create Account` button to navigate to the new page.
-  At the same time, we also add an `onPressed` function that will call `showRegisterModal` that will handle the registration for us.
-  You should still have the container around the `MaterialButton` widget.
-  ```dart title="lib/login_page.dart"
-  //...
-  MaterialButton(
-    color: Colors.white,
-    child: const Text('Register Account'),
-    // --
-    // 2. Add the RegisterAccount ModalView on tap
-    // --
-    onPressed: () async {
-      Get.put(RegisterController());
-      final res = await MotorFlutter.to.showRegisterModal(
-        onKeysGenerated:
-            (deviceSharedKey, passwordSecuredKey) async {
-                GetStorage box = GetStorage();
-                // Store the keys in the box for later use
-                print("deviceSharedKey: $deviceSharedKey");
-                print("passwordSecuredKey: $passwordSecuredKey");
-                box.write("deviceSharedKey", deviceSharedKey);
-                box.write("passwordSecuredKey", passwordSecuredKey);
-            }, 
-        onError: (err) {
-            Get.snackbar("Error", err.toString());
-        });
-      if (res != null) {
-        GetStorage().write('address', res.owner);
-        Get.offAll(() => const LoginPage(title: "Login"));
+To do this, we will utilize the `ContinueOnSonr Button` that exists within the `motor_flutter` package.
+1. Swap the register button with the `ContinueOnSonr` button.
+```dart title="lib/login_page.dart"
+Container(
+  margin: const EdgeInsets.only(top: 20),
+  child: ContinueOnSonrButton(
+    onSuccess: (ai) {
+      if (ai == null) {
+        throw Exception("AuthInfo is null");
       }
+      debugPrint("Address: ${ai.address}");
+      debugPrint("deviceSharedKey: ${ai.aesDscKey}");
+      debugPrint("passwordSecuredKey: ${ai.aesPskKey}");
+
+      GetStorage().write("address", ai.address);
+      GetStorage().write("deviceSharedKey", ai.aesDscKey);
+      GetStorage().write("passwordSecuredKey", ai.aesPskKey);
+    },
+    onError: (err) {
+      Get.snackbar("Error", err.toString());
     },
   ),
-  ```
-  When you load this and click the button now, you should see the registration modal.
-  ![Register-Account](register-account.png)
-
-  Once we register the user, we push them back to the login page.
-  However, the login page asks for their address and password.
-
+)
+```
 2. The user doesn't know their address yet, so we should pull it from memory and prefill it for them.
   ```dart title="lib/login_page.dart"
   class _LoginPageState extends State<LoginPage> {
@@ -576,7 +562,8 @@ void _login() async {
 ```
 
 ### Handling the response
-The `.login` function returns a `LoginResponse?` object.
+The login function returns a `Future<WhoIs>`.
+A `WhoIs` is a data structure that contains information about the user. 
 The first thing we should do is check if the response is null.
 If it is, we can assume that the login failed.
 If it isn't null, we can check if the `authorized` property is true.
