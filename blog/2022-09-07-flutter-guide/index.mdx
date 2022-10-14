@@ -599,7 +599,7 @@ In `main.dart`, we will add a function called `_createSchema` that will create t
 //...
 Future<void> _createSchema() async {
   if (!Get.isRegistered<Schema>(tag: "taskSchema")) {
-      reateSchemaResponse resp = await MotorFlutter.to.publishSchema("task", {
+      CreateSchemaResponse resp = await MotorFlutter.to.publishSchema("task", {
         'task': SchemaFieldKind(kind: Kind.STRING),
       }, metadata: {
         'use': 'github.com/ntindle/todo_app',
