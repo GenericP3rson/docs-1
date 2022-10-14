@@ -598,22 +598,20 @@ In `main.dart`, we will add a function called `_createSchema` that will create t
 ```dart title="lib/main.dart"
 //...
 Future<void> _createSchema() async {
-  if (!Get.isRegistered<SchemaDefinition>(tag: "taskSchema")) {
-    CreateSchemaResponse resp = await MotorFlutter.to.createSchema(
-        "task", {'task': SchemaKind.STRING},
-        metadata: {'use': 'github.com/ntindle/todo_app'});
+  if (!Get.isRegistered<Schema>(tag: "taskSchema")) {
+      reateSchemaResponse resp = await MotorFlutter.to.publishSchema("task", {
+        'task': SchemaFieldKind(kind: Kind.STRING),
+      }, metadata: {
+        'use': 'github.com/ntindle/todo_app',
+      });
 
-    print("Schema created: $resp");
-    SchemaDefinition schema = SchemaDefinition(
-        did: resp.whatIs.did,
-        creator: resp.whatIs.creator,
-        label: resp.whatIs.schema.label,
-        fields: resp.whatIs.schema.fields);
-    print("SchemaDefinition: $schema");
-    Get.put(schema, tag: "taskSchema");
+      print("Schema created: $resp");
+      final schema = resp.whatIs.schema;
+      print("Schema: $schema");
+      Get.put(schema, tag: "taskSchema");
   } else {
     print(
-        "Schema already exists ${Get.find<SchemaDefinition>(tag: "taskSchema").did}");
+        "Schema already exists ${Get.find<Schema>(tag: "taskSchema").did}");
   }
 }
 ```
@@ -626,8 +624,8 @@ We also have a label, also named `task`, and a metadata field `use` that we stor
 You can add any metadata you want to your schemas.
 
 When you create a schema, you can add a callback that is triggered when the schema is created.
-This is where we actually register the `SchemaDefinition` object in memory.
-`SchemaDefinitions` are used to create new instances of the schema using `newDocument`.
+This is where we actually register the `Schema` object in memory.
+`Schema` are used to create new instances of the schema using `newDocument`.
 
 We want to call our schema creator from our home page.
 I'm going to reuse the existing <kbd>+</kbd> button already on the screen to do so.
