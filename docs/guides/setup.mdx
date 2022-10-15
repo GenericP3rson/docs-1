@@ -22,6 +22,12 @@ Install the Speedway CLI and (optionally) UI following [Install Speedway CLI](/d
 <Tabs groupId="target">
   <TabItem value="flutter" label="🐦 Flutter">
 
+:::tip
+
+Make sure you have the latest version of XCode installed from the Mac App Store.
+
+:::
+
 ### 1. Add the dependency
 
 Add `motor_flutter` as a dependency in your existing project:
@@ -34,7 +40,7 @@ or add it to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  motor_flutter: ^0.7.0
+  motor_flutter: ^0.9.1
 ```
 
 ### Platform-Specific Setup
@@ -103,7 +109,7 @@ import 'package:motor_flutter/motor_flutter.dart';
 Future<void> main() async {
   // Init method sets up State Management with GetX and ensures that Widgets are
   // rendered before the Motor Node is ready.
-  await MotorFlutter().init();
+  await MotorFlutter.init();
 
   // Start your App like normal
   runApp(const MyApp());
