@@ -16,7 +16,18 @@ import {
 
 ## Creating a Bucket
 
-<SupportedClients list={["c"]} />
+<SupportedClients list={["c", "f"]} />
+<Tabs groupId="platform">
+  <TabItem value="flutter" label="🐦 Flutter">
+
+```dart
+_createBucket() async {
+	var myBucket = await MotorFlutter.to.createBucket("My Bucket");
+}
+```
+
+  </TabItem>
+  <TabItem value="go" label="🖥 CLI">
 
 To create a bucket, run the following command:
 
@@ -29,6 +40,9 @@ speedway bucket create
 </div>
 
 The CLI will attempt to automatically login. Once logged in, you will be prompted to enter the bucket label. After entering the bucket label, the CLI will prompt you to enter the visibility of the bucket. The visibility can be one of the following: `public`, `private`. The role can be one of the following: `application`, `user`. Application buckets are visible to all users. User buckets are visible only to the user who created the bucket. The CLI will then create the bucket and display the bucket DID.
+
+  </TabItem>
+</Tabs>
 
 <APIButton href="/api/bucket" label="Bucket API" type="info" />
 
@@ -45,7 +59,11 @@ Adding a document both uploads the document to IPFS and adds a reference to the 
 <Tabs groupId="platform">
   <TabItem value="flutter" label="🐦 Flutter">
 
-    ### 🚧 Under Construction 🚧
+```dart
+_addItem(SchemaDocument doc) {
+	myBucket.add(doc);
+}
+```
 
   </TabItem>
   <TabItem value="go" label="🐹 Go">
@@ -76,7 +94,11 @@ Using the returned CID, you can remove the Document from the Bucket.
 <Tabs groupId="platform">
   <TabItem value="flutter" label="🐦 Flutter">
 
-    ### 🚧 Under Construction 🚧
+```dart
+_removeItem(SchemaDocument doc) async {
+	await myBucket.remove(doc.cid);
+}
+```
 
   </TabItem>
   <TabItem value="go" label="🐹 Go">
