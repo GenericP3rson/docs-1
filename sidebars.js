@@ -23,7 +23,7 @@ module.exports = {
         items: [
           'intro/modules/registry',
           'intro/modules/schemas',
-          'intro/modules/objects',
+          'intro/modules/documents',
           'intro/modules/buckets',
         ],
       },
